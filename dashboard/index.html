@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fairtex Canada Buy Box Monitor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 24px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    .header h1 { font-size: 24px; font-weight: 700; }
+    .header .updated { color: #6b7280; font-size: 14px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .card .label { font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .card .value { font-size: 32px; font-weight: 700; }
+    .card.owned .value { color: #059669; }
+    .card.missing .value { color: #dc2626; }
+    .card.total .value { color: #2563eb; }
+    .controls { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    .controls input { padding: 10px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; width: 300px; outline: none; }
+    .controls input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .controls select { padding: 10px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; outline: none; background: #fff; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    thead th { background: #1a1a2e; color: #fff; padding: 12px 16px; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; cursor: pointer; user-select: none; }
+    thead th:hover { background: #2a2a4e; }
+    thead th.sorted-asc::after { content: ' ▲'; }
+    thead th.sorted-desc::after { content: ' ▼'; }
+    tbody td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    tbody tr:hover { background: #f8fafc; }
+    tbody tr.lost { background: #fef2f2; }
+    tbody tr.lost:hover { background: #fee2e2; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .badge.yes { background: #d1fae5; color: #065f46; }
+    .badge.no { background: #fee2e2; color: #991b1b; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .winner-info { font-size: 13px; color: #6b7280; margin-top: 4px; }
+    .loading { text-align: center; padding: 60px; color: #6b7280; font-size: 16px; }
+    @media (max-width: 768px) {
+      body { padding: 12px; }
+      .controls input { width: 100%; }
+      table { font-size: 13px; }
+      thead th, tbody td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Fairtex Canada Buy Box Monitor</h1>
+    <div class="updated" id="updated"></div>
+  </div>
+  <div class="cards">
+    <div class="card total"><div class="label">SKUs Checked</div><div class="value" id="totalChecked">-</div></div>
+    <div class="card owned"><div class="label">Buy Box Owned</div><div class="value" id="owned">-</div></div>
+    <div class="card missing"><div class="label">Missing Buy Box</div><div class="value" id="missing">-</div></div>
+  </div>
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search by SKU, ASIN, or product name...">
+    <select id="filter">
+      <option value="all">All Products</option>
+      <option value="lost">Missing Buy Box</option>
+      <option value="owned">Buy Box Owned</option>
+      <option value="can_lower">Can Lower Price</option>
+      <option value="cannot_lower">Cannot Lower Price</option>
+    </select>
+  </div>
+  <div id="tableContainer"><div class="loading">Loading data...</div></div>
+
+  <script>
+    let allProducts = [];
+    let sortCol = 'has_buy_box';
+    let sortDir = 'asc';
+
+    async function loadData() {
+      try {
+        const resp = await fetch('data/status.json');
+        const data = await resp.json();
+
+        const dt = new Date(data.last_updated);
+        document.getElementById('updated').textContent =
+          'Last updated: ' + dt.toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' }) + ' CST';
+        document.getElementById('totalChecked').textContent = data.total_checked;
+        document.getElementById('owned').textContent = data.buy_box_owned;
+        document.getElementById('missing').textContent = data.total_flagged;
+
+        allProducts = data.products;
+        renderTable();
+      } catch (e) {
+        document.getElementById('tableContainer').innerHTML =
+          '<div class="loading">Failed to load data. Run the monitor first to generate data.</div>';
+      }
+    }
+
+    function renderTable() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const filter = document.getElementById('filter').value;
+
+      let filtered = allProducts.filter(p => {
+        if (filter === 'lost' && p.has_buy_box) return false;
+        if (filter === 'owned' && !p.has_buy_box) return false;
+        if (filter === 'can_lower' && !(p.recommendation && p.recommendation.startsWith('Yes'))) return false;
+        if (filter === 'cannot_lower' && !(p.recommendation && p.recommendation.startsWith('No'))) return false;
+        if (search) {
+          return p.sku.toLowerCase().includes(search) ||
+                 p.asin.toLowerCase().includes(search) ||
+                 p.name.toLowerCase().includes(search);
+        }
+        return true;
+      });
+
+      filtered.sort((a, b) => {
+        let av = a[sortCol], bv = b[sortCol];
+        if (sortCol === 'has_buy_box') { av = av ? 1 : 0; bv = bv ? 1 : 0; }
+        if (sortCol === 'our_msrp') {
+          av = av ? parseFloat(av.replace('$','')) : -Infinity;
+          bv = bv ? parseFloat(bv.replace('$','')) : -Infinity;
+        }
+        if (['stock', 'total_cost', 'lowest_msrp'].includes(sortCol)) {
+          av = av != null ? Number(av) : -Infinity;
+          bv = bv != null ? Number(bv) : -Infinity;
+        }
+        if (typeof av === 'string') { av = (av || '').toLowerCase(); bv = (bv || '').toLowerCase(); }
+        if (av < bv) return sortDir === 'asc' ? -1 : 1;
+        if (av > bv) return sortDir === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      const cols = [
+        { key: 'name', label: 'Product' },
+        { key: 'asin', label: 'ASIN' },
+        { key: 'sku', label: 'SKU' },
+        { key: 'stock', label: 'Stock' },
+        { key: 'our_msrp', label: 'MSRP' },
+        { key: 'has_buy_box', label: 'Buy Box' },
+        { key: 'winner_seller', label: 'Winner' },
+        { key: 'winner_price', label: 'Winner Price' },
+        { key: 'total_cost', label: 'Our Cost' },
+        { key: 'lowest_msrp', label: 'Min MSRP for 15% Profit' },
+        { key: 'recommendation', label: 'Recommendation' },
+      ];
+
+      let html = '<table><thead><tr>';
+      for (const col of cols) {
+        let cls = '';
+        if (sortCol === col.key) cls = sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc';
+        html += `<th class="${cls}" data-col="${col.key}">${col.label}</th>`;
+      }
+      html += '</tr></thead><tbody>';
+
+      if (filtered.length === 0) {
+        html += '<tr><td colspan="11" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+      }
+
+      for (const p of filtered) {
+        const rowClass = p.has_buy_box ? '' : 'lost';
+        const badge = p.has_buy_box
+          ? '<span class="badge yes">Yes</span>'
+          : '<span class="badge no">No</span>';
+        const winner = p.has_buy_box ? '-' :
+          (p.winner_url ? `<a href="${p.winner_url}" target="_blank">${p.winner_seller || 'Unknown'}</a>` : (p.winner_seller || 'Unknown'));
+        const price = p.has_buy_box ? '-' : (p.winner_price || '-');
+        const asinLink = `<a href="https://www.amazon.ca/dp/${p.asin}" target="_blank">${p.asin}</a>`;
+        const costDisplay = p.total_cost != null ? `$${Number(p.total_cost).toFixed(2)}` : '-';
+        const msrpDisplay = p.lowest_msrp != null ? `$${Number(p.lowest_msrp).toFixed(2)}` : '-';
+        let recDisplay = '-';
+        if (p.recommendation) {
+          if (p.recommendation.startsWith('Yes')) {
+            recDisplay = `<span style="color:#059669;font-weight:600;">${p.recommendation}</span>`;
+          } else if (p.recommendation.startsWith('No')) {
+            recDisplay = `<span style="color:#dc2626;font-weight:600;">${p.recommendation}</span>`;
+          } else {
+            recDisplay = p.recommendation;
+          }
+        }
+
+        const msrp = p.our_msrp || '-';
+
+        html += `<tr class="${rowClass}">
+          <td title="${p.name}">${p.name}</td>
+          <td>${asinLink}</td>
+          <td>${p.sku}</td>
+          <td>${p.stock}</td>
+          <td>${msrp}</td>
+          <td>${badge}</td>
+          <td>${winner}</td>
+          <td>${price}</td>
+          <td>${costDisplay}</td>
+          <td>${msrpDisplay}</td>
+          <td>${recDisplay}</td>
+        </tr>`;
+      }
+
+      html += '</tbody></table>';
+      document.getElementById('tableContainer').innerHTML = html;
+
+      document.querySelectorAll('thead th').forEach(th => {
+        th.addEventListener('click', () => {
+          const col = th.dataset.col;
+          if (sortCol === col) {
+            sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortCol = col;
+            sortDir = 'asc';
+          }
+          renderTable();
+        });
+      });
+    }
+
+    document.getElementById('search').addEventListener('input', renderTable);
+    document.getElementById('filter').addEventListener('change', renderTable);
+    loadData();
+  </script>
+</body>
+</html>
