@@ -197,153 +197,60 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify products as FBA or NARF using inventory-by-country data.
+    """Classify products as FBA or NARF using FBA inventory age data.
 
-    Tries multiple report types since GET_FBA_INVENTORY_AGED_DATA returns
-    FATAL for Canada marketplace.
+    Uses GET_FBA_INVENTORY_PLANNING_DATA which contains the same
+    'FBA inventory age by days' data visible on each product's
+    Seller Central page.
 
-    Approach 1: GET_AFN_INVENTORY_DATA_BY_COUNTRY
-    - Shows inventory quantity per country
-    - SKU with inventory in country=CA → FBA (physically in Canadian FCs)
-    - SKU with inventory only in country=US → NARF (remote from US FCs)
+    - If any age bucket (0-90, 91-180, 181-270, 271-365, 365+) > 0
+      → inventory is physically in Canadian FCs → FBA
+    - If all age buckets are 0
+      → inventory is in US FCs, sold remotely in Canada → NARF
+    - SKUs not in this report have no Canadian FC presence → NARF
 
-    Approach 2: GET_FBA_INVENTORY_PLANNING_DATA (fallback)
-    - Has age bucket columns like the aged data report
-    - All age buckets = 0 → NARF, any > 0 → FBA
-
-    Returns a dict: {sku: "FBA" or "NARF"}, or None if all reports failed.
+    Returns a dict {sku: "FBA"} for FBA SKUs only, or None if report failed.
     """
     headers = sp_api_headers(access_token)
+    print("  Fetching FBA Inventory Planning Data report...")
 
-    # --- Approach 1: Inventory by Country ---
-    print("  Trying GET_AFN_INVENTORY_DATA_BY_COUNTRY...")
-    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", MARKETPLACE_ID)
-    if content is not None:
-        print(f"  Raw report preview (first 500 chars):")
-        print(f"  {content[:500]}")
-        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-        fieldnames = reader.fieldnames or []
-        print(f"  Report columns: {fieldnames}")
-
-        sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
-        country_col = "country"
-        # Amazon uses "quantity-for-local-fulfillment" in this report
-        qty_col = next(
-            (c for c in fieldnames if "quantity" in c.lower()),
-            "quantity-for-local-fulfillment"
-        )
-
-        # Track which countries each SKU has inventory in
-        sku_countries = {}  # {sku: set of countries with qty > 0}
-        sample_logged = 0
-        for row in reader:
-            sku = row.get(sku_col, "").strip()
-            country = row.get(country_col, "").strip().upper()
-            qty_str = row.get(qty_col, "0").strip()
-            if not sku:
-                continue
-            if sample_logged < 5:
-                print(f"  Sample: SKU={sku}, country={country}, qty={qty_str}")
-                sample_logged += 1
-            try:
-                qty = int(qty_str)
-            except ValueError:
-                qty = 0
-            if qty > 0:
-                if sku not in sku_countries:
-                    sku_countries[sku] = set()
-                sku_countries[sku].add(country)
-
-        if sku_countries:
-            fulfillment_types = {}
-            fba_count = 0
-            narf_count = 0
-            for sku, countries in sku_countries.items():
-                if "CA" in countries:
-                    fulfillment_types[sku] = "FBA"
-                    fba_count += 1
-                else:
-                    fulfillment_types[sku] = "NARF"
-                    narf_count += 1
-            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
-            return fulfillment_types
-        else:
-            print("  Report returned no data rows")
-
-    # --- Approach 2: Inventory Planning Data (has age columns) ---
-    print("  Trying GET_FBA_INVENTORY_PLANNING_DATA...")
     content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
-    if content is not None:
-        print(f"  Raw report preview (first 500 chars):")
-        print(f"  {content[:500]}")
-        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-        fieldnames = reader.fieldnames or []
-        print(f"  Report columns: {fieldnames}")
+    if content is None:
+        print("  WARNING: Report failed — cannot classify FBA vs NARF")
+        return None
 
-        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
-        age_columns = [
-            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
-            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
-            "inv-age-365-plus-days",
-        ]
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+    fieldnames = reader.fieldnames or []
+    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
 
-        fulfillment_types = {}
-        fba_count = 0
-        narf_count = 0
-        for row in reader:
-            sku = row.get(sku_col, "").strip()
-            if not sku:
-                continue
-            has_aged = any(
-                int(row.get(col, "0").strip() or "0") > 0
-                for col in age_columns
-            )
-            if has_aged:
-                fulfillment_types[sku] = "FBA"
-                fba_count += 1
-            else:
-                fulfillment_types[sku] = "NARF"
-                narf_count += 1
+    age_columns = [
+        "inv-age-0-to-90-days", "inv-age-91-to-180-days",
+        "inv-age-181-to-270-days", "inv-age-271-to-365-days",
+        "inv-age-365-plus-days",
+    ]
 
-        if fulfillment_types:
-            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
-            return fulfillment_types
-        print("  Report returned no data rows")
+    fba_skus = {}
+    fba_count = 0
+    total_rows = 0
 
-    # --- Approach 3: Aged Data (original, fails for CA but try anyway) ---
-    print("  Trying GET_FBA_INVENTORY_AGED_DATA as last resort...")
-    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", MARKETPLACE_ID)
-    if content is not None:
-        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-        fieldnames = reader.fieldnames or []
-        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
-        age_columns = [
-            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
-            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
-            "inv-age-365-plus-days",
-        ]
-        fulfillment_types = {}
-        fba_count = 0
-        narf_count = 0
-        for row in reader:
-            sku = row.get(sku_col, "").strip()
-            if not sku:
-                continue
-            has_aged = any(
-                int(row.get(col, "0").strip() or "0") > 0
-                for col in age_columns
-            )
-            fulfillment_types[sku] = "FBA" if has_aged else "NARF"
-            if has_aged:
-                fba_count += 1
-            else:
-                narf_count += 1
-        if fulfillment_types:
-            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
-            return fulfillment_types
+    for row in reader:
+        sku = row.get(sku_col, "").strip()
+        if not sku:
+            continue
+        total_rows += 1
 
-    print("  WARNING: All report approaches failed — cannot classify FBA vs NARF")
-    return None
+        has_aged = any(
+            int(row.get(col, "0").strip() or "0") > 0
+            for col in age_columns
+        )
+        if has_aged:
+            fba_skus[sku] = "FBA"
+            fba_count += 1
+
+    print(f"  Report had {total_rows} SKUs in Canadian FCs")
+    print(f"  {fba_count} FBA (age > 0), {total_rows - fba_count} also in report with age 0")
+    print(f"  All other SKUs not in report → NARF (remote from US FCs)")
+    return fba_skus
 
 
 def get_fba_inventory(access_token):
