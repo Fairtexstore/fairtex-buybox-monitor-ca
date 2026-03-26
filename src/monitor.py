@@ -95,22 +95,12 @@ def compute_recommendation(winner_price_str, lowest_msrp):
         return "No, winner below minimum"
 
 
-def get_fulfillment_types(access_token):
-    """Fetch FBA Inventory Aged Data report to classify products as FBA or NARF.
-    NARF products have 0 inventory across all age buckets (stored in US FCs).
-    FBA products have inventory in at least one age bucket (stored in Canadian FCs).
-    """
-    headers = sp_api_headers(access_token)
-    print("  Creating FBA Inventory Aged Data report...")
-
-    # Step 1: Create report request
+def _request_report(headers, report_type, marketplace_id):
+    """Request a report and wait for it to complete. Returns report content or None."""
     resp = requests.post(
         f"{SP_API_BASE}/reports/2021-06-30/reports",
         headers=headers,
-        json={
-            "reportType": "GET_FBA_INVENTORY_AGED_DATA",
-            "marketplaceIds": [MARKETPLACE_ID],
-        },
+        json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
         timeout=30,
     )
     if resp.status_code == 429:
@@ -118,23 +108,21 @@ def get_fulfillment_types(access_token):
         resp = requests.post(
             f"{SP_API_BASE}/reports/2021-06-30/reports",
             headers=headers,
-            json={
-                "reportType": "GET_FBA_INVENTORY_AGED_DATA",
-                "marketplaceIds": [MARKETPLACE_ID],
-            },
+            json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
             timeout=30,
         )
     if resp.status_code not in (200, 202):
-        print(f"  Failed to create report: {resp.status_code}: {resp.text[:200]}")
-        return {}
+        print(f"  Failed to create {report_type}: {resp.status_code}: {resp.text[:200]}")
+        return None
 
     report_id = resp.json().get("reportId")
     if not report_id:
-        print("  No reportId returned")
-        return {}
+        print(f"  No reportId returned for {report_type}")
+        return None
     print(f"  Report ID: {report_id}")
 
-    # Step 2: Poll until report is done
+    # Poll until done
+    doc_id = None
     for attempt in range(30):
         time.sleep(10)
         resp = requests.get(
@@ -150,13 +138,13 @@ def get_fulfillment_types(access_token):
             doc_id = resp.json().get("reportDocumentId")
             break
         if status in ("CANCELLED", "FATAL"):
-            print(f"  Report failed with status: {status}")
-            return {}
-    else:
+            print(f"  Report failed: {status}")
+            return None
+    if not doc_id:
         print("  Report timed out after 5 minutes")
-        return {}
+        return None
 
-    # Step 3: Get report document URL
+    # Get document URL
     resp = requests.get(
         f"{SP_API_BASE}/reports/2021-06-30/documents/{doc_id}",
         headers=headers,
@@ -164,21 +152,53 @@ def get_fulfillment_types(access_token):
     )
     if resp.status_code != 200:
         print(f"  Failed to get report document: {resp.status_code}")
-        return {}
+        return None
 
     doc_url = resp.json().get("url")
     if not doc_url:
         print("  No document URL returned")
-        return {}
+        return None
 
-    # Step 4: Download and parse the report
+    # Download
     resp = requests.get(doc_url, timeout=60)
     if resp.status_code != 200:
         print(f"  Failed to download report: {resp.status_code}")
-        return {}
+        return None
 
-    content = resp.content.decode("utf-8", errors="replace")
+    return resp.content.decode("utf-8", errors="replace")
+
+
+def get_fulfillment_types(access_token):
+    """Classify products as FBA or NARF using the FBA Inventory Aged Data report.
+
+    Logic:
+    - The aged data report for Canada only contains items physically stored in
+      Canadian fulfillment centers.
+    - If a SKU appears in the report with inventory in any age bucket > 0, it's FBA.
+    - If a SKU appears in the report but all age buckets are 0, it could be
+      recently depleted FBA stock — still classify as FBA.
+    - SKUs available in Canada but NOT in this report are NARF (Remote Fulfillment
+      from US fulfillment centers).
+
+    Returns a dict: {sku: "FBA"} for FBA SKUs only.
+    Items not in the dict should be treated as NARF.
+    """
+    headers = sp_api_headers(access_token)
+    print("  Requesting FBA Inventory Aged Data report for Canada...")
+
+    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", MARKETPLACE_ID)
+    if content is None:
+        print("  WARNING: Aged data report failed — cannot classify FBA vs NARF")
+        return None  # None signals report failure (vs empty dict = no FBA items)
+
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+
+    # Detect column names (Amazon reports use "sku" or "seller-sku")
+    fieldnames = reader.fieldnames or []
+    print(f"  Report columns: {fieldnames[:10]}...")
+    sku_col = "sku"
+    if "seller-sku" in fieldnames and "sku" not in fieldnames:
+        sku_col = "seller-sku"
 
     age_columns = [
         "inv-age-0-to-90-days",
@@ -188,34 +208,21 @@ def get_fulfillment_types(access_token):
         "inv-age-365-plus-days",
     ]
 
-    fulfillment_types = {}  # keyed by SKU
-    fba_count = 0
-    narf_count = 0
+    fba_skus = set()
+    total_rows = 0
 
     for row in reader:
-        sku = row.get("sku", "").strip()
+        sku = row.get(sku_col, "").strip()
         if not sku:
             continue
+        total_rows += 1
+        # Any SKU that appears in the Canada aged data report has physical
+        # inventory in Canadian FCs (current or recently depleted) = FBA
+        fba_skus.add(sku)
 
-        has_aged_inventory = False
-        for col in age_columns:
-            val = row.get(col, "0").strip()
-            try:
-                if int(val) > 0:
-                    has_aged_inventory = True
-                    break
-            except ValueError:
-                pass
-
-        if has_aged_inventory:
-            fulfillment_types[sku] = "FBA"
-            fba_count += 1
-        else:
-            fulfillment_types[sku] = "NARF"
-            narf_count += 1
-
-    print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
-    return fulfillment_types
+    print(f"  Report contained {total_rows} SKUs with Canadian FC presence (FBA)")
+    print(f"  All other SKUs available in Canada are NARF (remote from US FCs)")
+    return fba_skus
 
 
 def get_fba_inventory(access_token):
@@ -514,7 +521,9 @@ def main():
     buy_box_map = check_buy_box(access_token, inventory)
 
     print("\n[4/7] Classifying FBA vs NARF...")
-    fulfillment_types = get_fulfillment_types(access_token)
+    fba_skus = get_fulfillment_types(access_token)
+    # fba_skus is a set of SKUs with Canadian FC presence (FBA),
+    # or None if the report failed entirely
 
     print("\n[5/7] Loading product cost data...")
     product_costs = load_product_costs()
@@ -559,7 +568,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": fulfillment_types.get(item["sku"], "Unknown"),
+            "fulfillment_type": ("FBA" if item["sku"] in fba_skus else "NARF") if fba_skus is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
