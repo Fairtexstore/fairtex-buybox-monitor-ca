@@ -227,7 +227,11 @@ def get_fulfillment_types(access_token):
 
         sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
         country_col = "country"
-        qty_col = "quantity-available"
+        # Amazon uses "quantity-for-local-fulfillment" in this report
+        qty_col = next(
+            (c for c in fieldnames if "quantity" in c.lower()),
+            "quantity-for-local-fulfillment"
+        )
 
         # Track which countries each SKU has inventory in
         sku_countries = {}  # {sku: set of countries with qty > 0}
@@ -692,7 +696,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": fulfillment_types.get(item["sku"], "Unknown") if fulfillment_types is not None else "Unknown",
+            "fulfillment_type": fulfillment_types.get(item["sku"], "NARF") if fulfillment_types is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
