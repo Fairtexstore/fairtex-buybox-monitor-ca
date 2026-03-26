@@ -97,13 +97,16 @@ def compute_recommendation(winner_price_str, lowest_msrp):
 
 def _request_report(headers, report_type, marketplace_id):
     """Request a report and wait for it to complete. Returns report content or None."""
+    print(f"  Creating report: {report_type} for marketplace {marketplace_id}")
     resp = requests.post(
         f"{SP_API_BASE}/reports/2021-06-30/reports",
         headers=headers,
         json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
         timeout=30,
     )
+    print(f"  Create report response: {resp.status_code}")
     if resp.status_code == 429:
+        print("  Rate limited, waiting 30s...")
         time.sleep(30)
         resp = requests.post(
             f"{SP_API_BASE}/reports/2021-06-30/reports",
@@ -111,11 +114,14 @@ def _request_report(headers, report_type, marketplace_id):
             json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
             timeout=30,
         )
+        print(f"  Retry response: {resp.status_code}")
     if resp.status_code not in (200, 202):
-        print(f"  Failed to create {report_type}: {resp.status_code}: {resp.text[:200]}")
+        print(f"  Failed to create {report_type}: {resp.status_code}: {resp.text[:500]}")
         return None
 
-    report_id = resp.json().get("reportId")
+    response_json = resp.json()
+    print(f"  Create report response body: {json.dumps(response_json)[:300]}")
+    report_id = response_json.get("reportId")
     if not report_id:
         print(f"  No reportId returned for {report_type}")
         return None
@@ -131,18 +137,22 @@ def _request_report(headers, report_type, marketplace_id):
             timeout=30,
         )
         if resp.status_code != 200:
+            print(f"  Poll attempt {attempt + 1}: HTTP {resp.status_code}")
             continue
-        status = resp.json().get("processingStatus", "")
+        poll_data = resp.json()
+        status = poll_data.get("processingStatus", "")
         print(f"  Report status: {status} (attempt {attempt + 1})")
         if status == "DONE":
-            doc_id = resp.json().get("reportDocumentId")
+            doc_id = poll_data.get("reportDocumentId")
             break
         if status in ("CANCELLED", "FATAL"):
             print(f"  Report failed: {status}")
+            print(f"  Full response: {json.dumps(poll_data)[:500]}")
             return None
     if not doc_id:
         print("  Report timed out after 5 minutes")
         return None
+    print(f"  Document ID: {doc_id}")
 
     # Get document URL
     resp = requests.get(
@@ -151,7 +161,7 @@ def _request_report(headers, report_type, marketplace_id):
         timeout=30,
     )
     if resp.status_code != 200:
-        print(f"  Failed to get report document: {resp.status_code}")
+        print(f"  Failed to get report document: {resp.status_code}: {resp.text[:300]}")
         return None
 
     doc_url = resp.json().get("url")
@@ -160,10 +170,13 @@ def _request_report(headers, report_type, marketplace_id):
         return None
 
     # Download
+    print("  Downloading report document...")
     resp = requests.get(doc_url, timeout=60)
     if resp.status_code != 200:
         print(f"  Failed to download report: {resp.status_code}")
         return None
+
+    print(f"  Downloaded {len(resp.content)} bytes")
 
     return resp.content.decode("utf-8", errors="replace")
 
@@ -187,11 +200,15 @@ def get_fulfillment_types(access_token):
         print("  WARNING: Aged data report failed — cannot classify FBA vs NARF")
         return None
 
+    # Log first 500 chars of raw content for debugging
+    print(f"  Raw report preview (first 500 chars):")
+    print(f"  {content[:500]}")
+
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
 
     # Detect column names (Amazon reports use "sku" or "seller-sku")
     fieldnames = reader.fieldnames or []
-    print(f"  Report columns: {fieldnames[:10]}...")
+    print(f"  All report columns: {fieldnames}")
     sku_col = "sku"
     if "seller-sku" in fieldnames and "sku" not in fieldnames:
         sku_col = "seller-sku"
@@ -207,11 +224,18 @@ def get_fulfillment_types(access_token):
     fulfillment_types = {}
     fba_count = 0
     narf_count = 0
+    sample_logged = 0
 
     for row in reader:
         sku = row.get(sku_col, "").strip()
         if not sku:
             continue
+
+        # Log first 3 rows for debugging
+        if sample_logged < 3:
+            age_vals = {col: row.get(col, "N/A") for col in age_columns}
+            print(f"  Sample row: SKU={sku}, age_data={age_vals}")
+            sample_logged += 1
 
         # Check if any age bucket has inventory > 0
         has_aged_inventory = False
