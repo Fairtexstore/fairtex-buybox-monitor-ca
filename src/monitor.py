@@ -1,4 +1,5 @@
 import csv
+import gzip
 import io
 import json
 import os
@@ -164,7 +165,10 @@ def _request_report(headers, report_type, marketplace_id):
         print(f"  Failed to get report document: {resp.status_code}: {resp.text[:300]}")
         return None
 
-    doc_url = resp.json().get("url")
+    doc_info = resp.json()
+    doc_url = doc_info.get("url")
+    compression = doc_info.get("compressionAlgorithm")
+    print(f"  Document compression: {compression or 'None'}")
     if not doc_url:
         print("  No document URL returned")
         return None
@@ -176,9 +180,20 @@ def _request_report(headers, report_type, marketplace_id):
         print(f"  Failed to download report: {resp.status_code}")
         return None
 
-    print(f"  Downloaded {len(resp.content)} bytes")
+    raw_bytes = resp.content
+    print(f"  Downloaded {len(raw_bytes)} bytes")
 
-    return resp.content.decode("utf-8", errors="replace")
+    # Decompress if GZIP
+    if compression == "GZIP":
+        print("  Decompressing GZIP...")
+        try:
+            raw_bytes = gzip.decompress(raw_bytes)
+            print(f"  Decompressed to {len(raw_bytes)} bytes")
+        except Exception as e:
+            print(f"  GZIP decompression failed: {e}")
+            return None
+
+    return raw_bytes.decode("utf-8", errors="replace")
 
 
 def get_fulfillment_types(access_token):
