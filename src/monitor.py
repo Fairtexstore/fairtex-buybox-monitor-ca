@@ -197,81 +197,149 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify products as FBA or NARF using the FBA Inventory Aged Data report.
+    """Classify products as FBA or NARF using inventory-by-country data.
 
-    Logic (per Seller Central product pages):
-    - If any FBA inventory age bucket (0-90, 91-180, etc.) has units > 0,
-      it means inventory is physically in Canadian FCs = FBA.
-    - If all age buckets are 0 (even though total inventory may be > 0),
-      inventory is in US FCs being sold remotely in Canada = NARF.
+    Tries multiple report types since GET_FBA_INVENTORY_AGED_DATA returns
+    FATAL for Canada marketplace.
 
-    Returns a dict: {sku: "FBA" or "NARF"}, or None if report failed.
+    Approach 1: GET_AFN_INVENTORY_DATA_BY_COUNTRY
+    - Shows inventory quantity per country
+    - SKU with inventory in country=CA → FBA (physically in Canadian FCs)
+    - SKU with inventory only in country=US → NARF (remote from US FCs)
+
+    Approach 2: GET_FBA_INVENTORY_PLANNING_DATA (fallback)
+    - Has age bucket columns like the aged data report
+    - All age buckets = 0 → NARF, any > 0 → FBA
+
+    Returns a dict: {sku: "FBA" or "NARF"}, or None if all reports failed.
     """
     headers = sp_api_headers(access_token)
-    print("  Requesting FBA Inventory Aged Data report for Canada...")
 
-    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", MARKETPLACE_ID)
-    if content is None:
-        print("  WARNING: Aged data report failed — cannot classify FBA vs NARF")
-        return None
+    # --- Approach 1: Inventory by Country ---
+    print("  Trying GET_AFN_INVENTORY_DATA_BY_COUNTRY...")
+    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", MARKETPLACE_ID)
+    if content is not None:
+        print(f"  Raw report preview (first 500 chars):")
+        print(f"  {content[:500]}")
+        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        print(f"  Report columns: {fieldnames}")
 
-    # Log first 500 chars of raw content for debugging
-    print(f"  Raw report preview (first 500 chars):")
-    print(f"  {content[:500]}")
+        sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
+        country_col = "country"
+        qty_col = "quantity-available"
 
-    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-
-    # Detect column names (Amazon reports use "sku" or "seller-sku")
-    fieldnames = reader.fieldnames or []
-    print(f"  All report columns: {fieldnames}")
-    sku_col = "sku"
-    if "seller-sku" in fieldnames and "sku" not in fieldnames:
-        sku_col = "seller-sku"
-
-    age_columns = [
-        "inv-age-0-to-90-days",
-        "inv-age-91-to-180-days",
-        "inv-age-181-to-270-days",
-        "inv-age-271-to-365-days",
-        "inv-age-365-plus-days",
-    ]
-
-    fulfillment_types = {}
-    fba_count = 0
-    narf_count = 0
-    sample_logged = 0
-
-    for row in reader:
-        sku = row.get(sku_col, "").strip()
-        if not sku:
-            continue
-
-        # Log first 3 rows for debugging
-        if sample_logged < 3:
-            age_vals = {col: row.get(col, "N/A") for col in age_columns}
-            print(f"  Sample row: SKU={sku}, age_data={age_vals}")
-            sample_logged += 1
-
-        # Check if any age bucket has inventory > 0
-        has_aged_inventory = False
-        for col in age_columns:
-            val = row.get(col, "0").strip()
+        # Track which countries each SKU has inventory in
+        sku_countries = {}  # {sku: set of countries with qty > 0}
+        sample_logged = 0
+        for row in reader:
+            sku = row.get(sku_col, "").strip()
+            country = row.get(country_col, "").strip().upper()
+            qty_str = row.get(qty_col, "0").strip()
+            if not sku:
+                continue
+            if sample_logged < 5:
+                print(f"  Sample: SKU={sku}, country={country}, qty={qty_str}")
+                sample_logged += 1
             try:
-                if int(val) > 0:
-                    has_aged_inventory = True
-                    break
+                qty = int(qty_str)
             except ValueError:
-                pass
+                qty = 0
+            if qty > 0:
+                if sku not in sku_countries:
+                    sku_countries[sku] = set()
+                sku_countries[sku].add(country)
 
-        if has_aged_inventory:
-            fulfillment_types[sku] = "FBA"
-            fba_count += 1
+        if sku_countries:
+            fulfillment_types = {}
+            fba_count = 0
+            narf_count = 0
+            for sku, countries in sku_countries.items():
+                if "CA" in countries:
+                    fulfillment_types[sku] = "FBA"
+                    fba_count += 1
+                else:
+                    fulfillment_types[sku] = "NARF"
+                    narf_count += 1
+            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
+            return fulfillment_types
         else:
-            fulfillment_types[sku] = "NARF"
-            narf_count += 1
+            print("  Report returned no data rows")
 
-    print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
-    return fulfillment_types
+    # --- Approach 2: Inventory Planning Data (has age columns) ---
+    print("  Trying GET_FBA_INVENTORY_PLANNING_DATA...")
+    content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
+    if content is not None:
+        print(f"  Raw report preview (first 500 chars):")
+        print(f"  {content[:500]}")
+        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        print(f"  Report columns: {fieldnames}")
+
+        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+        age_columns = [
+            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
+            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
+            "inv-age-365-plus-days",
+        ]
+
+        fulfillment_types = {}
+        fba_count = 0
+        narf_count = 0
+        for row in reader:
+            sku = row.get(sku_col, "").strip()
+            if not sku:
+                continue
+            has_aged = any(
+                int(row.get(col, "0").strip() or "0") > 0
+                for col in age_columns
+            )
+            if has_aged:
+                fulfillment_types[sku] = "FBA"
+                fba_count += 1
+            else:
+                fulfillment_types[sku] = "NARF"
+                narf_count += 1
+
+        if fulfillment_types:
+            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
+            return fulfillment_types
+        print("  Report returned no data rows")
+
+    # --- Approach 3: Aged Data (original, fails for CA but try anyway) ---
+    print("  Trying GET_FBA_INVENTORY_AGED_DATA as last resort...")
+    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", MARKETPLACE_ID)
+    if content is not None:
+        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+        age_columns = [
+            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
+            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
+            "inv-age-365-plus-days",
+        ]
+        fulfillment_types = {}
+        fba_count = 0
+        narf_count = 0
+        for row in reader:
+            sku = row.get(sku_col, "").strip()
+            if not sku:
+                continue
+            has_aged = any(
+                int(row.get(col, "0").strip() or "0") > 0
+                for col in age_columns
+            )
+            fulfillment_types[sku] = "FBA" if has_aged else "NARF"
+            if has_aged:
+                fba_count += 1
+            else:
+                narf_count += 1
+        if fulfillment_types:
+            print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
+            return fulfillment_types
+
+    print("  WARNING: All report approaches failed — cannot classify FBA vs NARF")
+    return None
 
 
 def get_fba_inventory(access_token):
@@ -297,13 +365,21 @@ def get_fba_inventory(access_token):
 
         resp = requests.get(url, headers=headers, params=params, timeout=30)
         if resp.status_code == 429:
-            print(f"  Page {page} rate limited, waiting 30s...")
-            time.sleep(30)
-            resp = requests.get(url, headers=headers, params=params, timeout=30)
-        if resp.status_code != 200:
-            print(f"  Page {page} error {resp.status_code}, retrying in 5s...")
+            print(f"  Page {page} rate limited, waiting 5s...")
             time.sleep(5)
             resp = requests.get(url, headers=headers, params=params, timeout=30)
+        if resp.status_code != 200:
+            # Next token may have expired — restart pagination without token
+            if next_token and "invalid" in resp.text.lower():
+                print(f"  Page {page} next token expired, restarting pagination...")
+                next_token = None
+                # Use a later startDateTime to skip already-fetched items
+                params.pop("nextToken", None)
+                resp = requests.get(url, headers=headers, params=params, timeout=30)
+            else:
+                print(f"  Page {page} error {resp.status_code}, retrying in 5s...")
+                time.sleep(5)
+                resp = requests.get(url, headers=headers, params=params, timeout=30)
         if resp.status_code != 200:
             print(f"  Page {page} failed: {resp.status_code}: {resp.text[:200]}")
             break
@@ -324,7 +400,7 @@ def get_fba_inventory(access_token):
             next_token = (data.get("payload") or {}).get("nextToken")
         if not next_token:
             break
-        time.sleep(0.3)
+        time.sleep(2)
 
     print(f"  Total unique records: {len(all_items)}")
 
