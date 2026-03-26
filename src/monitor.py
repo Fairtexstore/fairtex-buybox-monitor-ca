@@ -171,17 +171,13 @@ def _request_report(headers, report_type, marketplace_id):
 def get_fulfillment_types(access_token):
     """Classify products as FBA or NARF using the FBA Inventory Aged Data report.
 
-    Logic:
-    - The aged data report for Canada only contains items physically stored in
-      Canadian fulfillment centers.
-    - If a SKU appears in the report with inventory in any age bucket > 0, it's FBA.
-    - If a SKU appears in the report but all age buckets are 0, it could be
-      recently depleted FBA stock — still classify as FBA.
-    - SKUs available in Canada but NOT in this report are NARF (Remote Fulfillment
-      from US fulfillment centers).
+    Logic (per Seller Central product pages):
+    - If any FBA inventory age bucket (0-90, 91-180, etc.) has units > 0,
+      it means inventory is physically in Canadian FCs = FBA.
+    - If all age buckets are 0 (even though total inventory may be > 0),
+      inventory is in US FCs being sold remotely in Canada = NARF.
 
-    Returns a dict: {sku: "FBA"} for FBA SKUs only.
-    Items not in the dict should be treated as NARF.
+    Returns a dict: {sku: "FBA" or "NARF"}, or None if report failed.
     """
     headers = sp_api_headers(access_token)
     print("  Requesting FBA Inventory Aged Data report for Canada...")
@@ -189,7 +185,7 @@ def get_fulfillment_types(access_token):
     content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", MARKETPLACE_ID)
     if content is None:
         print("  WARNING: Aged data report failed — cannot classify FBA vs NARF")
-        return None  # None signals report failure (vs empty dict = no FBA items)
+        return None
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
 
@@ -208,21 +204,35 @@ def get_fulfillment_types(access_token):
         "inv-age-365-plus-days",
     ]
 
-    fba_skus = set()
-    total_rows = 0
+    fulfillment_types = {}
+    fba_count = 0
+    narf_count = 0
 
     for row in reader:
         sku = row.get(sku_col, "").strip()
         if not sku:
             continue
-        total_rows += 1
-        # Any SKU that appears in the Canada aged data report has physical
-        # inventory in Canadian FCs (current or recently depleted) = FBA
-        fba_skus.add(sku)
 
-    print(f"  Report contained {total_rows} SKUs with Canadian FC presence (FBA)")
-    print(f"  All other SKUs available in Canada are NARF (remote from US FCs)")
-    return fba_skus
+        # Check if any age bucket has inventory > 0
+        has_aged_inventory = False
+        for col in age_columns:
+            val = row.get(col, "0").strip()
+            try:
+                if int(val) > 0:
+                    has_aged_inventory = True
+                    break
+            except ValueError:
+                pass
+
+        if has_aged_inventory:
+            fulfillment_types[sku] = "FBA"
+            fba_count += 1
+        else:
+            fulfillment_types[sku] = "NARF"
+            narf_count += 1
+
+    print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
+    return fulfillment_types
 
 
 def get_fba_inventory(access_token):
@@ -521,9 +531,8 @@ def main():
     buy_box_map = check_buy_box(access_token, inventory)
 
     print("\n[4/7] Classifying FBA vs NARF...")
-    fba_skus = get_fulfillment_types(access_token)
-    # fba_skus is a set of SKUs with Canadian FC presence (FBA),
-    # or None if the report failed entirely
+    fulfillment_types = get_fulfillment_types(access_token)
+    # fulfillment_types is a dict {sku: "FBA"/"NARF"}, or None if report failed
 
     print("\n[5/7] Loading product cost data...")
     product_costs = load_product_costs()
@@ -568,7 +577,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": ("FBA" if item["sku"] in fba_skus else "NARF") if fba_skus is not None else "Unknown",
+            "fulfillment_type": fulfillment_types.get(item["sku"], "Unknown") if fulfillment_types is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
