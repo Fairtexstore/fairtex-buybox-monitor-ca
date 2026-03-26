@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-03-26T12:26:13.855696+00:00",
-  "total_checked": 727,
-  "buy_box_owned": 679,
+  "last_updated": "2026-03-26T12:49:25.506427+00:00",
+  "total_checked": 729,
+  "buy_box_owned": 681,
   "total_flagged": 48,
   "products": [
     {
@@ -25,7 +25,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -49,7 +49,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -499,7 +499,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -817,7 +817,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1654,7 +1654,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1709,7 +1709,7 @@
       "sku": "FBACanBlueSP5Medium",
       "asin": "B07958XN32",
       "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
-      "stock": 115,
+      "stock": 114,
       "our_msrp": "$134.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -1786,7 +1786,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1822,7 +1822,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1955,7 +1955,7 @@
       "sku": "FBACanHW2Blue120",
       "asin": "B07B2YZKNB",
       "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
-      "stock": 8,
+      "stock": 7,
       "our_msrp": "$29.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -2380,7 +2380,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2786,7 +2786,7 @@
       "sku": "BS1708 - Black - Large",
       "asin": "B07HWNG49K",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts Black",
-      "stock": 41,
+      "stock": 40,
       "our_msrp": "$86.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -3109,7 +3109,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3251,7 +3251,7 @@
       "sku": "BGV16 - Khaki - 14oz",
       "asin": "B07KT8SKN1",
       "name": "Fairtex BGV16 Leather Muay Thai Boxing Gloves",
-      "stock": 4,
+      "stock": 3,
       "our_msrp": "$172.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -3845,7 +3845,7 @@
       "sku": "FGV18-Black/Red-Large",
       "asin": "B07PHLGYH6",
       "name": "Fairtex FGV18 Muay Thai Boxing Gloves for Men, Women & Kids| MMA Glove",
-      "stock": 38,
+      "stock": 39,
       "our_msrp": "$129.39",
       "has_buy_box": true,
       "total_cost": null,
@@ -3997,7 +3997,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5828,6 +5828,18 @@
       "recommendation": ""
     },
     {
+      "sku": "BS1912-Kabuki-XLarge",
+      "asin": "B08VBWMWVH",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 1,
+      "our_msrp": "$86.99",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "recommendation": ""
+    },
+    {
       "sku": "LKP1-Black/Red",
       "asin": "B08VC1QJZP",
       "name": "Fairtex LKP1 Leg Kick Pad, A.K.A. The Thai Suitcase for Muay Thai Kick",
@@ -6298,7 +6310,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -6791,7 +6803,7 @@
       "sku": "BSK2104 - Midnight Red - 8-10yrs",
       "asin": "B0B4HH4JV8",
       "name": "Fairtex Youth Muay Thai Boxing Shorts for Kids (Midnight Red, 8-10yrs)",
-      "stock": 5,
+      "stock": 6,
       "our_msrp": "$59.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -7164,6 +7176,18 @@
       "asin": "B0BN23H1FZ",
       "name": "Fairtex BGV19 Deluxe Tight-Fit Gloves (Gold, 14 oz)",
       "stock": 6,
+      "our_msrp": "$172.99",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV19 - Orange - 10oz",
+      "asin": "B0BN255595",
+      "name": "Fairtex BGV19 Deluxe Tight-Fit Gloves (Orange, 10 oz)",
+      "stock": 2,
       "our_msrp": "$172.99",
       "has_buy_box": true,
       "total_cost": null,
@@ -7988,7 +8012,7 @@
       "sku": "BGVG3-Black/Gold-16oz",
       "asin": "B0CV4GC1CP",
       "name": "Fairtex Glory Kickboxing Gloves - Limited Edition (Black/Gold - BGVG3,",
-      "stock": 12,
+      "stock": 13,
       "our_msrp": "$165.99",
       "has_buy_box": true,
       "total_cost": null,
