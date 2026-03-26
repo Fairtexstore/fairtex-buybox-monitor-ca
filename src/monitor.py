@@ -97,17 +97,14 @@ def compute_recommendation(winner_price_str, lowest_msrp):
 
 
 def _request_report(headers, report_type, marketplace_id):
-    """Request a report and wait for it to complete. Returns report content or None."""
-    print(f"  Creating report: {report_type} for marketplace {marketplace_id}")
+    """Request an SP-API report and wait for completion. Returns content string or None."""
     resp = requests.post(
         f"{SP_API_BASE}/reports/2021-06-30/reports",
         headers=headers,
         json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
         timeout=30,
     )
-    print(f"  Create report response: {resp.status_code}")
     if resp.status_code == 429:
-        print("  Rate limited, waiting 30s...")
         time.sleep(30)
         resp = requests.post(
             f"{SP_API_BASE}/reports/2021-06-30/reports",
@@ -115,16 +112,12 @@ def _request_report(headers, report_type, marketplace_id):
             json={"reportType": report_type, "marketplaceIds": [marketplace_id]},
             timeout=30,
         )
-        print(f"  Retry response: {resp.status_code}")
     if resp.status_code not in (200, 202):
-        print(f"  Failed to create {report_type}: {resp.status_code}: {resp.text[:500]}")
+        print(f"  Failed to create report: {resp.status_code}: {resp.text[:300]}")
         return None
 
-    response_json = resp.json()
-    print(f"  Create report response body: {json.dumps(response_json)[:300]}")
-    report_id = response_json.get("reportId")
+    report_id = resp.json().get("reportId")
     if not report_id:
-        print(f"  No reportId returned for {report_type}")
         return None
     print(f"  Report ID: {report_id}")
 
@@ -134,123 +127,111 @@ def _request_report(headers, report_type, marketplace_id):
         time.sleep(10)
         resp = requests.get(
             f"{SP_API_BASE}/reports/2021-06-30/reports/{report_id}",
-            headers=headers,
-            timeout=30,
+            headers=headers, timeout=30,
         )
         if resp.status_code != 200:
-            print(f"  Poll attempt {attempt + 1}: HTTP {resp.status_code}")
             continue
-        poll_data = resp.json()
-        status = poll_data.get("processingStatus", "")
+        status = resp.json().get("processingStatus", "")
         print(f"  Report status: {status} (attempt {attempt + 1})")
         if status == "DONE":
-            doc_id = poll_data.get("reportDocumentId")
+            doc_id = resp.json().get("reportDocumentId")
             break
         if status in ("CANCELLED", "FATAL"):
-            print(f"  Report failed: {status}")
-            print(f"  Full response: {json.dumps(poll_data)[:500]}")
             return None
     if not doc_id:
-        print("  Report timed out after 5 minutes")
         return None
-    print(f"  Document ID: {doc_id}")
 
-    # Get document URL
+    # Get document URL and download
     resp = requests.get(
         f"{SP_API_BASE}/reports/2021-06-30/documents/{doc_id}",
-        headers=headers,
-        timeout=30,
+        headers=headers, timeout=30,
     )
     if resp.status_code != 200:
-        print(f"  Failed to get report document: {resp.status_code}: {resp.text[:300]}")
         return None
 
     doc_info = resp.json()
     doc_url = doc_info.get("url")
     compression = doc_info.get("compressionAlgorithm")
-    print(f"  Document compression: {compression or 'None'}")
     if not doc_url:
-        print("  No document URL returned")
         return None
 
-    # Download
-    print("  Downloading report document...")
     resp = requests.get(doc_url, timeout=60)
     if resp.status_code != 200:
-        print(f"  Failed to download report: {resp.status_code}")
         return None
 
-    raw_bytes = resp.content
-    print(f"  Downloaded {len(raw_bytes)} bytes")
-
-    # Decompress if GZIP
+    raw = resp.content
     if compression == "GZIP":
-        print("  Decompressing GZIP...")
-        try:
-            raw_bytes = gzip.decompress(raw_bytes)
-            print(f"  Decompressed to {len(raw_bytes)} bytes")
-        except Exception as e:
-            print(f"  GZIP decompression failed: {e}")
-            return None
+        raw = gzip.decompress(raw)
 
-    return raw_bytes.decode("utf-8", errors="replace")
+    print(f"  Downloaded {len(raw)} bytes")
+    return raw.decode("utf-8", errors="replace")
 
 
 def get_fulfillment_types(access_token):
-    """Classify products as FBA or NARF using FBA inventory age data.
+    """Classify SKUs as FBA or NARF using GET_AFN_INVENTORY_DATA_BY_COUNTRY.
 
-    Uses GET_FBA_INVENTORY_PLANNING_DATA which contains the same
-    'FBA inventory age by days' data visible on each product's
-    Seller Central page.
+    This report shows inventory quantity per country for each SKU:
+    - SKU with country=CA and quantity > 0 → FBA (physically in Canadian FCs)
+    - SKU with only country=US → NARF (remote fulfillment from US FCs)
 
-    - If any age bucket (0-90, 91-180, 181-270, 271-365, 365+) > 0
-      → inventory is physically in Canadian FCs → FBA
-    - If all age buckets are 0
-      → inventory is in US FCs, sold remotely in Canada → NARF
-    - SKUs not in this report have no Canadian FC presence → NARF
-
-    Returns a dict {sku: "FBA"} for FBA SKUs only, or None if report failed.
+    This runs dynamically each time since FBA/NARF status changes based on
+    whether there is current stock in Canadian fulfillment centers.
     """
     headers = sp_api_headers(access_token)
-    print("  Fetching FBA Inventory Planning Data report...")
+    print("  Fetching AFN Inventory by Country report...")
 
-    content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
+    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", MARKETPLACE_ID)
     if content is None:
         print("  WARNING: Report failed — cannot classify FBA vs NARF")
         return None
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
     fieldnames = reader.fieldnames or []
-    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+    print(f"  Columns: {fieldnames}")
 
-    age_columns = [
-        "inv-age-0-to-90-days", "inv-age-91-to-180-days",
-        "inv-age-181-to-270-days", "inv-age-271-to-365-days",
-        "inv-age-365-plus-days",
-    ]
+    sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
+    # Find the quantity column dynamically
+    qty_col = next((c for c in fieldnames if "quantity" in c.lower()), None)
+    if not qty_col:
+        print("  ERROR: No quantity column found in report")
+        return None
+    print(f"  Using quantity column: {qty_col}")
 
-    fba_skus = {}
-    fba_count = 0
+    # Build map: {sku: set of countries where qty > 0}
+    sku_countries = {}
     total_rows = 0
-
     for row in reader:
         sku = row.get(sku_col, "").strip()
+        country = row.get("country", "").strip().upper()
+        qty_str = row.get(qty_col, "0").strip()
         if not sku:
             continue
         total_rows += 1
+        try:
+            qty = int(qty_str)
+        except ValueError:
+            qty = 0
+        if qty > 0:
+            if sku not in sku_countries:
+                sku_countries[sku] = set()
+            sku_countries[sku].add(country)
 
-        has_aged = any(
-            int(row.get(col, "0").strip() or "0") > 0
-            for col in age_columns
-        )
-        if has_aged:
-            fba_skus[sku] = "FBA"
+    print(f"  Report had {total_rows} rows")
+
+    # Classify: CA inventory = FBA, US only = NARF
+    fulfillment_types = {}
+    fba_count = 0
+    narf_count = 0
+    for sku, countries in sku_countries.items():
+        if "CA" in countries:
+            fulfillment_types[sku] = "FBA"
             fba_count += 1
+        else:
+            fulfillment_types[sku] = "NARF"
+            narf_count += 1
 
-    print(f"  Report had {total_rows} SKUs in Canadian FCs")
-    print(f"  {fba_count} FBA (age > 0), {total_rows - fba_count} also in report with age 0")
-    print(f"  All other SKUs not in report → NARF (remote from US FCs)")
-    return fba_skus
+    print(f"  Classified: {fba_count} FBA (CA inventory), {narf_count} NARF (US only)")
+    return fulfillment_types
 
 
 def get_fba_inventory(access_token):
@@ -558,7 +539,6 @@ def main():
 
     print("\n[4/7] Classifying FBA vs NARF...")
     fulfillment_types = get_fulfillment_types(access_token)
-    # fulfillment_types is a dict {sku: "FBA"/"NARF"}, or None if report failed
 
     print("\n[5/7] Loading product cost data...")
     product_costs = load_product_costs()
@@ -603,7 +583,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": fulfillment_types.get(item["sku"], "NARF") if fulfillment_types is not None else "Unknown",
+            "fulfillment_type": fulfillment_types.get(item["sku"], "NARF") if fulfillment_types else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
