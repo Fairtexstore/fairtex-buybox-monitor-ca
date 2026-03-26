@@ -1,4 +1,5 @@
 import csv
+import io
 import json
 import os
 import time
@@ -92,6 +93,129 @@ def compute_recommendation(winner_price_str, lowest_msrp):
         return f"Yes, reduce to ${lowest_msrp:.2f}"
     else:
         return "No, winner below minimum"
+
+
+def get_fulfillment_types(access_token):
+    """Fetch FBA Inventory Aged Data report to classify products as FBA or NARF.
+    NARF products have 0 inventory across all age buckets (stored in US FCs).
+    FBA products have inventory in at least one age bucket (stored in Canadian FCs).
+    """
+    headers = sp_api_headers(access_token)
+    print("  Creating FBA Inventory Aged Data report...")
+
+    # Step 1: Create report request
+    resp = requests.post(
+        f"{SP_API_BASE}/reports/2021-06-30/reports",
+        headers=headers,
+        json={
+            "reportType": "GET_FBA_INVENTORY_AGED_DATA",
+            "marketplaceIds": [MARKETPLACE_ID],
+        },
+        timeout=30,
+    )
+    if resp.status_code == 429:
+        time.sleep(30)
+        resp = requests.post(
+            f"{SP_API_BASE}/reports/2021-06-30/reports",
+            headers=headers,
+            json={
+                "reportType": "GET_FBA_INVENTORY_AGED_DATA",
+                "marketplaceIds": [MARKETPLACE_ID],
+            },
+            timeout=30,
+        )
+    if resp.status_code not in (200, 202):
+        print(f"  Failed to create report: {resp.status_code}: {resp.text[:200]}")
+        return {}
+
+    report_id = resp.json().get("reportId")
+    if not report_id:
+        print("  No reportId returned")
+        return {}
+    print(f"  Report ID: {report_id}")
+
+    # Step 2: Poll until report is done
+    for attempt in range(30):
+        time.sleep(10)
+        resp = requests.get(
+            f"{SP_API_BASE}/reports/2021-06-30/reports/{report_id}",
+            headers=headers,
+            timeout=30,
+        )
+        if resp.status_code != 200:
+            continue
+        status = resp.json().get("processingStatus", "")
+        print(f"  Report status: {status} (attempt {attempt + 1})")
+        if status == "DONE":
+            doc_id = resp.json().get("reportDocumentId")
+            break
+        if status in ("CANCELLED", "FATAL"):
+            print(f"  Report failed with status: {status}")
+            return {}
+    else:
+        print("  Report timed out after 5 minutes")
+        return {}
+
+    # Step 3: Get report document URL
+    resp = requests.get(
+        f"{SP_API_BASE}/reports/2021-06-30/documents/{doc_id}",
+        headers=headers,
+        timeout=30,
+    )
+    if resp.status_code != 200:
+        print(f"  Failed to get report document: {resp.status_code}")
+        return {}
+
+    doc_url = resp.json().get("url")
+    if not doc_url:
+        print("  No document URL returned")
+        return {}
+
+    # Step 4: Download and parse the report
+    resp = requests.get(doc_url, timeout=60)
+    if resp.status_code != 200:
+        print(f"  Failed to download report: {resp.status_code}")
+        return {}
+
+    content = resp.content.decode("utf-8", errors="replace")
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+
+    age_columns = [
+        "inv-age-0-to-90-days",
+        "inv-age-91-to-180-days",
+        "inv-age-181-to-270-days",
+        "inv-age-271-to-365-days",
+        "inv-age-365-plus-days",
+    ]
+
+    fulfillment_types = {}  # keyed by SKU
+    fba_count = 0
+    narf_count = 0
+
+    for row in reader:
+        sku = row.get("sku", "").strip()
+        if not sku:
+            continue
+
+        has_aged_inventory = False
+        for col in age_columns:
+            val = row.get(col, "0").strip()
+            try:
+                if int(val) > 0:
+                    has_aged_inventory = True
+                    break
+            except ValueError:
+                pass
+
+        if has_aged_inventory:
+            fulfillment_types[sku] = "FBA"
+            fba_count += 1
+        else:
+            fulfillment_types[sku] = "NARF"
+            narf_count += 1
+
+    print(f"  Classified {len(fulfillment_types)} SKUs: {fba_count} FBA, {narf_count} NARF")
+    return fulfillment_types
 
 
 def get_fba_inventory(access_token):
@@ -386,13 +510,16 @@ def main():
         send_slack_alert([], 0)
         return
 
-    print("\n[3/5] Checking buy box and prices per SKU...")
+    print("\n[3/7] Checking buy box and prices per SKU...")
     buy_box_map = check_buy_box(access_token, inventory)
 
-    print("\n[4/5] Loading product cost data...")
+    print("\n[4/7] Classifying FBA vs NARF...")
+    fulfillment_types = get_fulfillment_types(access_token)
+
+    print("\n[5/7] Loading product cost data...")
     product_costs = load_product_costs()
 
-    print("\n[4/5] Flagging and alerting...")
+    print("\n[6/7] Flagging and alerting...")
     flagged = []
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
@@ -418,20 +545,21 @@ def main():
     send_slack_alert(flagged, len(inventory), "https://fairtex-buybox-monitor-ca.vercel.app/")
 
     # Save results to JSON for the Vercel dashboard
-    print("\n[5/5] Saving dashboard data...")
+    print("\n[7/7] Saving dashboard data...")
     all_products = []
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
         cost_data = product_costs.get(item["asin"])
         product = {
-            "sku":          item["sku"],
-            "asin":         item["asin"],
-            "name":         item["name"],
-            "stock":        item["stock"],
-            "our_msrp":     info.get("our_msrp", ""),
-            "has_buy_box":  info.get("has_buy_box", True),
-            "total_cost":   cost_data["total_cost"] if cost_data else None,
-            "lowest_msrp":  cost_data["lowest_msrp"] if cost_data else None,
+            "sku":              item["sku"],
+            "asin":             item["asin"],
+            "name":             item["name"],
+            "stock":            item["stock"],
+            "our_msrp":         info.get("our_msrp", ""),
+            "has_buy_box":      info.get("has_buy_box", True),
+            "total_cost":       cost_data["total_cost"] if cost_data else None,
+            "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
+            "fulfillment_type": fulfillment_types.get(item["sku"], "Unknown"),
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")

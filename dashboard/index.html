@@ -64,6 +64,11 @@
       <option value="can_lower">Can Lower Price</option>
       <option value="cannot_lower">Cannot Lower Price</option>
     </select>
+    <select id="fulfillmentFilter">
+      <option value="all">All Fulfillment</option>
+      <option value="FBA">FBA Only</option>
+      <option value="NARF">NARF Only</option>
+    </select>
   </div>
   <div id="tableContainer"><div class="loading">Loading data...</div></div>
 
@@ -95,8 +100,10 @@
     function renderTable() {
       const search = document.getElementById('search').value.toLowerCase();
       const filter = document.getElementById('filter').value;
+      const fulfillmentFilter = document.getElementById('fulfillmentFilter').value;
 
       let filtered = allProducts.filter(p => {
+        if (fulfillmentFilter !== 'all' && p.fulfillment_type !== fulfillmentFilter) return false;
         if (filter === 'lost' && p.has_buy_box) return false;
         if (filter === 'owned' && !p.has_buy_box) return false;
         if (filter === 'can_lower' && !(p.recommendation && p.recommendation.startsWith('Yes'))) return false;
@@ -126,10 +133,18 @@
         return 0;
       });
 
+      // Update stats cards based on filtered data
+      const filteredOwned = filtered.filter(p => p.has_buy_box).length;
+      const filteredMissing = filtered.filter(p => !p.has_buy_box).length;
+      document.getElementById('totalChecked').textContent = filtered.length;
+      document.getElementById('owned').textContent = filteredOwned;
+      document.getElementById('missing').textContent = filteredMissing;
+
       const cols = [
         { key: 'name', label: 'Product' },
         { key: 'asin', label: 'ASIN' },
         { key: 'sku', label: 'SKU' },
+        { key: 'fulfillment_type', label: 'Type' },
         { key: 'stock', label: 'Stock' },
         { key: 'our_msrp', label: 'MSRP' },
         { key: 'has_buy_box', label: 'Buy Box' },
@@ -149,7 +164,7 @@
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
-        html += '<tr><td colspan="11" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+        html += '<tr><td colspan="12" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
 
       for (const p of filtered) {
@@ -175,11 +190,17 @@
         }
 
         const msrp = p.our_msrp || '-';
+        const ftBadge = p.fulfillment_type === 'FBA'
+          ? '<span class="badge yes">FBA</span>'
+          : p.fulfillment_type === 'NARF'
+            ? '<span class="badge" style="background:#dbeafe;color:#1e40af;">NARF</span>'
+            : '<span class="badge" style="background:#f3f4f6;color:#6b7280;">—</span>';
 
         html += `<tr class="${rowClass}">
           <td title="${p.name}">${p.name}</td>
           <td>${asinLink}</td>
           <td>${p.sku}</td>
+          <td>${ftBadge}</td>
           <td>${p.stock}</td>
           <td>${msrp}</td>
           <td>${badge}</td>
@@ -210,6 +231,7 @@
 
     document.getElementById('search').addEventListener('input', renderTable);
     document.getElementById('filter').addEventListener('change', renderTable);
+    document.getElementById('fulfillmentFilter').addEventListener('change', renderTable);
     loadData();
   </script>
 </body>
