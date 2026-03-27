@@ -14,6 +14,7 @@ US_MARKETPLACE = "ATVPDKIKX0DER"
 SP_API_BASE    = "https://sellingpartnerapi-na.amazon.com"
 SLACK_CHANNEL  = "C0AMDJ91151"
 MY_SELLER_ID   = "A1LC1HJLF7IAWT"
+NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orders
 
 
 def get_lwa_access_token():
@@ -590,9 +591,16 @@ def main():
         our_msrp = info.get("our_msrp", "")
         our_landed = info.get("our_landed", "")
         # For FBA: landed price = MSRP (no extra fees)
-        # For NARF: landed price = MSRP + shipping/import fees (from SP-API)
+        # For NARF: landed price = listing price + shipping + 14% import fees
         if ft == "FBA":
             our_landed = our_msrp
+        elif ft == "NARF" and our_landed:
+            try:
+                landed_val = float(our_landed.replace("$", "").replace(",", ""))
+                landed_val_with_import = landed_val * (1 + NARF_IMPORT_FEE_RATE)
+                our_landed = f"${landed_val_with_import:.2f}"
+            except ValueError:
+                pass
         product = {
             "sku":              item["sku"],
             "asin":             item["asin"],
