@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-03-27T05:42:18.781533+00:00",
-  "total_checked": 737,
-  "buy_box_owned": 688,
-  "total_flagged": 49,
+  "last_updated": "2026-03-27T06:10:05.154726+00:00",
+  "total_checked": 733,
+  "buy_box_owned": 685,
+  "total_flagged": 48,
   "products": [
     {
       "sku": "CA-HB6 - Black - Muay Thai Banana Bag",
       "asin": "B006CV65R8",
       "name": "Fairtex UNFILLED Banana Heavy Bag for Muay Thai, Boxing, Kickboxing, M",
-      "stock": 32,
+      "stock": 33,
       "our_msrp": "$286.56",
       "has_buy_box": true,
       "total_cost": null,
@@ -25,7 +25,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -37,7 +37,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -49,7 +49,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -61,7 +61,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -73,7 +73,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -97,7 +97,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -109,7 +109,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -121,7 +121,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -157,7 +157,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -201,7 +201,7 @@
       "asin": "B00IS8RSG0",
       "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
       "stock": 8,
-      "our_msrp": "$179.49",
+      "our_msrp": "$178.49",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
@@ -217,7 +217,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -241,7 +241,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$166.50",
@@ -256,7 +256,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -276,11 +276,11 @@
       "asin": "B00KRWCACM",
       "name": "Fairtex BGV1BR Muay Thai Boxing Training Sparring Gloves for Men, Wome",
       "stock": 346,
-      "our_msrp": "$162.94",
+      "our_msrp": "$161.94",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -307,7 +307,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$79.00",
@@ -322,7 +322,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -514,7 +514,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -526,7 +526,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -550,7 +550,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -558,11 +558,11 @@
       "asin": "B00RDZGKY0",
       "name": "Fairtex SP7 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
       "stock": 36,
-      "our_msrp": "$142.49",
+      "our_msrp": "$141.49",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -577,7 +577,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -597,7 +597,7 @@
       "asin": "B00TU4PV1K",
       "name": "Fairtex TGO3 Muay Thai Boxing Gloves for Men, Women, Kids | Special Op",
       "stock": 11,
-      "our_msrp": "$108.99",
+      "our_msrp": "$107.99",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
@@ -609,11 +609,11 @@
       "asin": "B00TU4PV3I",
       "name": "Fairtex TGO3 Muay Thai Boxing Gloves for Men, Women, Kids | Special Op",
       "stock": 7,
-      "our_msrp": "$107.99",
+      "our_msrp": "$106.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -636,11 +636,11 @@
       "asin": "B00TU4PVAQ",
       "name": "Fairtex TGO3 Muay Thai Boxing Gloves for Men, Women, Kids | Special Op",
       "stock": 7,
-      "our_msrp": "$108.99",
+      "our_msrp": "$107.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -655,7 +655,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -679,7 +679,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -691,7 +691,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -703,7 +703,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -715,7 +715,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -751,7 +751,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -763,7 +763,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -775,7 +775,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -787,7 +787,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -799,7 +799,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -811,7 +811,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -823,7 +823,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -835,7 +835,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -859,7 +859,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -871,7 +871,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -883,7 +883,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -895,7 +895,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -919,7 +919,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -931,7 +931,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -943,7 +943,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$138.09",
@@ -958,7 +958,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -970,7 +970,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1030,7 +1030,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1054,7 +1054,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1102,7 +1102,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$129.85",
@@ -1117,7 +1117,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1137,7 +1137,7 @@
       "asin": "B06Y64YTVT",
       "name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
       "stock": 5,
-      "our_msrp": "$161.50",
+      "our_msrp": "$160.50",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
@@ -1153,7 +1153,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1165,7 +1165,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$175.00",
@@ -1192,7 +1192,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1240,7 +1240,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1264,7 +1264,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1288,7 +1288,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1324,7 +1324,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1348,7 +1348,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1360,7 +1360,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1372,7 +1372,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1396,7 +1396,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1408,7 +1408,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1420,7 +1420,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1428,11 +1428,11 @@
       "asin": "B0776HRPTF",
       "name": "Fairtex BGV14 Muay Thai Boxing Gloves for Men, Women & Kids| MMA Glove",
       "stock": 7,
-      "our_msrp": "$161.50",
+      "our_msrp": "$160.50",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1447,7 +1447,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1459,7 +1459,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1483,19 +1483,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "BGV1 - Red - 14oz",
       "asin": "B077S214TH",
       "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
-      "stock": 38,
+      "stock": 37,
       "our_msrp": "$169.49",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$179.00",
@@ -1510,7 +1510,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1522,7 +1522,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1546,7 +1546,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$179.00",
@@ -1561,7 +1561,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1573,7 +1573,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1585,7 +1585,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1633,7 +1633,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1645,7 +1645,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$181.64",
@@ -1660,7 +1660,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1672,7 +1672,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -1804,7 +1804,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -1840,7 +1840,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -1848,11 +1848,11 @@
       "asin": "B0795D4HXQ",
       "name": "Fairtex BGV1BR Muay Thai Boxing Training Sparring Gloves for Men, Wome",
       "stock": 22,
-      "our_msrp": "$166.99",
+      "our_msrp": "$165.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1867,7 +1867,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1903,7 +1903,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$85.00",
@@ -1942,7 +1942,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1954,7 +1954,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$129.21",
@@ -1969,7 +1969,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -1981,7 +1981,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2005,7 +2005,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$94.04",
@@ -2032,7 +2032,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2044,7 +2044,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2068,22 +2068,10 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$85.00",
-      "recommendation": ""
-    },
-    {
-      "sku": "BS1704 - Red/White - Small",
-      "asin": "B07B2ZRXTT",
-      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
-      "stock": 1,
-      "our_msrp": "$89.23",
-      "has_buy_box": true,
-      "total_cost": null,
-      "lowest_msrp": null,
-      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -2095,7 +2083,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2119,7 +2107,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2131,7 +2119,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2143,7 +2131,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2155,7 +2143,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2167,7 +2155,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2203,7 +2191,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2215,7 +2203,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2227,7 +2215,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2239,7 +2227,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2287,7 +2275,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$93.39",
@@ -2302,7 +2290,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2314,7 +2302,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2326,7 +2314,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2338,7 +2326,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2362,7 +2350,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2374,7 +2362,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2386,7 +2374,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2410,7 +2398,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -2434,7 +2422,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2446,7 +2434,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2458,19 +2446,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "BGV1-Blue-10oz",
       "asin": "B07G9MCDJY",
       "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
-      "stock": 3,
+      "stock": 2,
       "our_msrp": "$173.99",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2494,7 +2482,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2506,7 +2494,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2530,7 +2518,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2554,7 +2542,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2566,7 +2554,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$132.53",
@@ -2593,7 +2581,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2605,7 +2593,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2617,7 +2605,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$129.28",
@@ -2632,7 +2620,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2644,7 +2632,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2656,7 +2644,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2668,7 +2656,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2676,11 +2664,11 @@
       "asin": "B07G9S6THM",
       "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
       "stock": 3,
-      "our_msrp": "$237.39",
+      "our_msrp": "$236.39",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -2695,7 +2683,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2731,7 +2719,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2743,7 +2731,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$181.16",
@@ -2758,7 +2746,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2770,7 +2758,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2782,7 +2770,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2806,7 +2794,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2818,7 +2806,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2830,7 +2818,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2842,7 +2830,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$166.50",
@@ -2857,7 +2845,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$169.00",
@@ -2872,7 +2860,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2896,7 +2884,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2908,7 +2896,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2920,7 +2908,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2932,7 +2920,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2944,7 +2932,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2956,7 +2944,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2968,7 +2956,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2980,7 +2968,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -2992,7 +2980,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3004,7 +2992,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3040,7 +3028,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3052,7 +3040,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3064,7 +3052,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3088,7 +3076,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3100,7 +3088,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3124,7 +3112,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3136,7 +3124,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3148,7 +3136,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -3172,7 +3160,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3184,7 +3172,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3196,7 +3184,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3208,7 +3196,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3220,7 +3208,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3232,7 +3220,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3244,7 +3232,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3256,7 +3244,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$79.00",
@@ -3271,7 +3259,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3283,7 +3271,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3295,7 +3283,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3307,7 +3295,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3319,7 +3307,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3331,7 +3319,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3343,7 +3331,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3355,7 +3343,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3367,7 +3355,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3379,7 +3367,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3391,7 +3379,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3403,7 +3391,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3415,7 +3403,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3427,19 +3415,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "BS1711 - Orange Camo - X-Large",
       "asin": "B07LC2GXZT",
       "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Red, Orange, Blue, Yell",
-      "stock": 6,
+      "stock": 11,
       "our_msrp": "$86.99",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3451,7 +3439,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3463,7 +3451,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3475,7 +3463,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3487,7 +3475,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3499,7 +3487,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3511,7 +3499,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3523,7 +3511,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3535,7 +3523,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3547,7 +3535,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3559,7 +3547,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3571,7 +3559,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3583,7 +3571,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3595,7 +3583,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3607,7 +3595,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3631,7 +3619,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3643,7 +3631,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3655,7 +3643,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3667,7 +3655,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3691,7 +3679,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3703,7 +3691,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3715,7 +3703,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3727,7 +3715,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3751,7 +3739,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3775,7 +3763,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3787,7 +3775,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3799,7 +3787,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3811,7 +3799,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3823,7 +3811,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3835,7 +3823,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3847,7 +3835,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3859,7 +3847,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3871,7 +3859,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3883,7 +3871,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3895,7 +3883,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3907,7 +3895,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3919,7 +3907,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3931,7 +3919,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3943,7 +3931,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3955,7 +3943,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3967,7 +3955,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -3991,7 +3979,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4003,7 +3991,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4015,7 +4003,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4027,7 +4015,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4039,7 +4027,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4051,7 +4039,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "FBA",
+      "fulfillment_type": "NARF",
       "recommendation": ""
     },
     {
@@ -4063,7 +4051,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4075,7 +4063,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4087,7 +4075,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4099,7 +4087,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4111,7 +4099,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4159,7 +4147,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4171,7 +4159,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$200.50",
@@ -4186,7 +4174,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4198,7 +4186,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4210,7 +4198,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4222,7 +4210,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4230,7 +4218,7 @@
       "asin": "B07TTFV6S4",
       "name": "Fairtex FMV9 Contoured Focus Mitts |Striking Accuracy & Protection for",
       "stock": 17,
-      "our_msrp": "$180.99",
+      "our_msrp": "$179.99",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
@@ -4242,11 +4230,11 @@
       "asin": "B07TVGH4VW",
       "name": "Fairtex BGV1BR Muay Thai Boxing Training Sparring Gloves for Men, Wome",
       "stock": 22,
-      "our_msrp": "$162.49",
+      "our_msrp": "$161.49",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4273,7 +4261,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$167.71",
@@ -4288,7 +4276,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$152.93",
@@ -4303,7 +4291,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4323,11 +4311,11 @@
       "asin": "B07X2Z973F",
       "name": "Fairtex BGV16 Leather Muay Thai Boxing Gloves",
       "stock": 11,
-      "our_msrp": "$170.99",
+      "our_msrp": "$169.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4342,7 +4330,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4354,7 +4342,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4366,7 +4354,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4390,7 +4378,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4402,7 +4390,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4426,19 +4414,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "SP5 - White - Large",
       "asin": "B07ZZH3NGZ",
       "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
-      "stock": 222,
-      "our_msrp": "$132.49",
+      "stock": 221,
+      "our_msrp": "$131.49",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4448,7 +4436,7 @@
       "sku": "BS1901-Stealth Black-Medium",
       "asin": "B07ZZLG2QM",
       "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
-      "stock": 17,
+      "stock": 9,
       "our_msrp": "$63.89",
       "has_buy_box": true,
       "total_cost": null,
@@ -4465,7 +4453,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4477,19 +4465,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "BS1901-Stealth Black- Small",
       "asin": "B07ZZMCD5Z",
       "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
-      "stock": 6,
+      "stock": 3,
       "our_msrp": "$79.91",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$85.00",
@@ -4516,7 +4504,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4524,11 +4512,11 @@
       "asin": "B081TS7G5V",
       "name": "Fairtex HG6 Muay Thai Boxing Competition Headguard",
       "stock": 4,
-      "our_msrp": "$163.06",
+      "our_msrp": "$162.06",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4543,7 +4531,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4555,7 +4543,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4579,7 +4567,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4591,7 +4579,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4603,7 +4591,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4615,7 +4603,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4627,7 +4615,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4639,7 +4627,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4663,7 +4651,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4675,7 +4663,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4687,7 +4675,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4711,7 +4699,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4723,7 +4711,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$69.00",
@@ -4750,7 +4738,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4762,7 +4750,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4778,18 +4766,6 @@
       "recommendation": ""
     },
     {
-      "sku": "BS1904 - Maroon Fade - Medium",
-      "asin": "B0857L7ZFM",
-      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Maroon Fade, Medium)",
-      "stock": 4,
-      "our_msrp": "$86.99",
-      "has_buy_box": true,
-      "total_cost": null,
-      "lowest_msrp": null,
-      "fulfillment_type": "NARF",
-      "recommendation": ""
-    },
-    {
       "sku": "BS1904 - Maroon Fade - XLarge",
       "asin": "B0857LRC3L",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Maroon Fade, X-Large)",
@@ -4798,19 +4774,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
-      "recommendation": ""
-    },
-    {
-      "sku": "BS1904 - Maroon Fade - Large",
-      "asin": "B085885B8X",
-      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Maroon Fade, Large)",
-      "stock": 7,
-      "our_msrp": "$86.99",
-      "has_buy_box": true,
-      "total_cost": null,
-      "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4822,7 +4786,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4834,7 +4798,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4846,7 +4810,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4858,7 +4822,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4870,7 +4834,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4894,7 +4858,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4906,7 +4870,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4918,7 +4882,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4930,7 +4894,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4942,7 +4906,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4954,7 +4918,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4966,7 +4930,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4978,7 +4942,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -4990,7 +4954,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5002,7 +4966,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5014,7 +4978,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5026,7 +4990,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5038,7 +5002,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5050,7 +5014,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5062,7 +5026,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5074,7 +5038,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5082,11 +5046,11 @@
       "asin": "B08CGK1DBQ",
       "name": "Fairtex SP8 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
       "stock": 41,
-      "our_msrp": "$137.99",
+      "our_msrp": "$136.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5101,7 +5065,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5113,7 +5077,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5125,7 +5089,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5137,7 +5101,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5149,22 +5113,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
-      "recommendation": ""
-    },
-    {
-      "sku": "FMV11-Black/White-PRO",
-      "asin": "B08CMQY2PG",
-      "name": "Fairtex Aero Focus Punching Mitts FMV11 for Muay Thai, Boxing, Kickbox",
-      "stock": 1,
-      "our_msrp": "$181.33",
-      "has_buy_box": false,
-      "total_cost": null,
-      "lowest_msrp": null,
-      "fulfillment_type": "NARF",
-      "winner_seller": "ANUKSJE73B4C5",
-      "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$153.88",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5176,7 +5125,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5188,7 +5137,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5200,7 +5149,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5212,7 +5161,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5220,11 +5169,11 @@
       "asin": "B08CRR19XD",
       "name": "Fairtex TV2 Body Shield Trainer's Protective Vest Muay Thai Kickboxing",
       "stock": 12,
-      "our_msrp": "$298.99",
+      "our_msrp": "$297.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5239,7 +5188,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5251,7 +5200,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5263,7 +5212,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5275,7 +5224,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5287,7 +5236,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5299,7 +5248,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5311,7 +5260,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5335,7 +5284,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5383,7 +5332,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5395,7 +5344,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5407,7 +5356,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5419,7 +5368,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5431,7 +5380,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5443,7 +5392,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5455,7 +5404,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5479,7 +5428,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5491,7 +5440,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5499,11 +5448,11 @@
       "asin": "B08FZQKQM6",
       "name": "Fairtex HG6 Muay Thai Boxing Competition Headguard",
       "stock": 38,
-      "our_msrp": "$165.99",
+      "our_msrp": "$164.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5518,7 +5467,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5542,7 +5491,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5554,7 +5503,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5566,7 +5515,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5586,11 +5535,11 @@
       "asin": "B08MV98CKP",
       "name": "Fairtex BGV24 The Beauty of Survival - Limited Edition Gloves",
       "stock": 30,
-      "our_msrp": "$191.99",
+      "our_msrp": "$190.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5617,7 +5566,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5629,7 +5578,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5641,7 +5590,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5653,7 +5602,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5661,11 +5610,11 @@
       "asin": "B08QJ24DTM",
       "name": "Fairtex BGV11 Muay Thai Boxing Gloves for Men, Women & Kids| MMA Glove",
       "stock": 27,
-      "our_msrp": "$162.50",
+      "our_msrp": "$161.50",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5680,7 +5629,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
       "winner_price": "$178.20",
@@ -5695,7 +5644,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5707,7 +5656,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5719,7 +5668,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5731,7 +5680,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5743,7 +5692,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5755,7 +5704,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5779,7 +5728,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5791,7 +5740,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5803,7 +5752,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5815,7 +5764,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5827,7 +5776,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5839,7 +5788,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5851,7 +5800,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5863,7 +5812,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5875,7 +5824,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5887,7 +5836,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5899,7 +5848,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5911,7 +5860,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5923,7 +5872,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5931,11 +5880,11 @@
       "asin": "B08V8LYB35",
       "name": "Fairtex Muay Thai GC2 Groin Steep Cup for Combat Sports | Muay Thai & ",
       "stock": 18,
-      "our_msrp": "$62.99",
+      "our_msrp": "$61.99",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5950,7 +5899,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5962,7 +5911,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5974,7 +5923,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5986,7 +5935,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -5998,7 +5947,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6010,7 +5959,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6022,7 +5971,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6034,7 +5983,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6046,7 +5995,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6058,7 +6007,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6070,7 +6019,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6082,7 +6031,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6106,7 +6055,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6130,7 +6079,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6142,7 +6091,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6154,7 +6103,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6178,7 +6127,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6190,7 +6139,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6214,7 +6163,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6226,7 +6175,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6238,7 +6187,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6250,7 +6199,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6262,7 +6211,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$69.00",
@@ -6277,7 +6226,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6289,7 +6238,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6301,7 +6250,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6313,7 +6262,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6325,7 +6274,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6337,7 +6286,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6349,7 +6298,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6361,7 +6310,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6373,7 +6322,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6385,7 +6334,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6397,7 +6346,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6409,7 +6358,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6421,7 +6370,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6433,7 +6382,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6445,7 +6394,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6457,7 +6406,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6469,7 +6418,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6481,7 +6430,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$85.00",
@@ -6496,7 +6445,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6508,7 +6457,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6532,7 +6481,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6544,7 +6493,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6556,7 +6505,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6568,7 +6517,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6580,7 +6529,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6592,7 +6541,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6604,7 +6553,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6616,7 +6565,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6628,7 +6577,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6640,7 +6589,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6652,7 +6601,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6664,7 +6613,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6688,7 +6637,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6712,7 +6661,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6724,7 +6673,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6736,7 +6685,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6748,7 +6697,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6760,7 +6709,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6772,7 +6721,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6784,7 +6733,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6796,7 +6745,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6808,7 +6757,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6820,7 +6769,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6832,7 +6781,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6844,7 +6793,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6856,7 +6805,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6868,7 +6817,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6880,7 +6829,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6892,7 +6841,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6904,7 +6853,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6916,7 +6865,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6928,7 +6877,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6940,7 +6889,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6952,7 +6901,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6964,7 +6913,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6976,7 +6925,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -6988,7 +6937,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7000,7 +6949,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7012,7 +6961,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7024,7 +6973,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7036,7 +6985,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7048,7 +6997,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7072,7 +7021,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7084,7 +7033,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7096,7 +7045,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7108,19 +7057,19 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
       "sku": "BS URFACE - Large",
       "asin": "B0B7ZXFD5Z",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts, Bs Urface, Large",
-      "stock": 18,
+      "stock": 13,
       "our_msrp": "$100.99",
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7132,7 +7081,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7144,7 +7093,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7156,7 +7105,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7168,7 +7117,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7180,7 +7129,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7192,7 +7141,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7204,7 +7153,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7216,7 +7165,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7228,7 +7177,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7240,7 +7189,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7252,7 +7201,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7264,7 +7213,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7276,7 +7225,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7288,7 +7237,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7300,7 +7249,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7312,7 +7261,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7324,7 +7273,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7336,7 +7285,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7348,7 +7297,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7360,7 +7309,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7372,7 +7321,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7384,7 +7333,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7396,7 +7345,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7408,7 +7357,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7420,7 +7369,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7432,7 +7381,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7444,7 +7393,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7456,7 +7405,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7468,7 +7417,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7480,7 +7429,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7492,7 +7441,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7504,7 +7453,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7516,7 +7465,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7528,7 +7477,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7540,7 +7489,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7552,7 +7501,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7564,7 +7513,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7576,7 +7525,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7588,7 +7537,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7600,7 +7549,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7612,7 +7561,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7624,7 +7573,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7636,7 +7585,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7648,7 +7597,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7660,7 +7609,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7672,7 +7621,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7684,7 +7633,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7696,7 +7645,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7732,7 +7681,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$69.00",
@@ -7747,7 +7696,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7759,7 +7708,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7771,7 +7720,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7783,7 +7732,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$72.00",
@@ -7798,7 +7747,7 @@
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "A4H5OEQCJLQLL",
       "winner_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
       "winner_price": "$85.00",
@@ -7813,7 +7762,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7825,7 +7774,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7837,7 +7786,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7849,7 +7798,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7861,7 +7810,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7873,7 +7822,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7885,7 +7834,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7897,7 +7846,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7909,7 +7858,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7921,7 +7870,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7933,7 +7882,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7945,7 +7894,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7957,7 +7906,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7969,7 +7918,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -7981,7 +7930,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8005,7 +7954,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8017,7 +7966,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8041,7 +7990,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8053,7 +8002,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8065,7 +8014,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8077,7 +8026,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8089,7 +8038,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8101,7 +8050,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8113,7 +8062,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8137,7 +8086,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8149,7 +8098,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8161,7 +8110,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8169,11 +8118,11 @@
       "asin": "B0CZ4F8L3V",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Red Diamond, XX-Large)",
       "stock": 1,
-      "our_msrp": "$90.39",
+      "our_msrp": "$89.39",
       "has_buy_box": false,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -8188,7 +8137,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8200,7 +8149,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8212,7 +8161,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8224,7 +8173,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8236,7 +8185,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8248,7 +8197,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8260,7 +8209,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8272,7 +8221,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8284,7 +8233,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8296,7 +8245,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8308,7 +8257,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8320,7 +8269,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8344,7 +8293,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8356,7 +8305,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8368,7 +8317,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8380,7 +8329,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8392,7 +8341,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8404,7 +8353,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8416,7 +8365,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8428,7 +8377,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8440,7 +8389,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8452,7 +8401,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8464,7 +8413,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8476,7 +8425,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8488,7 +8437,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8500,7 +8449,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8512,7 +8461,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8524,7 +8473,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8536,7 +8485,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8548,7 +8497,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8560,7 +8509,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8572,7 +8521,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8584,7 +8533,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8596,7 +8545,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8608,7 +8557,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8620,7 +8569,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8632,7 +8581,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8644,7 +8593,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8656,7 +8605,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8668,7 +8617,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8680,7 +8629,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8692,7 +8641,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8704,7 +8653,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8716,7 +8665,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8728,7 +8677,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8740,7 +8689,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8752,7 +8701,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8764,7 +8713,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8776,7 +8725,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8788,7 +8737,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8800,7 +8749,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8812,7 +8761,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8824,7 +8773,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8836,7 +8785,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8848,7 +8797,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8860,7 +8809,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8872,7 +8821,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8884,7 +8833,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8896,7 +8845,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8908,7 +8857,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8920,7 +8869,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8932,7 +8881,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8944,7 +8893,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8956,7 +8905,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8968,7 +8917,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8980,7 +8929,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     },
     {
@@ -8992,7 +8941,7 @@
       "has_buy_box": true,
       "total_cost": null,
       "lowest_msrp": null,
-      "fulfillment_type": "NARF",
+      "fulfillment_type": "FBA",
       "recommendation": ""
     }
   ]
