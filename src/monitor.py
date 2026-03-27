@@ -169,84 +169,63 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify Canada SKUs as FBA or NARF using the AFN inventory report.
+    """Classify Canada SKUs as FBA or NARF using the unsuppressed inventory report.
 
-    Uses GET_AFN_INVENTORY_DATA_BY_COUNTRY with the US marketplace to get
-    inventory broken down by country. Items with country=CA and qty > 0
-    have physical Canadian FC inventory = FBA. Items without = NARF.
+    Uses GET_FBA_MYI_UNSUPPRESSED_INVENTORY_DATA for Canada marketplace.
+    This report has afn-warehouse-quantity which shows physical warehouse
+    stock in the marketplace's country:
+    - afn-warehouse-quantity > 0 → inventory in Canadian warehouses → FBA
+    - afn-warehouse-quantity = 0 → no Canadian warehouse stock → NARF
 
-    Also tries GET_FBA_INVENTORY_PLANNING_DATA for Canada as a fallback,
-    which has the same age bucket data visible on Seller Central product pages.
-
-    Returns a set of FBA SKUs, or None if reports failed.
+    Returns a set of FBA SKUs, or None if report failed.
     """
     headers = sp_api_headers(access_token)
     fba_skus = set()
 
-    # --- Approach 1: AFN inventory by country (via US marketplace) ---
-    print("  Fetching AFN Inventory by Country report (US marketplace)...")
-    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", US_MARKETPLACE)
-    if content is not None:
-        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-        fieldnames = reader.fieldnames or []
-        sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
-        qty_col = next((c for c in fieldnames if "quantity" in c.lower()), None)
-        print(f"  Columns: {fieldnames}")
-        print(f"  Using qty column: {qty_col}")
-
-        ca_count = 0
-        sample_logged = 0
-        for row in reader:
-            sku = row.get(sku_col, "").strip()
-            country = row.get("country", "").strip().upper()
-            qty_str = row.get(qty_col, "0").strip() if qty_col else "0"
-            if not sku:
-                continue
-            # Log samples for CA entries
-            if country == "CA" and sample_logged < 5:
-                print(f"  CA sample: SKU={sku}, country={country}, qty={qty_str}")
-                sample_logged += 1
-            try:
-                qty = int(qty_str)
-            except ValueError:
-                qty = 0
-            if country == "CA" and qty > 0:
-                fba_skus.add(sku)
-                ca_count += 1
-
-        print(f"  Found {ca_count} SKUs with Canadian FC inventory (FBA)")
-
-    # --- Approach 2: Planning report for Canada (has age columns) ---
-    print("  Fetching FBA Inventory Planning Data for Canada...")
-    content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
-    if content is not None:
-        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-        fieldnames = reader.fieldnames or []
-        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
-        age_columns = [
-            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
-            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
-            "inv-age-365-plus-days",
-        ]
-        planning_fba = 0
-        for row in reader:
-            sku = row.get(sku_col, "").strip()
-            if not sku:
-                continue
-            has_aged = any(
-                int(row.get(col, "0").strip() or "0") > 0
-                for col in age_columns
-            )
-            if has_aged and sku not in fba_skus:
-                fba_skus.add(sku)
-                planning_fba += 1
-        print(f"  Planning report added {planning_fba} additional FBA SKUs")
-
-    if not fba_skus and content is None:
-        print("  WARNING: All reports failed — cannot classify FBA vs NARF")
+    print("  Fetching FBA Unsuppressed Inventory report for Canada...")
+    content = _request_report(headers, "GET_FBA_MYI_UNSUPPRESSED_INVENTORY_DATA", MARKETPLACE_ID)
+    if content is None:
+        print("  WARNING: Report failed — cannot classify FBA vs NARF")
         return None
 
-    print(f"  Total FBA SKUs identified: {len(fba_skus)}")
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+    fieldnames = reader.fieldnames or []
+    print(f"  Columns: {fieldnames}")
+
+    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+
+    # Log data for known FBA ASINs to verify which columns distinguish FBA/NARF
+    debug_asins = {"B00O1S1HUE", "B00O1S1OFW", "B00PM9XRZ4", "B07B2Z8P7S"}
+    total_rows = 0
+    warehouse_fba = 0
+
+    for row in reader:
+        sku = row.get(sku_col, "").strip()
+        asin = row.get("asin", "").strip()
+        if not sku:
+            continue
+        total_rows += 1
+
+        # Log all fields for known FBA ASINs for debugging
+        if asin in debug_asins:
+            print(f"  DEBUG {asin} ({sku}):")
+            for col in fieldnames:
+                print(f"    {col}: {row.get(col, 'N/A')}")
+
+        # Check afn-warehouse-quantity (physical warehouse stock)
+        wh_qty_str = row.get("afn-warehouse-quantity", "0").strip()
+        try:
+            wh_qty = int(wh_qty_str)
+        except ValueError:
+            wh_qty = 0
+
+        if wh_qty > 0:
+            fba_skus.add(sku)
+            warehouse_fba += 1
+
+    print(f"  Report had {total_rows} SKUs")
+    print(f"  {warehouse_fba} with warehouse qty > 0 (FBA)")
+    print(f"  {total_rows - warehouse_fba} with warehouse qty = 0 (NARF)")
     return fba_skus
 
 
