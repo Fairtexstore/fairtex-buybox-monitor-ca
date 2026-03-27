@@ -169,39 +169,85 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify Canada SKUs as FBA or NARF using the US aged inventory report.
+    """Classify Canada SKUs as FBA or NARF using the AFN inventory report.
 
-    GET_FBA_INVENTORY_AGED_DATA returns FATAL for Canada marketplace, but
-    works for US. Since NARF items are stored in US fulfillment centers:
+    Uses GET_AFN_INVENTORY_DATA_BY_COUNTRY with the US marketplace to get
+    inventory broken down by country. Items with country=CA and qty > 0
+    have physical Canadian FC inventory = FBA. Items without = NARF.
 
-    - SKU in US aged report (has US FC inventory) → NARF
-    - SKU NOT in US aged report (no US FC inventory) → FBA (must be in Canadian FCs)
+    Also tries GET_FBA_INVENTORY_PLANNING_DATA for Canada as a fallback,
+    which has the same age bucket data visible on Seller Central product pages.
 
-    This matches the Seller Central 'FBA inventory age by days' check:
-    - FBA items have age > 0 on the Canada product page (Canadian FC stock)
-    - NARF items have age = 0 on the Canada page (stock is in US FCs instead)
+    Returns a set of FBA SKUs, or None if reports failed.
     """
     headers = sp_api_headers(access_token)
-    print("  Fetching US FBA Inventory Aged Data to identify NARF items...")
+    fba_skus = set()
 
-    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", US_MARKETPLACE)
-    if content is None:
-        print("  WARNING: US aged report failed — cannot classify FBA vs NARF")
+    # --- Approach 1: AFN inventory by country (via US marketplace) ---
+    print("  Fetching AFN Inventory by Country report (US marketplace)...")
+    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", US_MARKETPLACE)
+    if content is not None:
+        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
+        qty_col = next((c for c in fieldnames if "quantity" in c.lower()), None)
+        print(f"  Columns: {fieldnames}")
+        print(f"  Using qty column: {qty_col}")
+
+        ca_count = 0
+        sample_logged = 0
+        for row in reader:
+            sku = row.get(sku_col, "").strip()
+            country = row.get("country", "").strip().upper()
+            qty_str = row.get(qty_col, "0").strip() if qty_col else "0"
+            if not sku:
+                continue
+            # Log samples for CA entries
+            if country == "CA" and sample_logged < 5:
+                print(f"  CA sample: SKU={sku}, country={country}, qty={qty_str}")
+                sample_logged += 1
+            try:
+                qty = int(qty_str)
+            except ValueError:
+                qty = 0
+            if country == "CA" and qty > 0:
+                fba_skus.add(sku)
+                ca_count += 1
+
+        print(f"  Found {ca_count} SKUs with Canadian FC inventory (FBA)")
+
+    # --- Approach 2: Planning report for Canada (has age columns) ---
+    print("  Fetching FBA Inventory Planning Data for Canada...")
+    content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
+    if content is not None:
+        reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+        fieldnames = reader.fieldnames or []
+        sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+        age_columns = [
+            "inv-age-0-to-90-days", "inv-age-91-to-180-days",
+            "inv-age-181-to-270-days", "inv-age-271-to-365-days",
+            "inv-age-365-plus-days",
+        ]
+        planning_fba = 0
+        for row in reader:
+            sku = row.get(sku_col, "").strip()
+            if not sku:
+                continue
+            has_aged = any(
+                int(row.get(col, "0").strip() or "0") > 0
+                for col in age_columns
+            )
+            if has_aged and sku not in fba_skus:
+                fba_skus.add(sku)
+                planning_fba += 1
+        print(f"  Planning report added {planning_fba} additional FBA SKUs")
+
+    if not fba_skus and content is None:
+        print("  WARNING: All reports failed — cannot classify FBA vs NARF")
         return None
 
-    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-    fieldnames = reader.fieldnames or []
-    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
-
-    # Collect all SKUs that have inventory in US fulfillment centers
-    us_fc_skus = set()
-    for row in reader:
-        sku = row.get(sku_col, "").strip()
-        if sku:
-            us_fc_skus.add(sku)
-
-    print(f"  US aged report contains {len(us_fc_skus)} SKUs with US FC inventory")
-    return us_fc_skus
+    print(f"  Total FBA SKUs identified: {len(fba_skus)}")
+    return fba_skus
 
 
 def get_fba_inventory(access_token):
@@ -508,12 +554,12 @@ def main():
     buy_box_map = check_buy_box(access_token, inventory)
 
     print("\n[4/7] Classifying FBA vs NARF...")
-    us_fc_skus = get_fulfillment_types(access_token)
-    # us_fc_skus = set of SKUs with US FC inventory (NARF)
-    # SKUs NOT in this set = FBA (Canadian FC inventory)
-    if us_fc_skus is not None:
-        fba = sum(1 for item in inventory if item["sku"] not in us_fc_skus)
-        narf = sum(1 for item in inventory if item["sku"] in us_fc_skus)
+    fba_skus = get_fulfillment_types(access_token)
+    # fba_skus = set of SKUs with Canadian FC inventory (FBA)
+    # SKUs NOT in this set = NARF
+    if fba_skus is not None:
+        fba = sum(1 for item in inventory if item["sku"] in fba_skus)
+        narf = len(inventory) - fba
         print(f"  Canada inventory: {fba} FBA, {narf} NARF (out of {len(inventory)})")
 
     print("\n[5/7] Loading product cost data...")
@@ -559,7 +605,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": ("NARF" if item["sku"] in us_fc_skus else "FBA") if us_fc_skus is not None else "Unknown",
+            "fulfillment_type": ("FBA" if item["sku"] in fba_skus else "NARF") if fba_skus is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
