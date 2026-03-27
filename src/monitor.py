@@ -387,17 +387,22 @@ def check_buy_box(access_token, items):
             offers = body.get("payload", {}).get("Offers", [])
             our_offer = next((o for o in offers if o.get("SellerId") == MY_SELLER_ID), None)
 
-            # Extract our listing price
+            # Extract our listing price and landed price
             price_source = our_offer
             winner = next((o for o in offers if o.get("IsBuyBoxWinner")), None)
             if not price_source and winner and winner.get("SellerId") == MY_SELLER_ID:
                 price_source = winner
             our_msrp = ""
+            our_landed = ""
             if price_source:
                 lp = price_source.get("ListingPrice", {}).get("Amount")
+                sp = price_source.get("Shipping", {}).get("Amount")
                 if lp is not None:
                     our_msrp = f"${float(lp):.2f}"
                     asin_msrp[item["asin"]] = our_msrp
+                    # Landed price = listing price + shipping/import fees
+                    landed = float(lp) + (float(sp) if sp else 0)
+                    our_landed = f"${landed:.2f}"
 
             we_have_it = (
                 (our_offer and our_offer.get("IsBuyBoxWinner") is True) or
@@ -405,7 +410,7 @@ def check_buy_box(access_token, items):
             )
 
             if we_have_it:
-                result[sku] = {"has_buy_box": True, "our_msrp": our_msrp}
+                result[sku] = {"has_buy_box": True, "our_msrp": our_msrp, "our_landed": our_landed}
             else:
                 winner_id     = winner.get("SellerId", "Unknown") if winner else None
                 winner_seller = get_seller_name(winner_id) if winner_id else "No winner"
@@ -420,6 +425,7 @@ def check_buy_box(access_token, items):
                 result[sku] = {
                     "has_buy_box":    False,
                     "our_msrp":       our_msrp,
+                    "our_landed":     our_landed,
                     "winner_seller":  winner_seller,
                     "winner_url":     winner_url,
                     "winner_price":   winner_price,
@@ -580,16 +586,24 @@ def main():
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
         cost_data = product_costs.get(item["asin"])
+        ft = ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown"
+        our_msrp = info.get("our_msrp", "")
+        our_landed = info.get("our_landed", "")
+        # For FBA: landed price = MSRP (no extra fees)
+        # For NARF: landed price = MSRP + shipping/import fees (from SP-API)
+        if ft == "FBA":
+            our_landed = our_msrp
         product = {
             "sku":              item["sku"],
             "asin":             item["asin"],
             "name":             item["name"],
             "stock":            item["stock"],
-            "our_msrp":         info.get("our_msrp", ""),
+            "our_msrp":         our_msrp,
+            "our_landed":       our_landed,
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown",
+            "fulfillment_type": ft,
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
