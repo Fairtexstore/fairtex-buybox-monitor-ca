@@ -169,64 +169,55 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify Canada SKUs as FBA or NARF using the unsuppressed inventory report.
+    """Classify Canada inventory as FBA or NARF using the planning report's
+    age bucket data — the same 'FBA inventory age by days' visible on each
+    product's Seller Central page.
 
-    Uses GET_FBA_MYI_UNSUPPRESSED_INVENTORY_DATA for Canada marketplace.
-    This report has afn-warehouse-quantity which shows physical warehouse
-    stock in the marketplace's country:
-    - afn-warehouse-quantity > 0 → inventory in Canadian warehouses → FBA
-    - afn-warehouse-quantity = 0 → no Canadian warehouse stock → NARF
+    Uses GET_FBA_INVENTORY_PLANNING_DATA for Canada marketplace.
+    Matches by ASIN (not SKU) because SKU formatting differs between the
+    report and the inventory API.
 
-    Returns a set of FBA SKUs, or None if report failed.
+    - Any age bucket > 0 → FBA (inventory in Canadian FCs)
+    - All age buckets = 0 or not in report → NARF
+
+    Returns a set of FBA ASINs, or None if report failed.
     """
     headers = sp_api_headers(access_token)
-    fba_skus = set()
 
-    print("  Fetching FBA Unsuppressed Inventory report for Canada...")
-    content = _request_report(headers, "GET_FBA_MYI_UNSUPPRESSED_INVENTORY_DATA", MARKETPLACE_ID)
+    print("  Fetching FBA Inventory Planning Data for Canada...")
+    content = _request_report(headers, "GET_FBA_INVENTORY_PLANNING_DATA", MARKETPLACE_ID)
     if content is None:
         print("  WARNING: Report failed — cannot classify FBA vs NARF")
         return None
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
     fieldnames = reader.fieldnames or []
-    print(f"  Columns: {fieldnames}")
 
-    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
+    age_columns = [
+        "inv-age-0-to-90-days", "inv-age-91-to-180-days",
+        "inv-age-181-to-270-days", "inv-age-271-to-365-days",
+        "inv-age-365-plus-days",
+    ]
 
-    # Log data for known FBA ASINs to verify which columns distinguish FBA/NARF
-    debug_asins = {"B00O1S1HUE", "B00O1S1OFW", "B00PM9XRZ4", "B07B2Z8P7S"}
+    fba_asins = set()
     total_rows = 0
-    warehouse_fba = 0
 
     for row in reader:
-        sku = row.get(sku_col, "").strip()
         asin = row.get("asin", "").strip()
-        if not sku:
+        if not asin:
             continue
         total_rows += 1
 
-        # Log all fields for known FBA ASINs for debugging
-        if asin in debug_asins:
-            print(f"  DEBUG {asin} ({sku}):")
-            for col in fieldnames:
-                print(f"    {col}: {row.get(col, 'N/A')}")
+        has_aged = any(
+            int(row.get(col, "0").strip() or "0") > 0
+            for col in age_columns
+        )
+        if has_aged:
+            fba_asins.add(asin)
 
-        # Check afn-warehouse-quantity (physical warehouse stock)
-        wh_qty_str = row.get("afn-warehouse-quantity", "0").strip()
-        try:
-            wh_qty = int(wh_qty_str)
-        except ValueError:
-            wh_qty = 0
-
-        if wh_qty > 0:
-            fba_skus.add(sku)
-            warehouse_fba += 1
-
-    print(f"  Report had {total_rows} SKUs")
-    print(f"  {warehouse_fba} with warehouse qty > 0 (FBA)")
-    print(f"  {total_rows - warehouse_fba} with warehouse qty = 0 (NARF)")
-    return fba_skus
+    print(f"  Report had {total_rows} rows, {len(fba_asins)} ASINs with age > 0 (FBA)")
+    print(f"  Items not in report → NARF (no Canadian FC inventory)")
+    return fba_asins
 
 
 def get_fba_inventory(access_token):
@@ -533,11 +524,11 @@ def main():
     buy_box_map = check_buy_box(access_token, inventory)
 
     print("\n[4/7] Classifying FBA vs NARF...")
-    fba_skus = get_fulfillment_types(access_token)
-    # fba_skus = set of SKUs with Canadian FC inventory (FBA)
-    # SKUs NOT in this set = NARF
-    if fba_skus is not None:
-        fba = sum(1 for item in inventory if item["sku"] in fba_skus)
+    fba_asins = get_fulfillment_types(access_token)
+    # fba_asins = set of ASINs with Canadian FC inventory (FBA)
+    # ASINs NOT in this set = NARF
+    if fba_asins is not None:
+        fba = sum(1 for item in inventory if item["asin"] in fba_asins)
         narf = len(inventory) - fba
         print(f"  Canada inventory: {fba} FBA, {narf} NARF (out of {len(inventory)})")
 
@@ -584,7 +575,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": ("FBA" if item["sku"] in fba_skus else "NARF") if fba_skus is not None else "Unknown",
+            "fulfillment_type": ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
