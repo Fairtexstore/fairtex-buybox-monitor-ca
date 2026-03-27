@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 LWA_TOKEN_URL  = "https://api.amazon.com/auth/o2/token"
 MARKETPLACE_ID = os.environ.get("AMAZON_MARKETPLACE_ID", "A2EUQ1WTGCTBG2")
+US_MARKETPLACE = "ATVPDKIKX0DER"
 SP_API_BASE    = "https://sellingpartnerapi-na.amazon.com"
 SLACK_CHANNEL  = "C0AMDJ91151"
 MY_SELLER_ID   = "A1LC1HJLF7IAWT"
@@ -168,70 +169,39 @@ def _request_report(headers, report_type, marketplace_id):
 
 
 def get_fulfillment_types(access_token):
-    """Classify SKUs as FBA or NARF using GET_AFN_INVENTORY_DATA_BY_COUNTRY.
+    """Classify Canada SKUs as FBA or NARF using the US aged inventory report.
 
-    This report shows inventory quantity per country for each SKU:
-    - SKU with country=CA and quantity > 0 → FBA (physically in Canadian FCs)
-    - SKU with only country=US → NARF (remote fulfillment from US FCs)
+    GET_FBA_INVENTORY_AGED_DATA returns FATAL for Canada marketplace, but
+    works for US. Since NARF items are stored in US fulfillment centers:
 
-    This runs dynamically each time since FBA/NARF status changes based on
-    whether there is current stock in Canadian fulfillment centers.
+    - SKU in US aged report (has US FC inventory) → NARF
+    - SKU NOT in US aged report (no US FC inventory) → FBA (must be in Canadian FCs)
+
+    This matches the Seller Central 'FBA inventory age by days' check:
+    - FBA items have age > 0 on the Canada product page (Canadian FC stock)
+    - NARF items have age = 0 on the Canada page (stock is in US FCs instead)
     """
     headers = sp_api_headers(access_token)
-    print("  Fetching AFN Inventory by Country report...")
+    print("  Fetching US FBA Inventory Aged Data to identify NARF items...")
 
-    content = _request_report(headers, "GET_AFN_INVENTORY_DATA_BY_COUNTRY", MARKETPLACE_ID)
+    content = _request_report(headers, "GET_FBA_INVENTORY_AGED_DATA", US_MARKETPLACE)
     if content is None:
-        print("  WARNING: Report failed — cannot classify FBA vs NARF")
+        print("  WARNING: US aged report failed — cannot classify FBA vs NARF")
         return None
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
     fieldnames = reader.fieldnames or []
-    print(f"  Columns: {fieldnames}")
+    sku_col = "sku" if "sku" in fieldnames else "seller-sku"
 
-    sku_col = "seller-sku" if "seller-sku" in fieldnames else "sku"
-    # Find the quantity column dynamically
-    qty_col = next((c for c in fieldnames if "quantity" in c.lower()), None)
-    if not qty_col:
-        print("  ERROR: No quantity column found in report")
-        return None
-    print(f"  Using quantity column: {qty_col}")
-
-    # Build map: {sku: set of countries where qty > 0}
-    sku_countries = {}
-    total_rows = 0
+    # Collect all SKUs that have inventory in US fulfillment centers
+    us_fc_skus = set()
     for row in reader:
         sku = row.get(sku_col, "").strip()
-        country = row.get("country", "").strip().upper()
-        qty_str = row.get(qty_col, "0").strip()
-        if not sku:
-            continue
-        total_rows += 1
-        try:
-            qty = int(qty_str)
-        except ValueError:
-            qty = 0
-        if qty > 0:
-            if sku not in sku_countries:
-                sku_countries[sku] = set()
-            sku_countries[sku].add(country)
+        if sku:
+            us_fc_skus.add(sku)
 
-    print(f"  Report had {total_rows} rows")
-
-    # Classify: CA inventory = FBA, US only = NARF
-    fulfillment_types = {}
-    fba_count = 0
-    narf_count = 0
-    for sku, countries in sku_countries.items():
-        if "CA" in countries:
-            fulfillment_types[sku] = "FBA"
-            fba_count += 1
-        else:
-            fulfillment_types[sku] = "NARF"
-            narf_count += 1
-
-    print(f"  Classified: {fba_count} FBA (CA inventory), {narf_count} NARF (US only)")
-    return fulfillment_types
+    print(f"  US aged report contains {len(us_fc_skus)} SKUs with US FC inventory")
+    return us_fc_skus
 
 
 def get_fba_inventory(access_token):
@@ -538,7 +508,13 @@ def main():
     buy_box_map = check_buy_box(access_token, inventory)
 
     print("\n[4/7] Classifying FBA vs NARF...")
-    fulfillment_types = get_fulfillment_types(access_token)
+    us_fc_skus = get_fulfillment_types(access_token)
+    # us_fc_skus = set of SKUs with US FC inventory (NARF)
+    # SKUs NOT in this set = FBA (Canadian FC inventory)
+    if us_fc_skus is not None:
+        fba = sum(1 for item in inventory if item["sku"] not in us_fc_skus)
+        narf = sum(1 for item in inventory if item["sku"] in us_fc_skus)
+        print(f"  Canada inventory: {fba} FBA, {narf} NARF (out of {len(inventory)})")
 
     print("\n[5/7] Loading product cost data...")
     product_costs = load_product_costs()
@@ -583,7 +559,7 @@ def main():
             "has_buy_box":      info.get("has_buy_box", True),
             "total_cost":       cost_data["total_cost"] if cost_data else None,
             "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
-            "fulfillment_type": fulfillment_types.get(item["sku"], "NARF") if fulfillment_types else "Unknown",
+            "fulfillment_type": ("NARF" if item["sku"] in us_fc_skus else "FBA") if us_fc_skus is not None else "Unknown",
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
