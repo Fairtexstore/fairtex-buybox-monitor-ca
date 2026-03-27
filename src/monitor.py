@@ -199,24 +199,38 @@ def get_fulfillment_types(access_token):
         "inv-age-365-plus-days",
     ]
 
+    # Known FBA ASINs to verify report accuracy
+    verify_asins = {"B00O1S1HUE", "B00O1S1OFW", "B00PM9XRZ4", "B07B2Z8P7S"}
+
     fba_asins = set()
+    all_report_asins = set()
     total_rows = 0
 
     for row in reader:
         asin = row.get("asin", "").strip()
+        sku = row.get("sku", row.get("seller-sku", "")).strip()
         if not asin:
             continue
         total_rows += 1
+        all_report_asins.add(asin)
 
-        has_aged = any(
-            int(row.get(col, "0").strip() or "0") > 0
-            for col in age_columns
-        )
+        age_vals = {col: row.get(col, "0").strip() for col in age_columns}
+        has_aged = any(int(v or "0") > 0 for v in age_vals.values())
+
+        if asin in verify_asins:
+            print(f"  VERIFY {asin} (SKU={sku}): age={age_vals}, FBA={has_aged}")
+
         if has_aged:
             fba_asins.add(asin)
 
-    print(f"  Report had {total_rows} rows, {len(fba_asins)} ASINs with age > 0 (FBA)")
-    print(f"  Items not in report → NARF (no Canadian FC inventory)")
+    # Check if known FBA ASINs are even in the report
+    for va in verify_asins:
+        if va not in all_report_asins:
+            print(f"  MISSING: {va} is NOT in the planning report at all")
+
+    print(f"  Report had {total_rows} rows, {len(all_report_asins)} unique ASINs")
+    print(f"  {len(fba_asins)} ASINs with age > 0 (FBA)")
+    print(f"  FBA ASINs: {sorted(fba_asins)}")
     return fba_asins
 
 
