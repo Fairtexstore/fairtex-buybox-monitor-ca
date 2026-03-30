@@ -55,7 +55,9 @@ def get_seller_name(seller_id):
 
 
 def load_product_costs():
-    """Load product cost data from product_costs.csv. Returns dict keyed by ASIN."""
+    """Load product cost data from product_costs.csv. Returns dict keyed by ASIN.
+    Each entry has fba_cost and narf_cost; caller selects the right one based on fulfillment type.
+    """
     path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "product_costs.csv")
     costs = {}
     try:
@@ -65,17 +67,16 @@ def load_product_costs():
                 asin = row.get("ASIN", "").strip()
                 if not asin:
                     continue
-                total_cost_str = row.get("Total_Cost", "").strip().replace("$", "").replace(",", "")
-                lowest_msrp_str = row.get("Lowest_MSRP_20pct_Profit", "").strip().replace("$", "").replace(",", "")
-                try:
-                    total_cost = float(total_cost_str) if total_cost_str else None
-                except ValueError:
-                    total_cost = None
-                try:
-                    lowest_msrp = float(lowest_msrp_str) if lowest_msrp_str else None
-                except ValueError:
-                    lowest_msrp = None
-                costs[asin] = {"total_cost": total_cost, "lowest_msrp": lowest_msrp}
+                def _parse(val):
+                    v = (val or "").strip().replace("$", "").replace(",", "")
+                    try:
+                        return float(v) if v else None
+                    except ValueError:
+                        return None
+                costs[asin] = {
+                    "fba_cost":  _parse(row.get("FBA_Cost")),
+                    "narf_cost": _parse(row.get("NARF_Cost")),
+                }
         print(f"  Loaded cost data for {len(costs)} ASINs")
     except FileNotFoundError:
         print("  product_costs.csv not found - skipping cost data")
@@ -559,15 +560,18 @@ def main():
     flagged = []
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
+        ft = ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown"
         if not info.get("has_buy_box"):
             item["winner_seller"] = info.get("winner_seller", "Unknown")
             item["winner_url"]    = info.get("winner_url", "")
             item["winner_price"]  = info.get("winner_price", "")
             cost_data = product_costs.get(item["asin"])
             if cost_data:
-                item["total_cost"]  = cost_data["total_cost"]
-                item["lowest_msrp"] = cost_data["lowest_msrp"]
-                item["recommendation"] = compute_recommendation(item["winner_price"], cost_data["lowest_msrp"])
+                total_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
+                lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
+                item["total_cost"]     = total_cost
+                item["lowest_msrp"]    = lowest_msrp
+                item["recommendation"] = compute_recommendation(item["winner_price"], lowest_msrp)
             else:
                 item["total_cost"]     = None
                 item["lowest_msrp"]    = None
@@ -600,6 +604,13 @@ def main():
                 our_landed = f"${landed_val_with_import:.2f}"
             except ValueError:
                 pass
+        # Select cost based on fulfillment type, calculate min MSRP at 15% profit
+        total_cost = None
+        lowest_msrp = None
+        if cost_data:
+            total_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
+            if total_cost is not None:
+                lowest_msrp = round(total_cost / 0.85, 2)
         product = {
             "sku":              item["sku"],
             "asin":             item["asin"],
@@ -608,8 +619,8 @@ def main():
             "our_msrp":         our_msrp,
             "our_landed":       our_landed,
             "has_buy_box":      info.get("has_buy_box", True),
-            "total_cost":       cost_data["total_cost"] if cost_data else None,
-            "lowest_msrp":      cost_data["lowest_msrp"] if cost_data else None,
+            "total_cost":       total_cost,
+            "lowest_msrp":      lowest_msrp,
             "fulfillment_type": ft,
         }
         if not product["has_buy_box"]:
