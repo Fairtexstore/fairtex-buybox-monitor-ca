@@ -526,15 +526,15 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 def get_fee_estimates(access_token):
-    """Fetch per-ASIN referral fee and fulfillment fee via the
-    GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA report.
+    """Fetch per-ASIN referral fee, fulfillment fee, and CAD listing price via
+    the GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA report.
 
-    This report returns the actual fees Amazon would charge for each product
-    based on its current fulfillment type — so NARF products get the Remote
-    Fulfillment with FBA fee, FBA products get the standard FBA fee.
-    Fees update automatically when a product switches between FBA and NARF.
+    This report is generated for the Canada marketplace so all values
+    (your-price, fees) are in CAD — the same currency as our cost data.
+    The your-price field gives us the authoritative CAD MSRP, which fixes
+    the issue where the listing offers API returns prices in USD.
 
-    Returns dict: asin -> {referral_fee, fulfillment_fee}
+    Returns dict: asin -> {referral_fee, fulfillment_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
 
@@ -546,7 +546,7 @@ def get_fee_estimates(access_token):
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
     fieldnames = reader.fieldnames or []
-    print(f"  Fee report columns: {fieldnames[:10]}")
+    print(f"  Fee report columns: {fieldnames}")
 
     fee_map = {}
     total_rows = 0
@@ -566,16 +566,17 @@ def get_fee_estimates(access_token):
 
         referral    = _parse_fee(row.get("estimated-referral-fee-per-unit"))
         fulfillment = _parse_fee(row.get("expected-fulfillment-fee-per-unit"))
+        cad_price   = _parse_fee(row.get("your-price"))
 
         fee_map[asin] = {
             "referral_fee":    round(referral, 4),
             "fulfillment_fee": round(fulfillment, 4),
+            "cad_price":       round(cad_price, 2) if cad_price > 0 else None,
         }
 
         # Log a few samples for verification
-        if sample_logged < 3:
-            price = row.get("your-price", "?")
-            print(f"  Sample: {asin} price={price} referral={referral} fulfillment={fulfillment}")
+        if sample_logged < 5:
+            print(f"  Sample: {asin} CAD_price={cad_price} referral={referral} fulfillment={fulfillment}")
             sample_logged += 1
 
     print(f"  Fee report: {total_rows} rows, {len(fee_map)} unique ASINs with fees")
@@ -631,6 +632,49 @@ def main():
         fulfillment_fee = fees.get("fulfillment_fee", 0) or 0
         return round(product_cost + referral_fee + fulfillment_fee, 4)
 
+    # Derive USD→CAD conversion rate from fee report CAD prices vs SP-API prices.
+    # The listing offers API returns USD; the fee report returns CAD.
+    usd_to_cad_rates = []
+    for item in inventory:
+        asin = item["asin"]
+        info = buy_box_map.get(item["sku"], {})
+        api_msrp_str = info.get("our_msrp", "")
+        fee_data = fee_estimates.get(asin, {})
+        cad_price = fee_data.get("cad_price")
+        if api_msrp_str and cad_price:
+            try:
+                api_price = float(api_msrp_str.replace("$", "").replace(",", ""))
+                if api_price > 0:
+                    rate = cad_price / api_price
+                    if 1.0 < rate < 2.0:  # sanity check
+                        usd_to_cad_rates.append(rate)
+            except (ValueError, ZeroDivisionError):
+                pass
+    if usd_to_cad_rates:
+        usd_to_cad = round(sum(usd_to_cad_rates) / len(usd_to_cad_rates), 6)
+        print(f"  USD→CAD rate derived from {len(usd_to_cad_rates)} ASINs: {usd_to_cad}")
+    else:
+        usd_to_cad = 1.0  # fallback: assume already CAD
+        print("  WARNING: Could not derive USD→CAD rate, assuming 1.0")
+
+    def _to_cad(usd_str):
+        """Convert a USD price string like '$227.47' to CAD string."""
+        if not usd_str:
+            return ""
+        try:
+            val = float(usd_str.replace("$", "").replace(",", ""))
+            return f"${val * usd_to_cad:.2f}"
+        except ValueError:
+            return usd_str
+
+    def _get_cad_msrp(asin, info):
+        """Get the CAD MSRP — prefer fee report price, fall back to converted SP-API price."""
+        fee_data = fee_estimates.get(asin, {})
+        cad_price = fee_data.get("cad_price")
+        if cad_price:
+            return f"${cad_price:.2f}"
+        return _to_cad(info.get("our_msrp", ""))
+
     print("\n[7/8] Flagging and alerting...")
     flagged = []
     for item in inventory:
@@ -639,7 +683,7 @@ def main():
         if not info.get("has_buy_box"):
             item["winner_seller"] = info.get("winner_seller", "Unknown")
             item["winner_url"]    = info.get("winner_url", "")
-            item["winner_price"]  = info.get("winner_price", "")
+            item["winner_price"]  = _to_cad(info.get("winner_price", ""))
             total_cost = _build_total_cost(item["asin"], ft, product_costs.get(item["asin"]))
             lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
             item["total_cost"]     = total_cost
@@ -660,17 +704,15 @@ def main():
         info = buy_box_map.get(item["sku"], {})
         cost_data = product_costs.get(item["asin"])
         ft = ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown"
-        our_msrp = info.get("our_msrp", "")
-        our_landed = info.get("our_landed", "")
+        # Use CAD MSRP from fee report (authoritative) instead of USD from SP-API
+        our_msrp = _get_cad_msrp(item["asin"], info)
+        our_landed = our_msrp  # default
         # For FBA: landed price = MSRP (no extra fees)
-        # For NARF: landed price = listing price + shipping + 14% import fees
-        if ft == "FBA":
-            our_landed = our_msrp
-        elif ft == "NARF" and our_landed:
+        # For NARF: landed price = MSRP + 14% import fees
+        if ft == "NARF" and our_msrp:
             try:
-                landed_val = float(our_landed.replace("$", "").replace(",", ""))
-                landed_val_with_import = landed_val * (1 + NARF_IMPORT_FEE_RATE)
-                our_landed = f"${landed_val_with_import:.2f}"
+                msrp_val = float(our_msrp.replace("$", "").replace(",", ""))
+                our_landed = f"${msrp_val * (1 + NARF_IMPORT_FEE_RATE):.2f}"
             except ValueError:
                 pass
         # Total cost = product cost + referral fee + fulfillment fee (FBA or NARF)
@@ -691,7 +733,7 @@ def main():
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
             product["winner_url"]     = info.get("winner_url", "")
-            product["winner_price"]   = info.get("winner_price", "")
+            product["winner_price"]   = _to_cad(info.get("winner_price", ""))
             product["recommendation"] = compute_recommendation(
                 product.get("winner_price", ""),
                 product.get("lowest_msrp")
