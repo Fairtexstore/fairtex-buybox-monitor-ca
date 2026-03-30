@@ -17,6 +17,27 @@ MY_SELLER_ID   = "A1LC1HJLF7IAWT"
 NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orders
 
 
+def get_usd_to_cad_rate():
+    """Fetch live USD→CAD exchange rate. The SP-API returns prices in USD
+    for cross-border sellers on the Canada marketplace, but all our cost
+    data and the dashboard should be in CAD.
+    """
+    for api_url in [
+        "https://open.er-api.com/v6/latest/USD",
+        "https://api.exchangerate-api.com/v4/latest/USD",
+    ]:
+        try:
+            resp = requests.get(api_url, timeout=10)
+            if resp.status_code == 200:
+                rate = resp.json().get("rates", {}).get("CAD")
+                if rate and 1.1 < rate < 2.0:
+                    return round(rate, 6)
+        except Exception:
+            continue
+    print("  WARNING: Could not fetch USD→CAD rate from any API")
+    return None
+
+
 def get_lwa_access_token():
     resp = requests.post(LWA_TOKEN_URL, data={
         "grant_type":    "refresh_token",
@@ -571,14 +592,16 @@ def _get_fees_from_report(headers):
     return fee_map
 
 
-def _get_fees_per_asin(headers, items, buy_box_map):
+def _get_fees_per_asin(headers, items, buy_box_map, usd_cad_rate=1.0):
     """Fallback: call the per-ASIN fee estimate endpoint individually.
     Slower but more reliable than the report approach.
+    Converts SP-API USD prices to CAD before sending to the fees endpoint
+    so referral fees are calculated on the correct CAD amount.
     """
     url_base = f"{SP_API_BASE}/products/fees/v0/items"
     fee_map = {}
 
-    # Get unique ASINs with prices
+    # Get unique ASINs with prices, convert to CAD
     asin_price = {}
     for item in items:
         asin = item["asin"]
@@ -586,10 +609,10 @@ def _get_fees_per_asin(headers, items, buy_box_map):
             info = buy_box_map.get(item["sku"], {})
             msrp_str = info.get("our_msrp", "")
             try:
-                price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+                usd_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
             except (ValueError, AttributeError):
-                price = 50.0
-            asin_price[asin] = price
+                usd_price = 50.0
+            asin_price[asin] = round(usd_price * usd_cad_rate, 2)
 
     asins = list(asin_price.keys())
     total = len(asins)
@@ -663,12 +686,21 @@ def get_fee_estimates(access_token, items=None, buy_box_map=None):
     """Fetch per-ASIN referral fee, fulfillment fee, and CAD listing price.
 
     Strategy:
-    1. Try the fee report (fast, one call for all ASINs, returns CAD prices)
-    2. If report fails or is empty, fall back to per-ASIN fee endpoint
+    1. Fetch live USD→CAD exchange rate
+    2. Try the fee report (fast, one call for all ASINs, returns CAD prices)
+    3. If report fails or is empty, fall back to per-ASIN fee endpoint with CAD prices
 
-    Returns dict: asin -> {referral_fee, fulfillment_fee, cad_price}
+    Returns (fee_map, usd_cad_rate) where fee_map: asin -> {referral_fee, fulfillment_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
+
+    # Get live exchange rate — SP-API returns USD, we need CAD
+    usd_cad_rate = get_usd_to_cad_rate()
+    if usd_cad_rate:
+        print(f"  USD→CAD exchange rate: {usd_cad_rate}")
+    else:
+        usd_cad_rate = 1.0
+        print("  WARNING: Using 1.0 as USD→CAD rate (API unavailable)")
 
     # Try report first
     fee_map = _get_fees_from_report(headers)
@@ -680,11 +712,11 @@ def get_fee_estimates(access_token, items=None, buy_box_map=None):
     if not has_fees:
         print("  Fee report returned no fee data — falling back to per-ASIN endpoint")
         if items and buy_box_map:
-            fee_map = _get_fees_per_asin(headers, items, buy_box_map)
+            fee_map = _get_fees_per_asin(headers, items, buy_box_map, usd_cad_rate)
         else:
             print("  WARNING: No items/buy_box_map for fallback — fees will be 0")
 
-    return fee_map
+    return fee_map, usd_cad_rate
 
 
 def main():
@@ -719,7 +751,7 @@ def main():
     product_costs = load_product_costs()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
+    fee_estimates, usd_cad_rate = get_fee_estimates(access_token, inventory, buy_box_map)
 
     def _build_total_cost(asin, ft, cost_data):
         """Combine product cost + referral fee + fulfillment fee for the given fulfillment type.
@@ -736,30 +768,8 @@ def main():
         fulfillment_fee = fees.get("fulfillment_fee", 0) or 0
         return round(product_cost + referral_fee + fulfillment_fee, 4)
 
-    # Derive USD→CAD conversion rate from fee report CAD prices vs SP-API prices.
-    # The listing offers API returns USD; the fee report returns CAD.
-    usd_to_cad_rates = []
-    for item in inventory:
-        asin = item["asin"]
-        info = buy_box_map.get(item["sku"], {})
-        api_msrp_str = info.get("our_msrp", "")
-        fee_data = fee_estimates.get(asin, {})
-        cad_price = fee_data.get("cad_price")
-        if api_msrp_str and cad_price:
-            try:
-                api_price = float(api_msrp_str.replace("$", "").replace(",", ""))
-                if api_price > 0:
-                    rate = cad_price / api_price
-                    if 1.0 < rate < 2.0:  # sanity check
-                        usd_to_cad_rates.append(rate)
-            except (ValueError, ZeroDivisionError):
-                pass
-    if usd_to_cad_rates:
-        usd_to_cad = round(sum(usd_to_cad_rates) / len(usd_to_cad_rates), 6)
-        print(f"  USD→CAD rate derived from {len(usd_to_cad_rates)} ASINs: {usd_to_cad}")
-    else:
-        usd_to_cad = 1.0  # fallback: assume already CAD
-        print("  WARNING: Could not derive USD→CAD rate, assuming 1.0")
+    # Convert USD prices from SP-API to CAD using the live exchange rate.
+    print(f"  Applying USD→CAD rate: {usd_cad_rate}")
 
     def _to_cad(usd_str):
         """Convert a USD price string like '$227.47' to CAD string."""
@@ -767,7 +777,7 @@ def main():
             return ""
         try:
             val = float(usd_str.replace("$", "").replace(",", ""))
-            return f"${val * usd_to_cad:.2f}"
+            return f"${val * usd_cad_rate:.2f}"
         except ValueError:
             return usd_str
 
