@@ -231,7 +231,6 @@ def get_fulfillment_types(access_token):
 
     print(f"  Report had {total_rows} rows, {len(all_report_asins)} unique ASINs")
     print(f"  {len(fba_asins)} ASINs with age > 0 (FBA)")
-    print(f"  FBA ASINs: {sorted(fba_asins)}")
     return fba_asins
 
 
@@ -529,11 +528,11 @@ def main():
     print("=== Amazon CA Buy Box Monitor ===")
     print(f"Time (UTC): {datetime.now(timezone.utc).isoformat()}")
 
-    print("\n[1/5] Fetching LWA access token...")
+    print("\n[1/7] Fetching LWA access token...")
     access_token = get_lwa_access_token()
     print("  OK")
 
-    print("\n[2/5] Fetching FBA inventory...")
+    print("\n[2/7] Fetching FBA inventory...")
     inventory = get_fba_inventory(access_token)
     print(f"  {len(inventory)} SKUs in stock.")
 
