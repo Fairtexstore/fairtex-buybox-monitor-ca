@@ -574,12 +574,17 @@ def get_fee_estimates(access_token, items, buy_box_map):
             narf_reqs.append({"IdType": "ASIN", "IdValue": asin,
                                "FeesEstimateRequest": {**base, "OptionalFulfillmentProgram": "FBA_EFN"}})
 
-        def _extract_fees(resp_json):
+        def _extract_fees(raw):
+            # Response is a direct array, not wrapped in {"payload": ...}
+            rows = raw if isinstance(raw, list) else raw.get("payload", raw)
             result = {}
-            for item in resp_json.get("payload", []):
+            for item in rows:
                 asin = item.get("IdValue", "")
                 res  = item.get("FeesEstimateResult", {})
                 if res.get("Status") != "Success":
+                    err = res.get("Error", {})
+                    if err and asin:
+                        print(f"    Fee error {asin}: {err.get('Message', '')[:100]}")
                     continue
                 fee_list = res.get("FeesEstimate", {}).get("FeeDetailList", [])
                 referral    = 0.0
@@ -590,41 +595,33 @@ def get_fee_estimates(access_token, items, buy_box_map):
                         referral += amt
                     elif f.get("FeeType") in ("FBAFees", "FulfillmentFee"):
                         fulfillment += amt
-                    # FBAFees may be a parent with sub-fees; also sum sub-fees
-                    for sub in f.get("FeePromotion", {}).values() if isinstance(f.get("FeePromotion"), dict) else []:
-                        pass  # ignore promotions for now
                 result[asin] = {"referral": round(referral, 4), "fulfillment": round(fulfillment, 4)}
             return result
 
-        # FBA_CORE call
-        resp = requests.post(url, headers=headers,
-                             json={"FeesEstimateByIdRequest": fba_reqs}, timeout=30)
-        if resp.status_code == 429:
-            time.sleep(30)
-            resp = requests.post(url, headers=headers,
-                                 json={"FeesEstimateByIdRequest": fba_reqs}, timeout=30)
-        if resp.status_code == 200:
-            for asin, fees in _extract_fees(resp.json()).items():
-                fee_map.setdefault(asin, {})
-                fee_map[asin]["referral_fee"] = fees["referral"]
-                fee_map[asin]["fba_fee"]      = fees["fulfillment"]
-        else:
-            print(f"  FBA_CORE fees error {resp.status_code}: {resp.text[:200]}")
+        def _post_fees(req_list, label):
+            # Request body is a plain array — NOT wrapped in any object key
+            r = requests.post(url, headers=headers, json=req_list, timeout=30)
+            if r.status_code == 429:
+                time.sleep(30)
+                r = requests.post(url, headers=headers, json=req_list, timeout=30)
+            if r.status_code != 200:
+                print(f"  {label} fees error {r.status_code}: {r.text[:300]}")
+                return {}
+            return _extract_fees(r.json())
+
+        # FBA_CORE call — gets referral fee + standard FBA fulfillment fee
+        for asin, fees in _post_fees(fba_reqs, "FBA_CORE").items():
+            fee_map.setdefault(asin, {})
+            fee_map[asin]["referral_fee"] = fees["referral"]
+            fee_map[asin]["fba_fee"]      = fees["fulfillment"]
 
         time.sleep(1)
 
-        # FBA_EFN call (NARF / Remote Fulfillment with FBA)
-        resp = requests.post(url, headers=headers,
-                             json={"FeesEstimateByIdRequest": narf_reqs}, timeout=30)
-        if resp.status_code == 429:
-            time.sleep(30)
-            resp = requests.post(url, headers=headers,
-                                 json={"FeesEstimateByIdRequest": narf_reqs}, timeout=30)
-        if resp.status_code == 200:
-            for asin, fees in _extract_fees(resp.json()).items():
-                fee_map.setdefault(asin, {})
-                fee_map[asin]["narf_fee"] = fees["fulfillment"]
-        else:
+        # FBA_EFN call — gets NARF (Remote Fulfillment with FBA) fulfillment fee
+        for asin, fees in _post_fees(narf_reqs, "FBA_EFN").items():
+            fee_map.setdefault(asin, {})
+            fee_map[asin]["narf_fee"] = fees["fulfillment"]
+        # Note: referral_fee is the same for FBA and NARF so we reuse the FBA_CORE value
             print(f"  FBA_EFN (NARF) fees error {resp.status_code}: {resp.text[:200]}")
 
         time.sleep(1)
