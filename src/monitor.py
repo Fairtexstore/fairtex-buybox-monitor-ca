@@ -525,15 +525,128 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
     )
 
 
+def get_fee_estimates(access_token, items, buy_box_map):
+    """Fetch referral fee, FBA fulfillment fee, and NARF (Remote Fulfillment with FBA)
+    fee per ASIN via the SP-API Product Fees endpoint.
+
+    Uses each product's current listing price so fees stay accurate as prices change.
+    Returns dict: asin -> {referral_fee, fba_fee, narf_fee}
+    """
+    headers = sp_api_headers(access_token)
+    url = f"{SP_API_BASE}/products/fees/v0/feesEstimate"
+
+    # Build asin -> current price map (use our MSRP from buy_box_map)
+    asin_price = {}
+    for item in items:
+        asin = item["asin"]
+        if asin not in asin_price:
+            info = buy_box_map.get(item["sku"], {})
+            msrp_str = info.get("our_msrp", "")
+            try:
+                price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+            except (ValueError, AttributeError):
+                price = 50.0
+            asin_price[asin] = price
+
+    fee_map = {}
+    asins = list(asin_price.keys())
+    batch_size = 10
+    total = len(asins)
+
+    for i in range(0, total, batch_size):
+        batch = asins[i:i + batch_size]
+
+        # Build requests for both FBA_CORE and FBA_EFN (NARF) in one pass
+        fba_reqs, narf_reqs = [], []
+        for asin in batch:
+            price = asin_price[asin]
+            base = {
+                "MarketplaceId": MARKETPLACE_ID,
+                "IsAmazonFulfilled": True,
+                "PriceToEstimateFees": {
+                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": price},
+                    "Shipping":     {"CurrencyCode": "CAD", "Amount": 0},
+                },
+                "Identifier": asin,
+            }
+            fba_reqs.append({"IdType": "ASIN", "IdValue": asin,
+                              "FeesEstimateRequest": {**base, "OptionalFulfillmentProgram": "FBA_CORE"}})
+            narf_reqs.append({"IdType": "ASIN", "IdValue": asin,
+                               "FeesEstimateRequest": {**base, "OptionalFulfillmentProgram": "FBA_EFN"}})
+
+        def _extract_fees(resp_json):
+            result = {}
+            for item in resp_json.get("payload", []):
+                asin = item.get("IdValue", "")
+                res  = item.get("FeesEstimateResult", {})
+                if res.get("Status") != "Success":
+                    continue
+                fee_list = res.get("FeesEstimate", {}).get("FeeDetailList", [])
+                referral    = 0.0
+                fulfillment = 0.0
+                for f in fee_list:
+                    amt = f.get("FeeAmount", {}).get("Amount", 0) or 0
+                    if f.get("FeeType") == "ReferralFee":
+                        referral += amt
+                    elif f.get("FeeType") in ("FBAFees", "FulfillmentFee"):
+                        fulfillment += amt
+                    # FBAFees may be a parent with sub-fees; also sum sub-fees
+                    for sub in f.get("FeePromotion", {}).values() if isinstance(f.get("FeePromotion"), dict) else []:
+                        pass  # ignore promotions for now
+                result[asin] = {"referral": round(referral, 4), "fulfillment": round(fulfillment, 4)}
+            return result
+
+        # FBA_CORE call
+        resp = requests.post(url, headers=headers,
+                             json={"FeesEstimateByIdRequest": fba_reqs}, timeout=30)
+        if resp.status_code == 429:
+            time.sleep(30)
+            resp = requests.post(url, headers=headers,
+                                 json={"FeesEstimateByIdRequest": fba_reqs}, timeout=30)
+        if resp.status_code == 200:
+            for asin, fees in _extract_fees(resp.json()).items():
+                fee_map.setdefault(asin, {})
+                fee_map[asin]["referral_fee"] = fees["referral"]
+                fee_map[asin]["fba_fee"]      = fees["fulfillment"]
+        else:
+            print(f"  FBA_CORE fees error {resp.status_code}: {resp.text[:200]}")
+
+        time.sleep(1)
+
+        # FBA_EFN call (NARF / Remote Fulfillment with FBA)
+        resp = requests.post(url, headers=headers,
+                             json={"FeesEstimateByIdRequest": narf_reqs}, timeout=30)
+        if resp.status_code == 429:
+            time.sleep(30)
+            resp = requests.post(url, headers=headers,
+                                 json={"FeesEstimateByIdRequest": narf_reqs}, timeout=30)
+        if resp.status_code == 200:
+            for asin, fees in _extract_fees(resp.json()).items():
+                fee_map.setdefault(asin, {})
+                fee_map[asin]["narf_fee"] = fees["fulfillment"]
+        else:
+            print(f"  FBA_EFN (NARF) fees error {resp.status_code}: {resp.text[:200]}")
+
+        time.sleep(1)
+
+        if (i + batch_size) % 50 < batch_size:
+            print(f"  Fees progress: {min(i + batch_size, total)}/{total} ASINs")
+
+    success = sum(1 for v in fee_map.values() if "fba_fee" in v)
+    narf_success = sum(1 for v in fee_map.values() if "narf_fee" in v)
+    print(f"  Fee estimates: {success} FBA, {narf_success} NARF retrieved out of {total} ASINs")
+    return fee_map
+
+
 def main():
     print("=== Amazon CA Buy Box Monitor ===")
     print(f"Time (UTC): {datetime.now(timezone.utc).isoformat()}")
 
-    print("\n[1/7] Fetching LWA access token...")
+    print("\n[1/8] Fetching LWA access token...")
     access_token = get_lwa_access_token()
     print("  OK")
 
-    print("\n[2/7] Fetching FBA inventory...")
+    print("\n[2/8] Fetching FBA inventory...")
     inventory = get_fba_inventory(access_token)
     print(f"  {len(inventory)} SKUs in stock.")
 
@@ -541,10 +654,10 @@ def main():
         send_slack_alert([], 0)
         return
 
-    print("\n[3/7] Checking buy box and prices per SKU...")
+    print("\n[3/8] Checking buy box and prices per SKU...")
     buy_box_map = check_buy_box(access_token, inventory)
 
-    print("\n[4/7] Classifying FBA vs NARF...")
+    print("\n[4/8] Classifying FBA vs NARF...")
     fba_asins = get_fulfillment_types(access_token)
     # fba_asins = set of ASINs with Canadian FC inventory (FBA)
     # ASINs NOT in this set = NARF
@@ -553,10 +666,25 @@ def main():
         narf = len(inventory) - fba
         print(f"  Canada inventory: {fba} FBA, {narf} NARF (out of {len(inventory)})")
 
-    print("\n[5/7] Loading product cost data...")
+    print("\n[5/8] Loading product cost data...")
     product_costs = load_product_costs()
 
-    print("\n[6/7] Flagging and alerting...")
+    print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
+    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
+
+    def _build_total_cost(asin, ft, cost_data):
+        """Combine product cost + referral fee + fulfillment fee for the given fulfillment type."""
+        if not cost_data:
+            return None
+        product_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
+        if product_cost is None:
+            return None
+        fees = fee_estimates.get(asin, {})
+        referral_fee    = fees.get("referral_fee", 0) or 0
+        fulfillment_fee = fees.get("fba_fee", 0) if ft == "FBA" else fees.get("narf_fee", 0) or fees.get("fba_fee", 0) or 0
+        return round(product_cost + referral_fee + fulfillment_fee, 4)
+
+    print("\n[7/8] Flagging and alerting...")
     flagged = []
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
@@ -565,17 +693,11 @@ def main():
             item["winner_seller"] = info.get("winner_seller", "Unknown")
             item["winner_url"]    = info.get("winner_url", "")
             item["winner_price"]  = info.get("winner_price", "")
-            cost_data = product_costs.get(item["asin"])
-            if cost_data:
-                total_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
-                lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
-                item["total_cost"]     = total_cost
-                item["lowest_msrp"]    = lowest_msrp
-                item["recommendation"] = compute_recommendation(item["winner_price"], lowest_msrp)
-            else:
-                item["total_cost"]     = None
-                item["lowest_msrp"]    = None
-                item["recommendation"] = ""
+            total_cost = _build_total_cost(item["asin"], ft, product_costs.get(item["asin"]))
+            lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
+            item["total_cost"]     = total_cost
+            item["lowest_msrp"]    = lowest_msrp
+            item["recommendation"] = compute_recommendation(item["winner_price"], lowest_msrp)
             flagged.append(item)
     print(f"  Flagged: {len(flagged)}")
     for p in flagged:
@@ -585,7 +707,7 @@ def main():
     send_slack_alert(flagged, len(inventory), "https://fairtex-buybox-monitor-ca.vercel.app/")
 
     # Save results to JSON for the Vercel dashboard
-    print("\n[7/7] Saving dashboard data...")
+    print("\n[8/8] Saving dashboard data...")
     all_products = []
     for item in inventory:
         info = buy_box_map.get(item["sku"], {})
@@ -604,13 +726,9 @@ def main():
                 our_landed = f"${landed_val_with_import:.2f}"
             except ValueError:
                 pass
-        # Select cost based on fulfillment type, calculate min MSRP at 15% profit
-        total_cost = None
-        lowest_msrp = None
-        if cost_data:
-            total_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
-            if total_cost is not None:
-                lowest_msrp = round(total_cost / 0.85, 2)
+        # Total cost = product cost + referral fee + fulfillment fee (FBA or NARF)
+        total_cost  = _build_total_cost(item["asin"], ft, cost_data)
+        lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
         product = {
             "sku":              item["sku"],
             "asin":             item["asin"],
