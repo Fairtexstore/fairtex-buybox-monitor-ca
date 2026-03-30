@@ -525,23 +525,12 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
     )
 
 
-def get_fee_estimates(access_token):
-    """Fetch per-ASIN referral fee, fulfillment fee, and CAD listing price via
-    the GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA report.
-
-    This report is generated for the Canada marketplace so all values
-    (your-price, fees) are in CAD — the same currency as our cost data.
-    The your-price field gives us the authoritative CAD MSRP, which fixes
-    the issue where the listing offers API returns prices in USD.
-
-    Returns dict: asin -> {referral_fee, fulfillment_fee, cad_price}
-    """
-    headers = sp_api_headers(access_token)
-
-    print("  Requesting FBA fee estimate report for Canada...")
+def _get_fees_from_report(headers):
+    """Try the fee report approach first. Returns fee_map or empty dict on failure."""
+    print("  Trying fee report (GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA)...")
     content = _request_report(headers, "GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA", MARKETPLACE_ID)
     if content is None:
-        print("  WARNING: Fee report failed — fees will not be included in cost")
+        print("  Fee report failed.")
         return {}
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
@@ -558,15 +547,15 @@ def get_fee_estimates(access_token):
             continue
         total_rows += 1
 
-        def _parse_fee(val):
+        def _parse(val):
             try:
                 return float((val or "0").strip()) if val and val.strip() else 0.0
             except ValueError:
                 return 0.0
 
-        referral    = _parse_fee(row.get("estimated-referral-fee-per-unit"))
-        fulfillment = _parse_fee(row.get("expected-fulfillment-fee-per-unit"))
-        cad_price   = _parse_fee(row.get("your-price"))
+        referral    = _parse(row.get("estimated-referral-fee-per-unit"))
+        fulfillment = _parse(row.get("expected-fulfillment-fee-per-unit"))
+        cad_price   = _parse(row.get("your-price"))
 
         fee_map[asin] = {
             "referral_fee":    round(referral, 4),
@@ -574,12 +563,127 @@ def get_fee_estimates(access_token):
             "cad_price":       round(cad_price, 2) if cad_price > 0 else None,
         }
 
-        # Log a few samples for verification
         if sample_logged < 5:
             print(f"  Sample: {asin} CAD_price={cad_price} referral={referral} fulfillment={fulfillment}")
             sample_logged += 1
 
-    print(f"  Fee report: {total_rows} rows, {len(fee_map)} unique ASINs with fees")
+    print(f"  Fee report: {total_rows} rows, {len(fee_map)} unique ASINs")
+    return fee_map
+
+
+def _get_fees_per_asin(headers, items, buy_box_map):
+    """Fallback: call the per-ASIN fee estimate endpoint individually.
+    Slower but more reliable than the report approach.
+    """
+    url_base = f"{SP_API_BASE}/products/fees/v0/items"
+    fee_map = {}
+
+    # Get unique ASINs with prices
+    asin_price = {}
+    for item in items:
+        asin = item["asin"]
+        if asin not in asin_price:
+            info = buy_box_map.get(item["sku"], {})
+            msrp_str = info.get("our_msrp", "")
+            try:
+                price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+            except (ValueError, AttributeError):
+                price = 50.0
+            asin_price[asin] = price
+
+    asins = list(asin_price.keys())
+    total = len(asins)
+    print(f"  Fetching fees for {total} ASINs via per-ASIN endpoint...")
+
+    for idx, asin in enumerate(asins):
+        price = asin_price[asin]
+        body = {
+            "FeesEstimateRequest": {
+                "MarketplaceId": MARKETPLACE_ID,
+                "IsAmazonFulfilled": True,
+                "PriceToEstimateFees": {
+                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": price},
+                },
+                "Identifier": asin,
+            }
+        }
+        try:
+            resp = requests.post(f"{url_base}/{asin}/feesEstimate",
+                                 headers=headers, json=body, timeout=30)
+            if resp.status_code == 429:
+                time.sleep(30)
+                resp = requests.post(f"{url_base}/{asin}/feesEstimate",
+                                     headers=headers, json=body, timeout=30)
+
+            if resp.status_code == 200:
+                payload = resp.json().get("payload", {})
+                res = payload.get("FeesEstimateResult", {})
+                if res.get("Status") == "Success":
+                    fee_list = res.get("FeesEstimate", {}).get("FeeDetailList", [])
+                    referral = 0.0
+                    fulfillment = 0.0
+                    for f in fee_list:
+                        amt = f.get("FeeAmount", {}).get("Amount", 0) or 0
+                        ft = f.get("FeeType", "")
+                        if ft == "ReferralFee":
+                            referral += float(amt)
+                        elif ft in ("FBAFees", "FulfillmentFee"):
+                            fulfillment += float(amt)
+                    # The response includes TotalFeesEstimate with CurrencyCode
+                    total_currency = res.get("FeesEstimate", {}).get(
+                        "TotalFeesEstimate", {}).get("CurrencyCode", "?")
+                    fee_map[asin] = {
+                        "referral_fee":    round(referral, 4),
+                        "fulfillment_fee": round(fulfillment, 4),
+                        "cad_price":       None,  # not available from this endpoint
+                        "currency":        total_currency,
+                    }
+                    if idx < 3:
+                        print(f"  Sample: {asin} referral={referral} fulfillment={fulfillment} currency={total_currency}")
+                else:
+                    err = res.get("Error", {})
+                    if idx < 3:
+                        print(f"  Fee error {asin}: {err.get('Message', '')[:100]}")
+            else:
+                if idx < 3:
+                    print(f"  HTTP {resp.status_code} for {asin}: {resp.text[:200]}")
+        except Exception as e:
+            if idx < 3:
+                print(f"  Exception for {asin}: {e}")
+
+        if (idx + 1) % 50 == 0:
+            print(f"  Fees progress: {idx + 1}/{total}")
+        time.sleep(0.5)
+
+    print(f"  Per-ASIN fees: {len(fee_map)} out of {total} ASINs")
+    return fee_map
+
+
+def get_fee_estimates(access_token, items=None, buy_box_map=None):
+    """Fetch per-ASIN referral fee, fulfillment fee, and CAD listing price.
+
+    Strategy:
+    1. Try the fee report (fast, one call for all ASINs, returns CAD prices)
+    2. If report fails or is empty, fall back to per-ASIN fee endpoint
+
+    Returns dict: asin -> {referral_fee, fulfillment_fee, cad_price}
+    """
+    headers = sp_api_headers(access_token)
+
+    # Try report first
+    fee_map = _get_fees_from_report(headers)
+
+    # Check if report actually returned meaningful data
+    has_fees = any(v.get("referral_fee", 0) > 0 or v.get("fulfillment_fee", 0) > 0
+                   for v in fee_map.values())
+
+    if not has_fees:
+        print("  Fee report returned no fee data — falling back to per-ASIN endpoint")
+        if items and buy_box_map:
+            fee_map = _get_fees_per_asin(headers, items, buy_box_map)
+        else:
+            print("  WARNING: No items/buy_box_map for fallback — fees will be 0")
+
     return fee_map
 
 
@@ -615,7 +719,7 @@ def main():
     product_costs = load_product_costs()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates = get_fee_estimates(access_token)
+    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
 
     def _build_total_cost(asin, ft, cost_data):
         """Combine product cost + referral fee + fulfillment fee for the given fulfillment type.
