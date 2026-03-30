@@ -525,113 +525,60 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
     )
 
 
-def get_fee_estimates(access_token, items, buy_box_map):
-    """Fetch referral fee, FBA fulfillment fee, and NARF (Remote Fulfillment with FBA)
-    fee per ASIN via the SP-API Product Fees endpoint.
+def get_fee_estimates(access_token):
+    """Fetch per-ASIN referral fee and fulfillment fee via the
+    GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA report.
 
-    Uses each product's current listing price so fees stay accurate as prices change.
-    Returns dict: asin -> {referral_fee, fba_fee, narf_fee}
+    This report returns the actual fees Amazon would charge for each product
+    based on its current fulfillment type — so NARF products get the Remote
+    Fulfillment with FBA fee, FBA products get the standard FBA fee.
+    Fees update automatically when a product switches between FBA and NARF.
+
+    Returns dict: asin -> {referral_fee, fulfillment_fee}
     """
     headers = sp_api_headers(access_token)
-    url = f"{SP_API_BASE}/products/fees/v0/feesEstimate"
 
-    # Build asin -> current price map (use our MSRP from buy_box_map)
-    asin_price = {}
-    for item in items:
-        asin = item["asin"]
-        if asin not in asin_price:
-            info = buy_box_map.get(item["sku"], {})
-            msrp_str = info.get("our_msrp", "")
-            try:
-                price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-            except (ValueError, AttributeError):
-                price = 50.0
-            asin_price[asin] = price
+    print("  Requesting FBA fee estimate report for Canada...")
+    content = _request_report(headers, "GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA", MARKETPLACE_ID)
+    if content is None:
+        print("  WARNING: Fee report failed — fees will not be included in cost")
+        return {}
+
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+    fieldnames = reader.fieldnames or []
+    print(f"  Fee report columns: {fieldnames[:10]}")
 
     fee_map = {}
-    asins = list(asin_price.keys())
-    batch_size = 10
-    total = len(asins)
+    total_rows = 0
+    sample_logged = 0
 
-    for i in range(0, total, batch_size):
-        batch = asins[i:i + batch_size]
+    for row in reader:
+        asin = row.get("asin", "").strip()
+        if not asin:
+            continue
+        total_rows += 1
 
-        # Build requests for both FBA_CORE and FBA_EFN (NARF) in one pass
-        fba_reqs, narf_reqs = [], []
-        for asin in batch:
-            price = asin_price[asin]
-            base = {
-                "MarketplaceId": MARKETPLACE_ID,
-                "IsAmazonFulfilled": True,
-                "PriceToEstimateFees": {
-                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": price},
-                    "Shipping":     {"CurrencyCode": "CAD", "Amount": 0},
-                },
-                "Identifier": asin,
-            }
-            fba_reqs.append({"IdType": "ASIN", "IdValue": asin,
-                              "FeesEstimateRequest": {**base, "OptionalFulfillmentProgram": "FBA_CORE"}})
-            narf_reqs.append({"IdType": "ASIN", "IdValue": asin,
-                               "FeesEstimateRequest": {**base, "OptionalFulfillmentProgram": "FBA_EFN"}})
+        def _parse_fee(val):
+            try:
+                return float((val or "0").strip()) if val and val.strip() else 0.0
+            except ValueError:
+                return 0.0
 
-        def _extract_fees(raw):
-            # Response is a direct array, not wrapped in {"payload": ...}
-            rows = raw if isinstance(raw, list) else raw.get("payload", raw)
-            result = {}
-            for item in rows:
-                asin = item.get("IdValue", "")
-                res  = item.get("FeesEstimateResult", {})
-                if res.get("Status") != "Success":
-                    err = res.get("Error", {})
-                    if err and asin:
-                        print(f"    Fee error {asin}: {err.get('Message', '')[:100]}")
-                    continue
-                fee_list = res.get("FeesEstimate", {}).get("FeeDetailList", [])
-                referral    = 0.0
-                fulfillment = 0.0
-                for f in fee_list:
-                    amt = f.get("FeeAmount", {}).get("Amount", 0) or 0
-                    if f.get("FeeType") == "ReferralFee":
-                        referral += amt
-                    elif f.get("FeeType") in ("FBAFees", "FulfillmentFee"):
-                        fulfillment += amt
-                result[asin] = {"referral": round(referral, 4), "fulfillment": round(fulfillment, 4)}
-            return result
+        referral    = _parse_fee(row.get("estimated-referral-fee-per-unit"))
+        fulfillment = _parse_fee(row.get("expected-fulfillment-fee-per-unit"))
 
-        def _post_fees(req_list, label):
-            # Request body is a plain array — NOT wrapped in any object key
-            r = requests.post(url, headers=headers, json=req_list, timeout=30)
-            if r.status_code == 429:
-                time.sleep(30)
-                r = requests.post(url, headers=headers, json=req_list, timeout=30)
-            if r.status_code != 200:
-                print(f"  {label} fees error {r.status_code}: {r.text[:300]}")
-                return {}
-            return _extract_fees(r.json())
+        fee_map[asin] = {
+            "referral_fee":    round(referral, 4),
+            "fulfillment_fee": round(fulfillment, 4),
+        }
 
-        # FBA_CORE call — gets referral fee + standard FBA fulfillment fee
-        for asin, fees in _post_fees(fba_reqs, "FBA_CORE").items():
-            fee_map.setdefault(asin, {})
-            fee_map[asin]["referral_fee"] = fees["referral"]
-            fee_map[asin]["fba_fee"]      = fees["fulfillment"]
+        # Log a few samples for verification
+        if sample_logged < 3:
+            price = row.get("your-price", "?")
+            print(f"  Sample: {asin} price={price} referral={referral} fulfillment={fulfillment}")
+            sample_logged += 1
 
-        time.sleep(1)
-
-        # FBA_EFN call — gets NARF (Remote Fulfillment with FBA) fulfillment fee
-        for asin, fees in _post_fees(narf_reqs, "FBA_EFN").items():
-            fee_map.setdefault(asin, {})
-            fee_map[asin]["narf_fee"] = fees["fulfillment"]
-        # Note: referral_fee is the same for FBA and NARF so we reuse the FBA_CORE value
-            print(f"  FBA_EFN (NARF) fees error {resp.status_code}: {resp.text[:200]}")
-
-        time.sleep(1)
-
-        if (i + batch_size) % 50 < batch_size:
-            print(f"  Fees progress: {min(i + batch_size, total)}/{total} ASINs")
-
-    success = sum(1 for v in fee_map.values() if "fba_fee" in v)
-    narf_success = sum(1 for v in fee_map.values() if "narf_fee" in v)
-    print(f"  Fee estimates: {success} FBA, {narf_success} NARF retrieved out of {total} ASINs")
+    print(f"  Fee report: {total_rows} rows, {len(fee_map)} unique ASINs with fees")
     return fee_map
 
 
@@ -667,10 +614,13 @@ def main():
     product_costs = load_product_costs()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
+    fee_estimates = get_fee_estimates(access_token)
 
     def _build_total_cost(asin, ft, cost_data):
-        """Combine product cost + referral fee + fulfillment fee for the given fulfillment type."""
+        """Combine product cost + referral fee + fulfillment fee for the given fulfillment type.
+        Fees come from the fee report and already match the current fulfillment type
+        (FBA fee for FBA products, NARF fee for NARF products).
+        """
         if not cost_data:
             return None
         product_cost = cost_data["fba_cost"] if ft == "FBA" else cost_data["narf_cost"]
@@ -678,7 +628,7 @@ def main():
             return None
         fees = fee_estimates.get(asin, {})
         referral_fee    = fees.get("referral_fee", 0) or 0
-        fulfillment_fee = fees.get("fba_fee", 0) if ft == "FBA" else fees.get("narf_fee", 0) or fees.get("fba_fee", 0) or 0
+        fulfillment_fee = fees.get("fulfillment_fee", 0) or 0
         return round(product_cost + referral_fee + fulfillment_fee, 4)
 
     print("\n[7/8] Flagging and alerting...")
