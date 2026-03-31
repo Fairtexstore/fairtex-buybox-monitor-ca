@@ -527,30 +527,48 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 
-def _get_cad_price(headers, asin):
-    """Get the CAD listing price for an ASIN via getCompetitivePricing.
-    This endpoint returns the price in the marketplace currency (CAD for Canada).
+def get_cad_prices(access_token):
+    """Get CAD listing prices from the GET_MERCHANT_LISTINGS_ALL_DATA report.
+    This report is generated for the Canada marketplace and returns the
+    actual CAD prices shown on Seller Central's Manage Inventory page.
+    Returns dict: sku -> cad_price
     """
-    url = (f"{SP_API_BASE}/products/pricing/v0/competitivePrice"
-           f"?MarketplaceId={MARKETPLACE_ID}&ItemType=Asin&Asins={asin}")
-    try:
-        resp = requests.get(url, headers=headers, timeout=30)
-        if resp.status_code == 429:
-            time.sleep(5)
-            resp = requests.get(url, headers=headers, timeout=30)
-        if resp.status_code == 200:
-            for p in resp.json().get("payload", []):
-                prices = p.get("Product", {}).get("CompetitivePricing", {}).get("CompetitivePrices", [])
-                for cp in prices:
-                    lp = cp.get("Price", {}).get("ListedPrice", {}).get("Amount")
-                    if lp is not None:
-                        return round(float(lp), 2)
-    except Exception:
-        pass
-    return None
+    headers = sp_api_headers(access_token)
+    print("  Fetching merchant listings report for CAD prices...")
+    content = _request_report(headers, "GET_MERCHANT_LISTINGS_ALL_DATA", MARKETPLACE_ID)
+    if content is None:
+        print("  WARNING: Listings report failed — CAD prices unavailable")
+        return {}
+
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+    fieldnames = reader.fieldnames or []
+    print(f"  Listings report columns: {fieldnames}")
+
+    prices = {}
+    total_rows = 0
+    sample_logged = 0
+
+    for row in reader:
+        sku = row.get("seller-sku", "").strip()
+        asin = row.get("asin1", row.get("asin", "")).strip()
+        price_str = row.get("price", "").strip()
+        if not asin or not price_str:
+            continue
+        total_rows += 1
+        try:
+            cad_price = round(float(price_str), 2)
+            prices[asin] = cad_price
+            if sample_logged < 5:
+                print(f"  Sample: {asin} (SKU={sku}) CAD_price=${cad_price}")
+                sample_logged += 1
+        except ValueError:
+            pass
+
+    print(f"  Listings report: {total_rows} rows, {len(prices)} ASINs with prices")
+    return prices
 
 
-def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
+def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, cad_prices=None):
     """For each ASIN:
     1. Get the actual CAD price from getCompetitivePricing
     2. Send that CAD price to the fees endpoint
@@ -574,10 +592,10 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
     print(f"  Fetching CAD prices + total fees for {total} ASINs...")
 
     for idx, asin in enumerate(unique_asins):
-        # Get the actual CAD price first
-        cad_price = _get_cad_price(headers, asin)
+        # Get CAD price from merchant listings report
+        cad_price = (cad_prices or {}).get(asin)
         if not cad_price:
-            # Fallback to SP-API price if competitive pricing unavailable
+            # Fallback to SP-API price (may be USD)
             for item in items:
                 if item["asin"] == asin:
                     info = buy_box_map.get(item["sku"], {})
@@ -644,17 +662,20 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
 def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
     """Fetch per-ASIN total fees in CAD.
 
-    For each ASIN:
-    1. Gets the CAD price from getCompetitivePricing
-    2. Sends CAD price to fees endpoint (with FBA_EFN for NARF products)
+    1. Gets CAD prices from GET_MERCHANT_LISTINGS_ALL_DATA report
+    2. For each ASIN, sends CAD price to fees endpoint
+       (with FBA_EFN for NARF products)
     3. Gets back total fees in CAD matching Seller Central
 
     Returns dict: asin -> {total_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
 
+    # Get CAD prices from merchant listings report
+    cad_prices = get_cad_prices(access_token) if items else {}
+
     if items and buy_box_map:
-        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins)
+        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins, cad_prices)
     else:
         print("  WARNING: No items/buy_box_map — fees will be 0")
         fee_map = {}
