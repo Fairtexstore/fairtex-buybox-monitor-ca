@@ -550,10 +550,12 @@ def _get_cad_price(headers, asin):
     return None
 
 
-def _get_fees_per_asin(headers, items, buy_box_map):
+def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
     """For each ASIN:
     1. Get the actual CAD price from getCompetitivePricing
     2. Send that CAD price to the fees endpoint
+       - FBA products: standard FBA fulfillment fee
+       - NARF products: Remote Fulfillment with FBA fee (FBA_EFN)
     3. Get back the correct total fees in CAD (matching Seller Central)
     """
     url_base = f"{SP_API_BASE}/products/fees/v0/items"
@@ -586,16 +588,20 @@ def _get_fees_per_asin(headers, items, buy_box_map):
                         cad_price = 50.0
                     break
 
-        body = {
-            "FeesEstimateRequest": {
-                "MarketplaceId": MARKETPLACE_ID,
-                "IsAmazonFulfilled": True,
-                "PriceToEstimateFees": {
-                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": cad_price},
-                },
-                "Identifier": asin,
-            }
+        # For NARF products, request Remote Fulfillment with FBA fees (FBA_EFN)
+        # For FBA products, use default (standard FBA fees)
+        is_narf = fba_asins is not None and asin not in fba_asins
+        fee_request = {
+            "MarketplaceId": MARKETPLACE_ID,
+            "IsAmazonFulfilled": True,
+            "PriceToEstimateFees": {
+                "ListingPrice": {"CurrencyCode": "CAD", "Amount": cad_price},
+            },
+            "Identifier": asin,
         }
+        if is_narf:
+            fee_request["OptionalFulfillmentProgram"] = "FBA_EFN"
+        body = {"FeesEstimateRequest": fee_request}
         try:
             resp = requests.post(f"{url_base}/{asin}/feesEstimate",
                                  headers=headers, json=body, timeout=30)
@@ -613,8 +619,9 @@ def _get_fees_per_asin(headers, items, buy_box_map):
                     total_fee = float(total_fees_obj.get("Amount", 0) or 0)
                     currency = total_fees_obj.get("CurrencyCode", "?")
                     fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
+                    ft_label = "NARF" if is_narf else "FBA"
                     if idx < 5:
-                        print(f"  Sample: {asin} CAD_price=${cad_price} total_fee={currency}${total_fee}")
+                        print(f"  Sample: {asin} ({ft_label}) CAD_price=${cad_price} total_fee={currency}${total_fee}")
                 else:
                     err = res.get("Error", {})
                     if idx < 3:
@@ -634,21 +641,20 @@ def _get_fees_per_asin(headers, items, buy_box_map):
     return fee_map
 
 
-def get_fee_estimates(access_token, items=None, buy_box_map=None):
-    """Fetch per-ASIN referral fee, fulfillment fee, and CAD listing price.
+def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
+    """Fetch per-ASIN total fees in CAD.
 
     For each ASIN:
-    1. Gets the buyer-facing CAD price from getItemOffers
-    2. Sends that CAD price to the per-ASIN fees endpoint
-    3. Gets back correct CAD fees (referral + fulfillment)
+    1. Gets the CAD price from getCompetitivePricing
+    2. Sends CAD price to fees endpoint (with FBA_EFN for NARF products)
+    3. Gets back total fees in CAD matching Seller Central
 
-    No currency conversion needed — everything is natively in CAD.
-    Returns dict: asin -> {referral_fee, fulfillment_fee, cad_price}
+    Returns dict: asin -> {total_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
 
     if items and buy_box_map:
-        fee_map = _get_fees_per_asin(headers, items, buy_box_map)
+        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins)
     else:
         print("  WARNING: No items/buy_box_map — fees will be 0")
         fee_map = {}
@@ -688,7 +694,7 @@ def main():
     product_costs = load_product_costs()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
+    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
 
     def _build_total_cost(asin, ft, cost_data):
         """Total Cost = Product Cost (CAD) + Amazon Total Fees (CAD).
