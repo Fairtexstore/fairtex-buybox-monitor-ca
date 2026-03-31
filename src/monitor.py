@@ -526,88 +526,72 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
     )
 
 
-def _get_fees_from_report(headers):
-    """Try the fee report approach first. Returns fee_map or empty dict on failure."""
-    print("  Trying fee report (GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA)...")
-    content = _request_report(headers, "GET_FBA_ESTIMATED_FBA_FEES_TXT_DATA", MARKETPLACE_ID)
-    if content is None:
-        print("  Fee report failed.")
-        return {}
 
-    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-    fieldnames = reader.fieldnames or []
-    print(f"  Fee report columns: {fieldnames}")
-
-    fee_map = {}
-    total_rows = 0
-    sample_logged = 0
-
-    for row in reader:
-        asin = row.get("asin", "").strip()
-        if not asin:
-            continue
-        total_rows += 1
-
-        def _parse(val):
-            try:
-                return float((val or "0").strip()) if val and val.strip() else 0.0
-            except ValueError:
-                return 0.0
-
-        referral    = _parse(row.get("estimated-referral-fee-per-unit"))
-        fulfillment = _parse(row.get("expected-fulfillment-fee-per-unit"))
-        cad_price   = _parse(row.get("your-price"))
-
-        fee_map[asin] = {
-            "referral_fee":    round(referral, 4),
-            "fulfillment_fee": round(fulfillment, 4),
-            "cad_price":       round(cad_price, 2) if cad_price > 0 else None,
-        }
-
-        if sample_logged < 5:
-            print(f"  Sample: {asin} CAD_price={cad_price} referral={referral} fulfillment={fulfillment}")
-            sample_logged += 1
-
-    print(f"  Fee report: {total_rows} rows, {len(fee_map)} unique ASINs")
-    return fee_map
+def _get_cad_price(headers, asin):
+    """Get the CAD listing price for an ASIN via getCompetitivePricing.
+    This endpoint returns the price in the marketplace currency (CAD for Canada).
+    """
+    url = (f"{SP_API_BASE}/products/pricing/v0/competitivePrice"
+           f"?MarketplaceId={MARKETPLACE_ID}&ItemType=Asin&Asins={asin}")
+    try:
+        resp = requests.get(url, headers=headers, timeout=30)
+        if resp.status_code == 429:
+            time.sleep(5)
+            resp = requests.get(url, headers=headers, timeout=30)
+        if resp.status_code == 200:
+            for p in resp.json().get("payload", []):
+                prices = p.get("Product", {}).get("CompetitivePricing", {}).get("CompetitivePrices", [])
+                for cp in prices:
+                    lp = cp.get("Price", {}).get("ListedPrice", {}).get("Amount")
+                    if lp is not None:
+                        return round(float(lp), 2)
+    except Exception:
+        pass
+    return None
 
 
 def _get_fees_per_asin(headers, items, buy_box_map):
-    """Call the per-ASIN fee estimate endpoint individually.
-    Sends the SP-API price as USD — Amazon's fee calculator converts
-    internally using the same rate shown on Seller Central, so the
-    returned fees match what Seller Central displays.
+    """For each ASIN:
+    1. Get the actual CAD price from getCompetitivePricing
+    2. Send that CAD price to the fees endpoint
+    3. Get back the correct total fees in CAD (matching Seller Central)
     """
     url_base = f"{SP_API_BASE}/products/fees/v0/items"
     fee_map = {}
 
-    # Get unique ASINs with their SP-API prices
+    # Get unique ASINs
     unique_asins = []
-    asin_price = {}
     seen = set()
     for item in items:
         asin = item["asin"]
         if asin not in seen:
             seen.add(asin)
             unique_asins.append(asin)
-            info = buy_box_map.get(item["sku"], {})
-            msrp_str = info.get("our_msrp", "")
-            try:
-                asin_price[asin] = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-            except (ValueError, AttributeError):
-                asin_price[asin] = 50.0
 
     total = len(unique_asins)
-    print(f"  Fetching total fees for {total} ASINs...")
+    print(f"  Fetching CAD prices + total fees for {total} ASINs...")
 
     for idx, asin in enumerate(unique_asins):
-        price = asin_price.get(asin, 50.0)
+        # Get the actual CAD price first
+        cad_price = _get_cad_price(headers, asin)
+        if not cad_price:
+            # Fallback to SP-API price if competitive pricing unavailable
+            for item in items:
+                if item["asin"] == asin:
+                    info = buy_box_map.get(item["sku"], {})
+                    msrp_str = info.get("our_msrp", "")
+                    try:
+                        cad_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+                    except (ValueError, AttributeError):
+                        cad_price = 50.0
+                    break
+
         body = {
             "FeesEstimateRequest": {
                 "MarketplaceId": MARKETPLACE_ID,
                 "IsAmazonFulfilled": True,
                 "PriceToEstimateFees": {
-                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": price},
+                    "ListingPrice": {"CurrencyCode": "CAD", "Amount": cad_price},
                 },
                 "Identifier": asin,
             }
@@ -628,9 +612,9 @@ def _get_fees_per_asin(headers, items, buy_box_map):
                     total_fees_obj = res.get("FeesEstimate", {}).get("TotalFeesEstimate", {})
                     total_fee = float(total_fees_obj.get("Amount", 0) or 0)
                     currency = total_fees_obj.get("CurrencyCode", "?")
-                    fee_map[asin] = {"total_fee": round(total_fee, 2)}
+                    fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
                     if idx < 5:
-                        print(f"  Sample: {asin} price=CAD${price} total_fee={currency}${total_fee}")
+                        print(f"  Sample: {asin} CAD_price=${cad_price} total_fee={currency}${total_fee}")
                 else:
                     err = res.get("Error", {})
                     if idx < 3:
@@ -720,9 +704,13 @@ def main():
         total_fee = fees.get("total_fee", 0) or 0
         return round(product_cost + total_fee, 2)
 
-    def _get_msrp(info):
-        """Get the MSRP from the SP-API data."""
-        return info.get("our_msrp", "")
+    def _get_cad_msrp(asin, fallback_info):
+        """Get the CAD MSRP from fee estimates (sourced from getCompetitivePricing)."""
+        fee_data = fee_estimates.get(asin, {})
+        cad_price = fee_data.get("cad_price")
+        if cad_price:
+            return f"${cad_price:.2f}"
+        return fallback_info.get("our_msrp", "")
 
     print("\n[7/8] Flagging and alerting...")
     flagged = []
@@ -754,7 +742,7 @@ def main():
         cost_data = product_costs.get(item["asin"])
         ft = ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown"
         # Use CAD MSRP from fee report (authoritative) instead of USD from SP-API
-        our_msrp = _get_msrp(info)
+        our_msrp = _get_cad_msrp(item["asin"], info)
         our_landed = our_msrp  # default
         # For FBA: landed price = MSRP (no extra fees)
         # For NARF: landed price = MSRP + 14% import fees
@@ -782,7 +770,7 @@ def main():
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
             product["winner_url"]     = info.get("winner_url", "")
-            product["winner_price"]   = _to_cad(info.get("winner_price", ""))
+            product["winner_price"]   = info.get("winner_price", "")
             product["recommendation"] = compute_recommendation(
                 product.get("winner_price", ""),
                 product.get("lowest_msrp")
