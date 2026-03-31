@@ -15,6 +15,11 @@ SP_API_BASE    = "https://sellingpartnerapi-na.amazon.com"
 SLACK_CHANNEL  = "C0AMDJ91151"
 MY_SELLER_ID   = "A1LC1HJLF7IAWT"
 NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orders
+# Amazon's internal USD→CAD rate for FBA cross-border sellers.
+# SP-API returns USD for FBA products. This rate converts to the actual CAD price
+# shown on Seller Central (e.g. $227.47 USD × 1.1447 = $260.39 CAD).
+# NARF products already return CAD from the API — no conversion needed.
+AMAZON_USD_CAD_RATE = 1.1447
 
 
 
@@ -527,48 +532,6 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 
-def _derive_usd_cad_rate(headers):
-    """Derive Amazon's internal USD→CAD rate for FBA cross-border products.
-
-    The SP-API pricing endpoints return USD for FBA products but CAD for NARF.
-    We query the Listings Items API for a few FBA ASINs — it returns the
-    actual CAD 'purchasable offer' price — and compare with the pricing API
-    USD value to derive the exact rate Amazon uses.
-
-    Falls back to a reasonable default if derivation fails.
-    """
-    # Known FBA ASINs with their SP-API USD prices for comparison
-    # We'll fetch their actual CAD prices from the Listings API
-    sample_asins = ["B00O1S1HUE", "B00O1S1OFW", "B00PM9XRZ4", "B07B2Z8P7S"]
-
-    rates = []
-    for asin in sample_asins:
-        try:
-            url = (f"{SP_API_BASE}/listings/2021-08-01/items/{MY_SELLER_ID}/{asin}"
-                   f"?marketplaceIds={MARKETPLACE_ID}&includedData=offers")
-            resp = requests.get(url, headers=headers, timeout=30)
-            if resp.status_code == 429:
-                time.sleep(5)
-                resp = requests.get(url, headers=headers, timeout=30)
-            if resp.status_code != 200:
-                continue
-            offers = resp.json().get("offers", [])
-            for offer in offers:
-                cad_price = offer.get("price", {}).get("amount")
-                currency = offer.get("price", {}).get("currency")
-                if cad_price and currency == "CAD":
-                    rates.append({"asin": asin, "cad_price": float(cad_price)})
-                    print(f"  Listings API: {asin} CAD={cad_price}")
-                    break
-        except Exception as e:
-            print(f"  Listings API error for {asin}: {e}")
-        time.sleep(0.5)
-
-    if not rates:
-        print("  WARNING: Could not derive rate from Listings API")
-        return None
-    return rates
-
 
 def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate=1.0):
     """For each ASIN:
@@ -662,44 +625,15 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
 def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
     """Fetch per-ASIN total fees in CAD.
 
-    1. Derives Amazon's internal USD→CAD rate (FBA prices are in USD, NARF in CAD)
-    2. For each ASIN, converts price to CAD and sends to fees endpoint
-       (with FBA_EFN for NARF products)
-    3. Gets back total fees in CAD matching Seller Central
+    SP-API returns USD for FBA products, CAD for NARF products.
+    FBA prices are converted to CAD using AMAZON_USD_CAD_RATE before
+    sending to the fees endpoint. NARF prices are sent as-is.
 
     Returns (fee_map, usd_cad_rate) where fee_map: asin -> {total_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
-
-    # Derive Amazon's internal USD→CAD rate from Listings API
-    usd_cad_rate = 1.0
-    rate_samples = _derive_usd_cad_rate(headers)
-    if rate_samples and items and buy_box_map:
-        derived = []
-        for s in rate_samples:
-            asin = s["asin"]
-            cad = s["cad_price"]
-            for item in items:
-                if item["asin"] == asin:
-                    info = buy_box_map.get(item["sku"], {})
-                    usd_str = info.get("our_msrp", "")
-                    if usd_str:
-                        try:
-                            usd = float(usd_str.replace("$", "").replace(",", ""))
-                            if usd > 0:
-                                r = cad / usd
-                                derived.append(r)
-                                print(f"  Rate: {asin} CAD={cad} / USD={usd} = {r:.4f}")
-                        except ValueError:
-                            pass
-                    break
-        if derived:
-            usd_cad_rate = round(sum(derived) / len(derived), 6)
-            print(f"  Amazon internal USD→CAD rate: {usd_cad_rate} (from {len(derived)} samples)")
-        else:
-            print("  WARNING: Could not derive rate, using 1.0")
-    else:
-        print("  WARNING: Rate derivation failed, using 1.0")
+    usd_cad_rate = AMAZON_USD_CAD_RATE
+    print(f"  Using Amazon USD→CAD rate: {usd_cad_rate}")
 
     if items and buy_box_map:
         fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins, usd_cad_rate)
