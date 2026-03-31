@@ -17,27 +17,6 @@ MY_SELLER_ID   = "A1LC1HJLF7IAWT"
 NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orders
 
 
-def _get_buyer_cad_price(headers, asin):
-    """Get the buyer-facing CAD price for an ASIN from getItemOffers."""
-    url = (f"{SP_API_BASE}/products/pricing/v0/items/{asin}/offers"
-           f"?MarketplaceId={MARKETPLACE_ID}&ItemCondition=New&CustomerType=Consumer")
-    try:
-        resp = requests.get(url, headers=headers, timeout=30)
-        if resp.status_code == 429:
-            time.sleep(5)
-            resp = requests.get(url, headers=headers, timeout=30)
-        if resp.status_code != 200:
-            return None
-        offers = resp.json().get("payload", {}).get("Offers", [])
-        our_offer = next((o for o in offers if o.get("SellerId") == MY_SELLER_ID), None)
-        if our_offer:
-            lp = our_offer.get("ListingPrice", {}).get("Amount")
-            if lp is not None:
-                return round(float(lp), 2)
-    except Exception:
-        pass
-    return None
-
 
 def get_lwa_access_token():
     resp = requests.post(LWA_TOKEN_URL, data={
@@ -595,39 +574,34 @@ def _get_fees_from_report(headers):
 
 def _get_fees_per_asin(headers, items, buy_box_map):
     """Call the per-ASIN fee estimate endpoint individually.
-    For each ASIN: first gets the buyer-facing CAD price from getItemOffers,
-    then sends that CAD price to the fees endpoint so referral fees are
-    calculated on the correct CAD amount. No currency conversion needed.
+    Sends the SP-API price as USD — Amazon's fee calculator converts
+    internally using the same rate shown on Seller Central, so the
+    returned fees match what Seller Central displays.
     """
     url_base = f"{SP_API_BASE}/products/fees/v0/items"
     fee_map = {}
 
-    # Get unique ASINs
+    # Get unique ASINs with their SP-API prices
     unique_asins = []
+    asin_price = {}
     seen = set()
     for item in items:
-        if item["asin"] not in seen:
-            seen.add(item["asin"])
-            unique_asins.append(item["asin"])
+        asin = item["asin"]
+        if asin not in seen:
+            seen.add(asin)
+            unique_asins.append(asin)
+            info = buy_box_map.get(item["sku"], {})
+            msrp_str = info.get("our_msrp", "")
+            try:
+                asin_price[asin] = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+            except (ValueError, AttributeError):
+                asin_price[asin] = 50.0
 
     total = len(unique_asins)
-    print(f"  Fetching CAD prices + fees for {total} ASINs...")
+    print(f"  Fetching total fees for {total} ASINs...")
 
     for idx, asin in enumerate(unique_asins):
-        # Step 1: Get the buyer-facing CAD price
-        cad_price = _get_buyer_cad_price(headers, asin)
-        if not cad_price:
-            # Fall back to SP-API price if buyer price unavailable
-            for item in items:
-                if item["asin"] == asin:
-                    info = buy_box_map.get(item["sku"], {})
-                    msrp_str = info.get("our_msrp", "")
-                    try:
-                        cad_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-                    except (ValueError, AttributeError):
-                        cad_price = 50.0
-                    break
-        price = cad_price
+        price = asin_price.get(asin, 50.0)
         body = {
             "FeesEstimateRequest": {
                 "MarketplaceId": MARKETPLACE_ID,
@@ -650,26 +624,13 @@ def _get_fees_per_asin(headers, items, buy_box_map):
                 payload = resp.json().get("payload", {})
                 res = payload.get("FeesEstimateResult", {})
                 if res.get("Status") == "Success":
-                    fee_list = res.get("FeesEstimate", {}).get("FeeDetailList", [])
-                    referral = 0.0
-                    fulfillment = 0.0
-                    for f in fee_list:
-                        amt = f.get("FeeAmount", {}).get("Amount", 0) or 0
-                        ft = f.get("FeeType", "")
-                        if ft == "ReferralFee":
-                            referral += float(amt)
-                        elif ft in ("FBAFees", "FulfillmentFee"):
-                            fulfillment += float(amt)
-                    # The response includes TotalFeesEstimate with CurrencyCode
-                    total_currency = res.get("FeesEstimate", {}).get(
-                        "TotalFeesEstimate", {}).get("CurrencyCode", "?")
-                    fee_map[asin] = {
-                        "referral_fee":    round(referral, 4),
-                        "fulfillment_fee": round(fulfillment, 4),
-                        "cad_price":       cad_price,
-                    }
-                    if idx < 3:
-                        print(f"  Sample: {asin} CAD_price={cad_price} referral={referral} fulfillment={fulfillment}")
+                    # Use TotalFeesEstimate — includes ALL fee components
+                    total_fees_obj = res.get("FeesEstimate", {}).get("TotalFeesEstimate", {})
+                    total_fee = float(total_fees_obj.get("Amount", 0) or 0)
+                    currency = total_fees_obj.get("CurrencyCode", "?")
+                    fee_map[asin] = {"total_fee": round(total_fee, 2)}
+                    if idx < 5:
+                        print(f"  Sample: {asin} price=CAD${price} total_fee={currency}${total_fee}")
                 else:
                     err = res.get("Error", {})
                     if idx < 3:
@@ -746,9 +707,9 @@ def main():
     fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map)
 
     def _build_total_cost(asin, ft, cost_data):
-        """Combine product cost + referral fee + fulfillment fee for the given fulfillment type.
-        Fees come from the fee report and already match the current fulfillment type
-        (FBA fee for FBA products, NARF fee for NARF products).
+        """Total Cost = Product Cost (CAD) + Amazon Total Fees (CAD).
+        Product cost comes from CSV (FBA or NARF column based on fulfillment type).
+        Total fee comes from Amazon's per-ASIN fee estimate (all fee components).
         """
         if not cost_data:
             return None
@@ -756,49 +717,12 @@ def main():
         if product_cost is None:
             return None
         fees = fee_estimates.get(asin, {})
-        referral_fee    = fees.get("referral_fee", 0) or 0
-        fulfillment_fee = fees.get("fulfillment_fee", 0) or 0
-        return round(product_cost + referral_fee + fulfillment_fee, 4)
+        total_fee = fees.get("total_fee", 0) or 0
+        return round(product_cost + total_fee, 2)
 
-    # Derive USD→CAD rate from the buyer-facing CAD prices we just fetched
-    # vs the seller-facing USD prices from check_buy_box. Used to convert
-    # winner/competitor prices (which come from the seller-facing API in USD).
-    usd_cad_rates = []
-    for item in inventory:
-        asin = item["asin"]
-        fee_data = fee_estimates.get(asin, {})
-        cad_price = fee_data.get("cad_price")
-        info = buy_box_map.get(item["sku"], {})
-        seller_str = info.get("our_msrp", "")
-        if cad_price and seller_str:
-            try:
-                seller_price = float(seller_str.replace("$", "").replace(",", ""))
-                if seller_price > 0:
-                    r = cad_price / seller_price
-                    if 0.8 < r < 2.0:
-                        usd_cad_rates.append(r)
-            except ValueError:
-                pass
-    usd_cad_rate = round(sum(usd_cad_rates) / len(usd_cad_rates), 6) if usd_cad_rates else 1.0
-    print(f"  USD→CAD rate from {len(usd_cad_rates)} price pairs: {usd_cad_rate}")
-
-    def _to_cad(usd_str):
-        """Convert a USD price string to CAD using derived rate."""
-        if not usd_str:
-            return ""
-        try:
-            val = float(usd_str.replace("$", "").replace(",", ""))
-            return f"${val * usd_cad_rate:.2f}"
-        except ValueError:
-            return usd_str
-
-    def _get_cad_msrp(asin, info):
-        """Get the CAD MSRP from the buyer-facing price (native CAD)."""
-        fee_data = fee_estimates.get(asin, {})
-        cad_price = fee_data.get("cad_price")
-        if cad_price:
-            return f"${cad_price:.2f}"
-        return _to_cad(info.get("our_msrp", ""))
+    def _get_msrp(info):
+        """Get the MSRP from the SP-API data."""
+        return info.get("our_msrp", "")
 
     print("\n[7/8] Flagging and alerting...")
     flagged = []
@@ -808,7 +732,7 @@ def main():
         if not info.get("has_buy_box"):
             item["winner_seller"] = info.get("winner_seller", "Unknown")
             item["winner_url"]    = info.get("winner_url", "")
-            item["winner_price"]  = _to_cad(info.get("winner_price", ""))
+            item["winner_price"]  = info.get("winner_price", "")
             total_cost = _build_total_cost(item["asin"], ft, product_costs.get(item["asin"]))
             lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
             item["total_cost"]     = total_cost
@@ -830,7 +754,7 @@ def main():
         cost_data = product_costs.get(item["asin"])
         ft = ("FBA" if item["asin"] in fba_asins else "NARF") if fba_asins is not None else "Unknown"
         # Use CAD MSRP from fee report (authoritative) instead of USD from SP-API
-        our_msrp = _get_cad_msrp(item["asin"], info)
+        our_msrp = _get_msrp(info)
         our_landed = our_msrp  # default
         # For FBA: landed price = MSRP (no extra fees)
         # For NARF: landed price = MSRP + 14% import fees
