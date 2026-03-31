@@ -17,25 +17,64 @@ MY_SELLER_ID   = "A1LC1HJLF7IAWT"
 NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orders
 
 
-def get_usd_to_cad_rate():
-    """Fetch live USD→CAD exchange rate. The SP-API returns prices in USD
-    for cross-border sellers on the Canada marketplace, but all our cost
-    data and the dashboard should be in CAD.
+def derive_amazon_usd_cad_rate(access_token, items):
+    """Derive Amazon's internal USD→CAD conversion rate by comparing
+    buyer-facing prices (CAD, from getItemOffers) against seller-facing
+    prices (USD, from listingOffers already in buy_box_map).
+
+    Amazon uses an internal exchange rate for cross-border sellers that
+    differs significantly from the market rate, so we must derive it
+    from actual Amazon data rather than a public exchange rate API.
     """
-    for api_url in [
-        "https://open.er-api.com/v6/latest/USD",
-        "https://api.exchangerate-api.com/v4/latest/USD",
-    ]:
+    headers = sp_api_headers(access_token)
+    # Sample up to 10 ASINs that have known seller prices
+    sample_asins = []
+    seen = set()
+    for item in items:
+        asin = item["asin"]
+        if asin not in seen:
+            seen.add(asin)
+            sample_asins.append(asin)
+            if len(sample_asins) >= 10:
+                break
+
+    rates = []
+    for asin in sample_asins:
         try:
-            resp = requests.get(api_url, timeout=10)
-            if resp.status_code == 200:
-                rate = resp.json().get("rates", {}).get("CAD")
-                if rate and 1.1 < rate < 2.0:
-                    return round(rate, 6)
-        except Exception:
-            continue
-    print("  WARNING: Could not fetch USD→CAD rate from any API")
-    return None
+            url = (f"{SP_API_BASE}/products/pricing/v0/items/{asin}/offers"
+                   f"?MarketplaceId={MARKETPLACE_ID}&ItemCondition=New&CustomerType=Consumer")
+            resp = requests.get(url, headers=headers, timeout=30)
+            if resp.status_code == 429:
+                time.sleep(5)
+                resp = requests.get(url, headers=headers, timeout=30)
+            if resp.status_code != 200:
+                continue
+
+            offers = resp.json().get("payload", {}).get("Offers", [])
+            our_offer = next((o for o in offers if o.get("SellerId") == MY_SELLER_ID), None)
+            if not our_offer:
+                continue
+
+            buyer_price = our_offer.get("ListingPrice", {}).get("Amount")
+            buyer_currency = our_offer.get("ListingPrice", {}).get("CurrencyCode", "")
+
+            if buyer_price and float(buyer_price) > 0:
+                print(f"  Buyer price for {asin}: {buyer_currency} {buyer_price}")
+                rates.append({"asin": asin, "buyer_price": float(buyer_price),
+                              "buyer_currency": buyer_currency})
+        except Exception as e:
+            print(f"  Error sampling {asin}: {e}")
+        time.sleep(0.5)
+
+    if not rates:
+        print("  WARNING: Could not sample any buyer-facing prices")
+        return None
+
+    # Log what we found
+    for r in rates[:3]:
+        print(f"  Sample: {r['asin']} buyer={r['buyer_currency']} {r['buyer_price']}")
+
+    return rates
 
 
 def get_lwa_access_token():
@@ -694,13 +733,40 @@ def get_fee_estimates(access_token, items=None, buy_box_map=None):
     """
     headers = sp_api_headers(access_token)
 
-    # Get live exchange rate — SP-API returns USD, we need CAD
-    usd_cad_rate = get_usd_to_cad_rate()
-    if usd_cad_rate:
-        print(f"  USD→CAD exchange rate: {usd_cad_rate}")
-    else:
-        usd_cad_rate = 1.0
-        print("  WARNING: Using 1.0 as USD→CAD rate (API unavailable)")
+    # Derive Amazon's internal USD→CAD rate by comparing buyer-facing (CAD)
+    # vs seller-facing (USD) prices for sample ASINs.
+    usd_cad_rate = 1.0
+    if items and buy_box_map:
+        samples = derive_amazon_usd_cad_rate(access_token, items)
+        if samples:
+            # Compare buyer prices with seller API prices to get the rate
+            derived_rates = []
+            for s in samples:
+                asin = s["asin"]
+                buyer_price = s["buyer_price"]
+                # Find the seller API price from buy_box_map
+                for item in items:
+                    if item["asin"] == asin:
+                        info = buy_box_map.get(item["sku"], {})
+                        seller_msrp = info.get("our_msrp", "")
+                        if seller_msrp:
+                            try:
+                                seller_price = float(seller_msrp.replace("$", "").replace(",", ""))
+                                if seller_price > 0:
+                                    rate = buyer_price / seller_price
+                                    if 0.8 < rate < 2.0:  # sanity check
+                                        derived_rates.append(rate)
+                                        print(f"  Rate for {asin}: buyer={buyer_price} / seller={seller_price} = {rate:.4f}")
+                            except ValueError:
+                                pass
+                        break
+            if derived_rates:
+                usd_cad_rate = round(sum(derived_rates) / len(derived_rates), 6)
+                print(f"  Derived Amazon USD→CAD rate: {usd_cad_rate} (from {len(derived_rates)} samples)")
+            else:
+                print("  WARNING: Could not derive rate, using 1.0")
+        else:
+            print("  WARNING: No samples available, using 1.0")
 
     # Try report first
     fee_map = _get_fees_from_report(headers)
