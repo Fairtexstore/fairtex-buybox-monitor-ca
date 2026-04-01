@@ -553,72 +553,120 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
             seen.add(asin)
             unique_asins.append(asin)
 
-    total = len(unique_asins)
-    print(f"  Fetching CAD prices + total fees for {total} ASINs...")
-
-    for idx, asin in enumerate(unique_asins):
-        # Get SP-API price and convert to CAD if FBA (SP-API returns USD for FBA, CAD for NARF)
+    # Build SKU → (asin, api_price, shipping) map for SKU-based fee estimates.
+    # The SKU endpoint uses actual warehouse measurements (weight/dimensions)
+    # which includes surcharges the ASIN endpoint misses.
+    sku_data = []
+    seen_skus = set()
+    for item in items:
+        sku = item["sku"]
+        asin = item["asin"]
+        if sku in seen_skus:
+            continue
+        seen_skus.add(sku)
+        info = buy_box_map.get(sku, {})
+        msrp_str = info.get("our_msrp", "")
+        landed_str = info.get("our_landed", "")
+        try:
+            api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 0
+        except (ValueError, AttributeError):
+            api_price = 0
+        # Calculate shipping from landed - listing price
+        shipping = 0.0
+        try:
+            if landed_str and msrp_str:
+                landed = float(landed_str.replace("$", "").replace(",", ""))
+                shipping = max(0, landed - api_price)
+        except (ValueError, AttributeError):
+            pass
         is_narf = fba_asins is not None and asin not in fba_asins
-        api_price = 50.0
-        for item in items:
-            if item["asin"] == asin:
-                info = buy_box_map.get(item["sku"], {})
-                msrp_str = info.get("our_msrp", "")
-                try:
-                    api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-                except (ValueError, AttributeError):
-                    api_price = 50.0
-                break
-        # NARF prices are already CAD; FBA prices need USD→CAD conversion
+        # NARF prices already CAD; FBA prices need conversion
         cad_price = api_price if is_narf else round(api_price * usd_cad_rate, 2)
+        cad_shipping = shipping if is_narf else round(shipping * usd_cad_rate, 2)
+        sku_data.append({"sku": sku, "asin": asin, "cad_price": cad_price,
+                          "cad_shipping": cad_shipping, "is_narf": is_narf})
 
+    total = len(sku_data)
+    print(f"  Fetching total fees for {total} SKUs via SKU-based endpoint...")
+
+    for idx, sd in enumerate(sku_data):
+        sku = sd["sku"]
+        asin = sd["asin"]
+        cad_price = sd["cad_price"]
+        cad_shipping = sd["cad_shipping"]
+        is_narf = sd["is_narf"]
+
+        if cad_price <= 0:
+            continue
+
+        sku_encoded = requests.utils.quote(sku, safe="")
         fee_request = {
             "MarketplaceId": MARKETPLACE_ID,
             "IsAmazonFulfilled": True,
             "PriceToEstimateFees": {
                 "ListingPrice": {"CurrencyCode": "CAD", "Amount": cad_price},
+                "Shipping":     {"CurrencyCode": "CAD", "Amount": cad_shipping},
             },
-            "Identifier": asin,
+            "Identifier": sku,
         }
         if is_narf:
             fee_request["OptionalFulfillmentProgram"] = "FBA_EFN"
         body = {"FeesEstimateRequest": fee_request}
+
         try:
-            resp = requests.post(f"{url_base}/{asin}/feesEstimate",
-                                 headers=headers, json=body, timeout=30)
+            # Use SKU-based endpoint — uses actual warehouse measurements
+            resp = requests.post(
+                f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate",
+                headers=headers, json=body, timeout=30)
             if resp.status_code == 429:
                 time.sleep(30)
-                resp = requests.post(f"{url_base}/{asin}/feesEstimate",
-                                     headers=headers, json=body, timeout=30)
+                resp = requests.post(
+                    f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate",
+                    headers=headers, json=body, timeout=30)
 
             if resp.status_code == 200:
                 payload = resp.json().get("payload", {})
                 res = payload.get("FeesEstimateResult", {})
                 if res.get("Status") == "Success":
-                    # Use TotalFeesEstimate — includes ALL fee components
                     total_fees_obj = res.get("FeesEstimate", {}).get("TotalFeesEstimate", {})
                     total_fee = float(total_fees_obj.get("Amount", 0) or 0)
                     currency = total_fees_obj.get("CurrencyCode", "?")
+                    # Store by ASIN (may overwrite if multiple SKUs per ASIN — last wins)
                     fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
                     ft_label = "NARF" if is_narf else "FBA"
                     if idx < 5:
-                        print(f"  Sample: {asin} ({ft_label}) CAD_price=${cad_price} total_fee={currency}${total_fee}")
+                        print(f"  Sample: {asin} SKU={sku} ({ft_label}) price=${cad_price} ship=${cad_shipping} total_fee={currency}${total_fee}")
                 else:
                     err = res.get("Error", {})
-                    if idx < 3:
-                        print(f"  Fee error {asin}: {err.get('Message', '')[:100]}")
+                    if idx < 5:
+                        print(f"  Fee error {asin} SKU={sku}: {err.get('Message', '')[:120]}")
+                    # Fallback: try ASIN-based endpoint without OptionalFulfillmentProgram
+                    if is_narf:
+                        fee_request.pop("OptionalFulfillmentProgram", None)
+                        body2 = {"FeesEstimateRequest": fee_request}
+                        resp2 = requests.post(
+                            f"{SP_API_BASE}/products/fees/v0/items/{asin}/feesEstimate",
+                            headers=headers, json=body2, timeout=30)
+                        if resp2.status_code == 200:
+                            res2 = resp2.json().get("payload", {}).get("FeesEstimateResult", {})
+                            if res2.get("Status") == "Success":
+                                tf2 = res2.get("FeesEstimate", {}).get("TotalFeesEstimate", {})
+                                total_fee = float(tf2.get("Amount", 0) or 0)
+                                fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
+                                if idx < 5:
+                                    print(f"  Fallback OK: {asin} total_fee=${total_fee}")
             else:
                 if idx < 3:
-                    print(f"  HTTP {resp.status_code} for {asin}: {resp.text[:200]}")
+                    print(f"  HTTP {resp.status_code} for {sku}: {resp.text[:200]}")
         except Exception as e:
             if idx < 3:
-                print(f"  Exception for {asin}: {e}")
+                print(f"  Exception for {sku}: {e}")
 
         if (idx + 1) % 50 == 0:
             print(f"  Fees progress: {idx + 1}/{total}")
         time.sleep(0.5)
 
-    print(f"  Per-ASIN fees: {len(fee_map)} out of {total} ASINs")
+    print(f"  Per-SKU fees: {len(fee_map)} ASINs out of {total} SKUs")
     return fee_map
 
 
