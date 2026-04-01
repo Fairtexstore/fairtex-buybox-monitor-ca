@@ -637,7 +637,7 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
 
         if (idx + 1) % 100 == 0:
             print(f"  Fees progress: {idx + 1}/{total}")
-        time.sleep(0.5)
+        time.sleep(1)
 
     print(f"  Fees retrieved for {len(fee_map)} ASINs out of {total} SKUs")
     return fee_map
