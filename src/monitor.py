@@ -553,24 +553,31 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
             seen.add(asin)
             unique_asins.append(asin)
 
-    total = len(unique_asins)
-    print(f"  Fetching total fees for {total} ASINs...")
+    # Build list of (sku, asin, cad_price) for fee lookups
+    sku_list = []
+    seen_skus = set()
+    for item in items:
+        sku = item["sku"]
+        asin = item["asin"]
+        if sku not in seen_skus:
+            seen_skus.add(sku)
+            info = buy_box_map.get(sku, {})
+            msrp_str = info.get("our_msrp", "")
+            try:
+                api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+            except (ValueError, AttributeError):
+                api_price = 50.0
+            is_narf = fba_asins is not None and asin not in fba_asins
+            cad_price = api_price if is_narf else round(api_price * usd_cad_rate, 2)
+            sku_list.append((sku, asin, cad_price, is_narf))
 
-    for idx, asin in enumerate(unique_asins):
-        # Get SP-API price and convert to CAD if FBA
-        is_narf = fba_asins is not None and asin not in fba_asins
-        api_price = 50.0
-        for item in items:
-            if item["asin"] == asin:
-                info = buy_box_map.get(item["sku"], {})
-                msrp_str = info.get("our_msrp", "")
-                try:
-                    api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-                except (ValueError, AttributeError):
-                    api_price = 50.0
-                break
-        # NARF prices already CAD; FBA prices need USD→CAD conversion
-        cad_price = api_price if is_narf else round(api_price * usd_cad_rate, 2)
+    total = len(sku_list)
+    print(f"  Fetching total fees for {total} SKUs via listings endpoint...")
+
+    from urllib.parse import quote
+    for idx, (sku, asin, cad_price, is_narf) in enumerate(sku_list):
+        if cad_price <= 0:
+            continue
 
         body = {
             "FeesEstimateRequest": {
@@ -578,17 +585,19 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
                 "IsAmazonFulfilled": True,
                 "PriceToEstimateFees": {
                     "ListingPrice": {"CurrencyCode": "CAD", "Amount": cad_price},
+                    "Shipping":     {"CurrencyCode": "CAD", "Amount": 0},
                 },
-                "Identifier": asin,
+                "Identifier": sku,
             }
         }
+        sku_encoded = quote(sku, safe="")
+        url = f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate"
+
         try:
-            resp = requests.post(f"{SP_API_BASE}/products/fees/v0/items/{asin}/feesEstimate",
-                                 headers=headers, json=body, timeout=30)
+            resp = requests.post(url, headers=headers, json=body, timeout=30)
             if resp.status_code == 429:
                 time.sleep(30)
-                resp = requests.post(f"{SP_API_BASE}/products/fees/v0/items/{asin}/feesEstimate",
-                                     headers=headers, json=body, timeout=30)
+                resp = requests.post(url, headers=headers, json=body, timeout=30)
 
             if resp.status_code == 200:
                 payload = resp.json().get("payload", {})
@@ -600,23 +609,22 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
                     fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
                     ft_label = "NARF" if is_narf else "FBA"
                     if idx < 5:
-                        print(f"  Sample: {asin} ({ft_label}) CAD_price=${cad_price} total_fee={currency}${total_fee}")
+                        print(f"  Sample: {sku} ({ft_label}) price=${cad_price} fee={currency}${total_fee}")
                 else:
                     err = res.get("Error", {})
-                    if idx < 3:
-                        print(f"  Fee error {asin}: {err.get('Message', '')[:100]}")
+                    print(f"  Fee FAIL {sku}: {err.get('Code','')} {err.get('Message', '')[:120]}")
             else:
-                if idx < 3:
-                    print(f"  HTTP {resp.status_code} for {asin}: {resp.text[:200]}")
+                if idx < 5:
+                    print(f"  HTTP {resp.status_code} for {sku}: {resp.text[:200]}")
         except Exception as e:
             if idx < 3:
-                print(f"  Exception for {asin}: {e}")
+                print(f"  Exception for {sku}: {e}")
 
-        if (idx + 1) % 50 == 0:
+        if (idx + 1) % 100 == 0:
             print(f"  Fees progress: {idx + 1}/{total}")
         time.sleep(0.3)
 
-    print(f"  Per-ASIN fees: {len(fee_map)} out of {total} ASINs")
+    print(f"  Fees retrieved for {len(fee_map)} ASINs out of {total} SKUs")
     return fee_map
 
 
