@@ -102,17 +102,23 @@ def test_fees():
 
         # Try SKU endpoint first
         sku_encoded = quote(sku, safe="")
+        sku_url = f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate"
         try:
-            resp = requests.post(
-                f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate",
-                headers=headers, json=body, timeout=30)
+            resp = requests.post(sku_url, headers=headers, json=body, timeout=30)
+            print(f"    SKU endpoint: HTTP {resp.status_code}")
             if resp.status_code == 200:
-                res = resp.json().get("payload", {}).get("FeesEstimateResult", {})
+                resp_json = resp.json()
+                res = resp_json.get("payload", {}).get("FeesEstimateResult", {})
                 if res.get("Status") == "Success":
                     total_fee = float(res["FeesEstimate"]["TotalFeesEstimate"]["Amount"])
                     method = "SKU"
-        except Exception:
-            pass
+                else:
+                    err = res.get("Error", {})
+                    print(f"    SKU FAIL: {res.get('Status')} - {err.get('Code','')} {err.get('Message','')[:150]}")
+            else:
+                print(f"    SKU HTTP error: {resp.text[:200]}")
+        except Exception as e:
+            print(f"    SKU exception: {e}")
 
         # Fallback to ASIN
         if total_fee is None:
