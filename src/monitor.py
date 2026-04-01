@@ -299,7 +299,7 @@ def get_fba_inventory(access_token):
             next_token = (data.get("payload") or {}).get("nextToken")
         if not next_token:
             break
-        time.sleep(2)
+        time.sleep(1)
 
     print(f"  Total unique records: {len(all_items)}")
 
@@ -441,7 +441,7 @@ def check_buy_box(access_token, items):
         if (i + batch_size) % 100 < batch_size:
             print(f"  Progress: {min(i + batch_size, total)}/{total}")
 
-        time.sleep(3)
+        time.sleep(1)
 
     # Backfill missing MSRPs using ASIN mapping
     backfilled = 0
@@ -482,7 +482,7 @@ def check_buy_box(access_token, items):
                                 fetched += 1
             except Exception:
                 pass
-            time.sleep(0.5)
+            time.sleep(0.3)
         print(f"  Fetched {fetched}/{len(missing_asins)} via getPricing")
 
         # Apply to all SKUs with those ASINs
