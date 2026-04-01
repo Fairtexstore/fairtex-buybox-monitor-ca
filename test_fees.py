@@ -58,7 +58,7 @@ def test_fees():
         except (ValueError, AttributeError):
             api_price = 0
 
-        cad_price = api_price if is_narf else round(api_price * AMAZON_USD_CAD_RATE, 2)
+        cad_price = api_price  # send as-is, SKU endpoint handles currency
 
         if cad_price <= 0:
             print(f"{asin:<14} {sku:<35} {ft:<5} {'N/A':>10} {'N/A':>10} {'N/A':>10} {'skip':<8}")

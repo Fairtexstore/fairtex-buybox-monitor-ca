@@ -533,7 +533,7 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 
-def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate=1.0):
+def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
     """For each ASIN:
     1. Get the actual CAD price from getCompetitivePricing
     2. Send that CAD price to the fees endpoint
@@ -553,7 +553,9 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
             seen.add(asin)
             unique_asins.append(asin)
 
-    # Build list of (sku, asin, cad_price) for fee lookups
+    # Build list of (sku, asin, price) for fee lookups.
+    # Send SP-API price as-is — no USD→CAD conversion.
+    # The SKU endpoint handles currency internally and gives exact fees.
     sku_list = []
     seen_skus = set()
     for item in items:
@@ -568,14 +570,14 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
             except (ValueError, AttributeError):
                 api_price = 50.0
             is_narf = fba_asins is not None and asin not in fba_asins
-            cad_price = api_price if is_narf else round(api_price * usd_cad_rate, 2)
-            sku_list.append((sku, asin, cad_price, is_narf))
+            sku_list.append((sku, asin, api_price, is_narf))
 
     total = len(sku_list)
     print(f"  Fetching total fees for {total} SKUs via listings endpoint...")
 
     from urllib.parse import quote
-    for idx, (sku, asin, cad_price, is_narf) in enumerate(sku_list):
+    for idx, (sku, asin, api_price, is_narf) in enumerate(sku_list):
+        cad_price = api_price  # sent as-is, SKU endpoint handles currency
         if cad_price <= 0:
             continue
 
@@ -635,7 +637,7 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
 
         if (idx + 1) % 100 == 0:
             print(f"  Fees progress: {idx + 1}/{total}")
-        time.sleep(0.3)
+        time.sleep(0.5)
 
     print(f"  Fees retrieved for {len(fee_map)} ASINs out of {total} SKUs")
     return fee_map
@@ -644,23 +646,21 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
 def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
     """Fetch per-ASIN total fees in CAD.
 
-    SP-API returns USD for FBA products, CAD for NARF products.
-    FBA prices are converted to CAD using AMAZON_USD_CAD_RATE before
-    sending to the fees endpoint. NARF prices are sent as-is.
+    Uses SKU-based endpoint with SP-API prices as-is (no conversion).
+    The SKU endpoint handles currency internally and gives exact fees.
+    Falls back to ASIN endpoint for SKUs that fail.
 
-    Returns (fee_map, usd_cad_rate) where fee_map: asin -> {total_fee, cad_price}
+    Returns fee_map: asin -> {total_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
-    usd_cad_rate = AMAZON_USD_CAD_RATE
-    print(f"  Using Amazon USD→CAD rate: {usd_cad_rate}")
 
     if items and buy_box_map:
-        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins, usd_cad_rate)
+        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins)
     else:
         print("  WARNING: No items/buy_box_map — fees will be 0")
         fee_map = {}
 
-    return fee_map, usd_cad_rate
+    return fee_map
 
 
 def main():
@@ -695,7 +695,7 @@ def main():
     product_costs = load_product_costs()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates, usd_cad_rate = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
+    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
 
     def _build_total_cost(asin, ft, cost_data):
         """Total Cost = Product Cost (CAD) + Amazon Total Fees (CAD).
@@ -720,17 +720,6 @@ def main():
             return f"${cad_price:.2f}"
         return fallback_info.get("our_msrp", "")
 
-    def _to_cad_winner(price_str, is_fba):
-        """Convert winner price to CAD. FBA winner prices are USD, NARF are CAD."""
-        if not price_str:
-            return ""
-        if not is_fba:
-            return price_str  # NARF prices already CAD
-        try:
-            val = float(price_str.replace("$", "").replace(",", ""))
-            return f"${val * usd_cad_rate:.2f}"
-        except ValueError:
-            return price_str
 
     print("\n[7/8] Flagging and alerting...")
     flagged = []
@@ -790,8 +779,7 @@ def main():
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
             product["winner_url"]     = info.get("winner_url", "")
-            is_fba = ft == "FBA"
-            product["winner_price"]   = _to_cad_winner(info.get("winner_price", ""), is_fba)
+            product["winner_price"]   = info.get("winner_price", "")
             product["recommendation"] = compute_recommendation(
                 product.get("winner_price", ""),
                 product.get("lowest_msrp")
