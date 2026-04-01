@@ -599,6 +599,7 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
                 time.sleep(30)
                 resp = requests.post(url, headers=headers, json=body, timeout=30)
 
+            success = False
             if resp.status_code == 200:
                 payload = resp.json().get("payload", {})
                 res = payload.get("FeesEstimateResult", {})
@@ -610,12 +611,24 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None, usd_cad_rate
                     ft_label = "NARF" if is_narf else "FBA"
                     if idx < 5:
                         print(f"  Sample: {sku} ({ft_label}) price=${cad_price} fee={currency}${total_fee}")
-                else:
-                    err = res.get("Error", {})
-                    print(f"  Fee FAIL {sku}: {err.get('Code','')} {err.get('Message', '')[:120]}")
-            else:
-                if idx < 5:
-                    print(f"  HTTP {resp.status_code} for {sku}: {resp.text[:200]}")
+                    success = True
+
+            # Fallback to ASIN endpoint if SKU endpoint failed
+            if not success and asin not in fee_map:
+                try:
+                    resp2 = requests.post(
+                        f"{SP_API_BASE}/products/fees/v0/items/{asin}/feesEstimate",
+                        headers=headers, json=body, timeout=30)
+                    if resp2.status_code == 200:
+                        res2 = resp2.json().get("payload", {}).get("FeesEstimateResult", {})
+                        if res2.get("Status") == "Success":
+                            tf2 = res2.get("FeesEstimate", {}).get("TotalFeesEstimate", {})
+                            total_fee = float(tf2.get("Amount", 0) or 0)
+                            fee_map[asin] = {"total_fee": round(total_fee, 2), "cad_price": cad_price}
+                            if idx < 5:
+                                print(f"  Fallback OK: {asin} fee=${total_fee}")
+                except Exception:
+                    pass
         except Exception as e:
             if idx < 3:
                 print(f"  Exception for {sku}: {e}")
