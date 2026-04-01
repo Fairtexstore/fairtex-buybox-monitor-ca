@@ -12,65 +12,44 @@ from src.monitor import (
 )
 
 def test_fees():
-    print("=== FEE TEST (10 FBA + 10 NARF) ===\n")
+    print("=== FEE TEST — Known SKUs ===\n")
 
     print("[1] Getting access token...")
     token = get_lwa_access_token()
     headers = sp_api_headers(token)
     print("  OK\n")
 
-    print("[2] Getting inventory (just first 2 pages for speed)...")
-    # Minimal inventory fetch
-    url = f"{SP_API_BASE}/fba/inventory/v1/summaries"
-    params = {
-        "details": "true",
-        "granularityType": "Marketplace",
-        "granularityId": MARKETPLACE_ID,
-        "marketplaceIds": MARKETPLACE_ID,
-    }
-    resp = requests.get(url, headers=headers, params=params, timeout=30)
-    items_raw = resp.json().get("payload", {}).get("inventorySummaries", [])
-    items = []
-    for item in items_raw:
-        sku = item.get("sellerSku", "")
-        asin = item.get("asin", "")
-        qty = (item.get("inventoryDetails") or {}).get("fulfillableQuantity") or 0
-        if qty > 0 and asin and sku:
-            items.append({"sku": sku, "asin": asin, "name": item.get("productName", "")[:50], "stock": qty})
-    print(f"  Got {len(items)} SKUs from first page\n")
+    # Hardcoded test cases with real seller SKUs from Seller Central
+    # FBA products
+    test_items = [
+        {"sku": "CA-KPLC2 - StandardCurved", "asin": "B006CV6W6M", "type": "FBA", "sc_fee": 59.55},
+        {"sku": "SP5-Black-Large",           "asin": "B00O1S1L64", "type": "FBA", "sc_fee": 46.38},
+        {"sku": "SP5-Black-Medium",          "asin": "B00O1S1HUE", "type": "FBA", "sc_fee": None},
+        {"sku": "HG10-Black/White-Medium",   "asin": "B00KR9CU8E", "type": "FBA", "sc_fee": None},
+        {"sku": "KPLS2 - Black - STD",       "asin": "B00PM9XRZ4", "type": "FBA", "sc_fee": None},
+        # NARF products
+        {"sku": "FMV9 - Red/White",          "asin": "B006K40R1C", "type": "NARF", "sc_fee": 43.70},
+        {"sku": "BGV14B - 14oz",             "asin": "B09QKKCP2V", "type": "NARF", "sc_fee": 49.14},
+        {"sku": "HW2-Black-120",             "asin": "B0793KXHT9", "type": "NARF", "sc_fee": 14.32},
+        {"sku": "BGV24-TheBeauty-16oz",      "asin": "B08MV8PCX8", "type": "NARF", "sc_fee": 43.23},
+        {"sku": "SP5-Black-Small",           "asin": "B009QYOOUI", "type": "NARF", "sc_fee": None},
+    ]
 
-    print("[3] Classifying FBA vs NARF...")
-    fba_asins = get_fulfillment_types(token)
+    # Get prices for these ASINs
+    print("[2] Getting prices...")
+    items_for_price = [{"sku": t["sku"], "asin": t["asin"], "name": "", "stock": 1} for t in test_items]
+    buy_box_map = check_buy_box(token, items_for_price)
     print()
 
-    print("[4] Getting prices via buy box check (first batch only)...")
-    batch_items = items[:20]
-    buy_box_map = check_buy_box(token, batch_items)
-    print()
-
-    # Split into FBA and NARF
-    fba_items = [i for i in batch_items if fba_asins and i["asin"] in fba_asins]
-    narf_items = [i for i in batch_items if not fba_asins or i["asin"] not in fba_asins]
-
-    test_items = fba_items[:10] + narf_items[:10]
-    if len(fba_items) < 10:
-        # Get more items for testing
-        all_fba = [i for i in items if fba_asins and i["asin"] in fba_asins]
-        all_narf = [i for i in items if not fba_asins or i["asin"] not in fba_asins]
-        print(f"  Available: {len(all_fba)} FBA, {len(all_narf)} NARF in first page")
-
-    print(f"\n[5] Testing fees for {len(test_items)} products...")
-    print(f"    ({len([i for i in test_items if fba_asins and i['asin'] in fba_asins])} FBA, "
-          f"{len([i for i in test_items if not fba_asins or i['asin'] not in fba_asins])} NARF)\n")
-
-    print(f"{'ASIN':<14} {'SKU':<35} {'TYPE':<5} {'API_PRICE':>10} {'CAD_PRICE':>10} {'TOTAL_FEE':>10} {'METHOD':<8}")
-    print("-" * 100)
+    print(f"{'ASIN':<14} {'SKU':<30} {'TYPE':<5} {'API$':>8} {'CAD$':>8} {'API_FEE':>8} {'SC_FEE':>8} {'DIFF':>6} {'METHOD':<6}")
+    print("-" * 105)
 
     for item in test_items:
         asin = item["asin"]
         sku = item["sku"]
-        is_narf = not fba_asins or asin not in fba_asins
-        ft = "NARF" if is_narf else "FBA"
+        is_narf = item["type"] == "NARF"
+        ft = item["type"]
+        sc_fee = item.get("sc_fee")
 
         info = buy_box_map.get(sku, {})
         msrp_str = info.get("our_msrp", "")
@@ -134,12 +113,17 @@ def test_fees():
             except Exception:
                 pass
 
-        fee_str = f"${total_fee:.2f}" if total_fee else "FAILED"
-        print(f"{asin:<14} {sku:<35} {ft:<5} ${api_price:>9.2f} ${cad_price:>9.2f} {fee_str:>10} {method:<8}")
+        fee_str = f"${total_fee:.2f}" if total_fee else "FAIL"
+        sc_str = f"${sc_fee:.2f}" if sc_fee else "?"
+        diff_str = ""
+        if total_fee and sc_fee:
+            diff = total_fee - sc_fee
+            diff_str = f"{diff:+.2f}"
+        print(f"{asin:<14} {sku:<30} {ft:<5} {api_price:>8.2f} {cad_price:>8.2f} {fee_str:>8} {sc_str:>8} {diff_str:>6} {method:<6}")
         time.sleep(0.3)
 
     print("\n=== DONE ===")
-    print("Compare TOTAL_FEE with Seller Central 'Estimated fees per unit sold' for each ASIN.")
+    print("DIFF = API fee - Seller Central fee (negative = API underestimates)")
 
 
 if __name__ == "__main__":
