@@ -52,11 +52,14 @@ def test_fees():
         ft = item["type"]
         sc_fee = item.get("sc_fee")
 
-        cad_price = cad_prices.get(sku, 0)
-        api_price = cad_price  # from report, already CAD
+        # Look up by ASIN (report is keyed by ASIN now)
+        rd = cad_prices.get(asin, {})
+        cad_price = rd.get("price", 0) if isinstance(rd, dict) else 0
+        report_sku = rd.get("sku", sku) if isinstance(rd, dict) else sku
+        api_price = cad_price
 
         if cad_price <= 0:
-            print(f"{asin:<14} {sku:<35} {ft:<5} {'N/A':>10} {'N/A':>10} {'N/A':>10} {'skip':<8}")
+            print(f"{asin:<14} {sku:<30} {ft:<5} {'N/A':>8} {'N/A':>8} {'N/A':>8} {'N/A':>8} {'':>6} {'skip':<6}")
             continue
 
         body = {
@@ -74,8 +77,8 @@ def test_fees():
         total_fee = None
         method = ""
 
-        # Try SKU endpoint first
-        sku_encoded = quote(sku, safe="")
+        # Try SKU endpoint first (using report's SKU, not hardcoded test SKU)
+        sku_encoded = quote(report_sku, safe="")
         sku_url = f"{SP_API_BASE}/products/fees/v0/listings/{sku_encoded}/feesEstimate"
         try:
             resp = requests.post(sku_url, headers=headers, json=body, timeout=30)
