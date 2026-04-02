@@ -534,9 +534,9 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 def _get_cad_prices_from_report(headers):
-    """Get CAD listing prices from GET_MERCHANT_LISTINGS_ALL_DATA report.
-    One report call returns all SKU prices in marketplace currency (CAD).
-    Returns dict: sku -> cad_price
+    """Get CAD listing prices and report SKUs from GET_MERCHANT_LISTINGS_ALL_DATA report.
+    Keyed by ASIN (consistent) instead of SKU (inconsistent between APIs).
+    Returns dict: asin -> {sku, price}
     """
     content = _request_report(headers, "GET_MERCHANT_LISTINGS_ALL_DATA", MARKETPLACE_ID)
     if content is None:
@@ -546,49 +546,59 @@ def _get_cad_prices_from_report(headers):
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
     print(f"  Report columns: {reader.fieldnames}")
 
-    prices = {}
+    report_data = {}
     for row in reader:
         sku = row.get("seller-sku", "").strip()
+        asin = row.get("asin1", "").strip()
         price_str = row.get("price", "").strip()
-        if sku and price_str:
+        if asin and sku and price_str:
             try:
-                prices[sku] = round(float(price_str), 2)
+                price = round(float(price_str), 2)
+                # Keep first SKU per ASIN (avoid overwriting with inactive listings)
+                if asin not in report_data:
+                    report_data[asin] = {"sku": sku, "price": price}
             except ValueError:
                 pass
 
-    print(f"  Got CAD prices for {len(prices)} SKUs from report")
-    # Log a few samples
-    for i, (sku, price) in enumerate(list(prices.items())[:3]):
-        print(f"  Sample: SKU={sku} CAD_price=${price}")
-    return prices
+    print(f"  Got data for {len(report_data)} ASINs from report")
+    for i, (asin, d) in enumerate(list(report_data.items())[:3]):
+        print(f"  Sample: {asin} SKU={d['sku']} CAD_price=${d['price']}")
+    return report_data
 
 
-def _get_fees_per_sku(headers, items, buy_box_map, cad_prices, fba_asins=None):
-    """For each SKU:
-    1. Use CAD price from merchant listings report (accurate, matches Seller Central)
-    2. Send to SKU fee endpoint → get exact TotalFeesEstimate in CAD
+def _get_fees_per_sku(headers, items, buy_box_map, report_data, fba_asins=None):
+    """For each ASIN:
+    1. Look up the report's SKU and CAD price by ASIN (consistent matching)
+    2. Send report SKU + CAD price to SKU fee endpoint → exact fees
     3. Fall back to ASIN endpoint if SKU endpoint fails
     """
     fee_map = {}
 
     sku_list = []
-    seen_skus = set()
+    seen_asins = set()
     for item in items:
-        sku = item["sku"]
         asin = item["asin"]
-        if sku not in seen_skus:
-            seen_skus.add(sku)
-            # Use CAD price from report; fall back to SP-API price
-            cad_price = cad_prices.get(sku)
-            if not cad_price:
-                info = buy_box_map.get(sku, {})
-                msrp_str = info.get("our_msrp", "")
-                try:
-                    cad_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-                except (ValueError, AttributeError):
-                    cad_price = 50.0
-            is_narf = fba_asins is not None and asin not in fba_asins
-            sku_list.append((sku, asin, cad_price, is_narf))
+        if asin in seen_asins:
+            continue
+        seen_asins.add(asin)
+
+        # Use report's SKU and price (matched by ASIN)
+        rd = report_data.get(asin)
+        if rd:
+            report_sku = rd["sku"]
+            cad_price = rd["price"]
+        else:
+            # Fallback: use inventory SKU and SP-API price
+            report_sku = item["sku"]
+            info = buy_box_map.get(item["sku"], {})
+            msrp_str = info.get("our_msrp", "")
+            try:
+                cad_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+            except (ValueError, AttributeError):
+                cad_price = 50.0
+
+        is_narf = fba_asins is not None and asin not in fba_asins
+        sku_list.append((report_sku, asin, cad_price, is_narf))
 
     total = len(sku_list)
     print(f"  Fetching total fees for {total} SKUs via listings endpoint...")
@@ -671,14 +681,14 @@ def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None
     """
     headers = sp_api_headers(access_token)
 
-    # Get CAD prices from merchant listings report (one call, all SKUs)
-    cad_prices = {}
+    # Get CAD prices + report SKUs from merchant listings report (one call, all ASINs)
+    report_data = {}
     if items:
-        print("  Fetching CAD prices from merchant listings report...")
-        cad_prices = _get_cad_prices_from_report(headers)
+        print("  Fetching CAD prices + SKUs from merchant listings report...")
+        report_data = _get_cad_prices_from_report(headers)
 
     if items and buy_box_map:
-        fee_map = _get_fees_per_sku(headers, items, buy_box_map, cad_prices, fba_asins)
+        fee_map = _get_fees_per_sku(headers, items, buy_box_map, report_data, fba_asins)
     else:
         print("  WARNING: No items/buy_box_map — fees will be 0")
         fee_map = {}
