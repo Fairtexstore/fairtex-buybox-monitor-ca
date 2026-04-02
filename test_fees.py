@@ -35,10 +35,11 @@ def test_fees():
         {"sku": "SP5-Black-Small",           "asin": "B009QYOOUI", "type": "NARF", "sc_fee": None},
     ]
 
-    # Get prices for these ASINs
-    print("[2] Getting prices...")
-    items_for_price = [{"sku": t["sku"], "asin": t["asin"], "name": "", "stock": 1} for t in test_items]
-    buy_box_map = check_buy_box(token, items_for_price)
+    # Get CAD prices from merchant listings report
+    print("[2] Getting CAD prices from merchant listings report...")
+    from src.monitor import _get_cad_prices_from_report, _request_report
+    headers = sp_api_headers(token)
+    cad_prices = _get_cad_prices_from_report(headers)
     print()
 
     print(f"{'ASIN':<14} {'SKU':<30} {'TYPE':<5} {'API$':>8} {'CAD$':>8} {'API_FEE':>8} {'SC_FEE':>8} {'DIFF':>6} {'METHOD':<6}")
@@ -51,14 +52,8 @@ def test_fees():
         ft = item["type"]
         sc_fee = item.get("sc_fee")
 
-        info = buy_box_map.get(sku, {})
-        msrp_str = info.get("our_msrp", "")
-        try:
-            api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 0
-        except (ValueError, AttributeError):
-            api_price = 0
-
-        cad_price = api_price  # send as-is, SKU endpoint handles currency
+        cad_price = cad_prices.get(sku, 0)
+        api_price = cad_price  # from report, already CAD
 
         if cad_price <= 0:
             print(f"{asin:<14} {sku:<35} {ft:<5} {'N/A':>10} {'N/A':>10} {'N/A':>10} {'skip':<8}")
