@@ -111,6 +111,7 @@ def test_fees():
             except Exception:
                 pass
 
+        time.sleep(1)  # avoid rate limiting
         fee_str = f"${total_fee:.2f}" if total_fee else "FAIL"
         sc_str = f"${sc_fee:.2f}" if sc_fee else "?"
         diff_str = ""
