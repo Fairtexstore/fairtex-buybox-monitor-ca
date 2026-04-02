@@ -624,8 +624,13 @@ def _get_fees_per_sku(headers, items, buy_box_map, report_data, fba_asins=None):
 
         try:
             resp = requests.post(url, headers=headers, json=body, timeout=30)
-            if resp.status_code == 429:
-                time.sleep(30)
+            # Retry up to 2 times on rate limit — don't fall back to inaccurate ASIN
+            for retry in range(2):
+                if resp.status_code != 429:
+                    break
+                wait = 10 * (retry + 1)
+                print(f"  Rate limited on {asin}, waiting {wait}s (retry {retry+1})...")
+                time.sleep(wait)
                 resp = requests.post(url, headers=headers, json=body, timeout=30)
 
             success = False
