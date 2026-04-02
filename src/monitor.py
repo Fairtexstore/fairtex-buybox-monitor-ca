@@ -533,29 +533,44 @@ def send_slack_alert(flagged, total_checked, dashboard_url=""):
 
 
 
-def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
-    """For each ASIN:
-    1. Get the actual CAD price from getCompetitivePricing
-    2. Send that CAD price to the fees endpoint
-       - FBA products: standard FBA fulfillment fee
-       - NARF products: Remote Fulfillment with FBA fee (FBA_EFN)
-    3. Get back the correct total fees in CAD (matching Seller Central)
+def _get_cad_prices_from_report(headers):
+    """Get CAD listing prices from GET_MERCHANT_LISTINGS_ALL_DATA report.
+    One report call returns all SKU prices in marketplace currency (CAD).
+    Returns dict: sku -> cad_price
     """
-    url_base = f"{SP_API_BASE}/products/fees/v0/items"
+    content = _request_report(headers, "GET_MERCHANT_LISTINGS_ALL_DATA", MARKETPLACE_ID)
+    if content is None:
+        print("  WARNING: Listings report failed")
+        return {}
+
+    reader = csv.DictReader(io.StringIO(content), delimiter="\t")
+    print(f"  Report columns: {reader.fieldnames}")
+
+    prices = {}
+    for row in reader:
+        sku = row.get("seller-sku", "").strip()
+        price_str = row.get("price", "").strip()
+        if sku and price_str:
+            try:
+                prices[sku] = round(float(price_str), 2)
+            except ValueError:
+                pass
+
+    print(f"  Got CAD prices for {len(prices)} SKUs from report")
+    # Log a few samples
+    for i, (sku, price) in enumerate(list(prices.items())[:3]):
+        print(f"  Sample: SKU={sku} CAD_price=${price}")
+    return prices
+
+
+def _get_fees_per_sku(headers, items, buy_box_map, cad_prices, fba_asins=None):
+    """For each SKU:
+    1. Use CAD price from merchant listings report (accurate, matches Seller Central)
+    2. Send to SKU fee endpoint → get exact TotalFeesEstimate in CAD
+    3. Fall back to ASIN endpoint if SKU endpoint fails
+    """
     fee_map = {}
 
-    # Get unique ASINs
-    unique_asins = []
-    seen = set()
-    for item in items:
-        asin = item["asin"]
-        if asin not in seen:
-            seen.add(asin)
-            unique_asins.append(asin)
-
-    # Build list of (sku, asin, price) for fee lookups.
-    # Send SP-API price as-is — no USD→CAD conversion.
-    # The SKU endpoint handles currency internally and gives exact fees.
     sku_list = []
     seen_skus = set()
     for item in items:
@@ -563,21 +578,23 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
         asin = item["asin"]
         if sku not in seen_skus:
             seen_skus.add(sku)
-            info = buy_box_map.get(sku, {})
-            msrp_str = info.get("our_msrp", "")
-            try:
-                api_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
-            except (ValueError, AttributeError):
-                api_price = 50.0
+            # Use CAD price from report; fall back to SP-API price
+            cad_price = cad_prices.get(sku)
+            if not cad_price:
+                info = buy_box_map.get(sku, {})
+                msrp_str = info.get("our_msrp", "")
+                try:
+                    cad_price = float(msrp_str.replace("$", "").replace(",", "")) if msrp_str else 50.0
+                except (ValueError, AttributeError):
+                    cad_price = 50.0
             is_narf = fba_asins is not None and asin not in fba_asins
-            sku_list.append((sku, asin, api_price, is_narf))
+            sku_list.append((sku, asin, cad_price, is_narf))
 
     total = len(sku_list)
     print(f"  Fetching total fees for {total} SKUs via listings endpoint...")
 
     from urllib.parse import quote
-    for idx, (sku, asin, api_price, is_narf) in enumerate(sku_list):
-        cad_price = api_price  # sent as-is, SKU endpoint handles currency
+    for idx, (sku, asin, cad_price, is_narf) in enumerate(sku_list):
         if cad_price <= 0:
             continue
 
@@ -646,16 +663,22 @@ def _get_fees_per_asin(headers, items, buy_box_map, fba_asins=None):
 def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
     """Fetch per-ASIN total fees in CAD.
 
-    Uses SKU-based endpoint with SP-API prices as-is (no conversion).
-    The SKU endpoint handles currency internally and gives exact fees.
-    Falls back to ASIN endpoint for SKUs that fail.
+    1. Fetches CAD prices from GET_MERCHANT_LISTINGS_ALL_DATA report
+    2. For each SKU, sends CAD price to SKU fee endpoint
+    3. Gets back exact TotalFeesEstimate in CAD (matches Seller Central)
 
     Returns fee_map: asin -> {total_fee, cad_price}
     """
     headers = sp_api_headers(access_token)
 
+    # Get CAD prices from merchant listings report (one call, all SKUs)
+    cad_prices = {}
+    if items:
+        print("  Fetching CAD prices from merchant listings report...")
+        cad_prices = _get_cad_prices_from_report(headers)
+
     if items and buy_box_map:
-        fee_map = _get_fees_per_asin(headers, items, buy_box_map, fba_asins)
+        fee_map = _get_fees_per_sku(headers, items, buy_box_map, cad_prices, fba_asins)
     else:
         print("  WARNING: No items/buy_box_map — fees will be 0")
         fee_map = {}
