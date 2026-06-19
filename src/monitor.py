@@ -91,18 +91,36 @@ def load_product_costs():
     return costs
 
 
-def compute_recommendation(winner_price_str, lowest_msrp):
-    """Compute pricing recommendation based on winner price vs minimum MSRP."""
-    if not winner_price_str or lowest_msrp is None:
+def compute_recommendation(winner_price_str, lowest_msrp, our_msrp_str=""):
+    """Pricing recommendation for products where we don't own the buy box.
+
+    Case 1 — a competing winner exists: match at the 15% margin floor if the
+    winner sits above it; otherwise flag that we cannot profitably match.
+
+    Case 2 — no winner offer at all: suggest dropping price 10% off our MSRP,
+    but only if the new price stays at or above the 15% margin floor.
+    """
+    if lowest_msrp is None:
         return ""
-    try:
-        winner_price = float(winner_price_str.replace("$", "").replace(",", ""))
-    except ValueError:
-        return ""
-    if winner_price > lowest_msrp:
-        return f"Yes, reduce to ${lowest_msrp:.2f}"
-    else:
+
+    if winner_price_str:
+        try:
+            winner_price = float(winner_price_str.replace("$", "").replace(",", ""))
+        except ValueError:
+            return ""
+        if winner_price > lowest_msrp:
+            return f"Yes, reduce to ${lowest_msrp:.2f}"
         return "No, winner below minimum"
+
+    if our_msrp_str:
+        try:
+            our_msrp = float(our_msrp_str.replace("$", "").replace(",", ""))
+        except ValueError:
+            return ""
+        new_price = round(our_msrp * 0.9, 2)
+        if new_price >= lowest_msrp:
+            return f"No winner — drop price 10% to ${new_price:.2f}"
+    return ""
 
 
 def _request_report(headers, report_type, marketplace_id):
@@ -772,7 +790,11 @@ def main():
             lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
             item["total_cost"]     = total_cost
             item["lowest_msrp"]    = lowest_msrp
-            item["recommendation"] = compute_recommendation(item["winner_price"], lowest_msrp)
+            item["recommendation"] = compute_recommendation(
+                item["winner_price"],
+                lowest_msrp,
+                _get_cad_msrp(item["asin"], info),
+            )
             flagged.append(item)
     print(f"  Flagged: {len(flagged)}")
     for p in flagged:
@@ -820,7 +842,8 @@ def main():
             product["winner_price"]   = info.get("winner_price", "")
             product["recommendation"] = compute_recommendation(
                 product.get("winner_price", ""),
-                product.get("lowest_msrp")
+                product.get("lowest_msrp"),
+                our_msrp,
             )
         else:
             product["recommendation"] = ""
