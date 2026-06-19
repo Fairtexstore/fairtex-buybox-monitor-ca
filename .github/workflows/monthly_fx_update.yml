@@ -1,0 +1,26 @@
+name: Monthly FX Update for Product Costs
+
+on:
+  schedule:
+    - cron: "0 5 2 * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Convert USD costs to CAD at latest FX rate
+        run: python convert_costs.py
+      - name: Commit updated product_costs.csv
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add product_costs.csv
+          git diff --staged --quiet || git commit -m "Monthly FX refresh of product_costs.csv (USD->CAD)"
+          git pull --rebase || true
+          git push
