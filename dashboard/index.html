@@ -164,6 +164,7 @@
         { key: 'our_msrp', label: 'MSRP' },
         { key: 'fairtex_msrp', label: 'Fairtex MSRP' },
         { key: 'msrp_compliant', label: 'MSRP Compliant' },
+        { key: 'msrp_diff_reason', label: 'MSRP Difference Reason' },
         { key: 'our_landed', label: 'Landed Price' },
         { key: 'has_buy_box', label: 'Buy Box' },
         { key: 'winner_seller', label: 'Winner' },
@@ -182,7 +183,7 @@
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
-        html += '<tr><td colspan="15" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+        html += '<tr><td colspan="16" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
 
       for (const p of filtered) {
@@ -230,6 +231,7 @@
           <td>${msrp}</td>
           <td>${fairtexMsrp}</td>
           <td>${compliantBadge}</td>
+          <td style="color:#6b7280;font-size:13px;">${p.msrp_diff_reason || '-'}</td>
           <td>${landedPrice}</td>
           <td>${badge}</td>
           <td>${winner}</td>
