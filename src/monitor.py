@@ -120,12 +120,29 @@ def load_fairtex_msrp():
     return msrp
 
 
-def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, our_landed_str,
-                              has_buy_box, winner_price_str):
-    """Explain why our Amazon MSRP sits below the Fairtex suggested MSRP.
+def compute_fairtex_comparison(our_msrp_str, fairtex_cad):
+    """EU-style comparison: 'Priced below Fairtex' vs 'Price is as per or more than Fairtex'."""
+    if not our_msrp_str or fairtex_cad is None:
+        return ""
+    try:
+        our_msrp = float(our_msrp_str.replace("$", "").replace(",", ""))
+    except ValueError:
+        return ""
+    return "Priced below Fairtex" if our_msrp < fairtex_cad else "Price is as per or more than Fairtex"
 
-    Returns "" when our MSRP is at or above Fairtex's, or when we don't have
-    enough info to attribute a reason.
+
+def compute_msrp_check(our_msrp_str, fairtex_cad, our_landed_str,
+                       has_buy_box, winner_price_str):
+    """EU-style MSRP check categorization.
+
+    One of:
+      - "Above Fairtex MSRP"          (our MSRP materially above Fairtex)
+      - "MSRP compliant"              (our MSRP at or near Fairtex)
+      - "Lowered to match winner"     (we lost buy box and matched winner)
+      - "Lowered as landed price is high"
+                                      (we lost buy box, no winner, landed >= Fairtex MSRP)
+      - "Not compliant, check MSRP"   (below Fairtex without a justified reason)
+      - ""                             (insufficient data)
     """
     if not our_msrp_str or fairtex_cad is None:
         return ""
@@ -133,28 +150,30 @@ def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, our_landed_str,
         our_msrp = float(our_msrp_str.replace("$", "").replace(",", ""))
     except ValueError:
         return ""
-    if our_msrp >= fairtex_cad:
-        return ""
 
-    # Lost buy box, winner exists, our price is within 5% of theirs.
+    if our_msrp > fairtex_cad + 0.50:
+        return "Above Fairtex MSRP"
+    if our_msrp >= fairtex_cad - 0.50:
+        return "MSRP compliant"
+
+    # Below Fairtex — categorize the reason.
     if not has_buy_box and winner_price_str:
         try:
             winner = float(winner_price_str.replace("$", "").replace(",", ""))
             if winner > 0 and abs(our_msrp - winner) / winner < 0.05:
-                return "Lowered MSRP to match winner"
+                return "Lowered to match winner"
         except ValueError:
             pass
 
-    # Lost buy box, no winner, customer landed cost is already at/above Fairtex MSRP.
     if not has_buy_box and not winner_price_str and our_landed_str:
         try:
             landed = float(our_landed_str.replace("$", "").replace(",", ""))
             if landed >= fairtex_cad:
-                return "Lowered MSRP as landed price is high"
+                return "Lowered as landed price is high"
         except ValueError:
             pass
 
-    return ""
+    return "Not compliant, check MSRP"
 
 
 def compute_recommendation(winner_price_str, lowest_msrp, our_msrp_str=""):
@@ -902,35 +921,28 @@ def main():
         # Total cost = product cost + referral fee + fulfillment fee (FBA or NARF)
         total_cost  = _build_total_cost(item["asin"], ft, cost_data)
         lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
-        # MSRP compliant: our current Amazon MSRP must be >= Fairtex's suggested MSRP.
         fairtex_cad = fairtex_msrp_map.get(item["asin"])
-        msrp_compliant = ""
-        if our_msrp and fairtex_cad is not None:
-            try:
-                msrp_val = float(our_msrp.replace("$", "").replace(",", ""))
-                msrp_compliant = "Yes" if msrp_val >= fairtex_cad else "No"
-            except ValueError:
-                pass
         has_buy_box = info.get("has_buy_box", True)
         winner_price_str = info.get("winner_price", "") if not has_buy_box else ""
-        msrp_diff_reason = compute_msrp_diff_reason(
+        fairtex_comparison = compute_fairtex_comparison(our_msrp, fairtex_cad)
+        msrp_check = compute_msrp_check(
             our_msrp, fairtex_cad, our_landed, has_buy_box, winner_price_str,
         )
         product = {
-            "sku":              item["sku"],
-            "asin":             item["asin"],
-            "name":             item["name"],
-            "stock":            item["stock"],
-            "our_msrp":         our_msrp,
-            "our_landed":       our_landed,
-            "has_buy_box":      has_buy_box,
-            "total_cost":       total_cost,
-            "lowest_msrp":      lowest_msrp,
-            "fulfillment_type": ft,
-            "fairtex_msrp":     fairtex_cad,
-            "msrp_compliant":   msrp_compliant,
-            "msrp_diff_reason": msrp_diff_reason,
-            "inbound":          item.get("inbound", 0),
+            "sku":                     item["sku"],
+            "asin":                    item["asin"],
+            "name":                    item["name"],
+            "stock":                   item["stock"],
+            "our_msrp":                our_msrp,
+            "our_landed":              our_landed,
+            "has_buy_box":             has_buy_box,
+            "total_cost":              total_cost,
+            "lowest_msrp":             lowest_msrp,
+            "fulfillment_type":        ft,
+            "pricing_as_per_fairtex":  fairtex_cad,
+            "fairtex_comparison":      fairtex_comparison,
+            "msrp_check":              msrp_check,
+            "inbound":                 item.get("inbound", 0),
         }
         if not has_buy_box:
             product["winner_seller"]  = info.get("winner_seller", "")
@@ -941,7 +953,7 @@ def main():
                 product.get("lowest_msrp"),
                 our_msrp,
             )
-        elif msrp_compliant == "No":
+        elif fairtex_comparison == "Priced below Fairtex":
             product["recommendation"] = "Match MSRP"
         else:
             product["recommendation"] = ""

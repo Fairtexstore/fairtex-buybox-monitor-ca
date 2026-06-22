@@ -108,7 +108,7 @@
         if (fulfillmentFilter !== 'all' && p.fulfillment_type !== fulfillmentFilter) return false;
         if (filter === 'lost' && p.has_buy_box) return false;
         if (filter === 'owned' && !p.has_buy_box) return false;
-        if (filter === 'can_lower' && !(p.recommendation && p.recommendation.startsWith('Yes'))) return false;
+        if (filter === 'can_lower' && !(p.recommendation && (p.recommendation.startsWith('Yes') || p.recommendation.startsWith('Match')))) return false;
         if (filter === 'cannot_lower' && !(p.recommendation && p.recommendation.startsWith('No'))) return false;
         if (search) {
           return p.sku.toLowerCase().includes(search) ||
@@ -125,7 +125,7 @@
           av = av ? parseFloat(av.replace('$','')) : -Infinity;
           bv = bv ? parseFloat(bv.replace('$','')) : -Infinity;
         }
-        if (['stock', 'total_cost', 'lowest_msrp', 'fairtex_msrp'].includes(sortCol)) {
+        if (['stock', 'total_cost', 'lowest_msrp', 'pricing_as_per_fairtex'].includes(sortCol)) {
           av = av != null ? Number(av) : -Infinity;
           bv = bv != null ? Number(bv) : -Infinity;
         }
@@ -162,14 +162,15 @@
         { key: 'fulfillment_type', label: 'Type' },
         { key: 'stock', label: 'Stock' },
         { key: 'our_msrp', label: 'MSRP' },
-        { key: 'fairtex_msrp', label: 'Fairtex MSRP' },
-        { key: 'msrp_compliant', label: 'MSRP Compliant' },
-        { key: 'msrp_diff_reason', label: 'MSRP Difference Reason' },
         { key: 'our_landed', label: 'Landed Price' },
         { key: 'has_buy_box', label: 'Buy Box' },
         { key: 'winner_seller', label: 'Winner' },
-        { key: 'winner_price', label: 'Winner Price' },
+        { key: 'price_gap', label: 'Price Gap (us - winner)' },
+        { key: 'winner_price', label: 'Winner Buy Box Price' },
         { key: 'total_cost', label: 'Our Cost' },
+        { key: 'pricing_as_per_fairtex', label: 'Pricing as per Fairtex' },
+        { key: 'fairtex_comparison', label: 'Fairtex Comparison' },
+        { key: 'msrp_check', label: 'MSRP Check' },
         { key: 'lowest_msrp', label: 'Min MSRP for 15% Profit' },
         { key: 'recommendation', label: 'Recommendation' },
       ];
@@ -183,8 +184,10 @@
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
-        html += '<tr><td colspan="16" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+        html += '<tr><td colspan="17" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
+
+      const parseMoney = (v) => v ? parseFloat(String(v).replace(/[$,]/g, '')) : NaN;
 
       for (const p of filtered) {
         const rowClass = p.has_buy_box ? '' : 'lost';
@@ -196,12 +199,12 @@
         const price = p.has_buy_box ? '-' : (p.winner_price || '-');
         const asinLink = `<a href="https://www.amazon.ca/dp/${p.asin}" target="_blank">${p.asin}</a>`;
         const costDisplay = p.total_cost != null ? `$${Number(p.total_cost).toFixed(2)}` : '-';
-        const msrpDisplay = p.lowest_msrp != null ? `$${Number(p.lowest_msrp).toFixed(2)}` : '-';
+        const minMsrpDisplay = p.lowest_msrp != null ? `$${Number(p.lowest_msrp).toFixed(2)}` : '-';
         let recDisplay = '-';
         if (p.recommendation) {
-          if (p.recommendation.startsWith('Yes')) {
+          if (p.recommendation.startsWith('Yes') || p.recommendation.startsWith('Match')) {
             recDisplay = `<span style="color:#059669;font-weight:600;">${p.recommendation}</span>`;
-          } else if (p.recommendation.startsWith('No')) {
+          } else if (p.recommendation.startsWith('No') || p.recommendation.startsWith('Hold')) {
             recDisplay = `<span style="color:#dc2626;font-weight:600;">${p.recommendation}</span>`;
           } else {
             recDisplay = p.recommendation;
@@ -209,18 +212,39 @@
         }
 
         const msrp = p.our_msrp || '-';
-        const fairtexMsrp = p.fairtex_msrp != null ? `$${Number(p.fairtex_msrp).toFixed(2)}` : '-';
-        const compliantBadge = p.msrp_compliant === 'Yes'
-          ? '<span class="badge yes">Yes</span>'
-          : p.msrp_compliant === 'No'
-            ? '<span class="badge no">No</span>'
-            : '-';
+        const pricingFairtex = p.pricing_as_per_fairtex != null ? `$${Number(p.pricing_as_per_fairtex).toFixed(2)}` : '-';
+        let fairtexCmp = '-';
+        if (p.fairtex_comparison === 'Priced below Fairtex') {
+          fairtexCmp = `<span style="color:#dc2626;font-weight:600;">${p.fairtex_comparison}</span>`;
+        } else if (p.fairtex_comparison === 'Price is as per or more than Fairtex') {
+          fairtexCmp = `<span style="color:#059669;font-weight:600;">${p.fairtex_comparison}</span>`;
+        }
+        let msrpCheck = '-';
+        if (p.msrp_check === 'MSRP compliant') {
+          msrpCheck = `<span style="color:#059669;font-weight:600;">${p.msrp_check}</span>`;
+        } else if (p.msrp_check === 'Above Fairtex MSRP') {
+          msrpCheck = `<span style="color:#2563eb;font-weight:600;">${p.msrp_check}</span>`;
+        } else if (p.msrp_check === 'Lowered to match winner' || p.msrp_check === 'Lowered as landed price is high') {
+          msrpCheck = `<span style="color:#d97706;font-weight:600;">${p.msrp_check}</span>`;
+        } else if (p.msrp_check === 'Not compliant, check MSRP') {
+          msrpCheck = `<span style="color:#dc2626;font-weight:700;">${p.msrp_check}</span>`;
+        }
         const landedPrice = p.our_landed || '-';
         const ftBadge = p.fulfillment_type === 'FBA'
           ? '<span class="badge yes">FBA</span>'
           : p.fulfillment_type === 'NARF'
             ? '<span class="badge" style="background:#dbeafe;color:#1e40af;">NARF</span>'
             : '<span class="badge" style="background:#f3f4f6;color:#6b7280;">—</span>';
+
+        // Price Gap: our_msrp - winner_price when we lost buy box and winner exists.
+        const oMoney = parseMoney(p.our_msrp), wMoney = parseMoney(p.winner_price);
+        let priceGap = '-';
+        if (!p.has_buy_box && Number.isFinite(oMoney) && Number.isFinite(wMoney)) {
+          const gap = oMoney - wMoney;
+          const color = gap > 0 ? '#dc2626' : gap < 0 ? '#059669' : '#6b7280';
+          const sign = gap > 0 ? '+' : '';
+          priceGap = `<span style="color:${color};font-weight:600;">${sign}$${gap.toFixed(2)}</span>`;
+        }
 
         html += `<tr class="${rowClass}">
           <td title="${p.name}">${p.name}</td>
@@ -229,15 +253,16 @@
           <td>${ftBadge}</td>
           <td>${p.stock}</td>
           <td>${msrp}</td>
-          <td>${fairtexMsrp}</td>
-          <td>${compliantBadge}</td>
-          <td style="color:#6b7280;font-size:13px;">${p.msrp_diff_reason || '-'}</td>
           <td>${landedPrice}</td>
           <td>${badge}</td>
           <td>${winner}</td>
+          <td>${priceGap}</td>
           <td>${price}</td>
           <td>${costDisplay}</td>
-          <td>${msrpDisplay}</td>
+          <td>${pricingFairtex}</td>
+          <td>${fairtexCmp}</td>
+          <td style="font-size:13px;">${msrpCheck}</td>
+          <td>${minMsrpDisplay}</td>
           <td>${recDisplay}</td>
         </tr>`;
       }
