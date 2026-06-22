@@ -123,7 +123,7 @@
           av = av ? parseFloat(av.replace('$','')) : -Infinity;
           bv = bv ? parseFloat(bv.replace('$','')) : -Infinity;
         }
-        if (['stock', 'total_cost', 'lowest_msrp'].includes(sortCol)) {
+        if (['stock', 'total_cost', 'lowest_msrp', 'fairtex_msrp'].includes(sortCol)) {
           av = av != null ? Number(av) : -Infinity;
           bv = bv != null ? Number(bv) : -Infinity;
         }
@@ -147,6 +147,7 @@
         { key: 'fulfillment_type', label: 'Type' },
         { key: 'stock', label: 'Stock' },
         { key: 'our_msrp', label: 'MSRP' },
+        { key: 'fairtex_msrp', label: 'Fairtex MSRP' },
         { key: 'our_landed', label: 'Landed Price' },
         { key: 'has_buy_box', label: 'Buy Box' },
         { key: 'winner_seller', label: 'Winner' },
@@ -165,7 +166,7 @@
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
-        html += '<tr><td colspan="13" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+        html += '<tr><td colspan="14" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
 
       for (const p of filtered) {
@@ -191,6 +192,7 @@
         }
 
         const msrp = p.our_msrp || '-';
+        const fairtexMsrp = p.fairtex_msrp != null ? `$${Number(p.fairtex_msrp).toFixed(2)}` : '-';
         const landedPrice = p.our_landed || '-';
         const ftBadge = p.fulfillment_type === 'FBA'
           ? '<span class="badge yes">FBA</span>'
@@ -205,6 +207,7 @@
           <td>${ftBadge}</td>
           <td>${p.stock}</td>
           <td>${msrp}</td>
+          <td>${fairtexMsrp}</td>
           <td>${landedPrice}</td>
           <td>${badge}</td>
           <td>${winner}</td>
