@@ -91,6 +91,35 @@ def load_product_costs():
     return costs
 
 
+def load_fairtex_msrp():
+    """Load Fairtex MSRP (CAD) from 'Fairtex Price in USD.csv'. Returns dict ASIN -> float CAD.
+
+    The CAD column is refreshed monthly by convert_costs.py at the current Bank of Canada rate.
+    """
+    path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "Fairtex Price in USD.csv")
+    msrp = {}
+    try:
+        with open(path, "r", newline="", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                asin = (row.get("ASIN") or "").strip()
+                if not asin:
+                    continue
+                cad_str = (row.get("MSRP per Fairtex in CAD") or "").strip().replace("$", "").replace(",", "")
+                if not cad_str:
+                    continue
+                try:
+                    msrp[asin] = float(cad_str)
+                except ValueError:
+                    pass
+        print(f"  Loaded Fairtex MSRP for {len(msrp)} ASINs")
+    except FileNotFoundError:
+        print("  'Fairtex Price in USD.csv' not found - skipping Fairtex MSRP")
+    except Exception as e:
+        print(f"  Error loading Fairtex MSRP: {e}")
+    return msrp
+
+
 def compute_recommendation(winner_price_str, lowest_msrp, our_msrp_str=""):
     """Pricing recommendation for products where we don't own the buy box.
 
@@ -749,6 +778,7 @@ def main():
 
     print("\n[5/8] Loading product cost data...")
     product_costs = load_product_costs()
+    fairtex_msrp_map = load_fairtex_msrp()
 
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
     fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
@@ -835,6 +865,7 @@ def main():
             "total_cost":       total_cost,
             "lowest_msrp":      lowest_msrp,
             "fulfillment_type": ft,
+            "fairtex_msrp":     fairtex_msrp_map.get(item["asin"]),
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
