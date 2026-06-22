@@ -14,6 +14,8 @@
     .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
     .card .label { font-size: 13px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
     .card .value { font-size: 32px; font-weight: 700; }
+    .card .sublabel { font-size: 13px; color: #6b7280; margin-top: 8px; font-weight: 500; }
+    .card .sublabel .ft-tag { color: #1a1a2e; font-weight: 600; }
     .card.owned .value { color: #059669; }
     .card.missing .value { color: #dc2626; }
     .card.total .value { color: #2563eb; }
@@ -51,9 +53,9 @@
     <div class="updated" id="updated"></div>
   </div>
   <div class="cards">
-    <div class="card total"><div class="label">SKUs Checked</div><div class="value" id="totalChecked">-</div></div>
-    <div class="card owned"><div class="label">Buy Box Owned</div><div class="value" id="owned">-</div></div>
-    <div class="card missing"><div class="label">Missing Buy Box</div><div class="value" id="missing">-</div></div>
+    <div class="card total"><div class="label">SKUs Checked</div><div class="value" id="totalChecked">-</div><div class="sublabel" id="totalCheckedSplit"></div></div>
+    <div class="card owned"><div class="label">Buy Box Owned</div><div class="value" id="owned">-</div><div class="sublabel" id="ownedSplit"></div></div>
+    <div class="card missing"><div class="label">Missing Buy Box</div><div class="value" id="missing">-</div><div class="sublabel" id="missingSplit"></div></div>
   </div>
   <div class="controls">
     <input type="text" id="search" placeholder="Search by SKU, ASIN, or product name...">
@@ -139,6 +141,19 @@
       document.getElementById('totalChecked').textContent = filtered.length;
       document.getElementById('owned').textContent = filteredOwned;
       document.getElementById('missing').textContent = filteredMissing;
+
+      // FBA / NARF split under each card
+      const fbaTotal    = filtered.filter(p => p.fulfillment_type === 'FBA').length;
+      const narfTotal   = filtered.filter(p => p.fulfillment_type === 'NARF').length;
+      const fbaOwned    = filtered.filter(p => p.fulfillment_type === 'FBA'  && p.has_buy_box).length;
+      const narfOwned   = filtered.filter(p => p.fulfillment_type === 'NARF' && p.has_buy_box).length;
+      const fbaMissing  = filtered.filter(p => p.fulfillment_type === 'FBA'  && !p.has_buy_box).length;
+      const narfMissing = filtered.filter(p => p.fulfillment_type === 'NARF' && !p.has_buy_box).length;
+      const splitHtml = (fba, narf) =>
+        `<span class="ft-tag">FBA</span> ${fba} &nbsp;·&nbsp; <span class="ft-tag">NARF</span> ${narf}`;
+      document.getElementById('totalCheckedSplit').innerHTML = splitHtml(fbaTotal,   narfTotal);
+      document.getElementById('ownedSplit').innerHTML        = splitHtml(fbaOwned,   narfOwned);
+      document.getElementById('missingSplit').innerHTML      = splitHtml(fbaMissing, narfMissing);
 
       const cols = [
         { key: 'name', label: 'Product' },
