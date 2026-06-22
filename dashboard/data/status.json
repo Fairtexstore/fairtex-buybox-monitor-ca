@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-06-22T09:59:44.235655+00:00",
-  "total_checked": 564,
-  "buy_box_owned": 539,
-  "total_flagged": 25,
+  "last_updated": "2026-06-22T10:44:19.076894+00:00",
+  "total_checked": 667,
+  "buy_box_owned": 621,
+  "total_flagged": 46,
   "products": [
     {
       "sku": "CA-HB6 - Black - Muay Thai Banana Bag",
@@ -16,6 +16,7 @@
       "lowest_msrp": 191.95,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 419.45,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -30,6 +31,7 @@
       "lowest_msrp": 190.94,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 255.08,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -44,6 +46,7 @@
       "lowest_msrp": 168.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -58,6 +61,7 @@
       "lowest_msrp": 173.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -72,6 +76,22 @@
       "lowest_msrp": 151.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 32,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP5-Blue-Small",
+      "asin": "B009QYOOUI",
+      "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
+      "stock": 0,
+      "our_msrp": "$137.49",
+      "our_landed": "$156.74",
+      "has_buy_box": true,
+      "total_cost": 99.16,
+      "lowest_msrp": 116.66,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.62,
+      "inbound": 25,
       "recommendation": ""
     },
     {
@@ -86,6 +106,7 @@
       "lowest_msrp": 108.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -100,6 +121,7 @@
       "lowest_msrp": 114.69,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -114,6 +136,7 @@
       "lowest_msrp": 113.05,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -128,6 +151,7 @@
       "lowest_msrp": 115.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -142,6 +166,7 @@
       "lowest_msrp": 154.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 20,
       "recommendation": ""
     },
     {
@@ -156,6 +181,7 @@
       "lowest_msrp": 152.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -170,6 +196,7 @@
       "lowest_msrp": 151.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -184,6 +211,7 @@
       "lowest_msrp": 153.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 20,
       "recommendation": ""
     },
     {
@@ -198,6 +226,7 @@
       "lowest_msrp": 135.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -212,6 +241,7 @@
       "lowest_msrp": 137.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 162.97,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -226,7 +256,41 @@
       "lowest_msrp": 140.59,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 64,
       "recommendation": ""
+    },
+    {
+      "sku": "BS0637-Medium",
+      "asin": "B00LN0D3VE",
+      "name": "Fairtex Muay Thai Boxing Shorts Traditional Styles (Superstitious Whit",
+      "stock": 0,
+      "our_msrp": "$63.46",
+      "our_landed": "$72.34",
+      "has_buy_box": true,
+      "total_cost": 52.98,
+      "lowest_msrp": 62.33,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 5,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS0639-FortuneBlack-XLarge",
+      "asin": "B00LN0DEIG",
+      "name": "Fairtex Muay Thai Boxing Shorts Traditional Styles",
+      "stock": 0,
+      "our_msrp": "$84.19",
+      "our_landed": "$95.98",
+      "has_buy_box": false,
+      "total_cost": 55.1,
+      "lowest_msrp": 64.82,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 10,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $75.77"
     },
     {
       "sku": "BGV11 - F-Day - 14oz",
@@ -240,6 +304,22 @@
       "lowest_msrp": 161.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 212.56,
+      "inbound": 54,
+      "recommendation": ""
+    },
+    {
+      "sku": "FBABlackSmallSP5",
+      "asin": "B00O1S1DTY",
+      "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
+      "stock": 0,
+      "our_msrp": "$137.49",
+      "our_landed": "$156.74",
+      "has_buy_box": true,
+      "total_cost": 92.94,
+      "lowest_msrp": 109.34,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.62,
+      "inbound": 40,
       "recommendation": ""
     },
     {
@@ -254,6 +334,7 @@
       "lowest_msrp": 110.12,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -268,6 +349,37 @@
       "lowest_msrp": 111.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 36,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP5 - Black - Xlarge",
+      "asin": "B00O1S1OFW",
+      "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
+      "stock": 0,
+      "our_msrp": "$133.49",
+      "our_landed": "$152.18",
+      "has_buy_box": true,
+      "total_cost": 99.08,
+      "lowest_msrp": 116.56,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.62,
+      "inbound": 69,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP3 - Black - Large",
+      "asin": "B00O1S27SA",
+      "name": "Fairtex SP3 Muay Thai Shin Guards for Men, Women, Kids | MMA Training,",
+      "stock": 0,
+      "our_msrp": "$129.99",
+      "our_landed": "$148.19",
+      "has_buy_box": true,
+      "total_cost": 98.09,
+      "lowest_msrp": 115.4,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 127.54,
+      "inbound": 48,
       "recommendation": ""
     },
     {
@@ -282,6 +394,7 @@
       "lowest_msrp": 106.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 58,
       "recommendation": ""
     },
     {
@@ -296,6 +409,7 @@
       "lowest_msrp": 116.72,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -310,6 +424,7 @@
       "lowest_msrp": 143.0,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -324,6 +439,7 @@
       "lowest_msrp": 119.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -338,6 +454,7 @@
       "lowest_msrp": 123.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 48,
       "recommendation": ""
     },
     {
@@ -352,6 +469,7 @@
       "lowest_msrp": 127.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -366,6 +484,7 @@
       "lowest_msrp": 162.41,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -380,6 +499,7 @@
       "lowest_msrp": 293.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 481.81,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -394,6 +514,7 @@
       "lowest_msrp": 274.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 325.93,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -408,6 +529,7 @@
       "lowest_msrp": 94.09,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -422,6 +544,22 @@
       "lowest_msrp": 97.78,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP7-Yellow-Extra Large",
+      "asin": "B00RDZGL1C",
+      "name": "Fairtex SP7 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$144.99",
+      "our_landed": "$165.29",
+      "has_buy_box": true,
+      "total_cost": 88.0,
+      "lowest_msrp": 103.53,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 141.71,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -436,6 +574,7 @@
       "lowest_msrp": 97.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -450,6 +589,7 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -464,6 +604,7 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 37,
       "recommendation": ""
     },
     {
@@ -478,6 +619,7 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 6,
       "recommendation": ""
     },
     {
@@ -492,6 +634,7 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -506,6 +649,7 @@
       "lowest_msrp": 162.32,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -520,6 +664,7 @@
       "lowest_msrp": 162.41,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -534,6 +679,7 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -548,6 +694,7 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 11,
       "recommendation": ""
     },
     {
@@ -562,6 +709,7 @@
       "lowest_msrp": 154.55,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -576,6 +724,22 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV9-Orange/Black Piping-16oz",
+      "asin": "B0156V17H2",
+      "name": "Fairtex Muay Thai Boxing Gloves BGV9 - Heavy Hitter Mexican Style Trai",
+      "stock": 0,
+      "our_msrp": "$215.99",
+      "our_landed": "$246.23",
+      "has_buy_box": true,
+      "total_cost": 149.16,
+      "lowest_msrp": 175.48,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 211.15,
+      "inbound": 6,
       "recommendation": ""
     },
     {
@@ -590,7 +754,26 @@
       "lowest_msrp": 145.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV1BR-White-12oz",
+      "asin": "B018KLBXC4",
+      "name": "Fairtex BGV1BR Muay Thai Boxing Training Sparring Gloves for Men, Wome",
+      "stock": 0,
+      "our_msrp": "$171.00",
+      "our_landed": "$194.94",
+      "has_buy_box": false,
+      "total_cost": 118.45,
+      "lowest_msrp": 139.35,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 60,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $153.90"
     },
     {
       "sku": "LKP1-Black/Blue",
@@ -604,6 +787,7 @@
       "lowest_msrp": 178.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -618,6 +802,22 @@
       "lowest_msrp": 125.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 42,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP5-Yellow-Medium",
+      "asin": "B01AVT0LPI",
+      "name": "Fairtex SP5 Muay Thai Shin Guards for Men, Women, Kids | Shinguards ar",
+      "stock": 0,
+      "our_msrp": "$137.99",
+      "our_landed": "$157.31",
+      "has_buy_box": true,
+      "total_cost": 102.61,
+      "lowest_msrp": 120.72,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.62,
+      "inbound": 29,
       "recommendation": ""
     },
     {
@@ -632,6 +832,7 @@
       "lowest_msrp": 103.53,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -646,6 +847,7 @@
       "lowest_msrp": 227.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "inbound": 516,
       "recommendation": ""
     },
     {
@@ -660,6 +862,7 @@
       "lowest_msrp": 151.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -674,6 +877,7 @@
       "lowest_msrp": 43.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "inbound": 71,
       "recommendation": ""
     },
     {
@@ -688,6 +892,7 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -702,6 +907,7 @@
       "lowest_msrp": 166.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -716,6 +922,22 @@
       "lowest_msrp": 101.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV14WR-White/Red-16oz",
+      "asin": "B01M7N87OS",
+      "name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
+      "stock": 0,
+      "our_msrp": "$194.00",
+      "our_landed": "$221.16",
+      "has_buy_box": true,
+      "total_cost": 128.54,
+      "lowest_msrp": 151.22,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 17,
       "recommendation": ""
     },
     {
@@ -730,6 +952,7 @@
       "lowest_msrp": 133.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -744,6 +967,7 @@
       "lowest_msrp": 139.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -758,6 +982,7 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -772,6 +997,7 @@
       "lowest_msrp": 145.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -786,6 +1012,7 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -800,6 +1027,7 @@
       "lowest_msrp": 151.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -814,6 +1042,7 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -828,6 +1057,7 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -842,6 +1072,7 @@
       "lowest_msrp": 145.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -856,6 +1087,7 @@
       "lowest_msrp": 128.76,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -870,6 +1102,7 @@
       "lowest_msrp": 145.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -884,6 +1117,7 @@
       "lowest_msrp": 143.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -898,6 +1132,7 @@
       "lowest_msrp": 142.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -915,6 +1150,7 @@
       "lowest_msrp": 148.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 23,
       "recommendation": ""
     },
     {
@@ -929,6 +1165,7 @@
       "lowest_msrp": 149.91,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -946,6 +1183,7 @@
       "lowest_msrp": 159.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -960,6 +1198,7 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -974,6 +1213,7 @@
       "lowest_msrp": 44.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 42.5,
+      "inbound": 1781,
       "recommendation": ""
     },
     {
@@ -988,6 +1228,7 @@
       "lowest_msrp": 113.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 15,
       "recommendation": ""
     },
     {
@@ -1002,6 +1243,7 @@
       "lowest_msrp": 145.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 117,
       "recommendation": ""
     },
     {
@@ -1016,6 +1258,7 @@
       "lowest_msrp": 103.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 28,
       "recommendation": ""
     },
     {
@@ -1030,6 +1273,7 @@
       "lowest_msrp": 149.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1044,6 +1288,7 @@
       "lowest_msrp": 139.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1058,6 +1303,7 @@
       "lowest_msrp": 138.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 1,
       "recommendation": ""
     },
     {
@@ -1072,6 +1318,7 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 102,
       "recommendation": ""
     },
     {
@@ -1086,6 +1333,7 @@
       "lowest_msrp": 145.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 21,
       "recommendation": ""
     },
     {
@@ -1100,6 +1348,7 @@
       "lowest_msrp": 168.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1114,6 +1363,7 @@
       "lowest_msrp": 149.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 61,
       "recommendation": ""
     },
     {
@@ -1128,6 +1378,7 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1142,6 +1393,7 @@
       "lowest_msrp": 147.39,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1159,6 +1411,7 @@
       "lowest_msrp": 214.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 240.91,
+      "inbound": 35,
       "recommendation": ""
     },
     {
@@ -1173,6 +1426,7 @@
       "lowest_msrp": 211.26,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 481.81,
+      "inbound": 0,
       "winner_seller": "A2UNSMLO5W5JHM",
       "winner_url": "https://www.amazon.ca/sp?seller=A2UNSMLO5W5JHM",
       "winner_price": "$331.70",
@@ -1190,6 +1444,7 @@
       "lowest_msrp": 279.35,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 325.93,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1204,6 +1459,7 @@
       "lowest_msrp": 140.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 25,
       "recommendation": ""
     },
     {
@@ -1218,10 +1474,29 @@
       "lowest_msrp": 149.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
       "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - Black/White/Pink - 12oz",
+      "asin": "B07767K2VW",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.49",
+      "our_landed": "$198.92",
+      "has_buy_box": false,
+      "total_cost": 119.32,
+      "lowest_msrp": 140.38,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 31,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $157.04"
     },
     {
       "sku": "BGV14 - Pink/White - 12oz",
@@ -1235,7 +1510,26 @@
       "lowest_msrp": 141.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV14-Black-12oz",
+      "asin": "B077CFLT4X",
+      "name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
+      "stock": 0,
+      "our_msrp": "$181.79",
+      "our_landed": "$207.24",
+      "has_buy_box": false,
+      "total_cost": 115.36,
+      "lowest_msrp": 135.72,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 32,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $163.61"
     },
     {
       "sku": "BGV11 - F-Day - 16oz",
@@ -1249,6 +1543,7 @@
       "lowest_msrp": 151.42,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 212.56,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1263,6 +1558,7 @@
       "lowest_msrp": 155.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 212.56,
+      "inbound": 17,
       "recommendation": ""
     },
     {
@@ -1277,6 +1573,7 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 200,
       "recommendation": ""
     },
     {
@@ -1291,6 +1588,7 @@
       "lowest_msrp": 138.0,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 30,
       "recommendation": ""
     },
     {
@@ -1305,6 +1603,7 @@
       "lowest_msrp": 139.33,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -1319,6 +1618,7 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1333,6 +1633,7 @@
       "lowest_msrp": 135.11,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -1347,6 +1648,7 @@
       "lowest_msrp": 140.79,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 18,
       "recommendation": ""
     },
     {
@@ -1361,6 +1663,7 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1375,6 +1678,7 @@
       "lowest_msrp": 155.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -1389,6 +1693,7 @@
       "lowest_msrp": 136.94,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1403,6 +1708,7 @@
       "lowest_msrp": 146.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1417,6 +1723,7 @@
       "lowest_msrp": 140.52,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -1431,6 +1738,7 @@
       "lowest_msrp": 140.73,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1445,7 +1753,41 @@
       "lowest_msrp": 151.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 26,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - Yellow - 12oz",
+      "asin": "B078P3PGYD",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$150.99",
+      "our_landed": "$172.13",
+      "has_buy_box": true,
+      "total_cost": 115.33,
+      "lowest_msrp": 135.68,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 10,
+      "recommendation": ""
+    },
+    {
+      "sku": "HB6 -Green-Muay Thai Banana Bag",
+      "asin": "B078TYXYRM",
+      "name": "Fairtex UNFILLED Banana Heavy Bag for Muay Thai, Boxing, Kickboxing, M",
+      "stock": 0,
+      "our_msrp": "$215.90",
+      "our_landed": "$246.13",
+      "has_buy_box": false,
+      "total_cost": 161.71,
+      "lowest_msrp": 190.25,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 419.45,
+      "inbound": 8,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $194.31"
     },
     {
       "sku": "FBAHWBlack180",
@@ -1459,6 +1801,7 @@
       "lowest_msrp": 36.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 1200,
       "recommendation": ""
     },
     {
@@ -1473,6 +1816,7 @@
       "lowest_msrp": 31.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 24,
       "recommendation": ""
     },
     {
@@ -1487,6 +1831,7 @@
       "lowest_msrp": 35.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 94,
       "recommendation": ""
     },
     {
@@ -1501,6 +1846,7 @@
       "lowest_msrp": 35.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1515,6 +1861,52 @@
       "lowest_msrp": 35.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 35.41,
+      "inbound": 190,
+      "recommendation": ""
+    },
+    {
+      "sku": "FBAHWBlack120",
+      "asin": "B0793KXHT9",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$29.99",
+      "our_landed": "$34.19",
+      "has_buy_box": true,
+      "total_cost": 26.49,
+      "lowest_msrp": 31.16,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 28.33,
+      "inbound": 14,
+      "recommendation": ""
+    },
+    {
+      "sku": "FBAHWRed180",
+      "asin": "B0793L451J",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$28.40",
+      "our_landed": "$32.38",
+      "has_buy_box": true,
+      "total_cost": 26.25,
+      "lowest_msrp": 30.88,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 28.33,
+      "inbound": 36,
+      "recommendation": ""
+    },
+    {
+      "sku": "180 - Thai Flag",
+      "asin": "B0793LBRFG",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$34.99",
+      "our_landed": "$39.89",
+      "has_buy_box": true,
+      "total_cost": 36.11,
+      "lowest_msrp": 42.48,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 35.41,
+      "inbound": 401,
       "recommendation": ""
     },
     {
@@ -1529,6 +1921,7 @@
       "lowest_msrp": 146.92,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1543,6 +1936,7 @@
       "lowest_msrp": 193.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "inbound": 64,
       "recommendation": ""
     },
     {
@@ -1557,6 +1951,7 @@
       "lowest_msrp": 107.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1571,6 +1966,7 @@
       "lowest_msrp": 120.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 7,
       "recommendation": ""
     },
     {
@@ -1585,6 +1981,7 @@
       "lowest_msrp": 112.21,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -1599,6 +1996,7 @@
       "lowest_msrp": 128.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1613,6 +2011,7 @@
       "lowest_msrp": 112.47,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1627,6 +2026,7 @@
       "lowest_msrp": 108.07,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1641,6 +2041,7 @@
       "lowest_msrp": 111.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 33,
       "recommendation": ""
     },
     {
@@ -1655,6 +2056,7 @@
       "lowest_msrp": 100.56,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "inbound": 20,
       "recommendation": ""
     },
     {
@@ -1669,6 +2071,7 @@
       "lowest_msrp": 122.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1683,6 +2086,7 @@
       "lowest_msrp": 143.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 101,
       "recommendation": ""
     },
     {
@@ -1697,6 +2101,7 @@
       "lowest_msrp": 148.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 105,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1714,6 +2119,7 @@
       "lowest_msrp": 137.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1731,6 +2137,7 @@
       "lowest_msrp": 68.6,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -1748,6 +2155,7 @@
       "lowest_msrp": 132.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1762,6 +2170,7 @@
       "lowest_msrp": 142.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1776,6 +2185,7 @@
       "lowest_msrp": 151.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1790,6 +2200,7 @@
       "lowest_msrp": 144.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1804,6 +2215,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1818,6 +2230,7 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 42,
       "recommendation": ""
     },
     {
@@ -1832,6 +2245,22 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "180 - White",
+      "asin": "B07B2Z8P7S",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$29.99",
+      "our_landed": "$34.19",
+      "has_buy_box": true,
+      "total_cost": 26.29,
+      "lowest_msrp": 30.93,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 28.33,
+      "inbound": 39,
       "recommendation": ""
     },
     {
@@ -1846,7 +2275,71 @@
       "lowest_msrp": 34.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "HW2-OliveGreen-120",
+      "asin": "B07B2ZL8HX",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$29.99",
+      "our_landed": "$34.19",
+      "has_buy_box": true,
+      "total_cost": 26.29,
+      "lowest_msrp": 30.93,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 28.33,
+      "inbound": 5,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1704 - Red/White - Large",
+      "asin": "B07B2ZMC54",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$87.49",
+      "our_landed": "$99.74",
+      "has_buy_box": true,
+      "total_cost": 66.61,
+      "lowest_msrp": 78.36,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 5,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1701 - Yellow - Medium",
+      "asin": "B07B2ZQ5M8",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$87.49",
+      "our_landed": "$99.74",
+      "has_buy_box": true,
+      "total_cost": 66.61,
+      "lowest_msrp": 78.36,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 17,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1704 - Red/White - Small",
+      "asin": "B07B2ZRXTT",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": false,
+      "total_cost": 61.03,
+      "lowest_msrp": 71.8,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 13,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $78.29"
     },
     {
       "sku": "BS1703 - Red/Black -Medium",
@@ -1860,6 +2353,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1874,6 +2368,7 @@
       "lowest_msrp": 36.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 39,
       "recommendation": ""
     },
     {
@@ -1888,6 +2383,22 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1705 - Orange - Medium",
+      "asin": "B07B31N6XK",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 19,
       "recommendation": ""
     },
     {
@@ -1902,6 +2413,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1916,6 +2428,7 @@
       "lowest_msrp": 149.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1930,6 +2443,7 @@
       "lowest_msrp": 101.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1944,6 +2458,7 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1958,6 +2473,7 @@
       "lowest_msrp": 210.98,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 262.16,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -1972,6 +2488,7 @@
       "lowest_msrp": 121.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 45,
       "recommendation": ""
     },
     {
@@ -1986,6 +2503,7 @@
       "lowest_msrp": 136.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2000,6 +2518,7 @@
       "lowest_msrp": 115.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2014,6 +2533,7 @@
       "lowest_msrp": 155.36,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2028,6 +2548,7 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2042,6 +2563,7 @@
       "lowest_msrp": 121.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2056,6 +2578,7 @@
       "lowest_msrp": 144.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2070,6 +2593,7 @@
       "lowest_msrp": 123.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 19,
       "recommendation": ""
     },
     {
@@ -2084,6 +2608,7 @@
       "lowest_msrp": 169.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -2098,6 +2623,7 @@
       "lowest_msrp": 337.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 325.93,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2112,6 +2638,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2126,6 +2653,7 @@
       "lowest_msrp": 139.14,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2140,6 +2668,7 @@
       "lowest_msrp": 152.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 99,
       "recommendation": ""
     },
     {
@@ -2154,6 +2683,7 @@
       "lowest_msrp": 150.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2168,6 +2698,7 @@
       "lowest_msrp": 146.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2182,6 +2713,7 @@
       "lowest_msrp": 192.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2196,6 +2728,7 @@
       "lowest_msrp": 152.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.29,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -2210,6 +2743,7 @@
       "lowest_msrp": 194.8,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2224,6 +2758,7 @@
       "lowest_msrp": 137.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 18,
       "recommendation": ""
     },
     {
@@ -2238,6 +2773,7 @@
       "lowest_msrp": 148.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2252,6 +2788,7 @@
       "lowest_msrp": 97.78,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "inbound": 36,
       "recommendation": ""
     },
     {
@@ -2266,6 +2803,7 @@
       "lowest_msrp": 148.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2280,6 +2818,7 @@
       "lowest_msrp": 155.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2294,6 +2833,7 @@
       "lowest_msrp": 157.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -2308,6 +2848,7 @@
       "lowest_msrp": 94.09,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "inbound": 10,
       "recommendation": ""
     },
     {
@@ -2322,6 +2863,22 @@
       "lowest_msrp": 159.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 21,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1- White - 10oz",
+      "asin": "B07GM99JNH",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.00",
+      "our_landed": "$198.36",
+      "has_buy_box": true,
+      "total_cost": 115.75,
+      "lowest_msrp": 136.18,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -2336,6 +2893,7 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2350,6 +2908,7 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2364,6 +2923,7 @@
       "lowest_msrp": 158.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 14,
       "recommendation": ""
     },
     {
@@ -2378,6 +2938,7 @@
       "lowest_msrp": 118.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2392,6 +2953,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 31,
+      "recommendation": ""
+    },
+    {
+      "sku": "HG10-Black/White-Large",
+      "asin": "B07HWNG49R",
+      "name": "Fairtex Headgear HG10 | Protective Headgear for Muay Thai | Enhanced C",
+      "stock": 0,
+      "our_msrp": "$151.23",
+      "our_landed": "$172.40",
+      "has_buy_box": true,
+      "total_cost": 111.55,
+      "lowest_msrp": 131.24,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 177.14,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -2406,6 +2983,7 @@
       "lowest_msrp": 141.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -2420,6 +2998,7 @@
       "lowest_msrp": 121.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 1,
       "recommendation": ""
     },
     {
@@ -2434,6 +3013,7 @@
       "lowest_msrp": 191.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.74,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -2448,6 +3028,7 @@
       "lowest_msrp": 138.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 36,
       "recommendation": ""
     },
     {
@@ -2462,6 +3043,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 10,
       "recommendation": ""
     },
     {
@@ -2476,6 +3058,7 @@
       "lowest_msrp": 113.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2490,6 +3073,7 @@
       "lowest_msrp": 100.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 24,
       "recommendation": ""
     },
     {
@@ -2504,6 +3088,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2518,6 +3103,7 @@
       "lowest_msrp": 36.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2532,6 +3118,7 @@
       "lowest_msrp": 145.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2546,6 +3133,7 @@
       "lowest_msrp": 153.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 21,
       "recommendation": ""
     },
     {
@@ -2556,10 +3144,26 @@
       "our_msrp": "$27.22",
       "our_landed": "$31.03",
       "has_buy_box": true,
-      "total_cost": 29.9,
-      "lowest_msrp": 35.18,
+      "total_cost": 26.07,
+      "lowest_msrp": 30.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 8,
+      "recommendation": ""
+    },
+    {
+      "sku": "HG13L-Black-Large",
+      "asin": "B07HWX7C7G",
+      "name": "Fairtex HG13 Genuine Leather Boxing Headgear - MMA & Muay Thai Protect",
+      "stock": 0,
+      "our_msrp": "$195.39",
+      "our_landed": "$222.74",
+      "has_buy_box": true,
+      "total_cost": 121.58,
+      "lowest_msrp": 143.04,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 54,
       "recommendation": ""
     },
     {
@@ -2574,6 +3178,7 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 52,
       "recommendation": ""
     },
     {
@@ -2588,6 +3193,7 @@
       "lowest_msrp": 157.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2602,6 +3208,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2616,6 +3223,7 @@
       "lowest_msrp": 159.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2630,6 +3238,7 @@
       "lowest_msrp": 34.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 46,
       "recommendation": ""
     },
     {
@@ -2644,6 +3253,7 @@
       "lowest_msrp": 151.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2658,7 +3268,26 @@
       "lowest_msrp": 139.13,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "HG13L-Black-X-Large",
+      "asin": "B07HX39BQZ",
+      "name": "Fairtex HG13 Genuine Leather Boxing Headgear - MMA & Muay Thai Protect",
+      "stock": 0,
+      "our_msrp": "$184.39",
+      "our_landed": "$210.20",
+      "has_buy_box": false,
+      "total_cost": 121.63,
+      "lowest_msrp": 143.09,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 21,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $165.95"
     },
     {
       "sku": "SP7 - Black - X-Large",
@@ -2672,6 +3301,22 @@
       "lowest_msrp": 103.53,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 12,
+      "recommendation": ""
+    },
+    {
+      "sku": "180-Olive Green",
+      "asin": "B07HX5G39D",
+      "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
+      "stock": 0,
+      "our_msrp": "$30.11",
+      "our_landed": "$34.33",
+      "has_buy_box": true,
+      "total_cost": 26.51,
+      "lowest_msrp": 31.19,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 28.33,
+      "inbound": 33,
       "recommendation": ""
     },
     {
@@ -2686,6 +3331,7 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -2700,6 +3346,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2714,6 +3361,7 @@
       "lowest_msrp": 156.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2728,6 +3376,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2742,6 +3391,7 @@
       "lowest_msrp": 158.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2756,6 +3406,7 @@
       "lowest_msrp": 158.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2770,6 +3421,22 @@
       "lowest_msrp": 66.73,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 97,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV16 - Maroon - 14oz",
+      "asin": "B07KT74SBK",
+      "name": "Fairtex BGV16 Leather Muay Thai Boxing Gloves",
+      "stock": 0,
+      "our_msrp": "$172.99",
+      "our_landed": "$197.21",
+      "has_buy_box": true,
+      "total_cost": 108.02,
+      "lowest_msrp": 127.08,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 62,
       "recommendation": ""
     },
     {
@@ -2784,6 +3451,7 @@
       "lowest_msrp": 122.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -2801,7 +3469,26 @@
       "lowest_msrp": 127.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 86,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV16 - Khaki - 12oz",
+      "asin": "B07KT8Z47W",
+      "name": "Fairtex BGV16 Leather Muay Thai Boxing Gloves",
+      "stock": 0,
+      "our_msrp": "$165.49",
+      "our_landed": "$188.66",
+      "has_buy_box": false,
+      "total_cost": 103.34,
+      "lowest_msrp": 121.58,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 109,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $148.94"
     },
     {
       "sku": "BS1708 - Black - X-Small",
@@ -2815,6 +3502,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1708 - Black - XX-Large",
+      "asin": "B07LBYRK5B",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Red, Orange, Blue, Yell",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 70.63,
+      "lowest_msrp": 83.09,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 7,
       "recommendation": ""
     },
     {
@@ -2829,6 +3532,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2843,10 +3547,29 @@
       "lowest_msrp": 220.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
       "recommendation": "No winner \u2014 drop price 10% to $230.39"
+    },
+    {
+      "sku": "BS1711 - Orange Camo - Large",
+      "asin": "B07LBZRCD7",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Red, Orange, Blue, Yell",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": false,
+      "total_cost": 61.72,
+      "lowest_msrp": 72.61,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 5,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $78.29"
     },
     {
       "sku": "BS1710 - Green Camo - Large",
@@ -2860,6 +3583,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 15,
       "recommendation": ""
     },
     {
@@ -2874,6 +3598,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2888,6 +3613,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -2902,6 +3628,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2916,6 +3643,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -2930,6 +3658,7 @@
       "lowest_msrp": 145.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 36,
       "recommendation": ""
     },
     {
@@ -2944,6 +3673,7 @@
       "lowest_msrp": 151.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -2958,6 +3688,7 @@
       "lowest_msrp": 151.0,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -2975,6 +3706,7 @@
       "lowest_msrp": 151.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 20,
       "recommendation": ""
     },
     {
@@ -2989,6 +3721,7 @@
       "lowest_msrp": 142.8,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3003,6 +3736,7 @@
       "lowest_msrp": 151.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3017,6 +3751,7 @@
       "lowest_msrp": 151.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3031,6 +3766,22 @@
       "lowest_msrp": 163.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 20,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGVG1 - Black - 16oz",
+      "asin": "B07LG5KWNG",
+      "name": "Fairtex Glory Training Gloves - Premium Leather MMA & Boxing Gloves |H",
+      "stock": 0,
+      "our_msrp": "$165.99",
+      "our_landed": "$189.23",
+      "has_buy_box": true,
+      "total_cost": 135.45,
+      "lowest_msrp": 159.35,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.04,
+      "inbound": 14,
       "recommendation": ""
     },
     {
@@ -3045,6 +3796,7 @@
       "lowest_msrp": 158.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3059,6 +3811,7 @@
       "lowest_msrp": 159.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3073,6 +3826,7 @@
       "lowest_msrp": 163.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3087,6 +3841,7 @@
       "lowest_msrp": 163.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3101,6 +3856,7 @@
       "lowest_msrp": 150.2,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3115,6 +3871,7 @@
       "lowest_msrp": 163.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3129,6 +3886,7 @@
       "lowest_msrp": 162.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3143,6 +3901,7 @@
       "lowest_msrp": 159.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3157,6 +3916,7 @@
       "lowest_msrp": 163.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3171,6 +3931,7 @@
       "lowest_msrp": 159.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3185,6 +3946,7 @@
       "lowest_msrp": 169.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -3199,6 +3961,7 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 11,
       "recommendation": ""
     },
     {
@@ -3213,6 +3976,7 @@
       "lowest_msrp": 115.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3227,6 +3991,7 @@
       "lowest_msrp": 126.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 31,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -3244,6 +4009,7 @@
       "lowest_msrp": 97.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 41,
       "recommendation": ""
     },
     {
@@ -3258,6 +4024,7 @@
       "lowest_msrp": 96.11,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3272,6 +4039,7 @@
       "lowest_msrp": 143.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3286,6 +4054,7 @@
       "lowest_msrp": 93.31,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3300,6 +4069,7 @@
       "lowest_msrp": 98.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 11,
       "recommendation": ""
     },
     {
@@ -3314,6 +4084,7 @@
       "lowest_msrp": 99.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -3328,6 +4099,7 @@
       "lowest_msrp": 99.87,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3342,6 +4114,7 @@
       "lowest_msrp": 104.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3356,6 +4129,7 @@
       "lowest_msrp": 97.99,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3370,6 +4144,7 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 51,
       "recommendation": ""
     },
     {
@@ -3384,6 +4159,7 @@
       "lowest_msrp": 98.07,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3398,6 +4174,7 @@
       "lowest_msrp": 148.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -3415,6 +4192,7 @@
       "lowest_msrp": 133.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3429,6 +4207,7 @@
       "lowest_msrp": 172.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 72,
       "recommendation": ""
     },
     {
@@ -3443,6 +4222,7 @@
       "lowest_msrp": 152.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3457,6 +4237,7 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -3471,6 +4252,7 @@
       "lowest_msrp": 151.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 53,
       "recommendation": ""
     },
     {
@@ -3485,6 +4267,22 @@
       "lowest_msrp": 140.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BAG2-Black",
+      "asin": "B07PZWLW96",
+      "name": "Fairtex Gym Bag Gear Equipment Color Blue or Gray or Yellow for Muay T",
+      "stock": 0,
+      "our_msrp": "$138.99",
+      "our_landed": "$158.45",
+      "has_buy_box": true,
+      "total_cost": 86.11,
+      "lowest_msrp": 101.31,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.61,
+      "inbound": 48,
       "recommendation": ""
     },
     {
@@ -3499,6 +4297,7 @@
       "lowest_msrp": 48.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 41.03,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -3513,6 +4312,7 @@
       "lowest_msrp": 45.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 41.03,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -3527,6 +4327,7 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3541,6 +4342,7 @@
       "lowest_msrp": 140.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3555,6 +4357,7 @@
       "lowest_msrp": 132.51,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3569,6 +4372,7 @@
       "lowest_msrp": 109.64,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3583,6 +4387,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3597,6 +4402,22 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1713-Khaki-Large",
+      "asin": "B07SD7CWX6",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts Khaki",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -3611,6 +4432,40 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1712-White-Large",
+      "asin": "B07SF8MS9S",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$106.99",
+      "our_landed": "$121.97",
+      "has_buy_box": false,
+      "total_cost": 69.93,
+      "lowest_msrp": 82.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 17,
+      "winner_seller": "AWWCJPBNIB7TH",
+      "winner_url": "https://www.amazon.ca/sp?seller=AWWCJPBNIB7TH",
+      "winner_price": "$145.27",
+      "recommendation": "Yes, reduce to $82.27"
+    },
+    {
+      "sku": "BGV21-Legacy-16oz",
+      "asin": "B07TLHFBRZ",
+      "name": "Fairtex BGV21 Legacy Muay Thai Boxing Gloves MMA UFC K1 Kick Boxing Tr",
+      "stock": 0,
+      "our_msrp": "$166.07",
+      "our_landed": "$189.32",
+      "has_buy_box": true,
+      "total_cost": 121.01,
+      "lowest_msrp": 142.36,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -3625,6 +4480,22 @@
       "lowest_msrp": 153.69,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP8-Brown-Large",
+      "asin": "B07TSBCXWL",
+      "name": "Fairtex SP8 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$142.99",
+      "our_landed": "$163.01",
+      "has_buy_box": true,
+      "total_cost": 89.82,
+      "lowest_msrp": 105.67,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 140.29,
+      "inbound": 32,
       "recommendation": ""
     },
     {
@@ -3639,6 +4510,22 @@
       "lowest_msrp": 135.71,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 24,
+      "recommendation": ""
+    },
+    {
+      "sku": "KPLC4-Extra-Long",
+      "asin": "B07TT9BGVK",
+      "name": "Fairtex Curved MMA Muay Thai Pads for punching, blocking, kicking,punc",
+      "stock": 0,
+      "our_msrp": "$248.99",
+      "our_landed": "$283.85",
+      "has_buy_box": true,
+      "total_cost": 188.37,
+      "lowest_msrp": 221.61,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 255.08,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -3653,6 +4540,7 @@
       "lowest_msrp": 46.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3667,6 +4555,22 @@
       "lowest_msrp": 167.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 91,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS0639- Large",
+      "asin": "B07TVGG1S5",
+      "name": "Fairtex Muay Thai Boxing Shorts Traditional Styles (Fortune Black, Lar",
+      "stock": 0,
+      "our_msrp": "$75.00",
+      "our_landed": "$85.50",
+      "has_buy_box": true,
+      "total_cost": 54.44,
+      "lowest_msrp": 64.05,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 10,
       "recommendation": ""
     },
     {
@@ -3681,6 +4585,7 @@
       "lowest_msrp": 139.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 20,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -3698,6 +4603,37 @@
       "lowest_msrp": 182.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 219.65,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS0639 -Medium",
+      "asin": "B07TWK9TMB",
+      "name": "Fairtex Muay Thai Boxing Shorts Traditional Styles (Fortune Black, Med",
+      "stock": 0,
+      "our_msrp": "$83.99",
+      "our_landed": "$95.75",
+      "has_buy_box": true,
+      "total_cost": 56.47,
+      "lowest_msrp": 66.44,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 8,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - Yellow - 10oz",
+      "asin": "B07TWK9Z9V",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$162.49",
+      "our_landed": "$185.24",
+      "has_buy_box": true,
+      "total_cost": 118.44,
+      "lowest_msrp": 139.34,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 22,
       "recommendation": ""
     },
     {
@@ -3712,6 +4648,7 @@
       "lowest_msrp": 145.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -3726,6 +4663,7 @@
       "lowest_msrp": 147.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 22,
       "recommendation": ""
     },
     {
@@ -3740,6 +4678,7 @@
       "lowest_msrp": 136.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3754,6 +4693,7 @@
       "lowest_msrp": 149.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -3768,6 +4708,40 @@
       "lowest_msrp": 139.91,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - Pink - 14oz",
+      "asin": "B07TYL3YZ5",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.49",
+      "our_landed": "$198.92",
+      "has_buy_box": true,
+      "total_cost": 128.51,
+      "lowest_msrp": 151.19,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 23,
+      "recommendation": ""
+    },
+    {
+      "sku": "BAG4 - Black",
+      "asin": "B07TYLD26N",
+      "name": "Fairtex BAG4 Backpack Thai Boxing Gym Bag Muay Thai MMA, Black",
+      "stock": 0,
+      "our_msrp": "$116.11",
+      "our_landed": "$132.37",
+      "has_buy_box": false,
+      "total_cost": 94.48,
+      "lowest_msrp": 111.15,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 113.35,
+      "inbound": 47,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
       "recommendation": ""
     },
     {
@@ -3782,6 +4756,7 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "inbound": 14,
       "recommendation": ""
     },
     {
@@ -3796,7 +4771,26 @@
       "lowest_msrp": 145.73,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV21-Legacy-12oz",
+      "asin": "B07XCQ47BF",
+      "name": "Fairtex BGV21 Legacy Muay Thai Boxing Gloves MMA UFC K1 Kick Boxing Tr",
+      "stock": 0,
+      "our_msrp": "$160.85",
+      "our_landed": "$183.37",
+      "has_buy_box": false,
+      "total_cost": 116.91,
+      "lowest_msrp": 137.54,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 1,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $144.76"
     },
     {
       "sku": "BGV9 - Blue - 10oz",
@@ -3810,6 +4804,7 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3824,6 +4819,7 @@
       "lowest_msrp": 191.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.74,
+      "inbound": 48,
       "recommendation": ""
     },
     {
@@ -3838,6 +4834,7 @@
       "lowest_msrp": 116.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 90,
       "recommendation": ""
     },
     {
@@ -3852,6 +4849,7 @@
       "lowest_msrp": 109.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 70,
       "recommendation": ""
     },
     {
@@ -3866,6 +4864,7 @@
       "lowest_msrp": 128.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 30,
       "recommendation": ""
     },
     {
@@ -3880,6 +4879,7 @@
       "lowest_msrp": 112.56,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 97,
       "recommendation": ""
     },
     {
@@ -3894,6 +4894,22 @@
       "lowest_msrp": 77.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 50,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1901-Stealth Black- Small",
+      "asin": "B07ZZMCD5Z",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$76.96",
+      "our_landed": "$87.73",
+      "has_buy_box": true,
+      "total_cost": 59.32,
+      "lowest_msrp": 69.79,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -3908,6 +4924,7 @@
       "lowest_msrp": 136.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3922,6 +4939,7 @@
       "lowest_msrp": 150.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3936,6 +4954,7 @@
       "lowest_msrp": 159.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3950,6 +4969,7 @@
       "lowest_msrp": 137.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3964,6 +4984,7 @@
       "lowest_msrp": 137.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3978,6 +4999,7 @@
       "lowest_msrp": 143.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -3992,6 +5014,7 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4006,6 +5029,7 @@
       "lowest_msrp": 146.92,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4020,6 +5044,7 @@
       "lowest_msrp": 117.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4034,6 +5059,7 @@
       "lowest_msrp": 154.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4048,6 +5074,7 @@
       "lowest_msrp": 108.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4062,6 +5089,7 @@
       "lowest_msrp": 117.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4076,6 +5104,7 @@
       "lowest_msrp": 122.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4090,6 +5119,7 @@
       "lowest_msrp": 123.65,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4104,6 +5134,7 @@
       "lowest_msrp": 114.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4118,6 +5149,7 @@
       "lowest_msrp": 106.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4132,6 +5164,7 @@
       "lowest_msrp": 104.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4146,7 +5179,26 @@
       "lowest_msrp": 121.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "BGV1-Black-4oz",
+      "asin": "B082VX62K6",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$173.99",
+      "our_landed": "$198.35",
+      "has_buy_box": false,
+      "total_cost": 110.83,
+      "lowest_msrp": 130.39,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 134.62,
+      "inbound": 5,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $156.59"
     },
     {
       "sku": "BS1902 - Stealth Gray - Medium",
@@ -4160,6 +5212,7 @@
       "lowest_msrp": 76.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 15,
       "recommendation": ""
     },
     {
@@ -4174,9 +5227,40 @@
       "lowest_msrp": 75.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 17,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1902 - Stealth Gray - XLarge",
+      "asin": "B084KZNN38",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$82.94",
+      "our_landed": "$94.55",
+      "has_buy_box": true,
+      "total_cost": 60.85,
+      "lowest_msrp": 71.59,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 14,
+      "recommendation": ""
+    },
+    {
+      "sku": "TS4-Vintage T-Large",
+      "asin": "B084ZWR3W4",
+      "name": "Fairtex Vintage Tee (Black, Large)",
+      "stock": 0,
+      "our_msrp": "$59.99",
+      "our_landed": "$68.39",
+      "has_buy_box": true,
+      "total_cost": 43.75,
+      "lowest_msrp": 51.47,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 63.76,
+      "inbound": 26,
       "recommendation": ""
     },
     {
@@ -4191,6 +5275,7 @@
       "lowest_msrp": 51.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4205,6 +5290,7 @@
       "lowest_msrp": 51.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4219,6 +5305,7 @@
       "lowest_msrp": 104.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4233,6 +5320,7 @@
       "lowest_msrp": 101.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4247,6 +5335,7 @@
       "lowest_msrp": 78.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 17,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4264,6 +5353,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4278,6 +5368,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -4292,6 +5383,7 @@
       "lowest_msrp": 161.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4306,6 +5398,7 @@
       "lowest_msrp": 159.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4320,6 +5413,7 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4334,6 +5428,7 @@
       "lowest_msrp": 136.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -4348,6 +5443,7 @@
       "lowest_msrp": 157.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4362,6 +5458,7 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4376,6 +5473,7 @@
       "lowest_msrp": 159.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4390,6 +5488,7 @@
       "lowest_msrp": 159.25,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4404,6 +5503,7 @@
       "lowest_msrp": 161.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4418,6 +5518,7 @@
       "lowest_msrp": 149.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4432,6 +5533,7 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4446,6 +5548,7 @@
       "lowest_msrp": 161.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4460,6 +5563,7 @@
       "lowest_msrp": 157.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4474,6 +5578,7 @@
       "lowest_msrp": 98.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4488,6 +5593,7 @@
       "lowest_msrp": 109.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4502,6 +5608,7 @@
       "lowest_msrp": 93.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4519,6 +5626,22 @@
       "lowest_msrp": 190.34,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 419.45,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP7-Red-Small",
+      "asin": "B08CDBRN5Y",
+      "name": "Fairtex SP7 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$144.99",
+      "our_landed": "$165.29",
+      "has_buy_box": true,
+      "total_cost": 81.25,
+      "lowest_msrp": 95.59,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 141.71,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -4533,6 +5656,7 @@
       "lowest_msrp": 99.31,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 140.29,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -4547,7 +5671,26 @@
       "lowest_msrp": 104.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 50,
       "recommendation": ""
+    },
+    {
+      "sku": "SP8-Black-Extra Large",
+      "asin": "B08CGP5RG9",
+      "name": "Fairtex SP8 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$142.99",
+      "our_landed": "$163.01",
+      "has_buy_box": false,
+      "total_cost": 92.76,
+      "lowest_msrp": 109.13,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 140.29,
+      "inbound": 23,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $128.69"
     },
     {
       "sku": "SP8-Black-Small",
@@ -4561,6 +5704,22 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 24,
+      "recommendation": ""
+    },
+    {
+      "sku": "HG6-Blue-Medium",
+      "asin": "B08CMJX2T1",
+      "name": "Fairtex HG6 Muay Thai Boxing Competition Headgear",
+      "stock": 0,
+      "our_msrp": "$165.99",
+      "our_landed": "$189.23",
+      "has_buy_box": true,
+      "total_cost": 122.27,
+      "lowest_msrp": 143.85,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -4575,6 +5734,22 @@
       "lowest_msrp": 165.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 27,
+      "recommendation": ""
+    },
+    {
+      "sku": "HG6-Blue-Extra Large",
+      "asin": "B08CMTMK8Z",
+      "name": "Fairtex HG6 Muay Thai Boxing Competition Headgear",
+      "stock": 0,
+      "our_msrp": "$165.99",
+      "our_landed": "$189.23",
+      "has_buy_box": true,
+      "total_cost": 125.67,
+      "lowest_msrp": 147.85,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 191.31,
+      "inbound": 10,
       "recommendation": ""
     },
     {
@@ -4589,6 +5764,7 @@
       "lowest_msrp": 143.49,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -4606,6 +5782,7 @@
       "lowest_msrp": 100.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.03,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4620,6 +5797,7 @@
       "lowest_msrp": 99.69,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.03,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4634,6 +5812,7 @@
       "lowest_msrp": 344.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 279.17,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4648,6 +5827,7 @@
       "lowest_msrp": 125.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4662,6 +5842,7 @@
       "lowest_msrp": 126.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4676,6 +5857,7 @@
       "lowest_msrp": 126.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4690,6 +5872,7 @@
       "lowest_msrp": 154.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4704,6 +5887,7 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4718,6 +5902,7 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4732,6 +5917,37 @@
       "lowest_msrp": 152.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - Black/White/Pink - 14oz",
+      "asin": "B08DNGJXQW",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.49",
+      "our_landed": "$198.92",
+      "has_buy_box": true,
+      "total_cost": 128.51,
+      "lowest_msrp": 151.19,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 23,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1 - White/Black/Red - 16oz",
+      "asin": "B08DQND82H",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.29",
+      "our_landed": "$174.29",
+      "has_buy_box": true,
+      "total_cost": 125.33,
+      "lowest_msrp": 147.45,
+      "fulfillment_type": "FBA",
+      "fairtex_msrp": 170.05,
+      "inbound": 31,
       "recommendation": ""
     },
     {
@@ -4746,6 +5962,7 @@
       "lowest_msrp": 139.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4760,6 +5977,7 @@
       "lowest_msrp": 153.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4774,6 +5992,7 @@
       "lowest_msrp": 129.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 95,
       "recommendation": ""
     },
     {
@@ -4788,6 +6007,7 @@
       "lowest_msrp": 79.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 33,
       "recommendation": ""
     },
     {
@@ -4802,6 +6022,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -4816,6 +6037,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -4830,6 +6052,7 @@
       "lowest_msrp": 272.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 262.16,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4844,6 +6067,7 @@
       "lowest_msrp": 137.28,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4858,6 +6082,7 @@
       "lowest_msrp": 137.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4872,6 +6097,7 @@
       "lowest_msrp": 167.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4886,6 +6112,7 @@
       "lowest_msrp": 179.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 198.39,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4900,6 +6127,7 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 198.38,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4914,6 +6142,7 @@
       "lowest_msrp": 170.88,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 198.39,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4928,6 +6157,7 @@
       "lowest_msrp": 166.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4942,6 +6172,22 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV19 - Khaki - 14oz",
+      "asin": "B08PTLD29L",
+      "name": "Fairtex BGV19 Deluxe Tight-Fit Gloves (Khaki, 14 oz)",
+      "stock": 0,
+      "our_msrp": "$172.99",
+      "our_landed": "$197.21",
+      "has_buy_box": true,
+      "total_cost": 119.91,
+      "lowest_msrp": 141.07,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 28,
       "recommendation": ""
     },
     {
@@ -4956,6 +6202,22 @@
       "lowest_msrp": 138.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "ROPE3 -Black",
+      "asin": "B08Q3FCW4D",
+      "name": "Fairtex ROPE3 Ball Bearing Muay Thai Jump Rope",
+      "stock": 0,
+      "our_msrp": "$46.49",
+      "our_landed": "$53.00",
+      "has_buy_box": true,
+      "total_cost": 50.47,
+      "lowest_msrp": 59.38,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 49.58,
+      "inbound": 123,
       "recommendation": ""
     },
     {
@@ -4970,6 +6232,7 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4984,6 +6247,7 @@
       "lowest_msrp": 184.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -4998,6 +6262,7 @@
       "lowest_msrp": 176.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5015,6 +6280,7 @@
       "lowest_msrp": 185.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5029,6 +6295,7 @@
       "lowest_msrp": 185.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5043,6 +6310,7 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5057,6 +6325,7 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -5071,6 +6340,7 @@
       "lowest_msrp": 140.72,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 30,
       "recommendation": ""
     },
     {
@@ -5085,6 +6355,7 @@
       "lowest_msrp": 148.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5099,6 +6370,37 @@
       "lowest_msrp": 153.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV-BIM-14oz",
+      "asin": "B08TW7ZHTM",
+      "name": "Fairtex x Beast Official Movie Boxing Gloves - Special Edition Genuine",
+      "stock": 0,
+      "our_msrp": "$189.99",
+      "our_landed": "$216.59",
+      "has_buy_box": true,
+      "total_cost": 131.15,
+      "lowest_msrp": 154.29,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 12,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1-Blue/White/Black-12oz",
+      "asin": "B08TWCYKV1",
+      "name": "Fairtex x Beast Official Movie Boxing Gloves - Special Edition Genuine",
+      "stock": 0,
+      "our_msrp": "$189.99",
+      "our_landed": "$216.59",
+      "has_buy_box": true,
+      "total_cost": 127.64,
+      "lowest_msrp": 150.16,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -5113,6 +6415,37 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1-Blue/White/Black-16oz",
+      "asin": "B08TWDWZ6P",
+      "name": "Fairtex x Beast Official Movie Boxing Gloves - Special Edition Genuine",
+      "stock": 0,
+      "our_msrp": "$220.77",
+      "our_landed": "$251.68",
+      "has_buy_box": true,
+      "total_cost": 137.95,
+      "lowest_msrp": 162.29,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 224,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV1-Red/White/Black-14oz",
+      "asin": "B08TWF7M6C",
+      "name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "stock": 0,
+      "our_msrp": "$174.49",
+      "our_landed": "$198.92",
+      "has_buy_box": true,
+      "total_cost": 128.51,
+      "lowest_msrp": 151.19,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 170.05,
+      "inbound": 24,
       "recommendation": ""
     },
     {
@@ -5127,6 +6460,7 @@
       "lowest_msrp": 140.73,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5141,6 +6475,7 @@
       "lowest_msrp": 136.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5155,6 +6490,7 @@
       "lowest_msrp": 136.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5169,6 +6505,7 @@
       "lowest_msrp": 406.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 325.93,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5179,10 +6516,71 @@
       "our_msrp": "$62.49",
       "our_landed": "$71.24",
       "has_buy_box": true,
-      "total_cost": 56.52,
-      "lowest_msrp": 66.49,
+      "total_cost": 53.0,
+      "lowest_msrp": 62.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 17,
+      "recommendation": ""
+    },
+    {
+      "sku": "GC2-Red-Large",
+      "asin": "B08V8XLYZ3",
+      "name": "Fairtex Muay Thai GC2 Groin Steep Cup for Combat Sports | Muay Thai & ",
+      "stock": 0,
+      "our_msrp": "$67.99",
+      "our_landed": "$77.51",
+      "has_buy_box": true,
+      "total_cost": 58.82,
+      "lowest_msrp": 69.2,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 63.76,
+      "inbound": 82,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1912-Kabuki-Medium",
+      "asin": "B08VBDZKK3",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 28,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1912-Kabuki-Large",
+      "asin": "B08VBH46G6",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$91.99",
+      "our_landed": "$104.87",
+      "has_buy_box": true,
+      "total_cost": 67.38,
+      "lowest_msrp": 79.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 88,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1912-Kabuki-XLarge",
+      "asin": "B08VBWMWVH",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 92,
       "recommendation": ""
     },
     {
@@ -5197,6 +6595,7 @@
       "lowest_msrp": 174.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 27,
       "recommendation": ""
     },
     {
@@ -5211,6 +6610,22 @@
       "lowest_msrp": 153.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGL6-Black-14oz",
+      "asin": "B08WM2PM7Z",
+      "name": "Fairtex BGL6 Handmade Leather Gloves| Optimal fist Closure with a Lock",
+      "stock": 0,
+      "our_msrp": "$195.00",
+      "our_landed": "$222.30",
+      "has_buy_box": true,
+      "total_cost": 130.64,
+      "lowest_msrp": 153.69,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 177.14,
+      "inbound": 15,
       "recommendation": ""
     },
     {
@@ -5225,6 +6640,22 @@
       "lowest_msrp": 145.46,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "ROPE3 -Blue",
+      "asin": "B08XJG2PQY",
+      "name": "Fairtex ROPE3 Ball Bearing Muay Thai Jump Rope",
+      "stock": 0,
+      "our_msrp": "$49.99",
+      "our_landed": "$56.99",
+      "has_buy_box": true,
+      "total_cost": 51.96,
+      "lowest_msrp": 61.13,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 49.58,
+      "inbound": 76,
       "recommendation": ""
     },
     {
@@ -5239,6 +6670,22 @@
       "lowest_msrp": 58.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "ROPE3 -Red",
+      "asin": "B08XJN7R4B",
+      "name": "Fairtex ROPE3 Ball Bearing Muay Thai Jump Rope",
+      "stock": 0,
+      "our_msrp": "$62.99",
+      "our_landed": "$71.81",
+      "has_buy_box": true,
+      "total_cost": 52.95,
+      "lowest_msrp": 62.29,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 49.58,
+      "inbound": 38,
       "recommendation": ""
     },
     {
@@ -5253,6 +6700,7 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5267,6 +6715,7 @@
       "lowest_msrp": 175.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5281,6 +6730,7 @@
       "lowest_msrp": 144.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5295,6 +6745,7 @@
       "lowest_msrp": 147.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5309,6 +6760,7 @@
       "lowest_msrp": 151.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5323,6 +6775,7 @@
       "lowest_msrp": 273.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5337,6 +6790,7 @@
       "lowest_msrp": 266.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5351,6 +6805,7 @@
       "lowest_msrp": 145.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5365,6 +6820,7 @@
       "lowest_msrp": 203.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "inbound": 30,
       "recommendation": ""
     },
     {
@@ -5379,6 +6835,7 @@
       "lowest_msrp": 199.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5393,6 +6850,7 @@
       "lowest_msrp": 192.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "inbound": 94,
       "recommendation": ""
     },
     {
@@ -5407,6 +6865,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV-Resurrection-14oz",
+      "asin": "B09FB1CZL1",
+      "name": "Fairtex Resurrection Premium Muay Thai Boxing Gloves - Limited Edition",
+      "stock": 0,
+      "our_msrp": "$274.99",
+      "our_landed": "$313.49",
+      "has_buy_box": true,
+      "total_cost": 231.46,
+      "lowest_msrp": 272.31,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 269.25,
+      "inbound": 15,
       "recommendation": ""
     },
     {
@@ -5421,6 +6895,7 @@
       "lowest_msrp": 276.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5435,6 +6910,7 @@
       "lowest_msrp": 272.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5449,6 +6925,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 7,
       "recommendation": ""
     },
     {
@@ -5463,6 +6940,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5477,6 +6955,7 @@
       "lowest_msrp": 270.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5491,6 +6970,7 @@
       "lowest_msrp": 141.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 32,
       "recommendation": ""
     },
     {
@@ -5505,6 +6985,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5519,6 +7000,7 @@
       "lowest_msrp": 129.4,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5533,6 +7015,7 @@
       "lowest_msrp": 77.76,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 13,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5550,6 +7033,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1906-GreenFade-Large",
+      "asin": "B09FTN2TZ2",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$86.49",
+      "our_landed": "$98.60",
+      "has_buy_box": true,
+      "total_cost": 66.44,
+      "lowest_msrp": 78.16,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 35,
       "recommendation": ""
     },
     {
@@ -5564,6 +7063,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5578,6 +7078,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 48,
       "recommendation": ""
     },
     {
@@ -5592,6 +7093,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -5606,6 +7108,7 @@
       "lowest_msrp": 109.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5620,6 +7123,22 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP8-White-Large",
+      "asin": "B09HZZTMG2",
+      "name": "Fairtex SP8 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$143.00",
+      "our_landed": "$163.02",
+      "has_buy_box": true,
+      "total_cost": 89.39,
+      "lowest_msrp": 105.16,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 140.29,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -5634,6 +7153,7 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5648,6 +7168,7 @@
       "lowest_msrp": 103.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5662,6 +7183,7 @@
       "lowest_msrp": 103.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5676,6 +7198,7 @@
       "lowest_msrp": 191.52,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 255.08,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5690,6 +7213,7 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "inbound": 0,
       "winner_seller": "A2UNSMLO5W5JHM",
       "winner_url": "https://www.amazon.ca/sp?seller=A2UNSMLO5W5JHM",
       "winner_price": "$318.11",
@@ -5707,6 +7231,7 @@
       "lowest_msrp": 76.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -5721,6 +7246,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 21,
       "recommendation": ""
     },
     {
@@ -5735,6 +7261,7 @@
       "lowest_msrp": 109.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5749,6 +7276,7 @@
       "lowest_msrp": 277.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5763,6 +7291,7 @@
       "lowest_msrp": 274.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.23,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5777,6 +7306,7 @@
       "lowest_msrp": 268.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -5791,6 +7321,7 @@
       "lowest_msrp": 144.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -5805,6 +7336,7 @@
       "lowest_msrp": 142.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5819,6 +7351,7 @@
       "lowest_msrp": 157.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "inbound": 39,
       "recommendation": ""
     },
     {
@@ -5833,6 +7366,22 @@
       "lowest_msrp": 173.99,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 226.74,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "SPK9-Red-10-12yrs",
+      "asin": "B09NQJST3W",
+      "name": "Fairtex SPK9 Youth Muay Thai Kickboxing Shin Guards for Kids - Black, ",
+      "stock": 0,
+      "our_msrp": "$106.99",
+      "our_landed": "$121.97",
+      "has_buy_box": true,
+      "total_cost": 92.3,
+      "lowest_msrp": 108.59,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 106.28,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -5847,6 +7396,7 @@
       "lowest_msrp": 102.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5861,6 +7411,7 @@
       "lowest_msrp": 102.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -5875,6 +7426,7 @@
       "lowest_msrp": 108.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 8,
       "recommendation": ""
     },
     {
@@ -5889,6 +7441,7 @@
       "lowest_msrp": 102.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5903,6 +7456,7 @@
       "lowest_msrp": 107.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5917,6 +7471,7 @@
       "lowest_msrp": 147.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -5934,6 +7489,7 @@
       "lowest_msrp": 149.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5948,6 +7504,7 @@
       "lowest_msrp": 271.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5962,6 +7519,7 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5976,6 +7534,7 @@
       "lowest_msrp": 54.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -5990,6 +7549,7 @@
       "lowest_msrp": 167.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6004,6 +7564,7 @@
       "lowest_msrp": 173.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6018,6 +7579,7 @@
       "lowest_msrp": 171.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6032,6 +7594,7 @@
       "lowest_msrp": 176.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -6046,6 +7609,7 @@
       "lowest_msrp": 171.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6060,6 +7624,7 @@
       "lowest_msrp": 103.42,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6074,6 +7639,7 @@
       "lowest_msrp": 129.4,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6088,6 +7654,7 @@
       "lowest_msrp": 145.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 21,
       "recommendation": ""
     },
     {
@@ -6102,6 +7669,7 @@
       "lowest_msrp": 141.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6116,6 +7684,7 @@
       "lowest_msrp": 55.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6130,6 +7699,7 @@
       "lowest_msrp": 58.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -6147,6 +7717,7 @@
       "lowest_msrp": 62.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 56.67,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6161,6 +7732,7 @@
       "lowest_msrp": 61.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 56.67,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6175,6 +7747,7 @@
       "lowest_msrp": 142.49,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6189,6 +7762,7 @@
       "lowest_msrp": 166.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6203,6 +7777,7 @@
       "lowest_msrp": 166.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6217,6 +7792,7 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6231,6 +7807,7 @@
       "lowest_msrp": 108.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6245,6 +7822,7 @@
       "lowest_msrp": 108.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6259,6 +7837,7 @@
       "lowest_msrp": 107.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6273,6 +7852,7 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6287,6 +7867,7 @@
       "lowest_msrp": 175.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6301,6 +7882,7 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6315,6 +7897,7 @@
       "lowest_msrp": 97.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 99.2,
+      "inbound": 34,
       "recommendation": ""
     },
     {
@@ -6329,6 +7912,7 @@
       "lowest_msrp": 97.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 99.2,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6343,6 +7927,7 @@
       "lowest_msrp": 70.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 70.84,
+      "inbound": 17,
       "recommendation": ""
     },
     {
@@ -6357,6 +7942,7 @@
       "lowest_msrp": 106.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6371,6 +7957,22 @@
       "lowest_msrp": 58.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "8859368981641-JS19-Blue-L",
+      "asin": "B0B979GMDK",
+      "name": "Fairtex Muay Thai NBA Jersey (Blue, Large)",
+      "stock": 0,
+      "our_msrp": "$66.66",
+      "our_landed": "$75.99",
+      "has_buy_box": true,
+      "total_cost": 47.83,
+      "lowest_msrp": 56.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 63.76,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -6385,6 +7987,7 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6399,6 +8002,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6413,6 +8017,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6427,6 +8032,7 @@
       "lowest_msrp": 164.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -6441,6 +8047,22 @@
       "lowest_msrp": 173.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BGV9 - Yellow/Black/Black Piping - 16oz",
+      "asin": "B0BBL4SDN2",
+      "name": "Fairtex Muay Thai Boxing Gloves BGV9 - Heavy Hitter Mexican Style Trai",
+      "stock": 0,
+      "our_msrp": "$215.99",
+      "our_landed": "$246.23",
+      "has_buy_box": true,
+      "total_cost": 149.05,
+      "lowest_msrp": 175.35,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 211.15,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -6455,6 +8077,7 @@
       "lowest_msrp": 166.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6469,6 +8092,7 @@
       "lowest_msrp": 165.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "inbound": 21,
       "recommendation": ""
     },
     {
@@ -6483,6 +8107,7 @@
       "lowest_msrp": 165.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6497,6 +8122,7 @@
       "lowest_msrp": 166.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6511,6 +8137,7 @@
       "lowest_msrp": 165.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -6528,6 +8155,7 @@
       "lowest_msrp": 99.87,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6542,6 +8170,7 @@
       "lowest_msrp": 99.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
       "winner_price": "",
@@ -6559,6 +8188,7 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6573,6 +8203,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -6587,6 +8218,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 51,
       "recommendation": ""
     },
     {
@@ -6601,6 +8233,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 42,
       "recommendation": ""
     },
     {
@@ -6615,6 +8248,7 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 19,
       "recommendation": ""
     },
     {
@@ -6629,6 +8263,7 @@
       "lowest_msrp": 56.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6643,6 +8278,7 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6657,6 +8293,7 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6671,6 +8308,7 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6685,6 +8323,7 @@
       "lowest_msrp": 57.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6699,6 +8338,7 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6713,6 +8353,7 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 1,
       "recommendation": ""
     },
     {
@@ -6727,6 +8368,7 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6741,6 +8383,7 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6755,6 +8398,7 @@
       "lowest_msrp": 160.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6769,6 +8413,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 10,
       "recommendation": ""
     },
     {
@@ -6783,6 +8428,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 13,
       "recommendation": ""
     },
     {
@@ -6797,6 +8443,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1919-Stealth Red-Xlarge",
+      "asin": "B0BYY9NZV6",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 24,
       "recommendation": ""
     },
     {
@@ -6811,6 +8473,7 @@
       "lowest_msrp": 52.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6825,6 +8488,7 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6839,6 +8503,7 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6853,6 +8518,7 @@
       "lowest_msrp": 52.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6867,6 +8533,7 @@
       "lowest_msrp": 54.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6881,6 +8548,7 @@
       "lowest_msrp": 54.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6895,6 +8563,7 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6909,6 +8578,22 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1703-Red/Black-XXLarge",
+      "asin": "B0CG9WV6MM",
+      "name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 70.63,
+      "lowest_msrp": 83.09,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 33,
       "recommendation": ""
     },
     {
@@ -6923,6 +8608,7 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -6937,6 +8623,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 56,
       "recommendation": ""
     },
     {
@@ -6951,6 +8638,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 38,
       "recommendation": ""
     },
     {
@@ -6965,6 +8653,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 31,
       "recommendation": ""
     },
     {
@@ -6979,6 +8668,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 14,
       "recommendation": ""
     },
     {
@@ -6993,6 +8683,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -7007,7 +8698,77 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 15,
       "recommendation": ""
+    },
+    {
+      "sku": "BS1923-Racer White-Large",
+      "asin": "B0CHWMWHYG",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Racer White, Large)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": false,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 26,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $78.29"
+    },
+    {
+      "sku": "BS1924-Racer Black-Medium",
+      "asin": "B0CHWNQQ8X",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Racer Black, Medium)",
+      "stock": 0,
+      "our_msrp": "$95.49",
+      "our_landed": "$108.86",
+      "has_buy_box": false,
+      "total_cost": 67.97,
+      "lowest_msrp": 79.96,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 53,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $85.94"
+    },
+    {
+      "sku": "BS1923-Racer White-Medium",
+      "asin": "B0CHWP6DTS",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Racer White, Medium)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 26,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1908 - White - X-Small",
+      "asin": "B0CJ5LFZ7S",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (White - Satoru, X-Small)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": false,
+      "total_cost": 61.54,
+      "lowest_msrp": 72.4,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 6,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $78.29"
     },
     {
       "sku": "BS1913-Tonna-X-Small",
@@ -7021,6 +8782,22 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "8859368981665-JS19-Blue-XXL",
+      "asin": "B0CKWFW5Z7",
+      "name": "Fairtex Muay Thai NBA Jersey (Blue, XX-Large)",
+      "stock": 0,
+      "our_msrp": "$67.14",
+      "our_landed": "$76.54",
+      "has_buy_box": true,
+      "total_cost": 47.91,
+      "lowest_msrp": 56.36,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 63.76,
+      "inbound": 6,
       "recommendation": ""
     },
     {
@@ -7035,6 +8812,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7049,6 +8827,7 @@
       "lowest_msrp": 56.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -7063,6 +8842,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7077,6 +8857,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7091,6 +8872,7 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7105,6 +8887,7 @@
       "lowest_msrp": 55.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7119,6 +8902,7 @@
       "lowest_msrp": 219.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -7133,6 +8917,7 @@
       "lowest_msrp": 217.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 262.16,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7147,6 +8932,7 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 32,
       "recommendation": ""
     },
     {
@@ -7161,6 +8947,82 @@
       "lowest_msrp": 138.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1926-Magma Red-X-Large",
+      "asin": "B0CST5R2F8",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Magma Red, X-Large)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 50,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1926-Magma Red-Medium",
+      "asin": "B0CST7SZ3J",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Magma Red, Medium)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 61.54,
+      "lowest_msrp": 72.4,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 5,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1931-HeartofGold-X-Large",
+      "asin": "B0CTLKMD8M",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Heart of Gold, X-Large)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 56,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1934-Black-X-Large",
+      "asin": "B0CTLNDMHG",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Black, X-Large)",
+      "stock": 0,
+      "our_msrp": "$88.99",
+      "our_landed": "$101.45",
+      "has_buy_box": true,
+      "total_cost": 66.87,
+      "lowest_msrp": 78.67,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 92.1,
+      "inbound": 2,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1934-Black-Medium",
+      "asin": "B0CTLPPFZZ",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Black, Medium)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 92.1,
+      "inbound": 16,
       "recommendation": ""
     },
     {
@@ -7175,6 +9037,7 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -7189,6 +9052,22 @@
       "lowest_msrp": 76.13,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1931-HeartofGold-Large",
+      "asin": "B0CTM1Z625",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Heart of Gold, Large)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 85.01,
+      "inbound": 66,
       "recommendation": ""
     },
     {
@@ -7203,6 +9082,7 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7217,6 +9097,7 @@
       "lowest_msrp": 185.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 14,
       "recommendation": ""
     },
     {
@@ -7231,6 +9112,7 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7245,6 +9127,7 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7259,6 +9142,7 @@
       "lowest_msrp": 122.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "inbound": 9,
       "recommendation": ""
     },
     {
@@ -7273,6 +9157,7 @@
       "lowest_msrp": 115.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7287,6 +9172,7 @@
       "lowest_msrp": 114.38,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7301,6 +9187,7 @@
       "lowest_msrp": 76.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 12,
       "recommendation": ""
     },
     {
@@ -7315,13 +9202,14 @@
       "lowest_msrp": 78.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 15,
       "recommendation": ""
     },
     {
       "sku": "BS1935-Sapphire-Large",
       "asin": "B0CZ4GHWFW",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Sapphire, Large)",
-      "stock": 9,
+      "stock": 7,
       "our_msrp": "$90.99",
       "our_landed": "$103.73",
       "has_buy_box": true,
@@ -7329,6 +9217,22 @@
       "lowest_msrp": 79.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1938-BlackAcidJazz-Large",
+      "asin": "B0CZ78SZS6",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Black Acid Jazz, Large)",
+      "stock": 0,
+      "our_msrp": "$89.99",
+      "our_landed": "$102.59",
+      "has_buy_box": true,
+      "total_cost": 67.04,
+      "lowest_msrp": 78.87,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 92.1,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -7343,6 +9247,7 @@
       "lowest_msrp": 79.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7357,6 +9262,7 @@
       "lowest_msrp": 77.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7371,7 +9277,59 @@
       "lowest_msrp": 78.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 0,
       "recommendation": ""
+    },
+    {
+      "sku": "SP9-Black-Small",
+      "asin": "B0D6W8YTBM",
+      "name": "Fairtex SP9 Ultra Ergo Shin Pads | Muay Thai, Kickboxing Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$147.91",
+      "our_landed": "$168.62",
+      "has_buy_box": false,
+      "total_cost": 107.0,
+      "lowest_msrp": 125.88,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 141.7,
+      "inbound": 5,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": "No winner \u2014 drop price 10% to $133.12"
+    },
+    {
+      "sku": "SP9-Blue-Small",
+      "asin": "B0D6W96J4Q",
+      "name": "Fairtex SP9 Ultra Ergo Shin Pads | Muay Thai, Kickboxing Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$148.01",
+      "our_landed": "$168.73",
+      "has_buy_box": true,
+      "total_cost": 114.99,
+      "lowest_msrp": 135.28,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 141.7,
+      "inbound": 14,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP9-Black-Medium",
+      "asin": "B0D6W99XDJ",
+      "name": "Fairtex SP9 Ultra Ergo Shin Pads | Muay Thai, Kickboxing Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$178.84",
+      "our_landed": "$203.88",
+      "has_buy_box": false,
+      "total_cost": 111.43,
+      "lowest_msrp": 131.09,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 141.7,
+      "inbound": 103,
+      "winner_seller": "AWWCJPBNIB7TH",
+      "winner_url": "https://www.amazon.ca/sp?seller=AWWCJPBNIB7TH",
+      "winner_price": "$217.92",
+      "recommendation": "Yes, reduce to $131.09"
     },
     {
       "sku": "SP9-Red-Small",
@@ -7385,6 +9343,7 @@
       "lowest_msrp": 131.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7399,6 +9358,22 @@
       "lowest_msrp": 128.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "EBE1 - Black - Free Size",
+      "asin": "B0D9NSWQ74",
+      "name": "Fairtex Elastic Elbow Pads EBE1 Muay Thai Kick Boxing Protect Soft Fab",
+      "stock": 0,
+      "our_msrp": "$74.26",
+      "our_landed": "$84.66",
+      "has_buy_box": true,
+      "total_cost": 40.47,
+      "lowest_msrp": 47.61,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 49.58,
+      "inbound": 24,
       "recommendation": ""
     },
     {
@@ -7413,13 +9388,29 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 21.24,
+      "inbound": 288,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS1952-JungleHunter-X-Large",
+      "asin": "B0DNMX66YX",
+      "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Jungle Hunter, X-Large)",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": true,
+      "total_cost": 66.53,
+      "lowest_msrp": 78.27,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 92.1,
+      "inbound": 9,
       "recommendation": ""
     },
     {
       "sku": "BS1952-JungleHunter-Medium",
       "asin": "B0DNMXTY8T",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Jungle Hunter, Medium)",
-      "stock": 2,
+      "stock": 1,
       "our_msrp": "$92.99",
       "our_landed": "$106.01",
       "has_buy_box": true,
@@ -7427,6 +9418,7 @@
       "lowest_msrp": 79.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "inbound": 3,
       "recommendation": ""
     },
     {
@@ -7441,6 +9433,7 @@
       "lowest_msrp": 62.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 70.84,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7455,6 +9448,7 @@
       "lowest_msrp": 103.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7469,6 +9463,7 @@
       "lowest_msrp": 119.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7483,6 +9478,7 @@
       "lowest_msrp": 123.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7497,6 +9493,7 @@
       "lowest_msrp": 112.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7511,6 +9508,7 @@
       "lowest_msrp": 109.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7525,6 +9523,7 @@
       "lowest_msrp": 103.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7539,6 +9538,7 @@
       "lowest_msrp": 112.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7553,6 +9553,7 @@
       "lowest_msrp": 110.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7567,6 +9568,7 @@
       "lowest_msrp": 103.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7581,6 +9583,7 @@
       "lowest_msrp": 117.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7595,6 +9598,7 @@
       "lowest_msrp": 117.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7609,6 +9613,7 @@
       "lowest_msrp": 117.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7623,6 +9628,7 @@
       "lowest_msrp": 123.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7637,6 +9643,7 @@
       "lowest_msrp": 119.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7651,6 +9658,7 @@
       "lowest_msrp": 112.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7665,6 +9673,7 @@
       "lowest_msrp": 163.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7679,6 +9688,55 @@
       "lowest_msrp": 163.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "Glove-Deodorizer-Vanilla",
+      "asin": "B0FHKT289L",
+      "name": "Fairtex Boxing Glove Deodorizer Inserts - Odor Eliminator & Moisture A",
+      "stock": 0,
+      "our_msrp": "$30.24",
+      "our_landed": "$34.47",
+      "has_buy_box": false,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 72,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
+      "recommendation": ""
+    },
+    {
+      "sku": "Glove-Deodorizer-OceanBreeze",
+      "asin": "B0FHKVFNZ6",
+      "name": "Fairtex Boxing Glove Deodorizer Inserts - Odor Eliminator & Moisture A",
+      "stock": 0,
+      "our_msrp": "$30.24",
+      "our_landed": "$34.47",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 576,
+      "recommendation": ""
+    },
+    {
+      "sku": "LKP5-Black/Red",
+      "asin": "B0FKTHVKG7",
+      "name": "Fairtex LKP5 - Lite Suitcase Leg Kick Pad",
+      "stock": 0,
+      "our_msrp": "$194.99",
+      "our_landed": "$222.29",
+      "has_buy_box": true,
+      "total_cost": 165.68,
+      "lowest_msrp": 194.92,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 4,
       "recommendation": ""
     },
     {
@@ -7693,6 +9751,7 @@
       "lowest_msrp": 194.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7707,6 +9766,7 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7721,6 +9781,7 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7735,6 +9796,7 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7749,6 +9811,22 @@
       "lowest_msrp": 435.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "8859772277408-TST353-White-M",
+      "asin": "B0FT8M5JW9",
+      "name": "Fairtex TST353 T-Shirt Side Pattern, White, Medium",
+      "stock": 0,
+      "our_msrp": "$69.99",
+      "our_landed": "$79.79",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -7763,6 +9841,25 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 0,
+      "recommendation": ""
+    },
+    {
+      "sku": "BS-Halloween04-Black/Yellow-L",
+      "asin": "B0FWRTJ46J",
+      "name": "Fairtex Muay Thai Boxing Shorts Halloween Collection - Rotting Fist, L",
+      "stock": 0,
+      "our_msrp": "$86.99",
+      "our_landed": "$99.17",
+      "has_buy_box": false,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 5,
+      "winner_seller": "No winner",
+      "winner_url": "",
+      "winner_price": "",
       "recommendation": ""
     },
     {
@@ -7777,6 +9874,7 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -7791,6 +9889,7 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 5,
       "recommendation": ""
     },
     {
@@ -7805,6 +9904,52 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "inbound": 5,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP8-GreenOlive-Small",
+      "asin": "B0G651MNNK",
+      "name": "Fairtex SP8 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
+      "stock": 0,
+      "our_msrp": "$153.75",
+      "our_landed": "$175.28",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 2,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP3-GreenOlive-Small",
+      "asin": "B0G654NHXZ",
+      "name": "Fairtex SP3 Muay Thai Shin Guards for Men, Women, Kids | MMA Training,",
+      "stock": 0,
+      "our_msrp": "$135.82",
+      "our_landed": "$154.83",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 22,
+      "recommendation": ""
+    },
+    {
+      "sku": "SP7-GreenOlive-Small",
+      "asin": "B0G65CV2R4",
+      "name": "Fairtex SP7 Muay Thai Shin Guards for Men, Women, Kids | Shinguards Ma",
+      "stock": 0,
+      "our_msrp": "$150.19",
+      "our_landed": "$171.22",
+      "has_buy_box": true,
+      "total_cost": null,
+      "lowest_msrp": null,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": null,
+      "inbound": 2,
       "recommendation": ""
     },
     {
@@ -7819,6 +9964,7 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7833,6 +9979,7 @@
       "lowest_msrp": 78.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 23,
       "recommendation": ""
     },
     {
@@ -7847,6 +9994,7 @@
       "lowest_msrp": 175.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7861,6 +10009,22 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 36,
+      "recommendation": ""
+    },
+    {
+      "sku": "FMV9-Black/Blue",
+      "asin": "B07FPVC8DM",
+      "name": "Fairtex FMV9 Contoured Focus Mitts |Striking Accuracy & Protection for",
+      "stock": 0,
+      "our_msrp": "$180.99",
+      "our_landed": "$206.33",
+      "has_buy_box": true,
+      "total_cost": 143.06,
+      "lowest_msrp": 168.31,
+      "fulfillment_type": "NARF",
+      "fairtex_msrp": 177.14,
+      "inbound": 27,
       "recommendation": ""
     },
     {
@@ -7875,6 +10039,7 @@
       "lowest_msrp": 155.25,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "inbound": 20,
       "recommendation": ""
     },
     {
@@ -7889,6 +10054,7 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7903,6 +10069,7 @@
       "lowest_msrp": 141.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7917,6 +10084,7 @@
       "lowest_msrp": 175.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 18,
       "recommendation": ""
     },
     {
@@ -7931,6 +10099,7 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7945,6 +10114,7 @@
       "lowest_msrp": 56.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7959,6 +10129,7 @@
       "lowest_msrp": 160.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "inbound": 0,
       "recommendation": ""
     },
     {
@@ -7973,6 +10144,7 @@
       "lowest_msrp": 122.61,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "inbound": 0,
       "recommendation": ""
     }
   ]
