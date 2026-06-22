@@ -356,7 +356,13 @@ def get_fba_inventory(access_token):
         asin  = item.get("asin", "")
         fnsku = item.get("fnsku", "")
         name  = item.get("productName", asin)[:70]
-        qty   = (item.get("inventoryDetails") or {}).get("fulfillableQuantity") or 0
+        details = item.get("inventoryDetails") or {}
+        qty     = details.get("fulfillableQuantity") or 0
+        inbound = (
+            (details.get("inboundWorkingQuantity")   or 0)
+            + (details.get("inboundShippedQuantity")  or 0)
+            + (details.get("inboundReceivingQuantity") or 0)
+        )
 
         sku_lower = sku.lower()
         if (sku_lower.startswith("amzn.gr") or
@@ -364,10 +370,15 @@ def get_fba_inventory(access_token):
             sku_lower.endswith("_ln") or
             fnsku.startswith("X")):
             continue
-        if qty > 0 and asin and sku:
-            result.append({"sku": sku, "asin": asin, "name": name, "stock": qty})
+        # Include inbound: a SKU with active replenishment should still be monitored
+        # so we catch buy-box losses while stock is in transit.
+        if (qty > 0 or inbound > 0) and asin and sku:
+            result.append({
+                "sku": sku, "asin": asin, "name": name,
+                "stock": qty, "inbound": inbound,
+            })
 
-    print(f"  SKUs with fulfillable stock > 0: {len(result)}")
+    print(f"  SKUs sellable or inbound > 0: {len(result)}")
     return result
 
 
@@ -866,6 +877,7 @@ def main():
             "lowest_msrp":      lowest_msrp,
             "fulfillment_type": ft,
             "fairtex_msrp":     fairtex_msrp_map.get(item["asin"]),
+            "inbound":          item.get("inbound", 0),
         }
         if not product["has_buy_box"]:
             product["winner_seller"]  = info.get("winner_seller", "")
