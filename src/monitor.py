@@ -865,6 +865,15 @@ def main():
         # Total cost = product cost + referral fee + fulfillment fee (FBA or NARF)
         total_cost  = _build_total_cost(item["asin"], ft, cost_data)
         lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
+        # MSRP compliant: our current Amazon MSRP must be >= Fairtex's suggested MSRP.
+        fairtex_cad = fairtex_msrp_map.get(item["asin"])
+        msrp_compliant = ""
+        if our_msrp and fairtex_cad is not None:
+            try:
+                msrp_val = float(our_msrp.replace("$", "").replace(",", ""))
+                msrp_compliant = "Yes" if msrp_val >= fairtex_cad else "No"
+            except ValueError:
+                pass
         product = {
             "sku":              item["sku"],
             "asin":             item["asin"],
@@ -876,7 +885,8 @@ def main():
             "total_cost":       total_cost,
             "lowest_msrp":      lowest_msrp,
             "fulfillment_type": ft,
-            "fairtex_msrp":     fairtex_msrp_map.get(item["asin"]),
+            "fairtex_msrp":     fairtex_cad,
+            "msrp_compliant":   msrp_compliant,
             "inbound":          item.get("inbound", 0),
         }
         if not product["has_buy_box"]:

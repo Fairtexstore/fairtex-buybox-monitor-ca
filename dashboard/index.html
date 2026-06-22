@@ -148,6 +148,7 @@
         { key: 'stock', label: 'Stock' },
         { key: 'our_msrp', label: 'MSRP' },
         { key: 'fairtex_msrp', label: 'Fairtex MSRP' },
+        { key: 'msrp_compliant', label: 'MSRP Compliant' },
         { key: 'our_landed', label: 'Landed Price' },
         { key: 'has_buy_box', label: 'Buy Box' },
         { key: 'winner_seller', label: 'Winner' },
@@ -166,7 +167,7 @@
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
-        html += '<tr><td colspan="14" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
+        html += '<tr><td colspan="15" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
 
       for (const p of filtered) {
@@ -193,6 +194,11 @@
 
         const msrp = p.our_msrp || '-';
         const fairtexMsrp = p.fairtex_msrp != null ? `$${Number(p.fairtex_msrp).toFixed(2)}` : '-';
+        const compliantBadge = p.msrp_compliant === 'Yes'
+          ? '<span class="badge yes">Yes</span>'
+          : p.msrp_compliant === 'No'
+            ? '<span class="badge no">No</span>'
+            : '-';
         const landedPrice = p.our_landed || '-';
         const ftBadge = p.fulfillment_type === 'FBA'
           ? '<span class="badge yes">FBA</span>'
@@ -208,6 +214,7 @@
           <td>${p.stock}</td>
           <td>${msrp}</td>
           <td>${fairtexMsrp}</td>
+          <td>${compliantBadge}</td>
           <td>${landedPrice}</td>
           <td>${badge}</td>
           <td>${winner}</td>
