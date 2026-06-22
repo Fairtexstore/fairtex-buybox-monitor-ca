@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22T10:44:19.076894+00:00",
+  "last_updated": "2026-06-22T11:56:34.391779+00:00",
   "total_checked": 667,
   "buy_box_owned": 621,
   "total_flagged": 46,
@@ -16,8 +16,10 @@
       "lowest_msrp": 191.95,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "CA-KPLC2 - StandardCurved",
@@ -31,6 +33,8 @@
       "lowest_msrp": 190.94,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -46,6 +50,8 @@
       "lowest_msrp": 168.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -61,6 +67,8 @@
       "lowest_msrp": 173.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -76,8 +84,10 @@
       "lowest_msrp": 151.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 32,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP5-Blue-Small",
@@ -91,6 +101,8 @@
       "lowest_msrp": 116.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 25,
       "recommendation": ""
     },
@@ -106,6 +118,8 @@
       "lowest_msrp": 108.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -121,6 +135,8 @@
       "lowest_msrp": 114.69,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -136,6 +152,8 @@
       "lowest_msrp": 113.05,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -151,6 +169,8 @@
       "lowest_msrp": 115.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -166,6 +186,8 @@
       "lowest_msrp": 154.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 20,
       "recommendation": ""
     },
@@ -181,6 +203,8 @@
       "lowest_msrp": 152.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -196,8 +220,10 @@
       "lowest_msrp": 151.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FBANationRed14oz",
@@ -211,8 +237,10 @@
       "lowest_msrp": 153.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 20,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HG10 - Black - XLarge",
@@ -226,8 +254,10 @@
       "lowest_msrp": 135.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HG3 - Black - XLarge",
@@ -241,6 +271,8 @@
       "lowest_msrp": 137.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 162.97,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -256,6 +288,8 @@
       "lowest_msrp": 140.59,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 64,
       "recommendation": ""
     },
@@ -271,8 +305,10 @@
       "lowest_msrp": 62.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 5,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS0639-FortuneBlack-XLarge",
@@ -286,6 +322,8 @@
       "lowest_msrp": 64.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 10,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -304,6 +342,8 @@
       "lowest_msrp": 161.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 212.56,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 54,
       "recommendation": ""
     },
@@ -319,6 +359,8 @@
       "lowest_msrp": 109.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 40,
       "recommendation": ""
     },
@@ -334,6 +376,8 @@
       "lowest_msrp": 110.12,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -349,6 +393,8 @@
       "lowest_msrp": 111.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -364,8 +410,10 @@
       "lowest_msrp": 116.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 69,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP3 - Black - Large",
@@ -379,6 +427,8 @@
       "lowest_msrp": 115.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 48,
       "recommendation": ""
     },
@@ -386,7 +436,7 @@
       "sku": "FBABlackSmallSP3",
       "asin": "B00O1S2B54",
       "name": "Fairtex SP3 Muay Thai Shin Guards for Men, Women, Kids | MMA Training,",
-      "stock": 46,
+      "stock": 47,
       "our_msrp": "$129.99",
       "our_landed": "$148.19",
       "has_buy_box": true,
@@ -394,6 +444,8 @@
       "lowest_msrp": 106.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 58,
       "recommendation": ""
     },
@@ -409,6 +461,8 @@
       "lowest_msrp": 116.72,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -424,6 +478,8 @@
       "lowest_msrp": 143.0,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -439,6 +495,8 @@
       "lowest_msrp": 119.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -454,6 +512,8 @@
       "lowest_msrp": 123.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 48,
       "recommendation": ""
     },
@@ -469,6 +529,8 @@
       "lowest_msrp": 127.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -484,6 +546,8 @@
       "lowest_msrp": 162.41,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -499,8 +563,10 @@
       "lowest_msrp": 293.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 481.81,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "KPLS2 - Black/Red",
@@ -514,6 +580,8 @@
       "lowest_msrp": 274.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 325.93,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -529,6 +597,8 @@
       "lowest_msrp": 94.09,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 3,
       "recommendation": ""
     },
@@ -544,6 +614,8 @@
       "lowest_msrp": 97.78,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -559,6 +631,8 @@
       "lowest_msrp": 103.53,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -574,6 +648,8 @@
       "lowest_msrp": 97.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -589,6 +665,8 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -604,6 +682,8 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 37,
       "recommendation": ""
     },
@@ -619,6 +699,8 @@
       "lowest_msrp": 97.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 6,
       "recommendation": ""
     },
@@ -634,6 +716,8 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -649,6 +733,8 @@
       "lowest_msrp": 162.32,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -664,6 +750,8 @@
       "lowest_msrp": 162.41,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -679,6 +767,8 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -694,6 +784,8 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 11,
       "recommendation": ""
     },
@@ -709,6 +801,8 @@
       "lowest_msrp": 154.55,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -724,6 +818,8 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -739,6 +835,8 @@
       "lowest_msrp": 175.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 6,
       "recommendation": ""
     },
@@ -754,8 +852,10 @@
       "lowest_msrp": 145.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1BR-White-12oz",
@@ -769,6 +869,8 @@
       "lowest_msrp": 139.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 60,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -787,6 +889,8 @@
       "lowest_msrp": 178.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -802,8 +906,10 @@
       "lowest_msrp": 125.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 42,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP5-Yellow-Medium",
@@ -817,6 +923,8 @@
       "lowest_msrp": 120.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 29,
       "recommendation": ""
     },
@@ -832,6 +940,8 @@
       "lowest_msrp": 103.53,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -847,6 +957,8 @@
       "lowest_msrp": 227.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 516,
       "recommendation": ""
     },
@@ -862,8 +974,10 @@
       "lowest_msrp": 151.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 12,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "EBE1 - Blue - Free Size",
@@ -877,6 +991,8 @@
       "lowest_msrp": 43.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 71,
       "recommendation": ""
     },
@@ -892,6 +1008,8 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -907,6 +1025,8 @@
       "lowest_msrp": 166.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -922,6 +1042,8 @@
       "lowest_msrp": 101.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -937,6 +1059,8 @@
       "lowest_msrp": 151.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 17,
       "recommendation": ""
     },
@@ -952,6 +1076,8 @@
       "lowest_msrp": 133.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -967,6 +1093,8 @@
       "lowest_msrp": 139.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -982,6 +1110,8 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -997,6 +1127,8 @@
       "lowest_msrp": 145.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1012,6 +1144,8 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1027,6 +1161,8 @@
       "lowest_msrp": 151.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1042,6 +1178,8 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1057,6 +1195,8 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1072,6 +1212,8 @@
       "lowest_msrp": 145.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1087,8 +1229,10 @@
       "lowest_msrp": 128.76,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV14 - Gray - 12oz",
@@ -1102,6 +1246,8 @@
       "lowest_msrp": 145.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1117,6 +1263,8 @@
       "lowest_msrp": 143.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1132,6 +1280,8 @@
       "lowest_msrp": 142.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1150,8 +1300,10 @@
       "lowest_msrp": 148.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 23,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1BR - Pink - 14oz",
@@ -1165,6 +1317,8 @@
       "lowest_msrp": 149.91,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1183,6 +1337,8 @@
       "lowest_msrp": 159.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1198,6 +1354,8 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1213,8 +1371,10 @@
       "lowest_msrp": 44.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 42.5,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 1781,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP5 - Yellow - Small",
@@ -1228,6 +1388,8 @@
       "lowest_msrp": 113.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -1243,8 +1405,10 @@
       "lowest_msrp": 145.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 117,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP7 - Red - Extra Large",
@@ -1258,6 +1422,8 @@
       "lowest_msrp": 103.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 28,
       "recommendation": ""
     },
@@ -1273,6 +1439,8 @@
       "lowest_msrp": 149.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1288,6 +1456,8 @@
       "lowest_msrp": 139.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1303,8 +1473,10 @@
       "lowest_msrp": 138.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 1,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FairtexBlackSmallSP7",
@@ -1318,6 +1490,8 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 102,
       "recommendation": ""
     },
@@ -1333,6 +1507,8 @@
       "lowest_msrp": 145.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -1348,6 +1524,8 @@
       "lowest_msrp": 168.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1363,8 +1541,10 @@
       "lowest_msrp": 149.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 61,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9-Black/Yellow/Blk Piping-14oz",
@@ -1378,6 +1558,8 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1393,6 +1575,8 @@
       "lowest_msrp": 147.39,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1411,6 +1595,8 @@
       "lowest_msrp": 214.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 240.91,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 35,
       "recommendation": ""
     },
@@ -1426,6 +1612,8 @@
       "lowest_msrp": 211.26,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 481.81,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "A2UNSMLO5W5JHM",
       "winner_url": "https://www.amazon.ca/sp?seller=A2UNSMLO5W5JHM",
@@ -1444,6 +1632,8 @@
       "lowest_msrp": 279.35,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 325.93,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1459,8 +1649,10 @@
       "lowest_msrp": 140.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 25,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Black/White/Pink - 16oz",
@@ -1474,6 +1666,8 @@
       "lowest_msrp": 149.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1492,6 +1686,8 @@
       "lowest_msrp": 140.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 31,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1510,8 +1706,10 @@
       "lowest_msrp": 141.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV14-Black-12oz",
@@ -1525,6 +1723,8 @@
       "lowest_msrp": 135.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 32,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1543,6 +1743,8 @@
       "lowest_msrp": 151.42,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 212.56,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1558,8 +1760,10 @@
       "lowest_msrp": 155.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 212.56,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 17,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Black- 12oz",
@@ -1573,6 +1777,8 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 200,
       "recommendation": ""
     },
@@ -1588,8 +1794,10 @@
       "lowest_msrp": 138.0,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 30,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Red - 14oz",
@@ -1603,6 +1811,8 @@
       "lowest_msrp": 139.33,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 16,
       "recommendation": ""
     },
@@ -1618,6 +1828,8 @@
       "lowest_msrp": 149.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1633,6 +1845,8 @@
       "lowest_msrp": 135.11,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 16,
       "recommendation": ""
     },
@@ -1648,6 +1862,8 @@
       "lowest_msrp": 140.79,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 18,
       "recommendation": ""
     },
@@ -1663,6 +1879,8 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1678,6 +1896,8 @@
       "lowest_msrp": 155.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 16,
       "recommendation": ""
     },
@@ -1693,6 +1913,8 @@
       "lowest_msrp": 136.94,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1708,6 +1930,8 @@
       "lowest_msrp": 146.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1723,6 +1947,8 @@
       "lowest_msrp": 140.52,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -1738,6 +1964,8 @@
       "lowest_msrp": 140.73,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1753,6 +1981,8 @@
       "lowest_msrp": 151.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 26,
       "recommendation": ""
     },
@@ -1768,8 +1998,10 @@
       "lowest_msrp": 135.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 10,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HB6 -Green-Muay Thai Banana Bag",
@@ -1783,6 +2015,8 @@
       "lowest_msrp": 190.25,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -1793,7 +2027,7 @@
       "sku": "FBAHWBlack180",
       "asin": "B0793D8N5F",
       "name": "Fairtex HW2 Elastic Cotton Handwraps, 120' and 180\" Full Length Hand W",
-      "stock": 353,
+      "stock": 355,
       "our_msrp": "$32.90",
       "our_landed": "$37.51",
       "has_buy_box": true,
@@ -1801,6 +2035,8 @@
       "lowest_msrp": 36.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 1200,
       "recommendation": ""
     },
@@ -1816,6 +2052,8 @@
       "lowest_msrp": 31.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -1831,6 +2069,8 @@
       "lowest_msrp": 35.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 94,
       "recommendation": ""
     },
@@ -1846,6 +2086,8 @@
       "lowest_msrp": 35.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1861,8 +2103,10 @@
       "lowest_msrp": 35.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 35.41,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 190,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FBAHWBlack120",
@@ -1876,6 +2120,8 @@
       "lowest_msrp": 31.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 14,
       "recommendation": ""
     },
@@ -1891,6 +2137,8 @@
       "lowest_msrp": 30.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -1906,8 +2154,10 @@
       "lowest_msrp": 42.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 35.41,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 401,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV5 - Red - 16oz",
@@ -1921,6 +2171,8 @@
       "lowest_msrp": 146.92,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1936,8 +2188,10 @@
       "lowest_msrp": 193.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 64,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FBACanWhiteSP3Small",
@@ -1951,6 +2205,8 @@
       "lowest_msrp": 107.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -1966,8 +2222,10 @@
       "lowest_msrp": 120.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 7,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP5 - Blue - Large",
@@ -1981,6 +2239,8 @@
       "lowest_msrp": 112.21,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "recommendation": ""
     },
@@ -1996,6 +2256,8 @@
       "lowest_msrp": 128.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2011,6 +2273,8 @@
       "lowest_msrp": 112.47,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2026,6 +2290,8 @@
       "lowest_msrp": 108.07,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2041,6 +2307,8 @@
       "lowest_msrp": 111.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 33,
       "recommendation": ""
     },
@@ -2056,6 +2324,8 @@
       "lowest_msrp": 100.56,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 20,
       "recommendation": ""
     },
@@ -2071,6 +2341,8 @@
       "lowest_msrp": 122.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2086,8 +2358,10 @@
       "lowest_msrp": 143.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 101,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1BR - Black - 14oz",
@@ -2101,6 +2375,8 @@
       "lowest_msrp": 148.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 105,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -2119,6 +2395,8 @@
       "lowest_msrp": 137.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -2137,6 +2415,8 @@
       "lowest_msrp": 68.6,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -2155,8 +2435,10 @@
       "lowest_msrp": 132.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV14BLU - Blue - 10oz",
@@ -2170,8 +2452,10 @@
       "lowest_msrp": 142.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV14-White-16oz",
@@ -2185,6 +2469,8 @@
       "lowest_msrp": 151.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2200,6 +2486,8 @@
       "lowest_msrp": 144.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2215,6 +2503,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2230,6 +2520,8 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 42,
       "recommendation": ""
     },
@@ -2245,6 +2537,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2260,6 +2554,8 @@
       "lowest_msrp": 30.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 39,
       "recommendation": ""
     },
@@ -2275,8 +2571,10 @@
       "lowest_msrp": 34.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HW2-OliveGreen-120",
@@ -2290,6 +2588,8 @@
       "lowest_msrp": 30.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -2305,6 +2605,8 @@
       "lowest_msrp": 78.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -2320,6 +2622,8 @@
       "lowest_msrp": 78.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 17,
       "recommendation": ""
     },
@@ -2335,6 +2639,8 @@
       "lowest_msrp": 71.8,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -2353,6 +2659,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2368,6 +2676,8 @@
       "lowest_msrp": 36.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 39,
       "recommendation": ""
     },
@@ -2383,6 +2693,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2398,6 +2710,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 19,
       "recommendation": ""
     },
@@ -2413,6 +2727,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2428,6 +2744,8 @@
       "lowest_msrp": 149.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2443,6 +2761,8 @@
       "lowest_msrp": 101.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2458,6 +2778,8 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2473,8 +2795,10 @@
       "lowest_msrp": 210.98,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 262.16,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV16 - Khaki - 10oz",
@@ -2488,6 +2812,8 @@
       "lowest_msrp": 121.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 45,
       "recommendation": ""
     },
@@ -2503,6 +2829,8 @@
       "lowest_msrp": 136.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2518,6 +2846,8 @@
       "lowest_msrp": 115.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2533,6 +2863,8 @@
       "lowest_msrp": 155.36,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2548,6 +2880,8 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2563,6 +2897,8 @@
       "lowest_msrp": 121.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2578,6 +2914,8 @@
       "lowest_msrp": 144.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2593,6 +2931,8 @@
       "lowest_msrp": 123.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 19,
       "recommendation": ""
     },
@@ -2608,6 +2948,8 @@
       "lowest_msrp": 169.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -2623,6 +2965,8 @@
       "lowest_msrp": 337.52,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 325.93,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2638,6 +2982,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2653,6 +2999,8 @@
       "lowest_msrp": 139.14,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2668,6 +3016,8 @@
       "lowest_msrp": 152.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 99,
       "recommendation": ""
     },
@@ -2683,6 +3033,8 @@
       "lowest_msrp": 150.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2698,6 +3050,8 @@
       "lowest_msrp": 146.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2713,8 +3067,10 @@
       "lowest_msrp": 192.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Nation Red - 10oz",
@@ -2728,6 +3084,8 @@
       "lowest_msrp": 152.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -2743,8 +3101,10 @@
       "lowest_msrp": 194.8,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 233.82,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1-Pink-8oz",
@@ -2758,6 +3118,8 @@
       "lowest_msrp": 137.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 18,
       "recommendation": ""
     },
@@ -2773,6 +3135,8 @@
       "lowest_msrp": 148.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2788,6 +3152,8 @@
       "lowest_msrp": 97.78,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -2803,6 +3169,8 @@
       "lowest_msrp": 148.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2818,6 +3186,8 @@
       "lowest_msrp": 155.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2833,6 +3203,8 @@
       "lowest_msrp": 157.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -2848,6 +3220,8 @@
       "lowest_msrp": 94.09,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 10,
       "recommendation": ""
     },
@@ -2863,6 +3237,8 @@
       "lowest_msrp": 159.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -2878,6 +3254,8 @@
       "lowest_msrp": 136.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -2893,6 +3271,8 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2908,6 +3288,8 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2923,14 +3305,16 @@
       "lowest_msrp": 158.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 14,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP6-Black-Large",
       "asin": "B07HWMW2BT",
       "name": "Fairtex SP6 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
-      "stock": 18,
+      "stock": 17,
       "our_msrp": "$130.00",
       "our_landed": "$148.20",
       "has_buy_box": true,
@@ -2938,6 +3322,8 @@
       "lowest_msrp": 118.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -2953,6 +3339,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 31,
       "recommendation": ""
     },
@@ -2968,8 +3356,10 @@
       "lowest_msrp": 131.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 9,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1- Black - 10oz",
@@ -2983,8 +3373,10 @@
       "lowest_msrp": 141.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 3,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP6-Black-XLarge",
@@ -2998,6 +3390,8 @@
       "lowest_msrp": 121.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 1,
       "recommendation": ""
     },
@@ -3013,6 +3407,8 @@
       "lowest_msrp": 191.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.74,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "recommendation": ""
     },
@@ -3028,6 +3424,8 @@
       "lowest_msrp": 138.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -3043,6 +3441,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 10,
       "recommendation": ""
     },
@@ -3058,6 +3458,8 @@
       "lowest_msrp": 113.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3073,8 +3475,10 @@
       "lowest_msrp": 100.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 24,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1707 - White - Large",
@@ -3088,6 +3492,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3103,6 +3509,8 @@
       "lowest_msrp": 36.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3118,6 +3526,8 @@
       "lowest_msrp": 145.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3133,6 +3543,8 @@
       "lowest_msrp": 153.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -3140,7 +3552,7 @@
       "sku": "HW2-Orange-180",
       "asin": "B07HWX4QV6",
       "name": "Fairtex Elastic Cotton Handwraps HW2-120 and 180\"- Full Length Hand Wr",
-      "stock": 20,
+      "stock": 0,
       "our_msrp": "$27.22",
       "our_landed": "$31.03",
       "has_buy_box": true,
@@ -3148,8 +3560,10 @@
       "lowest_msrp": 30.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 8,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HG13L-Black-Large",
@@ -3163,6 +3577,8 @@
       "lowest_msrp": 143.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 54,
       "recommendation": ""
     },
@@ -3178,6 +3594,8 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 52,
       "recommendation": ""
     },
@@ -3193,6 +3611,8 @@
       "lowest_msrp": 157.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3208,6 +3628,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3223,6 +3645,8 @@
       "lowest_msrp": 159.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3238,8 +3662,10 @@
       "lowest_msrp": 34.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 46,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1-White-14oz",
@@ -3253,6 +3679,8 @@
       "lowest_msrp": 151.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3268,6 +3696,8 @@
       "lowest_msrp": 139.13,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3283,6 +3713,8 @@
       "lowest_msrp": 143.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 21,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3301,6 +3733,8 @@
       "lowest_msrp": 103.53,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -3316,6 +3750,8 @@
       "lowest_msrp": 31.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 33,
       "recommendation": ""
     },
@@ -3331,6 +3767,8 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -3346,6 +3784,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3361,8 +3801,10 @@
       "lowest_msrp": 156.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1707 - White - Medium",
@@ -3376,6 +3818,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3391,6 +3835,8 @@
       "lowest_msrp": 158.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3406,8 +3852,10 @@
       "lowest_msrp": 158.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS0637 -White- Large",
@@ -3421,8 +3869,10 @@
       "lowest_msrp": 66.73,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 97,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV16 - Maroon - 14oz",
@@ -3436,6 +3886,8 @@
       "lowest_msrp": 127.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 62,
       "recommendation": ""
     },
@@ -3451,6 +3903,8 @@
       "lowest_msrp": 122.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3469,6 +3923,8 @@
       "lowest_msrp": 127.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 86,
       "recommendation": ""
     },
@@ -3484,6 +3940,8 @@
       "lowest_msrp": 121.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 109,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3502,6 +3960,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3517,6 +3977,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 7,
       "recommendation": ""
     },
@@ -3532,6 +3994,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3547,6 +4011,8 @@
       "lowest_msrp": 220.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3565,6 +4031,8 @@
       "lowest_msrp": 72.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3583,6 +4051,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -3598,6 +4068,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3613,6 +4085,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -3628,6 +4102,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3643,6 +4119,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3658,6 +4136,8 @@
       "lowest_msrp": 145.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -3673,8 +4153,10 @@
       "lowest_msrp": 151.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 2,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG1 - White - 14oz",
@@ -3688,6 +4170,8 @@
       "lowest_msrp": 151.0,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -3706,8 +4190,10 @@
       "lowest_msrp": 151.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 20,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV18 - Gold - 14oz",
@@ -3721,6 +4207,8 @@
       "lowest_msrp": 142.8,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3736,8 +4224,10 @@
       "lowest_msrp": 151.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG1 - White - 10oz",
@@ -3751,8 +4241,10 @@
       "lowest_msrp": 151.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG2 - Black - 16oz",
@@ -3766,8 +4258,10 @@
       "lowest_msrp": 163.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 20,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG1 - Black - 16oz",
@@ -3781,8 +4275,10 @@
       "lowest_msrp": 159.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 14,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG1 - White - 16oz",
@@ -3796,8 +4292,10 @@
       "lowest_msrp": 158.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG1-White- 14oz",
@@ -3811,8 +4309,10 @@
       "lowest_msrp": 159.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - Black - 10oz",
@@ -3826,8 +4326,10 @@
       "lowest_msrp": 163.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - White - 16oz",
@@ -3841,8 +4343,10 @@
       "lowest_msrp": 163.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - Black - 12oz",
@@ -3856,8 +4360,10 @@
       "lowest_msrp": 150.2,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - White - 12oz",
@@ -3871,8 +4377,10 @@
       "lowest_msrp": 163.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - White - 10oz",
@@ -3886,8 +4394,10 @@
       "lowest_msrp": 162.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG1 - White - 12oz",
@@ -3901,8 +4411,10 @@
       "lowest_msrp": 159.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGLG2 - Black - 14oz",
@@ -3916,8 +4428,10 @@
       "lowest_msrp": 163.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9 - Red - 10oz",
@@ -3931,8 +4445,10 @@
       "lowest_msrp": 159.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "LKP1-Black/White",
@@ -3946,6 +4462,8 @@
       "lowest_msrp": 169.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -3961,6 +4479,8 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 11,
       "recommendation": ""
     },
@@ -3976,6 +4496,8 @@
       "lowest_msrp": 115.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -3991,6 +4513,8 @@
       "lowest_msrp": 126.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 31,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -4009,8 +4533,10 @@
       "lowest_msrp": 97.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 41,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FGV18-Black/Red-Medium",
@@ -4024,6 +4550,8 @@
       "lowest_msrp": 96.11,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4039,6 +4567,8 @@
       "lowest_msrp": 143.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4054,8 +4584,10 @@
       "lowest_msrp": 93.31,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FGV18-Black/Yellow-Small",
@@ -4069,6 +4601,8 @@
       "lowest_msrp": 98.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 11,
       "recommendation": ""
     },
@@ -4084,6 +4618,8 @@
       "lowest_msrp": 99.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -4099,6 +4635,8 @@
       "lowest_msrp": 99.87,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4114,6 +4652,8 @@
       "lowest_msrp": 104.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4129,6 +4669,8 @@
       "lowest_msrp": 97.99,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4144,8 +4686,10 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 51,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FGV18-Black/Red-Large",
@@ -4159,6 +4703,8 @@
       "lowest_msrp": 98.07,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4174,6 +4720,8 @@
       "lowest_msrp": 148.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -4192,6 +4740,8 @@
       "lowest_msrp": 133.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4207,6 +4757,8 @@
       "lowest_msrp": 172.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 72,
       "recommendation": ""
     },
@@ -4222,8 +4774,10 @@
       "lowest_msrp": 152.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Blue/Black/White - 12oz",
@@ -4237,6 +4791,8 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -4252,6 +4808,8 @@
       "lowest_msrp": 151.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 53,
       "recommendation": ""
     },
@@ -4267,6 +4825,8 @@
       "lowest_msrp": 140.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4282,6 +4842,8 @@
       "lowest_msrp": 101.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.61,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 48,
       "recommendation": ""
     },
@@ -4297,8 +4859,10 @@
       "lowest_msrp": 48.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 41.03,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 13,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "AS1 - Black/Blue",
@@ -4312,8 +4876,10 @@
       "lowest_msrp": 45.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 41.03,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 4,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV6-Black-12oz",
@@ -4327,6 +4893,8 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4342,6 +4910,8 @@
       "lowest_msrp": 140.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4357,6 +4927,8 @@
       "lowest_msrp": 132.51,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4372,6 +4944,8 @@
       "lowest_msrp": 109.64,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4387,6 +4961,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4402,6 +4978,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4417,6 +4995,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -4432,6 +5012,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4447,6 +5029,8 @@
       "lowest_msrp": 82.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 17,
       "winner_seller": "AWWCJPBNIB7TH",
       "winner_url": "https://www.amazon.ca/sp?seller=AWWCJPBNIB7TH",
@@ -4465,8 +5049,10 @@
       "lowest_msrp": 142.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 4,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGL6-Blue-14oz",
@@ -4480,6 +5066,8 @@
       "lowest_msrp": 153.69,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4495,6 +5083,8 @@
       "lowest_msrp": 105.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 32,
       "recommendation": ""
     },
@@ -4510,6 +5100,8 @@
       "lowest_msrp": 135.71,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -4525,8 +5117,10 @@
       "lowest_msrp": 221.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 8,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "EBE1 - Red - Free Size",
@@ -4540,6 +5134,8 @@
       "lowest_msrp": 46.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4555,8 +5151,10 @@
       "lowest_msrp": 167.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 91,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS0639- Large",
@@ -4570,8 +5168,10 @@
       "lowest_msrp": 64.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 10,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1BR - Black - 10oz",
@@ -4585,6 +5185,8 @@
       "lowest_msrp": 139.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 20,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -4603,8 +5205,10 @@
       "lowest_msrp": 182.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 219.65,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS0639 -Medium",
@@ -4618,8 +5222,10 @@
       "lowest_msrp": 66.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 8,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1 - Yellow - 10oz",
@@ -4633,8 +5239,10 @@
       "lowest_msrp": 139.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 22,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV20-Pastel Blue-8oz",
@@ -4648,6 +5256,8 @@
       "lowest_msrp": 145.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -4663,6 +5273,8 @@
       "lowest_msrp": 147.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 22,
       "recommendation": ""
     },
@@ -4678,6 +5290,8 @@
       "lowest_msrp": 136.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4693,6 +5307,8 @@
       "lowest_msrp": 149.56,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -4708,6 +5324,8 @@
       "lowest_msrp": 139.91,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4723,6 +5341,8 @@
       "lowest_msrp": 151.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 23,
       "recommendation": ""
     },
@@ -4738,6 +5358,8 @@
       "lowest_msrp": 111.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 113.35,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 47,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -4756,6 +5378,8 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 14,
       "recommendation": ""
     },
@@ -4771,8 +5395,10 @@
       "lowest_msrp": 145.73,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV21-Legacy-12oz",
@@ -4786,6 +5412,8 @@
       "lowest_msrp": 137.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 1,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -4804,6 +5432,8 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4819,6 +5449,8 @@
       "lowest_msrp": 191.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.74,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 48,
       "recommendation": ""
     },
@@ -4834,8 +5466,10 @@
       "lowest_msrp": 116.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 90,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "CA-SP5 - White - Medium",
@@ -4849,6 +5483,8 @@
       "lowest_msrp": 109.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 70,
       "recommendation": ""
     },
@@ -4864,6 +5500,8 @@
       "lowest_msrp": 128.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 30,
       "recommendation": ""
     },
@@ -4879,6 +5517,8 @@
       "lowest_msrp": 112.56,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 97,
       "recommendation": ""
     },
@@ -4894,8 +5534,10 @@
       "lowest_msrp": 77.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 50,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1901-Stealth Black- Small",
@@ -4909,8 +5551,10 @@
       "lowest_msrp": 69.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 13,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV1BR - Yellow - 8oz",
@@ -4924,6 +5568,8 @@
       "lowest_msrp": 136.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4939,6 +5585,8 @@
       "lowest_msrp": 150.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4954,6 +5602,8 @@
       "lowest_msrp": 159.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4969,6 +5619,8 @@
       "lowest_msrp": 137.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4984,6 +5636,8 @@
       "lowest_msrp": 137.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -4999,6 +5653,8 @@
       "lowest_msrp": 143.99,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5014,6 +5670,8 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5029,6 +5687,8 @@
       "lowest_msrp": 146.92,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5044,6 +5704,8 @@
       "lowest_msrp": 117.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5059,6 +5721,8 @@
       "lowest_msrp": 154.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5074,6 +5738,8 @@
       "lowest_msrp": 108.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5089,6 +5755,8 @@
       "lowest_msrp": 117.32,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5104,6 +5772,8 @@
       "lowest_msrp": 122.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5119,6 +5789,8 @@
       "lowest_msrp": 123.65,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5134,6 +5806,8 @@
       "lowest_msrp": 114.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5149,6 +5823,8 @@
       "lowest_msrp": 106.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5164,6 +5840,8 @@
       "lowest_msrp": 104.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5179,6 +5857,8 @@
       "lowest_msrp": 121.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 127.54,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5194,6 +5874,8 @@
       "lowest_msrp": 130.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5212,8 +5894,10 @@
       "lowest_msrp": 76.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 15,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1902 - Stealth Gray - Large",
@@ -5227,6 +5911,8 @@
       "lowest_msrp": 75.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 17,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5245,8 +5931,10 @@
       "lowest_msrp": 71.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 14,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "TS4-Vintage T-Large",
@@ -5260,8 +5948,10 @@
       "lowest_msrp": 51.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 26,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "TS4-Vintage T-Medium",
@@ -5275,8 +5965,10 @@
       "lowest_msrp": 51.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "TS4-Vintage T-Small",
@@ -5290,8 +5982,10 @@
       "lowest_msrp": 51.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "TGO3-Yellow-Xlarge",
@@ -5305,6 +5999,8 @@
       "lowest_msrp": 104.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5320,6 +6016,8 @@
       "lowest_msrp": 101.93,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5335,6 +6033,8 @@
       "lowest_msrp": 78.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 17,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5353,6 +6053,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5368,6 +6070,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -5383,6 +6087,8 @@
       "lowest_msrp": 161.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5398,6 +6104,8 @@
       "lowest_msrp": 159.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5413,6 +6121,8 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5428,6 +6138,8 @@
       "lowest_msrp": 136.15,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "recommendation": ""
     },
@@ -5443,6 +6155,8 @@
       "lowest_msrp": 157.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5458,6 +6172,8 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5473,6 +6189,8 @@
       "lowest_msrp": 159.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5488,6 +6206,8 @@
       "lowest_msrp": 159.25,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5503,6 +6223,8 @@
       "lowest_msrp": 161.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5518,6 +6240,8 @@
       "lowest_msrp": 149.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5533,6 +6257,8 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5548,6 +6274,8 @@
       "lowest_msrp": 161.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5563,6 +6291,8 @@
       "lowest_msrp": 157.12,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5578,6 +6308,8 @@
       "lowest_msrp": 98.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5593,6 +6325,8 @@
       "lowest_msrp": 109.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5608,6 +6342,8 @@
       "lowest_msrp": 93.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5626,8 +6362,10 @@
       "lowest_msrp": 190.34,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP7-Red-Small",
@@ -5641,6 +6379,8 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 16,
       "recommendation": ""
     },
@@ -5656,6 +6396,8 @@
       "lowest_msrp": 99.31,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -5671,6 +6413,8 @@
       "lowest_msrp": 104.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 50,
       "recommendation": ""
     },
@@ -5686,6 +6430,8 @@
       "lowest_msrp": 109.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 23,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5704,6 +6450,8 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -5719,8 +6467,10 @@
       "lowest_msrp": 143.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 2,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FMV11-Black/White-PRO",
@@ -5734,6 +6484,8 @@
       "lowest_msrp": 165.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 27,
       "recommendation": ""
     },
@@ -5749,8 +6501,10 @@
       "lowest_msrp": 147.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 10,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HG6-Blue-Large",
@@ -5764,6 +6518,8 @@
       "lowest_msrp": 143.49,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -5782,6 +6538,8 @@
       "lowest_msrp": 100.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.03,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5797,6 +6555,8 @@
       "lowest_msrp": 99.69,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.03,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5812,6 +6572,8 @@
       "lowest_msrp": 344.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 279.17,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5827,6 +6589,8 @@
       "lowest_msrp": 125.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5842,6 +6606,8 @@
       "lowest_msrp": 126.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5857,6 +6623,8 @@
       "lowest_msrp": 126.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 93.53,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5872,6 +6640,8 @@
       "lowest_msrp": 154.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5887,6 +6657,8 @@
       "lowest_msrp": 153.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5902,6 +6674,8 @@
       "lowest_msrp": 173.11,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5917,6 +6691,8 @@
       "lowest_msrp": 152.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5932,6 +6708,8 @@
       "lowest_msrp": 151.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 23,
       "recommendation": ""
     },
@@ -5947,6 +6725,8 @@
       "lowest_msrp": 147.45,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 31,
       "recommendation": ""
     },
@@ -5962,6 +6742,8 @@
       "lowest_msrp": 139.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5977,6 +6759,8 @@
       "lowest_msrp": 153.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -5992,6 +6776,8 @@
       "lowest_msrp": 129.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 95,
       "recommendation": ""
     },
@@ -6007,6 +6793,8 @@
       "lowest_msrp": 79.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 33,
       "recommendation": ""
     },
@@ -6022,6 +6810,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -6037,6 +6827,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 3,
       "recommendation": ""
     },
@@ -6052,6 +6844,8 @@
       "lowest_msrp": 272.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 262.16,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6067,8 +6861,10 @@
       "lowest_msrp": 137.28,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "FMV15 - Black/Gold",
@@ -6082,6 +6878,8 @@
       "lowest_msrp": 137.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6097,6 +6895,8 @@
       "lowest_msrp": 167.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6112,6 +6912,8 @@
       "lowest_msrp": 179.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 198.39,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6127,6 +6929,8 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 198.38,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6142,6 +6946,8 @@
       "lowest_msrp": 170.88,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 198.39,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6157,6 +6963,8 @@
       "lowest_msrp": 166.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6172,6 +6980,8 @@
       "lowest_msrp": 173.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6187,6 +6997,8 @@
       "lowest_msrp": 141.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 28,
       "recommendation": ""
     },
@@ -6202,6 +7014,8 @@
       "lowest_msrp": 138.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6217,8 +7031,10 @@
       "lowest_msrp": 59.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 123,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9 - Red/White Piping - 10oz",
@@ -6232,6 +7048,8 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6247,6 +7065,8 @@
       "lowest_msrp": 184.44,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6262,6 +7082,8 @@
       "lowest_msrp": 176.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -6280,6 +7102,8 @@
       "lowest_msrp": 185.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6295,6 +7119,8 @@
       "lowest_msrp": 185.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6310,6 +7136,8 @@
       "lowest_msrp": 156.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6325,6 +7153,8 @@
       "lowest_msrp": 95.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.71,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -6340,6 +7170,8 @@
       "lowest_msrp": 140.72,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 30,
       "recommendation": ""
     },
@@ -6355,6 +7187,8 @@
       "lowest_msrp": 148.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6370,6 +7204,8 @@
       "lowest_msrp": 153.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6385,6 +7221,8 @@
       "lowest_msrp": 154.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 12,
       "recommendation": ""
     },
@@ -6400,6 +7238,8 @@
       "lowest_msrp": 150.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 3,
       "recommendation": ""
     },
@@ -6415,6 +7255,8 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6430,6 +7272,8 @@
       "lowest_msrp": 162.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 224,
       "recommendation": ""
     },
@@ -6445,6 +7289,8 @@
       "lowest_msrp": 151.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -6460,6 +7306,8 @@
       "lowest_msrp": 140.73,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6475,6 +7323,8 @@
       "lowest_msrp": 136.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6490,6 +7340,8 @@
       "lowest_msrp": 136.14,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6505,6 +7357,8 @@
       "lowest_msrp": 406.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 325.93,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6512,7 +7366,7 @@
       "sku": "GC2-Black-Large",
       "asin": "B08V8LYB35",
       "name": "Fairtex Muay Thai GC2 Groin Steep Cup for Combat Sports | Muay Thai & ",
-      "stock": 36,
+      "stock": 29,
       "our_msrp": "$62.49",
       "our_landed": "$71.24",
       "has_buy_box": true,
@@ -6520,8 +7374,10 @@
       "lowest_msrp": 62.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 17,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "GC2-Red-Large",
@@ -6535,6 +7391,8 @@
       "lowest_msrp": 69.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 82,
       "recommendation": ""
     },
@@ -6550,6 +7408,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 28,
       "recommendation": ""
     },
@@ -6565,6 +7425,8 @@
       "lowest_msrp": 79.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 88,
       "recommendation": ""
     },
@@ -6580,6 +7442,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 92,
       "recommendation": ""
     },
@@ -6595,6 +7459,8 @@
       "lowest_msrp": 174.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 27,
       "recommendation": ""
     },
@@ -6610,6 +7476,8 @@
       "lowest_msrp": 153.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6625,6 +7493,8 @@
       "lowest_msrp": 153.69,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -6640,6 +7510,8 @@
       "lowest_msrp": 145.46,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6655,6 +7527,8 @@
       "lowest_msrp": 61.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 76,
       "recommendation": ""
     },
@@ -6670,6 +7544,8 @@
       "lowest_msrp": 58.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6685,6 +7561,8 @@
       "lowest_msrp": 62.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 38,
       "recommendation": ""
     },
@@ -6700,6 +7578,8 @@
       "lowest_msrp": 35.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 28.33,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6715,6 +7595,8 @@
       "lowest_msrp": 175.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6730,6 +7612,8 @@
       "lowest_msrp": 144.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6745,6 +7629,8 @@
       "lowest_msrp": 147.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6760,6 +7646,8 @@
       "lowest_msrp": 151.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6775,6 +7663,8 @@
       "lowest_msrp": 273.71,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6790,6 +7680,8 @@
       "lowest_msrp": 266.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6805,14 +7697,16 @@
       "lowest_msrp": 145.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV26-HarmonySi-14oz",
       "asin": "B09F71WZ3X",
       "name": "Fairtex BGV26 Harmony Premium Muay Thai Boxing Gloves | Limited Editio",
-      "stock": 20,
+      "stock": 19,
       "our_msrp": "$239.99",
       "our_landed": "$273.59",
       "has_buy_box": true,
@@ -6820,6 +7714,8 @@
       "lowest_msrp": 203.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 30,
       "recommendation": ""
     },
@@ -6835,8 +7731,10 @@
       "lowest_msrp": 199.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV26-HarmonySix-16oz",
@@ -6850,8 +7748,10 @@
       "lowest_msrp": 192.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 226.67,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 94,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1917-Jubilee-Large",
@@ -6865,6 +7765,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6880,6 +7782,8 @@
       "lowest_msrp": 272.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -6895,6 +7799,8 @@
       "lowest_msrp": 276.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6910,6 +7816,8 @@
       "lowest_msrp": 272.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6925,6 +7833,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 7,
       "recommendation": ""
     },
@@ -6940,6 +7850,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6955,6 +7867,8 @@
       "lowest_msrp": 270.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -6970,6 +7884,8 @@
       "lowest_msrp": 141.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 32,
       "recommendation": ""
     },
@@ -6985,6 +7901,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7000,6 +7918,8 @@
       "lowest_msrp": 129.4,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7015,6 +7935,8 @@
       "lowest_msrp": 77.76,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 13,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -7033,6 +7955,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7048,6 +7972,8 @@
       "lowest_msrp": 78.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 35,
       "recommendation": ""
     },
@@ -7063,6 +7989,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7078,6 +8006,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 48,
       "recommendation": ""
     },
@@ -7093,6 +8023,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -7108,6 +8040,8 @@
       "lowest_msrp": 109.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7123,6 +8057,8 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7138,6 +8074,8 @@
       "lowest_msrp": 105.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "recommendation": ""
     },
@@ -7153,6 +8091,8 @@
       "lowest_msrp": 101.19,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7168,6 +8108,8 @@
       "lowest_msrp": 103.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7183,6 +8125,8 @@
       "lowest_msrp": 103.18,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 140.29,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7198,6 +8142,8 @@
       "lowest_msrp": 191.52,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7205,7 +8151,7 @@
       "sku": "HB6-Yellow-Muay Thai Banana Bag",
       "asin": "B09NL5WJVJ",
       "name": "Fairtex UNFILLED Banana Heavy Bag for Muay Thai, Boxing, Kickboxing, M",
-      "stock": 74,
+      "stock": 73,
       "our_msrp": "$490.00",
       "our_landed": "$558.60",
       "has_buy_box": false,
@@ -7213,6 +8159,8 @@
       "lowest_msrp": 246.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 419.45,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "A2UNSMLO5W5JHM",
       "winner_url": "https://www.amazon.ca/sp?seller=A2UNSMLO5W5JHM",
@@ -7231,6 +8179,8 @@
       "lowest_msrp": 76.58,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -7246,6 +8196,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -7261,8 +8213,10 @@
       "lowest_msrp": 109.85,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV-Urface-14oz",
@@ -7276,6 +8230,8 @@
       "lowest_msrp": 277.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7291,6 +8247,8 @@
       "lowest_msrp": 274.65,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.23,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7306,6 +8264,8 @@
       "lowest_msrp": 268.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 16,
       "recommendation": ""
     },
@@ -7321,6 +8281,8 @@
       "lowest_msrp": 144.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 3,
       "recommendation": ""
     },
@@ -7336,6 +8298,8 @@
       "lowest_msrp": 142.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7351,6 +8315,8 @@
       "lowest_msrp": 157.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 39,
       "recommendation": ""
     },
@@ -7366,6 +8332,8 @@
       "lowest_msrp": 173.99,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 226.74,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7381,6 +8349,8 @@
       "lowest_msrp": 108.59,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -7388,7 +8358,7 @@
       "sku": "SPK9-Blue-8-10yrs",
       "asin": "B09NQJTYPL",
       "name": "Fairtex SPK9 Youth Muay Thai Kickboxing Shin Guards for Kids - Black, ",
-      "stock": 7,
+      "stock": 15,
       "our_msrp": "$108.49",
       "our_landed": "$123.68",
       "has_buy_box": true,
@@ -7396,6 +8366,8 @@
       "lowest_msrp": 102.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7411,6 +8383,8 @@
       "lowest_msrp": 102.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -7426,6 +8400,8 @@
       "lowest_msrp": 108.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 8,
       "recommendation": ""
     },
@@ -7441,6 +8417,8 @@
       "lowest_msrp": 102.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7456,6 +8434,8 @@
       "lowest_msrp": 107.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 106.28,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7471,6 +8451,8 @@
       "lowest_msrp": 147.66,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -7489,6 +8471,8 @@
       "lowest_msrp": 149.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7504,6 +8488,8 @@
       "lowest_msrp": 271.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 269.25,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7519,6 +8505,8 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7534,6 +8522,8 @@
       "lowest_msrp": 54.33,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7549,6 +8539,8 @@
       "lowest_msrp": 167.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7564,6 +8556,8 @@
       "lowest_msrp": 173.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7579,6 +8573,8 @@
       "lowest_msrp": 171.04,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7594,6 +8590,8 @@
       "lowest_msrp": 176.21,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -7609,6 +8607,8 @@
       "lowest_msrp": 171.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 196.98,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7624,6 +8624,8 @@
       "lowest_msrp": 103.42,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7639,6 +8641,8 @@
       "lowest_msrp": 129.4,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7654,6 +8658,8 @@
       "lowest_msrp": 145.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -7669,6 +8675,8 @@
       "lowest_msrp": 141.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7684,6 +8692,8 @@
       "lowest_msrp": 55.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7699,6 +8709,8 @@
       "lowest_msrp": 58.05,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "Lowered MSRP as landed price is high",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -7717,6 +8729,8 @@
       "lowest_msrp": 62.95,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 56.67,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7732,6 +8746,8 @@
       "lowest_msrp": 61.22,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 56.67,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7747,6 +8763,8 @@
       "lowest_msrp": 142.49,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7762,6 +8780,8 @@
       "lowest_msrp": 166.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7777,6 +8797,8 @@
       "lowest_msrp": 166.74,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7792,6 +8814,8 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7807,6 +8831,8 @@
       "lowest_msrp": 108.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 134.62,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7822,8 +8848,10 @@
       "lowest_msrp": 108.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BXS1 - Black",
@@ -7837,8 +8865,10 @@
       "lowest_msrp": 107.02,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9-White/Blue/Blue Piping-12oz",
@@ -7852,6 +8882,8 @@
       "lowest_msrp": 166.98,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7867,6 +8899,8 @@
       "lowest_msrp": 175.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7882,6 +8916,8 @@
       "lowest_msrp": 166.84,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7897,8 +8933,10 @@
       "lowest_msrp": 97.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 99.2,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 34,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS URFACE - X-Large",
@@ -7912,8 +8950,10 @@
       "lowest_msrp": 97.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 99.2,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SPE1 - Black - Free Size",
@@ -7927,8 +8967,10 @@
       "lowest_msrp": 70.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 70.84,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 17,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BAG9-Green-STD",
@@ -7942,8 +8984,10 @@
       "lowest_msrp": 106.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "8859368981634-JS19-Blue-M",
@@ -7957,6 +9001,8 @@
       "lowest_msrp": 58.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -7972,6 +9018,8 @@
       "lowest_msrp": 56.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -7987,6 +9035,8 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8002,6 +9052,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8017,6 +9069,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8032,8 +9086,10 @@
       "lowest_msrp": 164.15,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 3,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9-Yellow/Black/Black Piping-14oz",
@@ -8047,6 +9103,8 @@
       "lowest_msrp": 173.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8062,6 +9120,8 @@
       "lowest_msrp": 175.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -8077,6 +9137,8 @@
       "lowest_msrp": 166.94,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8092,6 +9154,8 @@
       "lowest_msrp": 165.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 21,
       "recommendation": ""
     },
@@ -8107,6 +9171,8 @@
       "lowest_msrp": 165.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8122,6 +9188,8 @@
       "lowest_msrp": 166.82,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8137,6 +9205,8 @@
       "lowest_msrp": 165.75,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 184.22,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -8155,6 +9225,8 @@
       "lowest_msrp": 99.87,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8170,6 +9242,8 @@
       "lowest_msrp": 99.79,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 126.12,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -8188,6 +9262,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8203,6 +9279,8 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -8218,6 +9296,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 51,
       "recommendation": ""
     },
@@ -8233,6 +9313,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 42,
       "recommendation": ""
     },
@@ -8248,6 +9330,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 19,
       "recommendation": ""
     },
@@ -8263,6 +9347,8 @@
       "lowest_msrp": 56.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8278,6 +9364,8 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8293,6 +9381,8 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8308,6 +9398,8 @@
       "lowest_msrp": 54.26,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8323,6 +9415,8 @@
       "lowest_msrp": 57.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8338,6 +9432,8 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8353,6 +9449,8 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 1,
       "recommendation": ""
     },
@@ -8368,6 +9466,8 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8383,6 +9483,8 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8398,6 +9500,8 @@
       "lowest_msrp": 160.51,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8413,6 +9517,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 10,
       "recommendation": ""
     },
@@ -8428,6 +9534,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 13,
       "recommendation": ""
     },
@@ -8443,6 +9551,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8458,6 +9568,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -8473,6 +9585,8 @@
       "lowest_msrp": 52.72,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8488,6 +9602,8 @@
       "lowest_msrp": 52.89,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8503,6 +9619,8 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8518,6 +9636,8 @@
       "lowest_msrp": 52.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8533,6 +9653,8 @@
       "lowest_msrp": 54.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8548,6 +9670,8 @@
       "lowest_msrp": 54.62,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8563,6 +9687,8 @@
       "lowest_msrp": 54.45,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8578,6 +9704,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8593,6 +9721,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 33,
       "recommendation": ""
     },
@@ -8608,6 +9738,8 @@
       "lowest_msrp": 83.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8623,6 +9755,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 56,
       "recommendation": ""
     },
@@ -8638,6 +9772,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 38,
       "recommendation": ""
     },
@@ -8653,6 +9789,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 31,
       "recommendation": ""
     },
@@ -8668,6 +9806,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 14,
       "recommendation": ""
     },
@@ -8683,6 +9823,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -8698,6 +9840,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -8713,6 +9857,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 26,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -8731,6 +9877,8 @@
       "lowest_msrp": 79.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 53,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -8749,6 +9897,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 26,
       "recommendation": ""
     },
@@ -8764,6 +9914,8 @@
       "lowest_msrp": 72.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 6,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -8782,6 +9934,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8797,6 +9951,8 @@
       "lowest_msrp": 56.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 6,
       "recommendation": ""
     },
@@ -8812,6 +9968,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8827,6 +9985,8 @@
       "lowest_msrp": 56.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -8842,6 +10002,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8857,6 +10019,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8872,6 +10036,8 @@
       "lowest_msrp": 50.35,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8887,6 +10053,8 @@
       "lowest_msrp": 55.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8902,6 +10070,8 @@
       "lowest_msrp": 219.55,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 255.08,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -8917,6 +10087,8 @@
       "lowest_msrp": 217.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 262.16,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8932,6 +10104,8 @@
       "lowest_msrp": 135.06,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 32,
       "recommendation": ""
     },
@@ -8947,6 +10121,8 @@
       "lowest_msrp": 138.81,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -8962,6 +10138,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 50,
       "recommendation": ""
     },
@@ -8977,6 +10155,8 @@
       "lowest_msrp": 72.4,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -8992,6 +10172,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 56,
       "recommendation": ""
     },
@@ -9007,8 +10189,10 @@
       "lowest_msrp": 78.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 2,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1934-Black-Medium",
@@ -9022,8 +10206,10 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 16,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1934-Black-Small",
@@ -9037,8 +10223,10 @@
       "lowest_msrp": 76.54,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 2,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1931-HeartofGold-Medium",
@@ -9052,6 +10240,8 @@
       "lowest_msrp": 76.13,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9067,6 +10257,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 66,
       "recommendation": ""
     },
@@ -9082,8 +10274,10 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG3-Black/Gold-16oz",
@@ -9097,8 +10291,10 @@
       "lowest_msrp": 185.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 14,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGVG3-White/Gold-14oz",
@@ -9112,8 +10308,10 @@
       "lowest_msrp": 185.2,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.04,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV27-Black-14oz",
@@ -9127,6 +10325,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9142,6 +10342,8 @@
       "lowest_msrp": 122.13,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 9,
       "recommendation": ""
     },
@@ -9157,6 +10359,8 @@
       "lowest_msrp": 115.78,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9172,6 +10376,8 @@
       "lowest_msrp": 114.38,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9187,8 +10393,10 @@
       "lowest_msrp": 76.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 12,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1929-Pink/Blue-Large",
@@ -9202,6 +10410,8 @@
       "lowest_msrp": 78.16,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 15,
       "recommendation": ""
     },
@@ -9217,8 +10427,10 @@
       "lowest_msrp": 79.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1938-BlackAcidJazz-Large",
@@ -9232,8 +10444,10 @@
       "lowest_msrp": 78.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 5,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1938-BlackAcidJazz-Medium",
@@ -9247,8 +10461,10 @@
       "lowest_msrp": 79.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1938-BlackAcidJazz-Small",
@@ -9262,8 +10478,10 @@
       "lowest_msrp": 77.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1938-BlackAcidJazz-X-Large",
@@ -9277,8 +10495,10 @@
       "lowest_msrp": 78.87,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "SP9-Black-Small",
@@ -9292,6 +10512,8 @@
       "lowest_msrp": 125.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -9310,6 +10532,8 @@
       "lowest_msrp": 135.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 14,
       "recommendation": ""
     },
@@ -9325,6 +10549,8 @@
       "lowest_msrp": 131.09,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 103,
       "winner_seller": "AWWCJPBNIB7TH",
       "winner_url": "https://www.amazon.ca/sp?seller=AWWCJPBNIB7TH",
@@ -9343,6 +10569,8 @@
       "lowest_msrp": 131.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9358,6 +10586,8 @@
       "lowest_msrp": 128.48,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 141.7,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9373,6 +10603,8 @@
       "lowest_msrp": 47.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 49.58,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 24,
       "recommendation": ""
     },
@@ -9388,6 +10620,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 21.24,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 288,
       "recommendation": ""
     },
@@ -9403,8 +10637,10 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 9,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BS1952-JungleHunter-Medium",
@@ -9418,6 +10654,8 @@
       "lowest_msrp": 79.47,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 92.1,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 3,
       "recommendation": ""
     },
@@ -9433,6 +10671,8 @@
       "lowest_msrp": 62.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 70.84,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9448,6 +10688,8 @@
       "lowest_msrp": 103.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9463,6 +10705,8 @@
       "lowest_msrp": 119.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9478,6 +10722,8 @@
       "lowest_msrp": 123.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9493,6 +10739,8 @@
       "lowest_msrp": 112.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9508,6 +10756,8 @@
       "lowest_msrp": 109.68,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9523,6 +10773,8 @@
       "lowest_msrp": 103.41,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9538,6 +10790,8 @@
       "lowest_msrp": 112.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9553,6 +10807,8 @@
       "lowest_msrp": 110.28,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9568,6 +10824,8 @@
       "lowest_msrp": 103.48,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9583,6 +10841,8 @@
       "lowest_msrp": 117.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9598,6 +10858,8 @@
       "lowest_msrp": 117.39,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9613,6 +10875,8 @@
       "lowest_msrp": 117.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9628,6 +10892,8 @@
       "lowest_msrp": 123.34,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9643,6 +10909,8 @@
       "lowest_msrp": 119.81,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9658,6 +10926,8 @@
       "lowest_msrp": 112.61,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9673,6 +10943,8 @@
       "lowest_msrp": 163.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9688,6 +10960,8 @@
       "lowest_msrp": 163.42,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9703,6 +10977,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 72,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -9721,6 +10997,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 576,
       "recommendation": ""
     },
@@ -9736,6 +11014,8 @@
       "lowest_msrp": 194.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 4,
       "recommendation": ""
     },
@@ -9751,6 +11031,8 @@
       "lowest_msrp": 194.92,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9766,6 +11048,8 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9781,6 +11065,8 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9796,6 +11082,8 @@
       "lowest_msrp": 431.24,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9811,6 +11099,8 @@
       "lowest_msrp": 435.88,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9826,6 +11116,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -9841,6 +11133,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9856,6 +11150,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "winner_seller": "No winner",
       "winner_url": "",
@@ -9874,6 +11170,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -9889,6 +11187,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -9904,6 +11204,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 5,
       "recommendation": ""
     },
@@ -9919,6 +11221,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -9934,6 +11238,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 22,
       "recommendation": ""
     },
@@ -9949,6 +11255,8 @@
       "lowest_msrp": null,
       "fulfillment_type": "NARF",
       "fairtex_msrp": null,
+      "msrp_compliant": "",
+      "msrp_diff_reason": "",
       "inbound": 2,
       "recommendation": ""
     },
@@ -9964,6 +11272,8 @@
       "lowest_msrp": 145.01,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -9979,6 +11289,8 @@
       "lowest_msrp": 78.07,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 23,
       "recommendation": ""
     },
@@ -9994,6 +11306,8 @@
       "lowest_msrp": 175.38,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -10009,6 +11323,8 @@
       "lowest_msrp": 146.96,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 36,
       "recommendation": ""
     },
@@ -10024,6 +11340,8 @@
       "lowest_msrp": 168.31,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 27,
       "recommendation": ""
     },
@@ -10039,6 +11357,8 @@
       "lowest_msrp": 155.25,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 191.31,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 20,
       "recommendation": ""
     },
@@ -10054,6 +11374,8 @@
       "lowest_msrp": 78.27,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 85.01,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -10069,8 +11391,10 @@
       "lowest_msrp": 141.29,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 170.05,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "BGV9- Black-16oz",
@@ -10084,6 +11408,8 @@
       "lowest_msrp": 175.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 18,
       "recommendation": ""
     },
@@ -10099,6 +11425,8 @@
       "lowest_msrp": 58.67,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -10114,6 +11442,8 @@
       "lowest_msrp": 56.36,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 63.76,
+      "msrp_compliant": "Yes",
+      "msrp_diff_reason": "",
       "inbound": 0,
       "recommendation": ""
     },
@@ -10129,8 +11459,10 @@
       "lowest_msrp": 160.08,
       "fulfillment_type": "NARF",
       "fairtex_msrp": 211.15,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     },
     {
       "sku": "HG10-Black/White- Medium",
@@ -10144,8 +11476,10 @@
       "lowest_msrp": 122.61,
       "fulfillment_type": "FBA",
       "fairtex_msrp": 177.14,
+      "msrp_compliant": "No",
+      "msrp_diff_reason": "",
       "inbound": 0,
-      "recommendation": ""
+      "recommendation": "Match MSRP"
     }
   ]
 }
