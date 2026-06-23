@@ -120,60 +120,81 @@ def load_fairtex_msrp():
     return msrp
 
 
-def compute_fairtex_comparison(our_msrp_str, fairtex_cad):
-    """EU-style comparison: 'Priced below Fairtex' vs 'Price is as per or more than Fairtex'."""
-    if not our_msrp_str or fairtex_cad is None:
-        return ""
+def _parse_money(val):
+    if val is None or val == "":
+        return None
     try:
-        our_msrp = float(our_msrp_str.replace("$", "").replace(",", ""))
-    except ValueError:
-        return ""
-    return "Priced below Fairtex" if our_msrp < fairtex_cad else "Price is as per or more than Fairtex"
+        return float(str(val).replace("$", "").replace(",", ""))
+    except (ValueError, TypeError):
+        return None
 
 
-def compute_msrp_check(our_msrp_str, fairtex_cad, our_landed_str,
-                       has_buy_box, winner_price_str):
-    """EU-style MSRP check categorization.
+def compute_msrp_check(our_msrp_str, fairtex_cad):
+    """Simple two-value check, with $0.01 tolerance.
 
-    One of:
-      - "Above Fairtex MSRP"          (our MSRP materially above Fairtex)
-      - "MSRP compliant"              (our MSRP at or near Fairtex)
-      - "Lowered to match winner"     (we lost buy box and matched winner)
-      - "Lowered as landed price is high"
-                                      (we lost buy box, no winner, landed >= Fairtex MSRP)
-      - "Not compliant, check MSRP"   (below Fairtex without a justified reason)
-      - ""                             (insufficient data)
+      - "MSRP compliant"        when our MSRP >= Fairtex - $0.01
+      - "MSRP Lower than Fairtex" otherwise
+      - ""                       when either input is missing
     """
-    if not our_msrp_str or fairtex_cad is None:
+    our_msrp = _parse_money(our_msrp_str)
+    if our_msrp is None or fairtex_cad is None:
         return ""
-    try:
-        our_msrp = float(our_msrp_str.replace("$", "").replace(",", ""))
-    except ValueError:
-        return ""
-
-    if our_msrp > fairtex_cad + 0.50:
-        return "Above Fairtex MSRP"
-    if our_msrp >= fairtex_cad - 0.50:
+    if our_msrp >= fairtex_cad - 0.01:
         return "MSRP compliant"
+    return "MSRP Lower than Fairtex"
 
-    # Below Fairtex — categorize the reason.
-    if not has_buy_box and winner_price_str:
-        try:
-            winner = float(winner_price_str.replace("$", "").replace(",", ""))
-            if winner > 0 and abs(our_msrp - winner) / winner < 0.05:
-                return "Lowered to match winner"
-        except ValueError:
-            pass
 
-    if not has_buy_box and not winner_price_str and our_landed_str:
-        try:
-            landed = float(our_landed_str.replace("$", "").replace(",", ""))
-            if landed >= fairtex_cad:
-                return "Lowered as landed price is high"
-        except ValueError:
-            pass
+def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
+                              winner_price_str, winner_seller, has_discount):
+    """Reason our MSRP sits below Fairtex's. Only populated when below.
 
-    return "Not compliant, check MSRP"
+      a. winner exists AND our price within 5% of winner → "MSRP lowered to match {winner_seller}"
+      b. no winner AND we are running a discount        → "Discounting overstock"
+      c. no winner AND no discount                       → "No reason, Kindly Adjust MSRP"
+    """
+    our_msrp = _parse_money(our_msrp_str)
+    if our_msrp is None or fairtex_cad is None:
+        return ""
+    if our_msrp >= fairtex_cad - 0.01:
+        return ""  # compliant — no reason needed
+
+    winner = _parse_money(winner_price_str)
+    if winner is not None and winner > 0 and abs(our_msrp - winner) / winner < 0.05:
+        seller = winner_seller or "competitor"
+        return f"MSRP lowered to match {seller}"
+
+    if not winner_price_str:
+        if has_discount:
+            return "Discounting overstock"
+        return "No reason, Kindly Adjust MSRP"
+
+    return ""
+
+
+def compute_action_items(our_msrp_str, fairtex_cad, has_buy_box,
+                          winner_price_str, has_discount):
+    """Recommended action when our MSRP is below Fairtex's suggested.
+
+      1. own buy box, no discount         → "Match price to Fairtex"
+      2. own buy box, has discount        → "Currently on discount - No action"
+      3. no buy box, has winner            → "Match price to winner"
+      4. no buy box, no winner, no discount → "Match price to Fairtex"
+      5. no buy box, no winner, has discount → "Currently on discount - No action"
+      otherwise                            → "" (compliant — no action)
+    """
+    our_msrp = _parse_money(our_msrp_str)
+    if our_msrp is None or fairtex_cad is None:
+        return ""
+    if our_msrp >= fairtex_cad - 0.01:
+        return ""
+
+    if has_buy_box:
+        return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
+
+    if winner_price_str:
+        return "Match price to winner"
+
+    return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
 
 
 def compute_recommendation(winner_price_str, lowest_msrp, our_msrp_str=""):
@@ -789,6 +810,88 @@ def _get_fees_per_sku(headers, items, buy_box_map, report_data, fba_asins=None):
     return fee_map
 
 
+def fetch_discount_flags(access_token, items):
+    """For each SKU, check Listings Items API for an active discount.
+
+    A SKU is flagged has_discount=True when, inside attributes.purchasable_offer,
+    either discounted_price or sale_price has a schedule entry with:
+      - at least one of start_at / end_at set (real time window), AND
+      - value_with_tax at least $0.01 below our_price.
+
+    Returns dict: sku -> bool.
+    """
+    from urllib.parse import quote
+    headers = sp_api_headers(access_token)
+    result = {}
+    print(f"  Checking discount status for {len(items)} SKUs via Listings Items API...")
+
+    for idx, item in enumerate(items):
+        sku = item["sku"]
+        sku_encoded = quote(sku, safe="")
+        url = (f"{SP_API_BASE}/listings/2021-08-01/items/{MY_SELLER_ID}/{sku_encoded}"
+               f"?marketplaceIds={MARKETPLACE_ID}&includedData=attributes")
+        try:
+            resp = requests.get(url, headers=headers, timeout=30)
+            for retry in range(2):
+                if resp.status_code != 429:
+                    break
+                time.sleep(10 * (retry + 1))
+                resp = requests.get(url, headers=headers, timeout=30)
+            if resp.status_code != 200:
+                result[sku] = False
+                continue
+
+            attrs = resp.json().get("attributes", {}) or {}
+            offers = attrs.get("purchasable_offer", []) or []
+
+            # Find our_price value as the reference
+            our_price = None
+            for offer in offers:
+                for pricing in (offer.get("our_price") or []):
+                    for sched in (pricing.get("schedule") or []):
+                        v = sched.get("value_with_tax")
+                        if v is not None:
+                            our_price = float(v)
+                            break
+                    if our_price is not None:
+                        break
+                if our_price is not None:
+                    break
+
+            # Look for an active discount in either field
+            has_discount = False
+            if our_price is not None:
+                for offer in offers:
+                    for field in ("discounted_price", "sale_price"):
+                        for entry in (offer.get(field) or []):
+                            for sched in (entry.get("schedule") or []):
+                                if not (sched.get("start_at") or sched.get("end_at")):
+                                    continue
+                                v = sched.get("value_with_tax")
+                                if v is None:
+                                    continue
+                                if float(v) <= our_price - 0.01:
+                                    has_discount = True
+                                    break
+                            if has_discount:
+                                break
+                        if has_discount:
+                            break
+                    if has_discount:
+                        break
+            result[sku] = has_discount
+        except Exception:
+            result[sku] = False
+
+        if (idx + 1) % 100 == 0:
+            print(f"  Discount progress: {idx + 1}/{len(items)}")
+        time.sleep(0.5)  # stay under Listings Items API rate limits
+
+    flagged = sum(1 for v in result.values() if v)
+    print(f"  {flagged}/{len(result)} SKUs have an active discount")
+    return result
+
+
 def get_fee_estimates(access_token, items=None, buy_box_map=None, fba_asins=None):
     """Fetch per-ASIN total fees in CAD.
 
@@ -850,6 +953,9 @@ def main():
     print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
     fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
 
+    print("\n[6b/8] Checking active discount status per SKU...")
+    discount_flags = fetch_discount_flags(access_token, inventory)
+
     def _build_total_cost(asin, ft, cost_data):
         """Total Cost = Product Cost (CAD) + Amazon Total Fees (CAD).
         Product cost comes from CSV (FBA or NARF column based on fulfillment type).
@@ -887,11 +993,15 @@ def main():
             lowest_msrp = round(total_cost / 0.85, 2) if total_cost is not None else None
             item["total_cost"]     = total_cost
             item["lowest_msrp"]    = lowest_msrp
-            item["recommendation"] = compute_recommendation(
+            cad_msrp = _get_cad_msrp(item["asin"], info)
+            item["action_items"] = compute_action_items(
+                cad_msrp,
+                fairtex_msrp_map.get(item["asin"]),
+                False,
                 item["winner_price"],
-                lowest_msrp,
-                _get_cad_msrp(item["asin"], info),
+                discount_flags.get(item["sku"], False),
             )
+            item["recommendation"] = item["action_items"]
             flagged.append(item)
     print(f"  Flagged: {len(flagged)}")
     for p in flagged:
@@ -924,9 +1034,14 @@ def main():
         fairtex_cad = fairtex_msrp_map.get(item["asin"])
         has_buy_box = info.get("has_buy_box", True)
         winner_price_str = info.get("winner_price", "") if not has_buy_box else ""
-        fairtex_comparison = compute_fairtex_comparison(our_msrp, fairtex_cad)
-        msrp_check = compute_msrp_check(
-            our_msrp, fairtex_cad, our_landed, has_buy_box, winner_price_str,
+        winner_seller = info.get("winner_seller", "") if not has_buy_box else ""
+        has_discount = discount_flags.get(item["sku"], False)
+        msrp_check = compute_msrp_check(our_msrp, fairtex_cad)
+        msrp_diff_reason = compute_msrp_diff_reason(
+            our_msrp, fairtex_cad, has_buy_box, winner_price_str, winner_seller, has_discount,
+        )
+        action_items = compute_action_items(
+            our_msrp, fairtex_cad, has_buy_box, winner_price_str, has_discount,
         )
         product = {
             "sku":                     item["sku"],
@@ -940,23 +1055,19 @@ def main():
             "lowest_msrp":             lowest_msrp,
             "fulfillment_type":        ft,
             "pricing_as_per_fairtex":  fairtex_cad,
-            "fairtex_comparison":      fairtex_comparison,
             "msrp_check":              msrp_check,
+            "msrp_diff_reason":        msrp_diff_reason,
+            "has_discount":            has_discount,
             "inbound":                 item.get("inbound", 0),
         }
         if not has_buy_box:
             product["winner_seller"]  = info.get("winner_seller", "")
             product["winner_url"]     = info.get("winner_url", "")
             product["winner_price"]   = info.get("winner_price", "")
-            product["recommendation"] = compute_recommendation(
-                product.get("winner_price", ""),
-                product.get("lowest_msrp"),
-                our_msrp,
-            )
-        elif fairtex_comparison == "Priced below Fairtex":
-            product["recommendation"] = "Match MSRP"
-        else:
-            product["recommendation"] = ""
+        # action_items is the new field; recommendation kept as alias for
+        # any consumers still reading the old name.
+        product["action_items"]   = action_items
+        product["recommendation"] = action_items
         all_products.append(product)
 
     dashboard_data = {

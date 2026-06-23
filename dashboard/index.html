@@ -171,10 +171,10 @@
         { key: 'winner_price', label: 'Winner Buy Box Price' },
         { key: 'total_cost', label: 'Our Cost' },
         { key: 'pricing_as_per_fairtex', label: 'Pricing as per Fairtex' },
-        { key: 'fairtex_comparison', label: 'Fairtex Comparison' },
         { key: 'msrp_check', label: 'MSRP Check' },
+        { key: 'msrp_diff_reason', label: 'MSRP Difference Reason' },
         { key: 'lowest_msrp', label: 'Min MSRP for 15% Profit' },
-        { key: 'recommendation', label: 'Recommendation' },
+        { key: 'action_items', label: 'Action Items' },
       ];
 
       let html = '<table><thead><tr>';
@@ -202,34 +202,34 @@
         const asinLink = `<a href="https://www.amazon.ca/dp/${p.asin}" target="_blank">${p.asin}</a>`;
         const costDisplay = p.total_cost != null ? `$${Number(p.total_cost).toFixed(2)}` : '-';
         const minMsrpDisplay = p.lowest_msrp != null ? `$${Number(p.lowest_msrp).toFixed(2)}` : '-';
+        const actionStr = p.action_items || p.recommendation || '';
         let recDisplay = '-';
-        if (p.recommendation) {
-          if (p.recommendation.startsWith('Yes') || p.recommendation.startsWith('Match')) {
-            recDisplay = `<span style="color:#059669;font-weight:600;">${p.recommendation}</span>`;
-          } else if (p.recommendation.startsWith('No') || p.recommendation.startsWith('Hold')) {
-            recDisplay = `<span style="color:#dc2626;font-weight:600;">${p.recommendation}</span>`;
+        if (actionStr) {
+          if (actionStr.startsWith('Match')) {
+            recDisplay = `<span style="color:#059669;font-weight:600;">${actionStr}</span>`;
+          } else if (actionStr.startsWith('Currently on discount')) {
+            recDisplay = `<span style="color:#6b7280;font-weight:600;">${actionStr}</span>`;
           } else {
-            recDisplay = p.recommendation;
+            recDisplay = actionStr;
           }
         }
 
         const msrp = p.our_msrp || '-';
         const pricingFairtex = p.pricing_as_per_fairtex != null ? `$${Number(p.pricing_as_per_fairtex).toFixed(2)}` : '-';
-        let fairtexCmp = '-';
-        if (p.fairtex_comparison === 'Priced below Fairtex') {
-          fairtexCmp = `<span style="color:#dc2626;font-weight:600;">${p.fairtex_comparison}</span>`;
-        } else if (p.fairtex_comparison === 'Price is as per or more than Fairtex') {
-          fairtexCmp = `<span style="color:#059669;font-weight:600;">${p.fairtex_comparison}</span>`;
-        }
         let msrpCheck = '-';
         if (p.msrp_check === 'MSRP compliant') {
           msrpCheck = `<span style="color:#059669;font-weight:600;">${p.msrp_check}</span>`;
-        } else if (p.msrp_check === 'Above Fairtex MSRP') {
-          msrpCheck = `<span style="color:#2563eb;font-weight:600;">${p.msrp_check}</span>`;
-        } else if (p.msrp_check === 'Lowered to match winner' || p.msrp_check === 'Lowered as landed price is high') {
-          msrpCheck = `<span style="color:#d97706;font-weight:600;">${p.msrp_check}</span>`;
-        } else if (p.msrp_check === 'Not compliant, check MSRP') {
+        } else if (p.msrp_check === 'MSRP Lower than Fairtex') {
           msrpCheck = `<span style="color:#dc2626;font-weight:700;">${p.msrp_check}</span>`;
+        }
+        let msrpDiffReason = '-';
+        if (p.msrp_diff_reason) {
+          const color = p.msrp_diff_reason.startsWith('No reason')
+            ? '#dc2626'
+            : p.msrp_diff_reason.startsWith('Discounting')
+              ? '#6b7280'
+              : '#d97706';
+          msrpDiffReason = `<span style="color:${color};font-weight:500;">${p.msrp_diff_reason}</span>`;
         }
         const landedPrice = p.our_landed || '-';
         const ftBadge = p.fulfillment_type === 'FBA'
@@ -262,8 +262,8 @@
           <td>${price}</td>
           <td>${costDisplay}</td>
           <td>${pricingFairtex}</td>
-          <td>${fairtexCmp}</td>
           <td style="font-size:13px;">${msrpCheck}</td>
+          <td style="font-size:13px;">${msrpDiffReason}</td>
           <td>${minMsrpDisplay}</td>
           <td>${recDisplay}</td>
         </tr>`;
