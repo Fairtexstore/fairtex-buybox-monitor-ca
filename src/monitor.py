@@ -148,9 +148,10 @@ def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
                               winner_price_str, winner_seller, has_discount):
     """Reason our MSRP sits below Fairtex's. Only populated when below.
 
-      a. winner exists AND our price within 5% of winner → "MSRP lowered to match {winner_seller}"
-      b. no winner AND we are running a discount        → "Discounting overstock"
-      c. no winner AND no discount                       → "No reason, Kindly Adjust MSRP"
+      a. winner exists AND our price within $0.10 of winner →
+         "MSRP lowered to match competitor: {winner_seller}"
+      b. otherwise + active discount → "Discounting overstock"
+      c. otherwise + no discount     → "No reason, Kindly Adjust MSRP"
     """
     our_msrp = _parse_money(our_msrp_str)
     if our_msrp is None or fairtex_cad is None:
@@ -159,40 +160,48 @@ def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
         return ""  # compliant — no reason needed
 
     winner = _parse_money(winner_price_str)
-    if winner is not None and winner > 0 and abs(our_msrp - winner) / winner < 0.05:
+    if winner is not None and abs(our_msrp - winner) <= 0.10:
         seller = winner_seller or "competitor"
-        return f"MSRP lowered to match {seller}"
+        return f"MSRP lowered to match competitor: {seller}"
 
-    if not winner_price_str:
-        if has_discount:
-            return "Discounting overstock"
-        return "No reason, Kindly Adjust MSRP"
-
-    return ""
+    if has_discount:
+        return "Discounting overstock"
+    return "No reason, Kindly Adjust MSRP"
 
 
 def compute_action_items(our_msrp_str, fairtex_cad, has_buy_box,
                           winner_price_str, has_discount):
-    """Recommended action when our MSRP is below Fairtex's suggested.
+    """Recommended action.
 
-      1. own buy box, no discount         → "Match price to Fairtex"
-      2. own buy box, has discount        → "Currently on discount - No action"
-      3. no buy box, has winner            → "Match price to winner"
-      4. no buy box, no winner, no discount → "Match price to Fairtex"
-      5. no buy box, no winner, has discount → "Currently on discount - No action"
-      otherwise                            → "" (compliant — no action)
+    Override: no buy box AND winner is more than $0.01 below us
+              → "Match price to winner at $X.XX" (fires regardless of MSRP vs Fairtex)
+
+    Then, only when MSRP < Fairtex - $0.01:
+      1. own buy box, no discount             → "Match price to Fairtex"
+      2. own buy box, active discount         → "Currently on discount - No action"
+      3. no buy box, winner exists            → "Match price to winner at $X.XX"
+      4. no buy box, no winner, no discount   → "Match price to Fairtex"
+      5. no buy box, no winner, has discount  → "Currently on discount - No action"
+    Otherwise (MSRP compliant, no override)    → ""
     """
     our_msrp = _parse_money(our_msrp_str)
+    winner = _parse_money(winner_price_str)
+
+    # Override: lost buy box and winner is meaningfully below us.
+    if (not has_buy_box and our_msrp is not None and winner is not None
+            and winner < our_msrp - 0.01):
+        return f"Match price to winner at ${winner:.2f}"
+
     if our_msrp is None or fairtex_cad is None:
         return ""
     if our_msrp >= fairtex_cad - 0.01:
-        return ""
+        return ""  # MSRP compliant — no action
 
     if has_buy_box:
         return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
 
-    if winner_price_str:
-        return "Match price to winner"
+    if winner is not None:
+        return f"Match price to winner at ${winner:.2f}"
 
     return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
 
@@ -649,11 +658,22 @@ def send_slack_alert(flagged, total_checked, non_compliant_count=0, dashboard_ur
         "Content-Type":  "application/json",
     }
     now_cst = datetime.now(ZoneInfo("America/Chicago")).strftime("%b %d, %Y %I:%M %p CST")
+    n_missing = len(flagged)
+
+    # All good: no missing buy boxes AND no MSRP compliance issues.
+    if n_missing == 0 and non_compliant_count == 0:
+        post_slack(headers,
+            f":white_check_mark: *Amazon FBA Buy Box Check for CA - {now_cst}*\n"
+            f"Checked *{total_checked} SKUs*. All currently have the featured offer.\n"
+            f"<@U04DSUU9KGT> Nothing to action. {dashboard_url}"
+        )
+        return
+
     post_slack(headers,
         f":warning: *Amazon FBA Buy Box Check for CA - {now_cst}*\n"
-        f"Checked *{total_checked} SKUs*. *{len(flagged)}* missing buy box. "
+        f"Checked *{total_checked} SKUs*. *{n_missing}* missing buy box. "
         f"*{non_compliant_count}* not MSRP compliant.\n"
-        f"<@U04DSUU9KGT> Dashboard: {dashboard_url}"
+        f"<@U04DSUU9KGT> please review: {dashboard_url}"
     )
 
 
