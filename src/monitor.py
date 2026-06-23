@@ -650,10 +650,10 @@ def send_slack_alert(flagged, total_checked, non_compliant_count=0, dashboard_ur
     }
     now_cst = datetime.now(ZoneInfo("America/Chicago")).strftime("%b %d, %Y %I:%M %p CST")
     post_slack(headers,
-        f"*Amazon CA - {now_cst}*\n"
-        f"{len(flagged)} SKUs missing buy box\n"
-        f"{non_compliant_count} SKUs not MSRP compliant\n"
-        f"{dashboard_url}"
+        f":warning: *Amazon FBA Buy Box Check for CA - {now_cst}*\n"
+        f"Checked *{total_checked} SKUs*. *{len(flagged)}* missing buy box. "
+        f"*{non_compliant_count}* not MSRP compliant.\n"
+        f"<@U04DSUU9KGT> Dashboard: {dashboard_url}"
     )
 
 
