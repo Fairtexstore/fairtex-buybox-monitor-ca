@@ -643,25 +643,16 @@ def post_slack(headers, text):
     time.sleep(0.3)
 
 
-def send_slack_alert(flagged, total_checked, dashboard_url=""):
+def send_slack_alert(flagged, total_checked, non_compliant_count=0, dashboard_url=""):
     headers = {
         "Authorization": f"Bearer {os.environ['SLACK_BOT_TOKEN']}",
         "Content-Type":  "application/json",
     }
     now_cst = datetime.now(ZoneInfo("America/Chicago")).strftime("%b %d, %Y %I:%M %p CST")
-
-    if not flagged:
-        post_slack(headers,
-            f":white_check_mark: *Amazon CA Buy Box Check - {now_cst}*\n"
-            f"Checked *{total_checked} SKUs*. All currently have the featured offer. Nothing to action."
-        )
-        return
-
-    unique_asins = len(set(p["asin"] for p in flagged))
     post_slack(headers,
-        f":warning: *Amazon CA Buy Box Alert - {now_cst}*\n"
-        f"Checked *{total_checked} SKUs* — *{len(flagged)} SKU(s)* ({unique_asins} ASIN(s)) do NOT have the buy box.\n\n"
-        f"<@U04DSUU9KGT> Please check the Canada dashboard for details and take action.\n"
+        f"*Amazon CA - {now_cst}*\n"
+        f"{len(flagged)} SKUs missing buy box\n"
+        f"{non_compliant_count} SKUs not MSRP compliant\n"
         f"{dashboard_url}"
     )
 
@@ -1008,7 +999,18 @@ def main():
         rec_str = f" | Rec: {p['recommendation']}" if p.get("recommendation") else ""
         print(f"    - {p['sku']} | {p['asin']} | stock: {p['stock']} | winner: {p['winner_seller']} @ {p['winner_price']}{rec_str}")
 
-    send_slack_alert(flagged, len(inventory), "https://fairtex-buybox-monitor-ca.vercel.app/")
+    non_compliant_count = 0
+    for item in inventory:
+        info = buy_box_map.get(item["sku"], {})
+        if compute_msrp_check(
+            _get_cad_msrp(item["asin"], info),
+            fairtex_msrp_map.get(item["asin"]),
+        ) == "MSRP Lower than Fairtex":
+            non_compliant_count += 1
+    send_slack_alert(
+        flagged, len(inventory), non_compliant_count,
+        "https://fairtex-buybox-monitor-ca.vercel.app/",
+    )
 
     # Save results to JSON for the Vercel dashboard
     print("\n[8/8] Saving dashboard data...")
