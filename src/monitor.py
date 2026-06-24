@@ -146,7 +146,9 @@ def compute_msrp_check(our_msrp_str, fairtex_cad):
 
 def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
                               winner_price_str, winner_seller, has_discount):
-    """Reason our MSRP sits below Fairtex's. Only populated when below.
+    """Reason our MSRP sits below Fairtex's. Kept in lockstep with Action
+    Items: both blank when we're within $0.10 of Fairtex's MSRP, so the
+    two columns never contradict each other.
 
       a. winner exists AND our price within $0.10 of winner →
          "MSRP lowered to match competitor: {winner_seller}"
@@ -156,8 +158,9 @@ def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
     our_msrp = _parse_money(our_msrp_str)
     if our_msrp is None or fairtex_cad is None:
         return ""
-    if our_msrp >= fairtex_cad - 0.01:
-        return ""  # compliant — no reason needed
+    # No-op zone: within $0.10 of Fairtex — nothing to attribute.
+    if our_msrp >= fairtex_cad - 0.10:
+        return ""
 
     winner = _parse_money(winner_price_str)
     if winner is not None and abs(our_msrp - winner) <= 0.10:
@@ -171,36 +174,49 @@ def compute_msrp_diff_reason(our_msrp_str, fairtex_cad, has_buy_box,
 
 def compute_action_items(our_msrp_str, fairtex_cad, has_buy_box,
                           winner_price_str, has_discount):
-    """Recommended action.
+    """Recommended action with no-op suppression.
 
-    Override: no buy box AND winner is more than $0.01 below us
+    "Match price to X" is blanked whenever we're already within $0.10 of X
+    — applied to both override and the MSRP < Fairtex branches. This keeps
+    Action Items in lockstep with MSRP Difference Reason (the two columns
+    never contradict each other) and avoids no-op recommendations for
+    sub-cent gaps.
+
+    Override: no buy box AND winner is more than $0.10 below us
               → "Match price to winner at $X.XX" (fires regardless of MSRP vs Fairtex)
 
-    Then, only when MSRP < Fairtex - $0.01:
+    Then, only when MSRP < Fairtex - $0.10:
       1. own buy box, no discount             → "Match price to Fairtex"
       2. own buy box, active discount         → "Currently on discount - No action"
-      3. no buy box, winner exists            → "Match price to winner at $X.XX"
+      3. no buy box, winner exists, not matched → "Match price to winner at $X.XX"
       4. no buy box, no winner, no discount   → "Match price to Fairtex"
       5. no buy box, no winner, has discount  → "Currently on discount - No action"
-    Otherwise (MSRP compliant, no override)    → ""
+    Otherwise (essentially compliant or already matched) → ""
     """
     our_msrp = _parse_money(our_msrp_str)
     winner = _parse_money(winner_price_str)
 
-    # Override: lost buy box and winner is meaningfully below us.
+    # Override: lost buy box and winner is materially below us (> $0.10).
     if (not has_buy_box and our_msrp is not None and winner is not None
-            and winner < our_msrp - 0.01):
+            and (our_msrp - winner) > 0.10):
         return f"Match price to winner at ${winner:.2f}"
 
     if our_msrp is None or fairtex_cad is None:
         return ""
+    # MSRP compliant per MSRP Check tolerance.
     if our_msrp >= fairtex_cad - 0.01:
-        return ""  # MSRP compliant — no action
+        return ""
+    # No-op zone: within $0.10 of Fairtex — suppress "Match price to Fairtex".
+    if (fairtex_cad - our_msrp) <= 0.10:
+        return ""
 
     if has_buy_box:
         return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
 
     if winner is not None:
+        # Already within $0.10 of winner — suppress (mirrors MSRP Diff Reason).
+        if abs(our_msrp - winner) <= 0.10:
+            return ""
         return f"Match price to winner at ${winner:.2f}"
 
     return "Currently on discount - No action" if has_discount else "Match price to Fairtex"
