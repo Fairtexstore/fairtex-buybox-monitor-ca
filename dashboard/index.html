@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fairtex Canada Buy Box Monitor</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 24px; }
@@ -24,12 +25,19 @@
     .controls input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
     .controls select { padding: 10px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; outline: none; background: #fff; cursor: pointer; }
     table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-    thead th { background: #1a1a2e; color: #fff; padding: 12px 16px; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 10; cursor: pointer; user-select: none; box-shadow: 0 1px 0 rgba(255,255,255,0.05); }
-    thead th:first-child { border-top-left-radius: 12px; }
-    thead th:last-child { border-top-right-radius: 12px; }
-    thead th:hover { background: #2a2a4e; }
+    thead tr:first-child th { background: #1a1a2e; color: #fff; padding: 12px 16px; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 10; cursor: pointer; user-select: none; box-shadow: 0 1px 0 rgba(255,255,255,0.05); }
+    thead tr:first-child th:first-child { border-top-left-radius: 12px; }
+    thead tr:first-child th:last-child { border-top-right-radius: 12px; }
+    thead tr:first-child th:hover { background: #2a2a4e; }
     thead th.sorted-asc::after { content: ' ▲'; }
     thead th.sorted-desc::after { content: ' ▼'; }
+    thead tr.filter-row th { background:#2a2a4e; padding:6px 8px; cursor:default; text-transform:none; letter-spacing:0; font-weight:400; position:sticky; top:42px; z-index: 9; }
+    thead tr.filter-row th:hover { background:#2a2a4e; }
+    thead tr.filter-row input, thead tr.filter-row select { width:100%; padding:4px 6px; border:1px solid #4b5563; background:#fff; color:#111; border-radius:4px; font-size:12px; outline:none; cursor: text; }
+    thead tr.filter-row select { cursor: pointer; }
+    thead tr.filter-row input:focus, thead tr.filter-row select:focus { border-color:#60a5fa; }
+    .controls button { padding: 10px 16px; border: 1px solid #2563eb; background: #2563eb; color: #fff; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .controls button:hover { background: #1d4ed8; }
     tbody td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
     tbody tr:hover { background: #f8fafc; }
     tbody tr.lost { background: #fef2f2; }
@@ -73,19 +81,25 @@
       <option value="FBA">FBA Only</option>
       <option value="NARF">NARF Only</option>
     </select>
+    <button id="exportBtn" type="button">Export to Excel</button>
   </div>
   <div id="tableContainer"><div class="loading">Loading data...</div></div>
 
   <script>
     let allProducts = [];
+    let filteredProducts = [];
+    let lastUpdated = '';
     let sortCol = 'has_buy_box';
     let sortDir = 'asc';
+    // Per-column header filters. Key = col.key, value = string. Empty/undefined = no filter.
+    const colFilters = {};
 
     async function loadData() {
       try {
         const resp = await fetch('data/status.json');
         const data = await resp.json();
 
+        lastUpdated = data.last_updated;
         const dt = new Date(data.last_updated);
         document.getElementById('updated').textContent =
           'Last updated: ' + dt.toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' }) + ' CST';
@@ -106,12 +120,32 @@
       const filter = document.getElementById('filter').value;
       const fulfillmentFilter = document.getElementById('fulfillmentFilter').value;
 
-      let filtered = allProducts.filter(p => {
+      const parseMoney = (v) => {
+        if (v == null) return NaN;
+        if (typeof v === 'number') return v;
+        const cleaned = String(v).replace(/[^0-9.\-]/g, '');
+        const n = parseFloat(cleaned);
+        return isNaN(n) ? NaN : n;
+      };
+
+      const filtered = allProducts.filter(p => {
         if (fulfillmentFilter !== 'all' && p.fulfillment_type !== fulfillmentFilter) return false;
         if (filter === 'lost' && p.has_buy_box) return false;
         if (filter === 'owned' && !p.has_buy_box) return false;
-        if (filter === 'can_lower' && !(p.recommendation && (p.recommendation.startsWith('Yes') || p.recommendation.startsWith('Match')))) return false;
-        if (filter === 'cannot_lower' && !(p.recommendation && p.recommendation.startsWith('No'))) return false;
+        if (filter === 'can_lower' && !(p.action_items && p.action_items.startsWith('Match'))) return false;
+        if (filter === 'cannot_lower' && !(p.action_items && p.action_items.startsWith('Currently on discount'))) return false;
+        for (const colKey in colFilters) {
+          const want = (colFilters[colKey] || '').toString().toLowerCase().trim();
+          if (!want) continue;
+          let cellVal;
+          if (colKey === 'has_buy_box') cellVal = p.has_buy_box ? 'yes' : 'no';
+          else if (colKey === 'price_gap') {
+            const o = parseMoney(p.our_msrp), w = parseMoney(p.winner_price);
+            cellVal = (!p.has_buy_box && Number.isFinite(o) && Number.isFinite(w)) ? String((o - w).toFixed(2)) : '';
+          }
+          else cellVal = (p[colKey] == null ? '' : String(p[colKey])).toLowerCase();
+          if (!cellVal.includes(want)) return false;
+        }
         if (search) {
           return p.sku.toLowerCase().includes(search) ||
                  p.asin.toLowerCase().includes(search) ||
@@ -119,6 +153,7 @@
         }
         return true;
       });
+      filteredProducts = filtered;
 
       filtered.sort((a, b) => {
         let av = a[sortCol], bv = b[sortCol];
@@ -177,19 +212,53 @@
         { key: 'action_items', label: 'Action Items' },
       ];
 
+      // For each column, decide if we should render a dropdown (low cardinality)
+      // or a text input. Uses the FULL dataset so dropdown options stay stable.
+      const getColValue = (p, key) => {
+        if (key === 'has_buy_box') return p.has_buy_box ? 'Yes' : 'No';
+        if (key === 'price_gap') return '';
+        return p[key] == null ? '' : String(p[key]);
+      };
+      const NUMERIC_OR_FREEFORM = new Set(['name','asin','sku','stock','our_msrp','our_landed','winner_price','price_gap','total_cost','pricing_as_per_fairtex','lowest_msrp']);
+      const colMeta = {};
+      for (const col of cols) {
+        const uniq = new Set();
+        for (const p of allProducts) {
+          const v = getColValue(p, col.key);
+          if (v !== '' && v != null) uniq.add(v);
+        }
+        const useDropdown = uniq.size > 1 && uniq.size <= 25 && !NUMERIC_OR_FREEFORM.has(col.key);
+        colMeta[col.key] = { useDropdown, options: useDropdown ? Array.from(uniq).sort() : [] };
+      }
+
       let html = '<table><thead><tr>';
       for (const col of cols) {
         let cls = '';
         if (sortCol === col.key) cls = sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc';
         html += `<th class="${cls}" data-col="${col.key}">${col.label}</th>`;
       }
+      html += '</tr><tr class="filter-row">';
+      for (const col of cols) {
+        const meta = colMeta[col.key];
+        const cur = colFilters[col.key] || '';
+        if (meta.useDropdown) {
+          let opts = '<option value="">All</option>';
+          for (const v of meta.options) {
+            const sel = v === cur ? ' selected' : '';
+            const safe = String(v).replace(/"/g, '&quot;');
+            opts += `<option value="${safe}"${sel}>${safe}</option>`;
+          }
+          html += `<th><select class="col-filter" data-col="${col.key}">${opts}</select></th>`;
+        } else {
+          const safe = String(cur).replace(/"/g, '&quot;');
+          html += `<th><input type="text" class="col-filter" data-col="${col.key}" placeholder="filter…" value="${safe}"></th>`;
+        }
+      }
       html += '</tr></thead><tbody>';
 
       if (filtered.length === 0) {
         html += '<tr><td colspan="17" style="text-align:center;padding:40px;color:#6b7280;">No products found</td></tr>';
       }
-
-      const parseMoney = (v) => v ? parseFloat(String(v).replace(/[$,]/g, '')) : NaN;
 
       for (const p of filtered) {
         const rowClass = p.has_buy_box ? '' : 'lost';
@@ -272,7 +341,8 @@
       html += '</tbody></table>';
       document.getElementById('tableContainer').innerHTML = html;
 
-      document.querySelectorAll('thead th').forEach(th => {
+      // Only the sort-header row (first thead row) should toggle sorting.
+      document.querySelectorAll('thead tr:first-child th').forEach(th => {
         th.addEventListener('click', () => {
           const col = th.dataset.col;
           if (sortCol === col) {
@@ -284,11 +354,71 @@
           renderTable();
         });
       });
+      // Per-column filter inputs / dropdowns.
+      document.querySelectorAll('.col-filter').forEach(el => {
+        el.addEventListener('click', e => e.stopPropagation());
+        const eventName = el.tagName === 'SELECT' ? 'change' : 'input';
+        el.addEventListener(eventName, () => {
+          const k = el.dataset.col;
+          const v = el.value || '';
+          if (v) colFilters[k] = v; else delete colFilters[k];
+          renderTable();
+        });
+      });
+    }
+
+    function exportExcel() {
+      if (!filteredProducts.length) { alert('No rows to export.'); return; }
+      const parseMoneyExport = (v) => {
+        if (v == null) return NaN;
+        if (typeof v === 'number') return v;
+        const cleaned = String(v).replace(/[^0-9.\-]/g, '');
+        const n = parseFloat(cleaned);
+        return isNaN(n) ? NaN : n;
+      };
+      const rows = filteredProducts.map(p => {
+        const o = parseMoneyExport(p.our_msrp), w = parseMoneyExport(p.winner_price);
+        const gap = (!p.has_buy_box && Number.isFinite(o) && Number.isFinite(w)) ? Number((o - w).toFixed(2)) : '';
+        return {
+          'Product': p.name,
+          'ASIN': p.asin,
+          'SKU': p.sku,
+          'Type': p.fulfillment_type || '',
+          'Stock': p.stock,
+          'MSRP': p.our_msrp || '',
+          'Landed Price': p.our_landed || '',
+          'Buy Box': p.has_buy_box ? 'Yes' : 'No',
+          'Winner': p.has_buy_box ? '' : (p.winner_seller || ''),
+          'Price Gap (us - winner)': gap,
+          'Winner Buy Box Price': p.has_buy_box ? '' : (p.winner_price || ''),
+          'Winner URL': p.has_buy_box ? '' : (p.winner_url || ''),
+          'Our Cost': p.total_cost != null ? Number(p.total_cost) : '',
+          'Pricing as per Fairtex': p.pricing_as_per_fairtex != null ? Number(p.pricing_as_per_fairtex) : '',
+          'MSRP Check': p.msrp_check || '',
+          'MSRP Difference Reason': p.msrp_diff_reason || '',
+          'Min MSRP for 15% Profit': p.lowest_msrp != null ? Number(p.lowest_msrp) : '',
+          'Action Items': p.action_items || p.recommendation || '',
+          'Has Discount': p.has_discount ? 'Yes' : 'No',
+          'Inbound': p.inbound || 0,
+        };
+      });
+      const ws = XLSX.utils.json_to_sheet(rows);
+      ws['!cols'] = [
+        { wch: 45 }, { wch: 14 }, { wch: 28 }, { wch: 6 }, { wch: 8 },
+        { wch: 12 }, { wch: 14 }, { wch: 10 }, { wch: 20 }, { wch: 18 },
+        { wch: 20 }, { wch: 45 }, { wch: 12 }, { wch: 22 }, { wch: 22 },
+        { wch: 42 }, { wch: 22 }, { wch: 36 }, { wch: 14 }, { wch: 10 },
+      ];
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Buy Box');
+      const stamp = (lastUpdated || new Date().toISOString()).slice(0, 10);
+      XLSX.writeFile(wb, `fairtex_buybox_ca_${stamp}.xlsx`);
     }
 
     document.getElementById('search').addEventListener('input', renderTable);
     document.getElementById('filter').addEventListener('change', renderTable);
     document.getElementById('fulfillmentFilter').addEventListener('change', renderTable);
+    document.getElementById('exportBtn').addEventListener('click', exportExcel);
     loadData();
   </script>
 </body>
