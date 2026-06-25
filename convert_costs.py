@@ -77,7 +77,10 @@ def convert_msrp(here, rate):
         except ValueError:
             row[MSRP_CAD_COL] = ""
             continue
-        row[MSRP_CAD_COL] = f"{round(usd * rate, 2)}"
+        cad = usd * rate
+        # Round to nearest X.99 (e.g. 85.01 -> 84.99, 85.50 -> 85.99).
+        cad_rounded = round(cad - 0.99) + 0.99
+        row[MSRP_CAD_COL] = f"{cad_rounded:.2f}"
         count += 1
 
     with open(path, "w", newline="", encoding="utf-8") as fout:
