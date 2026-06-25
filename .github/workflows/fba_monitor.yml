@@ -2,7 +2,7 @@ name: Amazon CA FBA Featured Offer Monitor
 
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "13 7 * * *"
   workflow_dispatch:
 
 jobs:
