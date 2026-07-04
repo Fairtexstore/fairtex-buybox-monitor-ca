@@ -38,6 +38,16 @@
     thead tr.filter-row input:focus, thead tr.filter-row select:focus { border-color:#60a5fa; }
     .controls button { padding: 10px 16px; border: 1px solid #2563eb; background: #2563eb; color: #fff; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
     .controls button:hover { background: #1d4ed8; }
+    .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid #e5e7eb; }
+    .tab-btn { padding: 10px 20px; background: transparent; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; color: #6b7280; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .tab-btn:hover { color: #1a1a2e; }
+    .tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    td.viol-med { background: #fef3c7; font-weight: 600; }
+    td.viol-high { background: #fee2e2; font-weight: 700; color: #991b1b; }
+    label.chk { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #1a1a2e; cursor: pointer; padding: 10px 8px; }
+    label.chk input { width: auto; }
     tbody td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
     tbody tr:hover { background: #f8fafc; }
     tbody tr.lost { background: #fef2f2; }
@@ -62,6 +72,11 @@
     <h1>Fairtex Canada Buy Box Monitor</h1>
     <div class="updated" id="updated"></div>
   </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="buybox" type="button">Buy Box Monitor</button>
+    <button class="tab-btn" data-tab="violations" type="button">MSRP Violations</button>
+  </div>
+  <div id="buybox-panel" class="panel active">
   <div class="cards">
     <div class="card total"><div class="label">SKUs Checked</div><div class="value" id="totalChecked">-</div><div class="sublabel" id="totalCheckedSplit"></div></div>
     <div class="card owned"><div class="label">Buy Box Owned</div><div class="value" id="owned">-</div><div class="sublabel" id="ownedSplit"></div></div>
@@ -84,6 +99,18 @@
     <button id="exportBtn" type="button">Export to Excel</button>
   </div>
   <div id="tableContainer"><div class="loading">Loading data...</div></div>
+  </div>
+
+  <div id="violations-panel" class="panel">
+    <div class="controls">
+      <input type="text" id="violSearch" placeholder="Search seller, SKU, ASIN, or product name...">
+      <select id="violMonth"></select>
+      <select id="violMarket"><option value="all">All Markets</option></select>
+      <label class="chk"><input type="checkbox" id="violRepeatOnly"> Repeat offenders only (≥2 days/week)</label>
+      <button id="violExportBtn" type="button">Export to Excel</button>
+    </div>
+    <div id="violContainer"><div class="loading">Click the MSRP Violations tab to load data...</div></div>
+  </div>
 
   <script>
     let allProducts = [];
@@ -420,6 +447,179 @@
     document.getElementById('fulfillmentFilter').addEventListener('change', renderTable);
     document.getElementById('exportBtn').addEventListener('click', exportExcel);
     loadData();
+
+    // ----- MSRP Violations tab ------------------------------------------
+    let violationsData = null;
+    let violationsLoaded = false;
+
+    async function loadViolations() {
+      if (violationsLoaded) return;
+      violationsLoaded = true;
+      try {
+        const resp = await fetch('data/violations_summary.json');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        violationsData = await resp.json();
+      } catch (e) {
+        document.getElementById('violContainer').innerHTML =
+          '<div class="loading">No violations data yet. Wait for the next monitor run to generate it.</div>';
+        return;
+      }
+      populateViolationsControls();
+      renderViolations();
+    }
+
+    function populateViolationsControls() {
+      if (!violationsData || !violationsData.entries) return;
+      const months = new Set();
+      const markets = new Set();
+      for (const e of violationsData.entries) {
+        if (e.month) months.add(e.month);
+        if (e.market) markets.add(e.market);
+      }
+      const monthSel = document.getElementById('violMonth');
+      const sortedMonths = Array.from(months).sort().reverse();
+      monthSel.innerHTML = sortedMonths.map(m => `<option value="${m}">${m}</option>`).join('');
+      if (violationsData.current_month && months.has(violationsData.current_month)) {
+        monthSel.value = violationsData.current_month;
+      }
+      const marketSel = document.getElementById('violMarket');
+      marketSel.innerHTML = '<option value="all">All Markets</option>' +
+        Array.from(markets).sort().map(m => `<option value="${m}">${m}</option>`).join('');
+    }
+
+    let violFiltered = [];
+
+    function renderViolations() {
+      if (!violationsData) return;
+      const search = document.getElementById('violSearch').value.toLowerCase();
+      const month = document.getElementById('violMonth').value;
+      const market = document.getElementById('violMarket').value;
+      const repeatOnly = document.getElementById('violRepeatOnly').checked;
+
+      violFiltered = (violationsData.entries || []).filter(e => {
+        if (month && e.month !== month) return false;
+        if (market !== 'all' && e.market !== market) return false;
+        if (repeatOnly) {
+          const maxWk = Math.max(e.week_1 || 0, e.week_2 || 0, e.week_3 || 0, e.week_4 || 0);
+          if (maxWk < 2) return false;
+        }
+        if (search) {
+          const hay = [
+            e.seller_name, e.seller_id, e.sku, e.asin, e.product_name
+          ].map(x => (x || '').toLowerCase()).join(' | ');
+          if (!hay.includes(search)) return false;
+        }
+        return true;
+      });
+      // Default sort: month_total desc.
+      violFiltered.sort((a, b) => (b.month_total || 0) - (a.month_total || 0));
+
+      const container = document.getElementById('violContainer');
+      if (violFiltered.length === 0) {
+        container.innerHTML = '<div class="loading">No violations match the current filters.</div>';
+        return;
+      }
+
+      const fmtMoney = (v, cur) => {
+        if (v == null || v === '') return '-';
+        const n = Number(v);
+        if (!Number.isFinite(n)) return '-';
+        const sym = { CAD: '$', USD: '$', EUR: '€', GBP: '£', MXN: '$' }[(cur || '').toUpperCase()] || '';
+        return `${sym}${n.toFixed(2)}`;
+      };
+      const highlightCls = (n) => n >= 3 ? 'viol-high' : n >= 2 ? 'viol-med' : '';
+
+      const cols = [
+        ['Market',            'market'],
+        ['Product',           null],
+        ['ASIN',              'asin'],
+        ['Fairtex MSRP',      'fairtex_msrp'],
+        ['Seller',            null],
+        ['Seller Latest Price', 'last_price'],
+        ['Seller Avg Price',  'avg_price'],
+        ['Days This Week',    'days_this_week'],
+        ['Week 1',            'week_1'],
+        ['Week 2',            'week_2'],
+        ['Week 3',            'week_3'],
+        ['Week 4',            'week_4'],
+        ['Month Total',       'month_total'],
+      ];
+
+      let html = '<table><thead><tr>';
+      for (const [label] of cols) html += `<th>${label}</th>`;
+      html += '</tr></thead><tbody>';
+
+      for (const r of violFiltered) {
+        const product = `<div>${r.product_name || ''}</div><div style="font-size:12px;color:#6b7280;">${r.sku || ''}</div>`;
+        const seller = `<div>${r.seller_name || ''}</div><div style="font-size:12px;color:#6b7280;">${r.seller_id || ''}</div>`;
+        html += '<tr>';
+        html += `<td>${r.market || ''}</td>`;
+        html += `<td>${product}</td>`;
+        html += `<td>${r.asin || ''}</td>`;
+        html += `<td>${fmtMoney(r.fairtex_msrp, r.currency)}</td>`;
+        html += `<td>${seller}</td>`;
+        html += `<td>${fmtMoney(r.last_price, r.currency)}</td>`;
+        html += `<td>${fmtMoney(r.avg_price, r.currency)}</td>`;
+        html += `<td class="${highlightCls(r.days_this_week || 0)}">${r.days_this_week || 0}</td>`;
+        html += `<td class="${highlightCls(r.week_1 || 0)}">${r.week_1 || 0}</td>`;
+        html += `<td class="${highlightCls(r.week_2 || 0)}">${r.week_2 || 0}</td>`;
+        html += `<td class="${highlightCls(r.week_3 || 0)}">${r.week_3 || 0}</td>`;
+        html += `<td class="${highlightCls(r.week_4 || 0)}">${r.week_4 || 0}</td>`;
+        html += `<td class="${highlightCls(r.month_total || 0)}">${r.month_total || 0}</td>`;
+        html += '</tr>';
+      }
+      html += '</tbody></table>';
+      container.innerHTML = html;
+    }
+
+    function exportViolations() {
+      if (!violFiltered.length) { alert('No rows to export.'); return; }
+      const rows = violFiltered.map(r => ({
+        'Market':              r.market || '',
+        'Month':               r.month || '',
+        'Product':             r.product_name || '',
+        'SKU':                 r.sku || '',
+        'ASIN':                r.asin || '',
+        'Currency':            r.currency || '',
+        'Fairtex MSRP':        r.fairtex_msrp != null ? Number(r.fairtex_msrp) : '',
+        'Seller Name':         r.seller_name || '',
+        'Seller ID':           r.seller_id || '',
+        'Seller Latest Price': r.last_price != null ? Number(r.last_price) : '',
+        'Seller Avg Price':    r.avg_price != null ? Number(r.avg_price) : '',
+        'Last Seen':           r.last_seen || '',
+        'Days This Week':      r.days_this_week || 0,
+        'Week 1':              r.week_1 || 0,
+        'Week 2':              r.week_2 || 0,
+        'Week 3':              r.week_3 || 0,
+        'Week 4':              r.week_4 || 0,
+        'Month Total':         r.month_total || 0,
+      }));
+      const ws = XLSX.utils.json_to_sheet(rows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'MSRP Violations');
+      const stamp = (violationsData.generated_at || new Date().toISOString()).slice(0, 10);
+      XLSX.writeFile(wb, `fairtex_msrp_violations_ca_${stamp}.xlsx`);
+    }
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.getElementById('buybox-panel').classList.toggle('active', tab === 'buybox');
+        document.getElementById('violations-panel').classList.toggle('active', tab === 'violations');
+        if (tab === 'violations') loadViolations();
+      });
+    });
+    document.getElementById('violSearch').addEventListener('input', renderViolations);
+    document.getElementById('violMonth').addEventListener('change', renderViolations);
+    document.getElementById('violMarket').addEventListener('change', renderViolations);
+    document.getElementById('violRepeatOnly').addEventListener('change', renderViolations);
+    document.getElementById('violExportBtn').addEventListener('click', exportViolations);
+
+    // Deep link: #violations selects the violations tab on load.
+    if (location.hash === '#violations') {
+      document.querySelector('.tab-btn[data-tab="violations"]').click();
+    }
   </script>
 </body>
 </html>

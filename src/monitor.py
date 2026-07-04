@@ -21,6 +21,13 @@ NARF_IMPORT_FEE_RATE = 0.14  # 14% import/customs fee for NARF cross-border orde
 # NARF products already return CAD from the API — no conversion needed.
 AMAZON_USD_CAD_RATE = 1.1447
 
+# MSRP violations tracking (competitors priced below Fairtex MSRP)
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VIOLATIONS_HISTORY_PATH = os.path.join(_REPO_ROOT, "violations_history.json")
+VIOLATIONS_SUMMARY_PATH = os.path.join(_REPO_ROOT, "dashboard", "data", "violations_summary.json")
+VIOLATIONS_RETENTION_DAYS = 65
+MARKET_CODE = "CA"
+
 
 
 def get_lwa_access_token():
@@ -127,6 +134,168 @@ def _parse_money(val):
         return float(str(val).replace("$", "").replace(",", ""))
     except (ValueError, TypeError):
         return None
+
+
+# ----------------------------------------------------------------------
+# MSRP violations tracking — daily capture, rolling history, monthly rollup
+# ----------------------------------------------------------------------
+
+def _load_violations_history():
+    try:
+        with open(VIOLATIONS_HISTORY_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def _save_violations_history(history):
+    os.makedirs(os.path.dirname(VIOLATIONS_HISTORY_PATH), exist_ok=True)
+    with open(VIOLATIONS_HISTORY_PATH, "w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, default=str)
+
+
+def _prune_violations_history(history, retention_days):
+    """Drop entries older than retention_days."""
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=retention_days)).isoformat()
+    for date_key in list(history.keys()):
+        if date_key < cutoff:
+            del history[date_key]
+
+
+def _record_todays_violations(inventory, buy_box_map, fairtex_msrp_map):
+    """Return (today_iso, list of violations) using listing_price vs Fairtex MSRP."""
+    today = datetime.now(timezone.utc).date().isoformat()
+    seen = set()  # dedup within one day per (market, asin, seller_id)
+    violations = []
+    for item in inventory:
+        asin = item["asin"]
+        fairtex_cad = fairtex_msrp_map.get(asin)
+        if fairtex_cad is None:
+            continue
+        info = buy_box_map.get(item["sku"], {})
+        for offer in info.get("competitor_offers", []) or []:
+            listing_price = offer.get("listing_price")
+            if listing_price is None:
+                continue
+            if listing_price >= fairtex_cad - 0.01:
+                continue
+            key = (MARKET_CODE, asin, offer["seller_id"])
+            if key in seen:
+                continue
+            seen.add(key)
+            violations.append({
+                "market":        MARKET_CODE,
+                "asin":          asin,
+                "sku":           item["sku"],
+                "product_name":  item.get("name", ""),
+                "seller_id":     offer["seller_id"],
+                "seller_name":   get_seller_name(offer["seller_id"]),
+                "seller_price":  listing_price,
+                "shipping":      offer.get("shipping", 0),
+                "landed_price":  offer.get("landed_price", listing_price),
+                "fairtex_msrp":  fairtex_cad,
+                "currency":      offer.get("currency", "CAD"),
+            })
+    return today, violations
+
+
+def _build_violations_summary(history):
+    """Roll up current + previous month by (market, asin, seller_id)."""
+    today = datetime.now(timezone.utc).date()
+    current_month = today.strftime("%Y-%m")
+    prev_year, prev_month_num = (today.year - 1, 12) if today.month == 1 else (today.year, today.month - 1)
+    prev_month = f"{prev_year:04d}-{prev_month_num:02d}"
+
+    # Current ISO Mon-Sun window
+    iso_weekday = today.isocalendar()[2]
+    monday_this_week = today - timedelta(days=iso_weekday - 1)
+    sunday_this_week = monday_this_week + timedelta(days=6)
+
+    agg = {}
+    for date_str, violations in history.items():
+        try:
+            d = datetime.strptime(date_str, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        month_str = d.strftime("%Y-%m")
+        if month_str not in (current_month, prev_month):
+            continue
+        wk = 1 if d.day <= 7 else 2 if d.day <= 14 else 3 if d.day <= 21 else 4
+        for v in violations:
+            key = (month_str, v.get("market"), v.get("asin"), v.get("seller_id"))
+            rec = agg.get(key)
+            if rec is None:
+                rec = {
+                    "month":         month_str,
+                    "market":        v.get("market"),
+                    "asin":          v.get("asin"),
+                    "sku":           v.get("sku", ""),
+                    "product_name":  v.get("product_name", ""),
+                    "seller_id":     v.get("seller_id"),
+                    "seller_name":   v.get("seller_name", ""),
+                    "fairtex_msrp":  v.get("fairtex_msrp"),
+                    "currency":      v.get("currency", "CAD"),
+                    "_week_days":    {1: set(), 2: set(), 3: set(), 4: set()},
+                    "_this_week":   set(),
+                    "_prices":       [],
+                    "last_seen":     None,
+                    "last_price":    None,
+                }
+                agg[key] = rec
+            rec["_week_days"][wk].add(date_str)
+            if monday_this_week <= d <= sunday_this_week:
+                rec["_this_week"].add(date_str)
+            price = v.get("seller_price")
+            if price is not None:
+                rec["_prices"].append(float(price))
+                if rec["last_seen"] is None or date_str > rec["last_seen"]:
+                    rec["last_seen"] = date_str
+                    rec["last_price"] = float(price)
+            # keep latest metadata
+            rec["sku"] = v.get("sku", rec["sku"])
+            rec["product_name"] = v.get("product_name", rec["product_name"])
+            rec["seller_name"] = v.get("seller_name", rec["seller_name"])
+            rec["fairtex_msrp"] = v.get("fairtex_msrp", rec["fairtex_msrp"])
+
+    entries = []
+    for rec in agg.values():
+        w1 = len(rec["_week_days"][1])
+        w2 = len(rec["_week_days"][2])
+        w3 = len(rec["_week_days"][3])
+        w4 = len(rec["_week_days"][4])
+        avg = round(sum(rec["_prices"]) / len(rec["_prices"]), 2) if rec["_prices"] else None
+        entries.append({
+            "month":          rec["month"],
+            "market":         rec["market"],
+            "asin":           rec["asin"],
+            "sku":            rec["sku"],
+            "product_name":   rec["product_name"],
+            "seller_id":      rec["seller_id"],
+            "seller_name":    rec["seller_name"],
+            "fairtex_msrp":   rec["fairtex_msrp"],
+            "currency":       rec["currency"],
+            "last_price":     rec["last_price"],
+            "avg_price":      avg,
+            "last_seen":      rec["last_seen"],
+            "week_1":         w1,
+            "week_2":         w2,
+            "week_3":         w3,
+            "week_4":         w4,
+            "month_total":    w1 + w2 + w3 + w4,
+            "days_this_week": len(rec["_this_week"]),
+        })
+    return {
+        "generated_at":   datetime.now(timezone.utc).isoformat(),
+        "current_month":  current_month,
+        "previous_month": prev_month,
+        "entries":        entries,
+    }
+
+
+def _save_violations_summary(summary):
+    os.makedirs(os.path.dirname(VIOLATIONS_SUMMARY_PATH), exist_ok=True)
+    with open(VIOLATIONS_SUMMARY_PATH, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, default=str)
 
 
 def compute_msrp_check(our_msrp_str, fairtex_cad):
@@ -571,13 +740,47 @@ def check_buy_box(access_token, items):
                     landed = float(lp) + (float(sp) if sp else 0)
                     our_landed = f"${landed:.2f}"
 
+            # Every non-us offer: keep both listing and landed for reporting.
+            # Winner selection stays landed-based (Amazon ranks that way) but
+            # everything user-facing (winner_price, Action Items, Price Gap,
+            # MSRP Difference Reason) uses LISTING price only.
+            competitor_offers = []
+            for o in offers:
+                sid = o.get("SellerId")
+                if not sid or sid == MY_SELLER_ID:
+                    continue
+                lp_raw = o.get("ListingPrice", {}).get("Amount")
+                if lp_raw is None:
+                    continue
+                try:
+                    lp_val = float(lp_raw)
+                except (TypeError, ValueError):
+                    continue
+                sp_raw = o.get("Shipping", {}).get("Amount")
+                try:
+                    sh_val = float(sp_raw) if sp_raw is not None else 0.0
+                except (TypeError, ValueError):
+                    sh_val = 0.0
+                competitor_offers.append({
+                    "seller_id":     sid,
+                    "listing_price": round(lp_val, 2),
+                    "shipping":      round(sh_val, 2),
+                    "landed_price":  round(lp_val + sh_val, 2),
+                    "currency":      o.get("ListingPrice", {}).get("CurrencyCode", "CAD"),
+                })
+
             we_have_it = (
                 (our_offer and our_offer.get("IsBuyBoxWinner") is True) or
                 (winner and winner.get("SellerId") == MY_SELLER_ID)
             )
 
             if we_have_it:
-                result[sku] = {"has_buy_box": True, "our_msrp": our_msrp, "our_landed": our_landed}
+                result[sku] = {
+                    "has_buy_box":       True,
+                    "our_msrp":          our_msrp,
+                    "our_landed":        our_landed,
+                    "competitor_offers": competitor_offers,
+                }
             else:
                 winner_id     = winner.get("SellerId", "Unknown") if winner else None
                 winner_seller = get_seller_name(winner_id) if winner_id else "No winner"
@@ -585,17 +788,17 @@ def check_buy_box(access_token, items):
                 winner_price  = ""
                 if winner:
                     lp = winner.get("ListingPrice", {}).get("Amount")
-                    sp = winner.get("Shipping", {}).get("Amount")
+                    # Listing price only (per spec) — no shipping added.
                     if lp is not None:
-                        landed = float(lp) + (float(sp) if sp else 0)
-                        winner_price = f"${landed:.2f}"
+                        winner_price = f"${float(lp):.2f}"
                 result[sku] = {
-                    "has_buy_box":    False,
-                    "our_msrp":       our_msrp,
-                    "our_landed":     our_landed,
-                    "winner_seller":  winner_seller,
-                    "winner_url":     winner_url,
-                    "winner_price":   winner_price,
+                    "has_buy_box":       False,
+                    "our_msrp":          our_msrp,
+                    "our_landed":        our_landed,
+                    "winner_seller":     winner_seller,
+                    "winner_url":        winner_url,
+                    "winner_price":      winner_price,
+                    "competitor_offers": competitor_offers,
                 }
 
         if (i + batch_size) % 100 < batch_size:
@@ -1121,6 +1324,21 @@ def main():
     with open(os.path.join(data_dir, "status.json"), "w") as f:
         json.dump(dashboard_data, f, indent=2)
     print(f"  Saved to dashboard/data/status.json")
+
+    # ------------------------------------------------------------------
+    # MSRP violations: record today, prune, rebuild rollup summary
+    # ------------------------------------------------------------------
+    print("\n[9/9] MSRP violations tracking...")
+    today_iso, todays_violations = _record_todays_violations(inventory, buy_box_map, fairtex_msrp_map)
+    history = _load_violations_history()
+    _prune_violations_history(history, VIOLATIONS_RETENTION_DAYS)
+    history[today_iso] = todays_violations
+    _save_violations_history(history)
+    summary = _build_violations_summary(history)
+    _save_violations_summary(summary)
+    print(f"  Today: {len(todays_violations)} violations across "
+          f"{len({(v['asin'], v['seller_id']) for v in todays_violations})} unique (asin, seller) pairs")
+    print(f"  Summary rollup rows (current + previous month): {len(summary['entries'])}")
 
     print("\n=== Done ===")
 
