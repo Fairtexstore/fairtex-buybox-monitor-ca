@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-04T10:01:21.712843+00:00",
+  "last_updated": "2026-07-04T10:49:47.658615+00:00",
   "total_checked": 644,
   "buy_box_owned": 558,
   "total_flagged": 86,
@@ -1500,9 +1500,9 @@
       "inbound": 0,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$132.89",
-      "action_items": "Match price to winner at $132.89",
-      "recommendation": "Match price to winner at $132.89"
+      "winner_price": "$126.13",
+      "action_items": "Match price to winner at $126.13",
+      "recommendation": "Match price to winner at $126.13"
     },
     {
       "sku": "BGV14 - Gray - 12oz",
@@ -2992,7 +2992,7 @@
       "inbound": 4,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$96.17",
+      "winner_price": "$90.42",
       "action_items": "",
       "recommendation": ""
     },
@@ -3112,7 +3112,7 @@
       "inbound": 0,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$96.81",
+      "winner_price": "$90.96",
       "action_items": "",
       "recommendation": ""
     },
@@ -3655,7 +3655,7 @@
       "sku": "SP7-Black-Large",
       "asin": "B07G9NYG78",
       "name": "Fairtex SP7 Muay Thai Shin Guards for Men, Women, Kids | Shin Guards M",
-      "stock": 117,
+      "stock": 105,
       "our_msrp": "$144.99",
       "our_landed": "$144.99",
       "has_buy_box": true,
@@ -5866,9 +5866,9 @@
       "inbound": 0,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$156.81",
-      "action_items": "Match price to winner at $156.81",
-      "recommendation": "Match price to winner at $156.81"
+      "winner_price": "$150.28",
+      "action_items": "Match price to winner at $150.28",
+      "recommendation": "Match price to winner at $150.28"
     },
     {
       "sku": "BGL6-Red-12oz",
@@ -7166,9 +7166,9 @@
       "inbound": 0,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$157.62",
-      "action_items": "Match price to winner at $157.62",
-      "recommendation": "Match price to winner at $157.62"
+      "winner_price": "$150.21",
+      "action_items": "Match price to winner at $150.21",
+      "recommendation": "Match price to winner at $150.21"
     },
     {
       "sku": "HG6-Blue-Extra Large",
@@ -7862,9 +7862,9 @@
       "inbound": 0,
       "winner_seller": "ANUKSJE73B4C5",
       "winner_url": "https://www.amazon.ca/sp?seller=ANUKSJE73B4C5",
-      "winner_price": "$187.67",
-      "action_items": "Match price to winner at $187.67",
-      "recommendation": "Match price to winner at $187.67"
+      "winner_price": "$179.82",
+      "action_items": "Match price to winner at $179.82",
+      "recommendation": "Match price to winner at $179.82"
     },
     {
       "sku": "BGV25 - F-Day2 - 10oz",
@@ -9984,7 +9984,7 @@
       "sku": "FGV18-Black-Medium",
       "asin": "B0BN5MLV5X",
       "name": "Fairtex FGV18 Muay Thai Boxing Gloves for Men, Women & Kids| MMA Glove",
-      "stock": 117,
+      "stock": 78,
       "our_msrp": "$126.12",
       "our_landed": "$143.78",
       "has_buy_box": false,
@@ -10620,7 +10620,7 @@
       "sku": "BS1924-Racer Black-Medium",
       "asin": "B0CHWNQQ8X",
       "name": "Fairtex Slim Cut Muay Thai Boxing Shorts (Racer Black, Medium)",
-      "stock": 1,
+      "stock": 0,
       "our_msrp": "$95.49",
       "our_landed": "$108.86",
       "has_buy_box": true,
@@ -11485,7 +11485,7 @@
       "inbound": 103,
       "winner_seller": "AWWCJPBNIB7TH",
       "winner_url": "https://www.amazon.ca/sp?seller=AWWCJPBNIB7TH",
-      "winner_price": "$217.92",
+      "winner_price": "$197.33",
       "action_items": "",
       "recommendation": ""
     },
