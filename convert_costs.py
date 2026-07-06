@@ -9,6 +9,7 @@ Runs locally and from the monthly_fx_update GitHub Actions workflow on the 2nd o
 
 import csv
 import json
+import math
 import os
 import sys
 import urllib.request
@@ -78,8 +79,10 @@ def convert_msrp(here, rate):
             row[MSRP_CAD_COL] = ""
             continue
         cad = usd * rate
-        # Round to nearest X.99 (e.g. 85.01 -> 84.99, 85.50 -> 85.99).
-        cad_rounded = round(cad - 0.99) + 0.99
+        # Round UP to the next X.99 (e.g. 85.01 -> 85.99, 85.99 -> 85.99, 86.00 -> 86.99).
+        # 0.995 epsilon prevents float noise on values already at X.99 from
+        # jumping to (X+1).99.
+        cad_rounded = math.ceil(cad - 0.995) + 0.99
         row[MSRP_CAD_COL] = f"{cad_rounded:.2f}"
         count += 1
 

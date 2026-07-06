@@ -50,15 +50,84 @@ def sp_api_headers(access_token):
 
 
 _seller_names = {}
+_SELLER_NAMES_PATH = None  # set lazily
+
+
+def _seller_names_path():
+    global _SELLER_NAMES_PATH
+    if _SELLER_NAMES_PATH is None:
+        _SELLER_NAMES_PATH = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)), "seller_names.json"
+        )
+    return _SELLER_NAMES_PATH
+
 
 def _load_seller_names():
     global _seller_names
-    path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seller_names.json")
     try:
-        with open(path, "r") as f:
+        with open(_seller_names_path(), "r", encoding="utf-8") as f:
             _seller_names = json.load(f)
     except Exception:
         _seller_names = {}
+
+
+def _save_seller_names():
+    with open(_seller_names_path(), "w", encoding="utf-8") as f:
+        json.dump(_seller_names, f, indent=2, sort_keys=True)
+
+
+import re as _re
+_SELLER_PROFILE_URL_TMPL = "https://www.amazon.ca/sp?seller={}"
+_SELLER_NAME_TITLE_RE = _re.compile(
+    r"<title>\s*Amazon\.ca Seller Profile:\s*(.+?)\s*</title>", _re.IGNORECASE | _re.DOTALL
+)
+
+
+def enrich_seller_names(seller_ids):
+    """For every previously-unseen seller ID, fetch the amazon.ca profile page
+    and pull the store name out of the <title>. Cached to seller_names.json so
+    subsequent runs don't re-scrape."""
+    if not _seller_names:
+        _load_seller_names()
+    to_fetch = [
+        sid for sid in seller_ids
+        if sid and sid != MY_SELLER_ID and sid not in _seller_names
+        and sid not in ("Unknown", "No winner")
+    ]
+    if not to_fetch:
+        return
+    print(f"  Fetching store names for {len(to_fetch)} new seller IDs...")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "en-CA,en;q=0.9",
+    }
+    added = 0
+    for i, sid in enumerate(to_fetch):
+        try:
+            resp = requests.get(_SELLER_PROFILE_URL_TMPL.format(sid), headers=headers, timeout=15)
+            if resp.status_code == 200:
+                m = _SELLER_NAME_TITLE_RE.search(resp.text)
+                if m:
+                    name = m.group(1).strip()
+                    if name and len(name) < 200:
+                        _seller_names[sid] = name
+                        added += 1
+        except Exception:
+            pass
+        time.sleep(0.4)
+        if (i + 1) % 25 == 0:
+            print(f"  Seller name fetch progress: {i + 1}/{len(to_fetch)}")
+    if added:
+        _save_seller_names()
+    print(f"  Resolved {added} new store names (cache now: {len(_seller_names)})")
+
+
+def seller_profile_url(seller_id):
+    if not seller_id or seller_id in ("Unknown", "No winner"):
+        return ""
+    return _SELLER_PROFILE_URL_TMPL.format(seller_id)
+
 
 def get_seller_name(seller_id):
     """Look up seller display name from seller_names.json. Falls back to seller ID."""
@@ -190,6 +259,7 @@ def _record_todays_violations(inventory, buy_box_map, fairtex_msrp_map):
                 "product_name":  item.get("name", ""),
                 "seller_id":     offer["seller_id"],
                 "seller_name":   get_seller_name(offer["seller_id"]),
+                "seller_url":    seller_profile_url(offer["seller_id"]),
                 "seller_price":  listing_price,
                 "shipping":      offer.get("shipping", 0),
                 "landed_price":  offer.get("landed_price", listing_price),
@@ -233,6 +303,7 @@ def _build_violations_summary(history):
                     "product_name":  v.get("product_name", ""),
                     "seller_id":     v.get("seller_id"),
                     "seller_name":   v.get("seller_name", ""),
+                    "seller_url":    v.get("seller_url", seller_profile_url(v.get("seller_id", ""))),
                     "fairtex_msrp":  v.get("fairtex_msrp"),
                     "currency":      v.get("currency", "CAD"),
                     "_week_days":    {1: set(), 2: set(), 3: set(), 4: set()},
@@ -254,8 +325,15 @@ def _build_violations_summary(history):
             # keep latest metadata
             rec["sku"] = v.get("sku", rec["sku"])
             rec["product_name"] = v.get("product_name", rec["product_name"])
-            rec["seller_name"] = v.get("seller_name", rec["seller_name"])
+            # Prefer a resolved (non-ID) name if we have one now.
+            new_name = v.get("seller_name") or rec["seller_name"]
+            if new_name and new_name != rec["seller_id"]:
+                rec["seller_name"] = new_name
+            elif get_seller_name(rec["seller_id"]) != rec["seller_id"]:
+                rec["seller_name"] = get_seller_name(rec["seller_id"])
             rec["fairtex_msrp"] = v.get("fairtex_msrp", rec["fairtex_msrp"])
+            if not rec.get("seller_url"):
+                rec["seller_url"] = seller_profile_url(rec["seller_id"])
 
     entries = []
     for rec in agg.values():
@@ -272,6 +350,7 @@ def _build_violations_summary(history):
             "product_name":   rec["product_name"],
             "seller_id":      rec["seller_id"],
             "seller_name":    rec["seller_name"],
+            "seller_url":     rec.get("seller_url", seller_profile_url(rec["seller_id"])),
             "fairtex_msrp":   rec["fairtex_msrp"],
             "currency":       rec["currency"],
             "last_price":     rec["last_price"],
@@ -795,6 +874,7 @@ def check_buy_box(access_token, items):
                     "has_buy_box":       False,
                     "our_msrp":          our_msrp,
                     "our_landed":        our_landed,
+                    "winner_seller_id":  winner_id,
                     "winner_seller":     winner_seller,
                     "winner_url":        winner_url,
                     "winner_price":      winner_price,
@@ -1166,6 +1246,20 @@ def main():
 
     print("\n[3/8] Checking buy box and prices per SKU...")
     buy_box_map = check_buy_box(access_token, inventory)
+
+    # Resolve competitor seller IDs → store names once we have them all.
+    all_seller_ids = set()
+    for info in buy_box_map.values():
+        for offer in info.get("competitor_offers", []) or []:
+            sid = offer.get("seller_id")
+            if sid:
+                all_seller_ids.add(sid)
+    enrich_seller_names(all_seller_ids)
+    # Refresh winner_seller labels now that the cache is populated.
+    for info in buy_box_map.values():
+        winner_id = info.get("winner_seller_id")
+        if winner_id:
+            info["winner_seller"] = get_seller_name(winner_id)
 
     print("\n[4/8] Classifying FBA vs NARF...")
     fba_asins = get_fulfillment_types(access_token)

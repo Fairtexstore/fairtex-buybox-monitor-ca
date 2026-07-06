@@ -551,7 +551,11 @@
 
       for (const r of violFiltered) {
         const product = `<div>${r.product_name || ''}</div><div style="font-size:12px;color:#6b7280;">${r.sku || ''}</div>`;
-        const seller = `<div>${r.seller_name || ''}</div><div style="font-size:12px;color:#6b7280;">${r.seller_id || ''}</div>`;
+        const sellerLabel = r.seller_name || r.seller_id || 'Unknown';
+        const sellerLink = r.seller_url
+          ? `<a href="${r.seller_url}" target="_blank">${sellerLabel}</a>`
+          : sellerLabel;
+        const seller = `<div>${sellerLink}</div><div style="font-size:12px;color:#6b7280;">${r.seller_id || ''}</div>`;
         html += '<tr>';
         html += `<td>${r.market || ''}</td>`;
         html += `<td>${product}</td>`;
