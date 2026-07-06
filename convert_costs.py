@@ -79,10 +79,10 @@ def convert_msrp(here, rate):
             row[MSRP_CAD_COL] = ""
             continue
         cad = usd * rate
-        # Round UP to the next X.99 (e.g. 85.01 -> 85.99, 85.99 -> 85.99, 86.00 -> 86.99).
-        # 0.995 epsilon prevents float noise on values already at X.99 from
-        # jumping to (X+1).99.
-        cad_rounded = math.ceil(cad - 0.995) + 0.99
+        # Round DOWN to the previous X.99 (e.g. 85.01 -> 84.99, 85.99 -> 85.99, 86.00 -> 85.99).
+        # 0.005 epsilon keeps values already exactly at X.99 from slipping to
+        # (X-1).99 because of float representation noise.
+        cad_rounded = math.floor(cad - 0.985) + 0.99
         row[MSRP_CAD_COL] = f"{cad_rounded:.2f}"
         count += 1
 
