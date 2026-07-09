@@ -1122,5 +1122,77 @@
       "fairtex_msrp": 176.99,
       "currency": "CAD"
     }
+  ],
+  "2026-07-09": [
+    {
+      "market": "CA",
+      "asin": "B077CFLT4X",
+      "sku": "BGV14-Black-12oz",
+      "product_name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 189.95,
+      "shipping": 6.98,
+      "landed_price": 196.93,
+      "fairtex_msrp": 190.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B079478L6Y",
+      "sku": "BGV1-Falcon Gold-16oz",
+      "product_name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 229.98,
+      "shipping": 8.97,
+      "landed_price": 238.95,
+      "fairtex_msrp": 233.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B07HWNG49R",
+      "sku": "HG10-Black/White-Large",
+      "product_name": "Fairtex Headgear HG10 | Protective Headgear for Muay Thai | Enhanced C",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "seller_price": 148.0,
+      "shipping": 0.0,
+      "landed_price": 148.0,
+      "fairtex_msrp": 176.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B07ZZMCD5Z",
+      "sku": "BS1901-Stealth Black- Small",
+      "product_name": "Fairtex New Muay Thai Boxing Shorts Slim Cut - Black, White, Red, Oran",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "seller_price": 68.0,
+      "shipping": 0.0,
+      "landed_price": 68.0,
+      "fairtex_msrp": 84.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B00KR9CU8E",
+      "sku": "HG10-Black/White- Medium",
+      "product_name": "Fairtex Headgear HG10 | Protective Headgear for Muay Thai | Enhanced C",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "seller_price": 145.0,
+      "shipping": 0.0,
+      "landed_price": 145.0,
+      "fairtex_msrp": 176.99,
+      "currency": "CAD"
+    }
   ]
 }
