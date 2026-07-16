@@ -2270,5 +2270,63 @@
       "fairtex_msrp": 169.99,
       "currency": "CAD"
     }
+  ],
+  "2026-07-16": [
+    {
+      "market": "CA",
+      "asin": "B077CFLT4X",
+      "sku": "BGV14-Black-12oz",
+      "product_name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 189.95,
+      "shipping": 6.98,
+      "landed_price": 196.93,
+      "fairtex_msrp": 190.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B079478L6Y",
+      "sku": "BGV1-Falcon Gold-16oz",
+      "product_name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 229.98,
+      "shipping": 8.97,
+      "landed_price": 238.95,
+      "fairtex_msrp": 233.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B07N68MSH3",
+      "sku": "BGV14-Black-14oz",
+      "product_name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 189.98,
+      "shipping": 6.98,
+      "landed_price": 196.96,
+      "fairtex_msrp": 190.99,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
+      "asin": "B07TLHFBRZ",
+      "sku": "BGV21-Legacy-16oz",
+      "product_name": "Fairtex BGV21 Legacy Muay Thai Boxing Gloves MMA UFC K1 Kick Boxing Tr",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "seller_price": 162.0,
+      "shipping": 0.0,
+      "landed_price": 162.0,
+      "fairtex_msrp": 169.99,
+      "currency": "CAD"
+    }
   ]
 }
