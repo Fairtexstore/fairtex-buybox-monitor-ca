@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T09:59:10.823363+00:00",
+  "generated_at": "2026-07-17T09:51:30.095101+00:00",
   "current_month": "2026-07",
   "previous_month": "2026-06",
   "entries": [
@@ -100,13 +100,13 @@
       "currency": "CAD",
       "last_price": 189.95,
       "avg_price": 189.95,
-      "last_seen": "2026-07-16",
+      "last_seen": "2026-07-17",
       "week_1": 4,
       "week_2": 7,
-      "week_3": 2,
+      "week_3": 3,
       "week_4": 0,
-      "month_total": 13,
-      "days_this_week": 4
+      "month_total": 14,
+      "days_this_week": 5
     },
     {
       "month": "2026-07",
@@ -184,13 +184,13 @@
       "currency": "CAD",
       "last_price": 229.98,
       "avg_price": 229.98,
-      "last_seen": "2026-07-16",
+      "last_seen": "2026-07-17",
       "week_1": 4,
       "week_2": 7,
-      "week_3": 2,
+      "week_3": 3,
       "week_4": 0,
-      "month_total": 13,
-      "days_this_week": 4
+      "month_total": 14,
+      "days_this_week": 5
     },
     {
       "month": "2026-07",
@@ -289,13 +289,13 @@
       "currency": "CAD",
       "last_price": 162.0,
       "avg_price": 162.0,
-      "last_seen": "2026-07-16",
+      "last_seen": "2026-07-17",
       "week_1": 4,
       "week_2": 5,
-      "week_3": 2,
+      "week_3": 3,
       "week_4": 0,
-      "month_total": 11,
-      "days_this_week": 4
+      "month_total": 12,
+      "days_this_week": 5
     },
     {
       "month": "2026-07",
@@ -583,13 +583,13 @@
       "currency": "CAD",
       "last_price": 189.98,
       "avg_price": 189.98,
-      "last_seen": "2026-07-16",
+      "last_seen": "2026-07-17",
       "week_1": 0,
       "week_2": 4,
-      "week_3": 2,
+      "week_3": 3,
       "week_4": 0,
-      "month_total": 6,
-      "days_this_week": 4
+      "month_total": 7,
+      "days_this_week": 5
     }
   ]
 }
