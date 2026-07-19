@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T09:28:39.975950+00:00",
+  "generated_at": "2026-07-19T09:44:01.506805+00:00",
   "current_month": "2026-07",
   "previous_month": "2026-06",
   "entries": [
@@ -16,13 +16,13 @@
       "currency": "CAD",
       "last_price": 146.98,
       "avg_price": 146.98,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 1,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 2,
-      "days_this_week": 1
+      "month_total": 3,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -37,13 +37,13 @@
       "currency": "CAD",
       "last_price": 69.0,
       "avg_price": 69.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -79,13 +79,13 @@
       "currency": "CAD",
       "last_price": 169.79,
       "avg_price": 169.79,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -100,13 +100,13 @@
       "currency": "CAD",
       "last_price": 189.95,
       "avg_price": 189.95,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 7,
-      "week_3": 4,
+      "week_3": 5,
       "week_4": 0,
-      "month_total": 15,
-      "days_this_week": 6
+      "month_total": 16,
+      "days_this_week": 7
     },
     {
       "month": "2026-07",
@@ -120,14 +120,14 @@
       "fairtex_msrp": 169.99,
       "currency": "CAD",
       "last_price": 169.0,
-      "avg_price": 160.68,
-      "last_seen": "2026-07-18",
+      "avg_price": 161.72,
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -142,13 +142,13 @@
       "currency": "CAD",
       "last_price": 165.91,
       "avg_price": 165.91,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -163,13 +163,13 @@
       "currency": "CAD",
       "last_price": 159.0,
       "avg_price": 159.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -184,13 +184,13 @@
       "currency": "CAD",
       "last_price": 229.98,
       "avg_price": 229.98,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 7,
-      "week_3": 4,
+      "week_3": 5,
       "week_4": 0,
-      "month_total": 15,
-      "days_this_week": 6
+      "month_total": 16,
+      "days_this_week": 7
     },
     {
       "month": "2026-07",
@@ -205,13 +205,13 @@
       "currency": "CAD",
       "last_price": 65.0,
       "avg_price": 65.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -226,13 +226,13 @@
       "currency": "CAD",
       "last_price": 148.0,
       "avg_price": 148.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 6,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 11,
-      "days_this_week": 2
+      "month_total": 12,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -246,14 +246,14 @@
       "fairtex_msrp": 169.99,
       "currency": "CAD",
       "last_price": 159.0,
-      "avg_price": 150.43,
-      "last_seen": "2026-07-18",
+      "avg_price": 151.5,
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -268,13 +268,13 @@
       "currency": "CAD",
       "last_price": 63.46,
       "avg_price": 63.46,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -289,13 +289,13 @@
       "currency": "CAD",
       "last_price": 162.0,
       "avg_price": 162.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 5,
-      "week_3": 4,
+      "week_3": 5,
       "week_4": 0,
-      "month_total": 13,
-      "days_this_week": 6
+      "month_total": 14,
+      "days_this_week": 7
     },
     {
       "month": "2026-07",
@@ -330,14 +330,14 @@
       "fairtex_msrp": 169.99,
       "currency": "CAD",
       "last_price": 166.0,
-      "avg_price": 162.11,
-      "last_seen": "2026-07-18",
+      "avg_price": 162.5,
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 4,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 9,
-      "days_this_week": 2
+      "month_total": 10,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -352,13 +352,13 @@
       "currency": "CAD",
       "last_price": 68.0,
       "avg_price": 68.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 6,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 11,
-      "days_this_week": 2
+      "month_total": 12,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -373,13 +373,13 @@
       "currency": "CAD",
       "last_price": 66.0,
       "avg_price": 66.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -394,13 +394,13 @@
       "currency": "CAD",
       "last_price": 59.0,
       "avg_price": 59.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -457,13 +457,13 @@
       "currency": "CAD",
       "last_price": 69.0,
       "avg_price": 69.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -478,13 +478,13 @@
       "currency": "CAD",
       "last_price": 68.0,
       "avg_price": 68.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 3,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 7,
-      "days_this_week": 2
+      "month_total": 8,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -499,13 +499,13 @@
       "currency": "CAD",
       "last_price": 65.0,
       "avg_price": 65.0,
-      "last_seen": "2026-07-06",
+      "last_seen": "2026-07-19",
       "week_1": 3,
       "week_2": 0,
-      "week_3": 0,
+      "week_3": 1,
       "week_4": 0,
-      "month_total": 3,
-      "days_this_week": 0
+      "month_total": 4,
+      "days_this_week": 1
     },
     {
       "month": "2026-07",
@@ -541,13 +541,13 @@
       "currency": "CAD",
       "last_price": 145.0,
       "avg_price": 145.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 4,
       "week_2": 6,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 11,
-      "days_this_week": 2
+      "month_total": 12,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -583,13 +583,13 @@
       "currency": "CAD",
       "last_price": 189.98,
       "avg_price": 189.98,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 4,
-      "week_3": 4,
+      "week_3": 5,
       "week_4": 0,
-      "month_total": 8,
-      "days_this_week": 6
+      "month_total": 9,
+      "days_this_week": 7
     },
     {
       "month": "2026-07",
@@ -604,13 +604,13 @@
       "currency": "CAD",
       "last_price": 185.0,
       "avg_price": 185.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 1,
-      "days_this_week": 1
+      "month_total": 2,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -625,13 +625,13 @@
       "currency": "CAD",
       "last_price": 149.0,
       "avg_price": 149.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 1,
-      "days_this_week": 1
+      "month_total": 2,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -646,13 +646,13 @@
       "currency": "CAD",
       "last_price": 161.79,
       "avg_price": 161.79,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 1,
-      "days_this_week": 1
+      "month_total": 2,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -667,13 +667,13 @@
       "currency": "CAD",
       "last_price": 156.21,
       "avg_price": 156.21,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 1,
-      "days_this_week": 1
+      "month_total": 2,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -688,13 +688,13 @@
       "currency": "CAD",
       "last_price": 56.0,
       "avg_price": 56.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
-      "week_3": 1,
+      "week_3": 2,
       "week_4": 0,
-      "month_total": 1,
-      "days_this_week": 1
+      "month_total": 2,
+      "days_this_week": 2
     },
     {
       "month": "2026-07",
@@ -709,7 +709,49 @@
       "currency": "CAD",
       "last_price": 69.0,
       "avg_price": 69.0,
-      "last_seen": "2026-07-18",
+      "last_seen": "2026-07-19",
+      "week_1": 0,
+      "week_2": 0,
+      "week_3": 2,
+      "week_4": 0,
+      "month_total": 2,
+      "days_this_week": 2
+    },
+    {
+      "month": "2026-07",
+      "market": "CA",
+      "asin": "B084KXGNPS",
+      "sku": "BS1902 - Stealth Gray - Small",
+      "product_name": "Fairtex Model BS1902 Stealth Grayish Green Color - Satin Shorts for Bo",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "fairtex_msrp": 84.99,
+      "currency": "CAD",
+      "last_price": 68.0,
+      "avg_price": 68.0,
+      "last_seen": "2026-07-19",
+      "week_1": 0,
+      "week_2": 0,
+      "week_3": 1,
+      "week_4": 0,
+      "month_total": 1,
+      "days_this_week": 1
+    },
+    {
+      "month": "2026-07",
+      "market": "CA",
+      "asin": "B0B7ZY5HWK",
+      "sku": "BS1903 - Black - X-Large",
+      "product_name": "Fairtex Slim Cut Muay Thai Boxing Shorts - BS1903 (Black Focus, X-Larg",
+      "seller_id": "A4H5OEQCJLQLL",
+      "seller_name": "A4H5OEQCJLQLL",
+      "seller_url": "https://www.amazon.ca/sp?seller=A4H5OEQCJLQLL",
+      "fairtex_msrp": 84.99,
+      "currency": "CAD",
+      "last_price": 68.0,
+      "avg_price": 68.0,
+      "last_seen": "2026-07-19",
       "week_1": 0,
       "week_2": 0,
       "week_3": 1,
