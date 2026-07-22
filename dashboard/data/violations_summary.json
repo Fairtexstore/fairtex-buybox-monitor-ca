@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T10:07:02.923542+00:00",
+  "generated_at": "2026-07-22T13:59:13.059167+00:00",
   "current_month": "2026-07",
   "previous_month": "2026-06",
   "entries": [
@@ -100,13 +100,13 @@
       "currency": "CAD",
       "last_price": 189.95,
       "avg_price": 189.95,
-      "last_seen": "2026-07-21",
+      "last_seen": "2026-07-22",
       "week_1": 4,
       "week_2": 7,
       "week_3": 7,
-      "week_4": 0,
-      "month_total": 18,
-      "days_this_week": 2
+      "week_4": 1,
+      "month_total": 19,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -184,13 +184,13 @@
       "currency": "CAD",
       "last_price": 229.98,
       "avg_price": 229.98,
-      "last_seen": "2026-07-21",
+      "last_seen": "2026-07-22",
       "week_1": 4,
       "week_2": 7,
       "week_3": 7,
-      "week_4": 0,
-      "month_total": 18,
-      "days_this_week": 2
+      "week_4": 1,
+      "month_total": 19,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -583,13 +583,13 @@
       "currency": "CAD",
       "last_price": 189.98,
       "avg_price": 189.98,
-      "last_seen": "2026-07-21",
+      "last_seen": "2026-07-22",
       "week_1": 0,
       "week_2": 4,
       "week_3": 7,
-      "week_4": 0,
-      "month_total": 11,
-      "days_this_week": 2
+      "week_4": 1,
+      "month_total": 12,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -604,13 +604,13 @@
       "currency": "CAD",
       "last_price": 185.0,
       "avg_price": 185.0,
-      "last_seen": "2026-07-21",
+      "last_seen": "2026-07-22",
       "week_1": 0,
       "week_2": 0,
       "week_3": 4,
-      "week_4": 0,
-      "month_total": 4,
-      "days_this_week": 2
+      "week_4": 1,
+      "month_total": 5,
+      "days_this_week": 3
     },
     {
       "month": "2026-07",
@@ -758,6 +758,69 @@
       "week_4": 0,
       "month_total": 1,
       "days_this_week": 0
+    },
+    {
+      "month": "2026-07",
+      "market": "CA",
+      "asin": "B076DL1LZW",
+      "sku": "BGV14-Black-16oz",
+      "product_name": "B076DL1LZW",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "fairtex_msrp": 190.99,
+      "currency": "CAD",
+      "last_price": 189.98,
+      "avg_price": 189.98,
+      "last_seen": "2026-07-22",
+      "week_1": 0,
+      "week_2": 0,
+      "week_3": 0,
+      "week_4": 1,
+      "month_total": 1,
+      "days_this_week": 1
+    },
+    {
+      "month": "2026-07",
+      "market": "CA",
+      "asin": "B07G9S6THM",
+      "sku": "BGV1-Falcon Gold-12oz",
+      "product_name": "B07G9S6THM",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "fairtex_msrp": 233.99,
+      "currency": "CAD",
+      "last_price": 229.91,
+      "avg_price": 229.91,
+      "last_seen": "2026-07-22",
+      "week_1": 0,
+      "week_2": 0,
+      "week_3": 0,
+      "week_4": 1,
+      "month_total": 1,
+      "days_this_week": 1
+    },
+    {
+      "month": "2026-07",
+      "market": "CA",
+      "asin": "B078QCZJWH",
+      "sku": "BGV1-Falcon Gold-14oz",
+      "product_name": "B078QCZJWH",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "fairtex_msrp": 233.99,
+      "currency": "CAD",
+      "last_price": 229.52,
+      "avg_price": 229.52,
+      "last_seen": "2026-07-22",
+      "week_1": 0,
+      "week_2": 0,
+      "week_3": 0,
+      "week_4": 1,
+      "month_total": 1,
+      "days_this_week": 1
     }
   ]
 }
