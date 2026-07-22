@@ -978,32 +978,74 @@ def send_slack_alert(flagged, total_checked, non_compliant_count=0, dashboard_ur
 
 
 
-def _get_cad_prices_from_report(headers):
-    """Get CAD listing prices and report SKUs from GET_MERCHANT_LISTINGS_ALL_DATA report.
-    Keyed by ASIN (consistent) instead of SKU (inconsistent between APIs).
-    Returns dict: asin -> {sku, price}
-    """
+_listings_report_cache = None
+
+
+def _fetch_listings_report(headers):
+    """Fetch and parse GET_MERCHANT_LISTINGS_ALL_DATA for CA. Cached per run."""
+    global _listings_report_cache
+    if _listings_report_cache is not None:
+        return _listings_report_cache
+
     content = _request_report(headers, "GET_MERCHANT_LISTINGS_ALL_DATA", MARKETPLACE_ID)
     if content is None:
         print("  WARNING: Listings report failed")
-        return {}
+        _listings_report_cache = []
+        return _listings_report_cache
 
     reader = csv.DictReader(io.StringIO(content), delimiter="\t")
-    print(f"  Report columns: {reader.fieldnames}")
+    print(f"  Listings report columns: {reader.fieldnames}")
 
-    report_data = {}
+    rows = []
     for row in reader:
-        sku = row.get("seller-sku", "").strip()
-        asin = row.get("asin1", "").strip()
-        price_str = row.get("price", "").strip()
-        if asin and sku and price_str:
-            try:
-                price = round(float(price_str), 2)
-                # Keep first SKU per ASIN (avoid overwriting with inactive listings)
-                if asin not in report_data:
-                    report_data[asin] = {"sku": sku, "price": price}
-            except ValueError:
-                pass
+        sku = (row.get("seller-sku") or "").strip()
+        asin = (row.get("asin1") or "").strip()
+        if not sku or not asin:
+            continue
+        price_str = (row.get("price") or "").strip()
+        try:
+            price = round(float(price_str), 2) if price_str else None
+        except ValueError:
+            price = None
+        rows.append({
+            "sku": sku,
+            "asin": asin,
+            "name": (row.get("item-name") or "").strip(),
+            "price": price,
+        })
+
+    print(f"  Parsed {len(rows)} active rows from listings report")
+    _listings_report_cache = rows
+    return rows
+
+
+def get_ca_listings(access_token):
+    """Every active CA listing, keyed by SKU: dict SKU -> {asin, name}.
+
+    Used to expand the monitor universe beyond what /fba/inventory returns —
+    catches NARF-enrolled SKUs with zero fulfillable AND zero inbound today,
+    so we still see buy-box loss while we're completely out of stock.
+    """
+    rows = _fetch_listings_report(sp_api_headers(access_token))
+    listings = {}
+    for r in rows:
+        sku = r["sku"]
+        if sku not in listings:
+            listings[sku] = {"asin": r["asin"], "name": r["name"]}
+    return listings
+
+
+def _get_cad_prices_from_report(headers):
+    """Get CAD listing prices from the listings report, keyed by ASIN.
+
+    Returns dict: asin -> {sku, price} (first non-empty price per ASIN wins).
+    """
+    report_data = {}
+    for r in _fetch_listings_report(headers):
+        asin = r["asin"]
+        if r["price"] is None or asin in report_data:
+            continue
+        report_data[asin] = {"sku": r["sku"], "price": r["price"]}
 
     print(f"  Got data for {len(report_data)} ASINs from report")
     for i, (asin, d) in enumerate(list(report_data.items())[:3]):
@@ -1238,7 +1280,34 @@ def main():
 
     print("\n[2/8] Fetching FBA inventory...")
     inventory = get_fba_inventory(access_token)
-    print(f"  {len(inventory)} SKUs in stock.")
+    print(f"  {len(inventory)} SKUs with stock or inbound > 0.")
+
+    # Expand the universe to include every active CA listing so we catch
+    # NARF-enrolled ASINs that have zero fulfillable AND zero inbound today.
+    # These enter the loop with stock=0, inbound=0 so we still see buy-box
+    # loss while we are completely out of stock.
+    print("  Expanding via merchant listings report (NARF coverage)...")
+    inv_skus = {item["sku"] for item in inventory}
+    added = 0
+    for sku, lst in get_ca_listings(access_token).items():
+        if sku in inv_skus:
+            continue
+        sku_lower = sku.lower()
+        if (sku_lower.startswith("amzn.gr") or
+            sku_lower.startswith("dnu") or
+            sku_lower.endswith("_ln")):
+            continue
+        if not lst.get("asin"):
+            continue
+        inventory.append({
+            "sku": sku,
+            "asin": lst["asin"],
+            "name": (lst.get("name") or lst["asin"])[:70],
+            "stock": 0,
+            "inbound": 0,
+        })
+        added += 1
+    print(f"  Added {added} listings-only SKUs (zero inventory); total now {len(inventory)}")
 
     if not inventory:
         send_slack_alert([], 0)
