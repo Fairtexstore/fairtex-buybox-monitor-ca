@@ -1343,11 +1343,20 @@ def main():
     product_costs = load_product_costs()
     fairtex_msrp_map = load_fairtex_msrp()
 
-    print("\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN...")
-    fee_estimates = get_fee_estimates(access_token, inventory, buy_box_map, fba_asins)
+    # Skip fee/discount API calls for listings-only SKUs (stock=0 AND inbound=0).
+    # They're not sellable today so referral/fulfillment fees don't matter for
+    # margin math, and discount status is irrelevant when we can't fulfill.
+    # This keeps run time under the workflow timeout after the listings-expansion.
+    sellable = [it for it in inventory if (it.get("stock") or 0) > 0 or (it.get("inbound") or 0) > 0]
+    skipped = len(inventory) - len(sellable)
 
-    print("\n[6b/8] Checking active discount status per SKU...")
-    discount_flags = fetch_discount_flags(access_token, inventory)
+    print(f"\n[6/8] Fetching fee estimates (referral + fulfillment) per ASIN... "
+          f"({skipped} listings-only SKUs skipped)")
+    fee_estimates = get_fee_estimates(access_token, sellable, buy_box_map, fba_asins)
+
+    print(f"\n[6b/8] Checking active discount status per SKU... "
+          f"({skipped} listings-only SKUs skipped)")
+    discount_flags = fetch_discount_flags(access_token, sellable)
 
     def _build_total_cost(asin, ft, cost_data):
         """Total Cost = Product Cost (CAD) + Amazon Total Fees (CAD).
