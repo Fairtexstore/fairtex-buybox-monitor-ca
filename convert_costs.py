@@ -1,24 +1,26 @@
-"""Refresh CAD values from USD source files using the latest Bank of Canada FX rate.
+"""Refresh CAD product costs from the USD source using the latest Bank of Canada FX rate.
 
-Updates two artifacts at the same rate:
-  1. product_costs.csv         — written from product_costs_usd.csv
-  2. Fairtex Price in USD.csv  — recomputes the "MSRP per Fairtex in CAD" column in place
+Updates one artifact:
+  1. product_costs.csv  — written from product_costs_usd.csv
+
+Fairtex MSRP is NOT converted here. The "MSRP per Fairtex in CAD" column in
+'Fairtex Price in USD.csv' is a locked CAD price supplied by Fairtex and is the
+benchmark our listing prices are checked against. It must not be recomputed from
+USD — doing so would overwrite the agreed CAD figures at whatever the month's
+rate happens to be. The "Fairtex MSRP in USD" column is retained for reference
+only and no longer drives anything.
 
 Runs locally and from the monthly_fx_update GitHub Actions workflow on the 2nd of each month.
 """
 
 import csv
 import json
-import math
 import os
 import sys
 import urllib.request
 
 USD_CSV = "product_costs_usd.csv"
 CAD_CSV = "product_costs.csv"
-MSRP_CSV = "Fairtex Price in USD.csv"
-MSRP_USD_COL = "Fairtex MSRP in USD"
-MSRP_CAD_COL = "MSRP per Fairtex in CAD"
 BOC_URL = "https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?recent=1"
 
 
@@ -53,46 +55,6 @@ def convert_costs(here, rate):
     return rows
 
 
-def convert_msrp(here, rate):
-    path = os.path.join(here, MSRP_CSV)
-    if not os.path.exists(path):
-        print(f"WARN: '{MSRP_CSV}' not found, skipping MSRP conversion")
-        return 0
-
-    with open(path, "r", newline="", encoding="utf-8-sig") as fin:
-        reader = csv.DictReader(fin)
-        fieldnames = list(reader.fieldnames or [])
-        rows = list(reader)
-
-    if MSRP_CAD_COL not in fieldnames:
-        fieldnames.append(MSRP_CAD_COL)
-
-    count = 0
-    for row in rows:
-        usd_str = (row.get(MSRP_USD_COL) or "").strip()
-        if not usd_str:
-            row[MSRP_CAD_COL] = ""
-            continue
-        try:
-            usd = float(usd_str)
-        except ValueError:
-            row[MSRP_CAD_COL] = ""
-            continue
-        cad = usd * rate
-        # Round DOWN to the previous X.99 (e.g. 85.01 -> 84.99, 85.99 -> 85.99, 86.00 -> 85.99).
-        # 0.005 epsilon keeps values already exactly at X.99 from slipping to
-        # (X-1).99 because of float representation noise.
-        cad_rounded = math.floor(cad - 0.985) + 0.99
-        row[MSRP_CAD_COL] = f"{cad_rounded:.2f}"
-        count += 1
-
-    with open(path, "w", newline="", encoding="utf-8") as fout:
-        writer = csv.DictWriter(fout, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-    return count
-
-
 def main():
     rate, fx_date = fetch_usd_cad_rate()
     print(f"USD->CAD rate (BoC daily avg, {fx_date}): {rate}")
@@ -100,8 +62,7 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     n_costs = convert_costs(here, rate)
     print(f"COGS: wrote {n_costs} rows to {CAD_CSV}")
-    n_msrp = convert_msrp(here, rate)
-    print(f"MSRP: updated {n_msrp} rows in '{MSRP_CSV}'")
+    print("MSRP: skipped - 'MSRP per Fairtex in CAD' is a locked CAD price, not FX-derived")
 
 
 if __name__ == "__main__":
