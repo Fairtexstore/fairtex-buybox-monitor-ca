@@ -16132,6 +16132,20 @@
     },
     {
       "market": "CA",
+      "asin": "B07G9S6THM",
+      "sku": "BGV1-Falcon Gold-12oz",
+      "product_name": "Fairtex BGV1 Muay Thai Boxing Training Sparring Gloves for Men, Women,",
+      "seller_id": "AIRVJDCT6D6BN",
+      "seller_name": "AIRVJDCT6D6BN",
+      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
+      "seller_price": 229.91,
+      "shipping": 6.98,
+      "landed_price": 236.89,
+      "fairtex_msrp": 230.0,
+      "currency": "CAD"
+    },
+    {
+      "market": "CA",
       "asin": "B09F5RWSYD",
       "sku": "BGV14PT-Black/White-14oz",
       "product_name": "Fairtex BGV14 Muay Thai Boxing Microfibre Gloves for Men, Women, Kids ",
@@ -16226,20 +16240,6 @@
       "shipping": 6.98,
       "landed_price": 292.71,
       "fairtex_msrp": 290.0,
-      "currency": "CAD"
-    },
-    {
-      "market": "CA",
-      "asin": "B07G9S6THM",
-      "sku": "BGV1-Falcon Gold-12oz",
-      "product_name": "B07G9S6THM",
-      "seller_id": "AIRVJDCT6D6BN",
-      "seller_name": "AIRVJDCT6D6BN",
-      "seller_url": "https://www.amazon.ca/sp?seller=AIRVJDCT6D6BN",
-      "seller_price": 229.91,
-      "shipping": 6.98,
-      "landed_price": 236.89,
-      "fairtex_msrp": 230.0,
       "currency": "CAD"
     },
     {
